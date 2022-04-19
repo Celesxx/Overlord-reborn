@@ -2,8 +2,8 @@ if(message.content.toLowerCase().startsWith(`${préfix}addplayer`))
 {
     try
     {
-        let id = message.author.id
-        let data = args
+        let id = args[0]
+        let data = args.slice(1)
 
         if(args.length == 5)
         {
