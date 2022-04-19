@@ -216,9 +216,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}recompense`))
                     
 
                     embed.fields.slice(-1)[0].value = `Félicitations vous gagnez les récompense suivantes : ${status}`
-
-                    let logRecompense = await logCombatFunction.recompenseLogCombat(combatId, log, embed.fields.slice(-1)[0].value)
-                    console.log("log : ", logRecompense)
+                    await logCombatFunction.recompenseLogCombat(combatId, log, embed.fields.slice(-1)[0].value)
 
                 }else 
                 {

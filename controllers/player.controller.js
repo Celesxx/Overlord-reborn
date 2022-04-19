@@ -42,7 +42,7 @@ class PlayerController
                 skill: data.skill,
             })
         
-            const playerCheck = await Player.find({nom : player.nom })
+            const playerCheck = await Player.find({id : player.id })
             if(playerCheck.length != 0) return errorHelper.playerExist(player, functionName)
 
             const playerSave = await player.save()

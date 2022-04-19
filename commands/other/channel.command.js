@@ -3,7 +3,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}delete`))
 {
     try
     {
-        if(message.member.roles.cache.some(role => role.name === '.'))
+        if(message.member.roles.cache.some(role => role.name === 'Administrateur'))
         {
             let msgDelete = args[0]
             message.channel.bulkDelete(msgDelete)
@@ -18,7 +18,35 @@ if(message.content.toLowerCase().startsWith(`${préfix}delete`))
 
 
 
+if(message.content.toLowerCase().startsWith(`${préfix}getallchannel`))
+{
+    try
+    {
+        if(message.member.roles.cache.some(role => role.name === 'Administrateur'))
+        {
 
+        let channels = message.guild.channels.cache
+        let embed = new Discord.MessageEmbed()
+        .setTitle("Affichage de tous les channels !")
+        let embed2 = new Discord.MessageEmbed()
+        let embed3 = new Discord.MessageEmbed()
+        i = 0
+        for (const channel of channels) 
+        {
+            if(i <= 24) embed.addField(`${channel[1].name}`, `${channel[1].id}`)
+            else if(i <= 49) embed2.addField(`${channel[1].name}`, `${channel[1].id}`)
+            else embed3.addField(`${channel[1].name}`, `${channel[1].id}`)
+            i++
+        }
+
+        message.channel.send({embeds: [embed, embed2, embed3]})
+
+        }
+    }catch(error)
+    {
+        console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
+    }
+}
 
 
 
