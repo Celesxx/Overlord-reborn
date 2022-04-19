@@ -24,7 +24,7 @@ class PlayerCreationFunction
             else if(data[2] == "automate") stat.hp.push(1.05), stat.magie.push(0.95), stat.attaque.push(1.05), stat.armure.push(0.95)
             else if(data[2] == "démon") stat.hp.push(1.3), stat.magie.push(0.7), stat.attaque.push(1), stat.armure.push(1)
             else if(data[2] == "demi-beastman") stat.hp.push(1.15), stat.magie.push(0.85), stat.attaque.push(1), stat.armure.push(1)
-            else if(data[2] == "beastman") stat.hp.push(1.15), stat.magie.push(0.85), stat.attaque.push(1), stat.armure.push(1)
+            else if(data[2] == "beastman") stat.hp.push(1.3), stat.magie.push(0.7), stat.attaque.push(1), stat.armure.push(1)
             else if(data[2] == "demi-dragon") stat.hp.push(1.2), stat.magie.push(0.9), stat.attaque.push(0.95), stat.armure.push(0.95)
             else if(data[2] == "elf") stat.hp.push(0.9), stat.magie.push(1.1), stat.attaque.push(1), stat.armure.push(1)
             else if(data[2] == "nain") stat.hp.push(1.1), stat.magie.push(1), stat.attaque.push(0.8), stat.armure.push(1.1)
