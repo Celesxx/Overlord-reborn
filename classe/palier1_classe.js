@@ -80,7 +80,7 @@ if(command === 'roulade'){
                     .addField("**Défense**","**Votre roulade échoue...** \n|| :anger:-" + result + " + 🛡️ " + armor + " = -" + degat +"||\n ❤️ " + HP + " -----> ❤️ " + bdd[id].HPactuel)
                     .setImage("https://i1.wp.com/www.animefeminist.com/wp-content/uploads/2018/10/6dc848b02d9417013345e6e92256f3b7.png?ssl=1")
                 }
-                message.channel.send(y);
+                message.channel.send({embeds: [y]});
             
             } else if (bdd[id].classe === "assassin"&& bdd[id].lvl > 16) {
                 chance = 55;
@@ -102,7 +102,7 @@ if(command === 'roulade'){
                     .addField("**Défense**","**Votre roulade échoue...** \n|| :anger:-" + result + " + 🛡️ " + armor + " = -" + degat +"||\n ❤️ " + HP + " -----> ❤️ " + bdd[id].HPactuel)
                     .setImage("https://i1.wp.com/www.animefeminist.com/wp-content/uploads/2018/10/6dc848b02d9417013345e6e92256f3b7.png?ssl=1")
                 }
-                message.channel.send(y);
+                message.channel.send({embeds: [y]});
             
 
 
@@ -127,7 +127,7 @@ if(command === 'roulade'){
                     .addField("**Défense**","**Votre roulade échoue...** \n|| :anger:-" + result + " + 🛡️ " + armor + " = -" + degat +"||\n ❤️ " + HP + " -----> ❤️ " + bdd[id].HPactuel)
                     .setImage("https://i1.wp.com/www.animefeminist.com/wp-content/uploads/2018/10/6dc848b02d9417013345e6e92256f3b7.png?ssl=1")
                 }
-                message.channel.send(y);
+                message.channel.send({embeds: [y]});
             } 
 
         }else{
@@ -135,135 +135,7 @@ if(command === 'roulade'){
         }
     }
 }
-if(message.content === préfix + "Fuite" || message.content === préfix + "fuite") {
-    var result = Math.floor((Math.random() * 100) + 1);
-    if(result < 20)
-    var result = new Discord.MessageEmbed() 
-    .setColor("#1fff00")
-    .setTitle("Vous fuyez")
-    else if(result < 101)
-    var result = new Discord.MessageEmbed() 
-    .setColor("#ff0000")
-    .setTitle("La fuite est impossible")
-    message.channel.send(result);
 
-}
-if(message.content.toLowerCase() === préfix + "fuite amélioré" ){
-    var max_value = 100
-    var min_value = 0
-    var result = Math.floor(Math.random() * (max_value - min_value + 1) ) + min_value;
-    if(result < 35){
-        var result = new Discord.MessageEmbed() 
-        .setColor("#1fff00")
-        .setTitle("Vous fuyez")
-    } else {
-        var result = new Discord.MessageEmbed() 
-        .setColor("#ff0000")
-        .setTitle("La fuite est impossible")
-    }message.channel.send(result)
-} 
-if(message.content === préfix + "regeneration" || message.content === préfix + "Regeneration"){
-    id = message.author.id;
-    if(bdd[id]){
-        if (talkedRecently.has(message.author.id)) {
-        message.channel.send("Merci d'attendre 4h.");
-    } else {
-        if(bdd[id].classe == 'combattant'){
-            x = 1.3
-          } else if(bdd[id].classe == 'voleur' || bdd[id].classe == 'archer' || bdd[id].classe == 'assassin' || bdd[id].classe == 'maître_archer' || bdd[id].classe == 'bombardier'){
-            x = 1.15
-          }else if(bdd[id].classe == 'mage' || bdd[id].classe == 'sorcier' || bdd[id].classe == 'sorcier_ténébreux'){
-            x = 1
-          }else if(bdd[id].classe == 'paladin'){
-            x = 1.6
-          } else if (bdd[id].classe == 'chevalier'){
-              x = 1.5
-          }
-        HPjoueur = Math.floor(bdd[id].HP * x)
-        var max_value = Math.floor(bdd[id].HP*1.2-bdd[id].HP);
-        var min_value = Math.floor(bdd[id].HP*1.4-bdd[id].HP)
-        var result = Math.floor(Math.random() * (max_value - min_value + 1) ) + min_value;
-        total = bdd[id].HPactuel
-        bdd[id].HPactuel = Math.floor(result*x + bdd[id].HPactuel);
-
-        totalS = hpTotalWithArmor()
-        HPmax = totalS.HPvisu
-        if(bdd[id].HPactuel > HPmax){
-            bdd[id].HPactuel = bdd[id].HPtotal
-        }
-        if(bdd[id].HPactuel == bdd[id].HPtotal){
-            ajoutArmure(id)
-        }
-
-        
-        Savebdd()
-        nomRP()
-        var y = new Discord.MessageEmbed()
-        .setColor("#58D68D")
-        .addField("**Régénération d'HP**",":heartpulse: " + total + " -----> " + ":heartpulse: " +bdd[id].HPactuel)
-        message.channel.send(y);
-        talkedRecently.add(message.author.id);
-            setTimeout(() => {
-            // Removes the user from the set after a minute
-            talkedRecently.delete(message.author.id);
-             }, 14400000);
-            }
-    } else {
-        message.channel.send("Ta tête est vide de base, il n'y a rien à régénérer.")
-    }
-}
-if(message.content === préfix + "regeneration de mana" || message.content === préfix + "Regeneration de mana"){
-    id = message.author.id;
-    if(bdd[id]){
-        if (talkedRecently2.has(message.author.id)) {
-        message.channel.send("Merci d'attendre 2h.");
-    } else {
-        if(bdd[id].classe == 'combattant' || bdd[id].classe == 'paladin' || bdd[id].classe == 'chevalier' ){
-            x = 1
-          } else if(bdd[id].classe == 'voleur' || bdd[id].classe == 'archer' || bdd[id].classe == 'assassin' || bdd[id].classe == 'maître_archer' || bdd[id].classe == 'bombardier'){
-            x = 1.15
-          } else if(bdd[id].classe == 'mage' ){
-            x = 1.3
-            if(bdd[id].lvl >= 7){
-                x = 1.5
-            }
-          } else if (bdd[id].classe == 'sorcier' || bdd[id].classe == 'sorcier_ténébreux'){
-            x = 1.5
-            if(bdd[id].lvl >= 27){
-                x = 2
-            }
-          }
-        var max_value = Math.floor(bdd[id].MA*1.2-bdd[id].MA);
-        var min_value = Math.floor(bdd[id].MA*1.4-bdd[id].MA)
-        var result = Math.floor(Math.random() * (max_value - min_value + 1) ) + min_value;
-        total = bdd[id].MAactuel
-        
-        bdd[id].MAactuel = Math.floor(result*x + bdd[id].MAactuel);
-
-        totals = hpTotalWithArmor()
-        MAmax = totals.MAvisu
-
-        if(bdd[id].MAactuel > MAmax){
-            bdd[id].MAactuel = bdd[id].MAtotal
-        }
-        Savebdd()
-        nomRP()
-        var y = new Discord.MessageEmbed()
-        .setColor("#85C1E9")
-        .addField("**Régénération de mana**",":sparkles: " + total + " -----> " + ":sparkles: " +bdd[id].MAactuel)
-        message.channel.send(y);
-        talkedRecently2.add(message.author.id);
-            setTimeout(() => {
-            // Removes the user from the set after a minute
-            talkedRecently2.delete(message.author.id);
-            }, 7200000);
-            }
-    } else {
-        message.channel.send("Ta tête est vide de base, il n'y a rien à régénérer.")
-    }
-  }
-// à modifier
-// PNJ 
 
 if(command === 'pnjblocage'){
     id = message.author.id;
@@ -302,7 +174,7 @@ if(command === 'pnjblocage'){
             .addField("**Défense**","**Vous bloquez l'attaque sans trop de soucis ! Réussite critique !** \n :anger:-" + result )
             .setImage("https://wallpaperaccess.com/full/298290.jpg")
         }
-        message.channel.send(y);
+        message.channel.send({embeds: [y]});
     
 }
 
@@ -341,7 +213,7 @@ if(command === 'epee'){
                 .addField("**Attaque**","**Coup critique ! Vous lui infligez de gros dégâts** \n :crossed_swords: " + result)
                 .setImage("https://img4.goodfon.com/wallpaper/nbig/4/c3/akame-ga-kill-anime-japanese-manga-sword-ken-blade-yuusha-bl.jpg")
                 }
-                message.channel.send(y);
+                message.channel.send({embeds: [y]});
             } else {
                 var nombre = Math.floor((Math.random() * 100) + 1);
                 var max_value = Math.floor(attaque*1.35);
@@ -364,7 +236,7 @@ if(command === 'epee'){
                     .addField("**Attaque**","**Coup critique ! Vous lui infligez de gros dégâts** \n :crossed_swords: " + result)
                     .setImage("https://c4.wallpaperflare.com/wallpaper/201/464/1022/fantasy-knight-armor-battle-wallpaper-preview.jpg")
                 }
-                message.channel.send(y);
+                message.channel.send({embeds: [y]});
             }
         }            
     } else {
@@ -404,7 +276,7 @@ if(command === 'estoc'){
             }
             nomRP()
             Savebdd()
-            message.channel.send(y);
+            message.channel.send({embeds: [y]});
         } else {
             message.channel.send("Vous n'avez plus de mana")
         }
@@ -445,7 +317,7 @@ if(message.content.toLowerCase() === préfix + "coup provocateur"){
             }
             nomRP()
             Savebdd()
-            message.channel.send(y);
+            message.channel.send({embeds: [y]});
         } else {
             message.channel.send("Vous n'avez plus de mana")
         }
@@ -542,7 +414,7 @@ if(command === 'cblocage'){
                     .addField("**Défense**","**Vous bloquez l'attaque sans trop de soucis ! Réussite critique !** \n|| :anger:-" + result + " + 🛡️ " + armor + " = -" + degat +"||\n ❤️ " + HP + " -----> ❤️ " + bdd[id].HPactuel)
                     .setImage("https://wallpaperaccess.com/full/298290.jpg")
                 }
-                message.channel.send(y);
+                message.channel.send({embeds: [y]});
                 Savebdd();
             } else {
                 var nombre = Math.floor((Math.random() * 100) + 1);
@@ -588,7 +460,7 @@ if(command === 'cblocage'){
                     .addField("**Défense**","**Vous bloquez l'attaque sans trop de soucis ! Réussite critique !** \n|| :anger:-" + result + " + 🛡️ " + armor + " = -" + degat +"||\n ❤️ " + HP + " -----> ❤️ " + bdd[id].HPactuel)
                     .setImage("https://c4.wallpaperflare.com/wallpaper/534/856/998/fantasy-knight-armor-fight-wallpaper-preview.jpg")
                 }
-                message.channel.send(y);
+                message.channel.send({embeds: [y]});
             }
             if(bdd[id].HPtotal <= 0){
                 message.member.setNickname(bdd[id].prenom + "  [☠️ KO]")
@@ -638,7 +510,7 @@ if(command === 'sort'){
         } else{
             y = "Il vous manque du mana";
         }
-        message.channel.send(y);
+        message.channel.send({embeds: [y]});
     } else {
         message.channel.send("gne gne gne je suis un sorcier. Whoawwwwwwwwww!  Bientôt finit ces conneries ?")
     }
@@ -705,7 +577,7 @@ if(command === 'mblocage'){
                     .addField("**Défense**","**Réussite critique ! Votre blocage est formidable.** \n|| :anger:-" + result + " + 🛡️ " + armor + " = -" + degat +"||\n ❤️ " + HP + "-----> ❤️ " + bdd[id].HPactuel + "\n ✨ " + ancienMana + " -----> ✨ " + bdd[id].MAactuel)
                     .setImage("https://media.discordapp.net/attachments/809083678222319636/862718371324887091/654f8de005da61e3045be2a40c32113e.jpg")
                 }
-                message.channel.send(y);
+                message.channel.send({embeds: [y]});
 
 
                 Savebdd();
@@ -755,7 +627,7 @@ if(command === 'dague'){
             .addField("**Attaque**","**Coup critique ! Vous lui infligez de gros dégâts** \n :crossed_swords:" + result)
             .setImage("https://theglobalcoverage.com/wp-content/uploads/2021/01/images-11-1200x720.jpeg")
             }
-            message.channel.send(y);
+            message.channel.send({embeds: [y]});
         } else {
             message.channel.send("plante toi, sur le champs.")
         }
@@ -813,7 +685,7 @@ if(command === 'vblocage'){
                     .setImage("https://qph.fs.quoracdn.net/main-qimg-723f7f14b9ecf6e904e951c99b737e2a")
                 }
                 Savebdd();
-                message.channel.send(y);
+                message.channel.send({embeds: [y]});
                 if(bdd[id].HPtotal <= 0){
                     message.member.setNickname(bdd[id].prenom + "  [☠️ KO]")
                 } else {

@@ -88,7 +88,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}règle`))
             i++
         }
 
-        message.channel.send(embed)
+        message.channel.send({embeds: [embed]})
         message.channel.send(embed2)
 
     }catch(error)

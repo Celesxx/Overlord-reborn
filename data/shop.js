@@ -7,7 +7,7 @@ if(message.content.toLowerCase().startsWith(`${shop}`))
     .setTitle("Ouvertur de la boutique magique")
     .setAuthor("🛡️ Ouvrir l'armuerie\n⚔️ Ouvrir la forge\n✨ Ouvrir la boutique d'alchimie\n✉️ Ouvrir la droguerie\n🔙 Fermer la commande")
     .setImage("https://c.wallhere.com/photos/78/b8/fantasy_armor_fantasy_city_shopping_Friends_anime_room_detailed-34417.jpg!d")
-    message.channel.send(embed).then(async message => 
+    message.channel.send({embeds: [embed]}).then(async message => 
         {
             await message.react('🛡️');
             await message.react('⚔️');

@@ -3,7 +3,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}ptlevelOld`)){
     if(bdd[id].ptStock == 0){
         var embed = new Discord.MessageEmbed()
         .setTitle("Vous n'avez pas de points à attribuer.")
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
     } else {
 
             const filter = (reaction, user) => ['🛡️','⚔️','✨','🔙','❤️'].includes(reaction.emoji.name) &&user.id === message.author.id;
@@ -13,7 +13,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}ptlevelOld`)){
                 .setAuthor("🛡️ = 0,5 dans l'armure\n⚔️ = 1 dans l'attaque\n✨ = 5 dans le mana\n❤️ = 5 dans la santé\n🔙 = Fermer la commande")
                 
                 .setImage("https://static.wikia.nocookie.net/log-horizon/images/0/0f/Teacher_System.png/revision/latest?cb=20131214072538")
-            message.channel.send(embed).then(async message => 
+            message.channel.send({embeds: [embed]}).then(async message => 
                 {
                     await message.react('🛡️');
                     await message.react('⚔️');
