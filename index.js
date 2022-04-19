@@ -2,8 +2,6 @@ const { Console } = require('console')
 const Discord = require('discord.js')
 const { DiscordMenus, ButtonBuilder, MenuBuilder } = require('discord-menus');
 const { Client, MessageEmbed, MessageAttachment, Intents }  = require('discord.js');
-let express = require('express');
-let app = express();
 
 const Canvas = require('canvas')
 const { registerFont } = require('canvas')
@@ -27,7 +25,7 @@ const PlayerCreationFunction = require("./functions/character/creation.function.
 const MeteoFunction = require("./functions/other/meteo.function.js")
 
 const allIntents = new Intents(32767);
-const client = new Client({ intents: allIntents });
+const client = new Client({ intents: allIntents })
 
 const talkedRecently = new Set()
 const talkedRecently2 = new Set()
@@ -69,14 +67,6 @@ const connectDB = async () =>
     }
 }
 connectDB();
-
-let server = app.listen(process.env.PORT || 4000, function () 
-{ 
-  server.emit("start")
-  let port = server.address().port   
-  console.log("App listening at http://localhost:%s", port) 
-})
-
 
 client.on('ready', function () {
   console.log("Let's go")
