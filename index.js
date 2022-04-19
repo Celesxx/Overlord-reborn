@@ -46,7 +46,7 @@ const MenusManager = new DiscordMenus(client);
 //zelgius bot
 client.login(process.env.ZELGIUSBOTTOKEN);
 
-var préfix = "!";
+let préfix = process.env.PREFIX;
 var vm = require('vm')
 
 const { send } = require('process')
