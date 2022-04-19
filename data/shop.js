@@ -1,4 +1,4 @@
-if(message.content.toLowerCase().statWith(`${shop}`))
+if(message.content.toLowerCase().startsWith(`${shop}`))
 {
     var id = message.author.id;
     const filter = (reaction, user) => ['🛡️','⚔️','✨','🔙','➡️'].includes(reaction.emoji.name) &&user.id === message.author.id;

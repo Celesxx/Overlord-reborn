@@ -1,4 +1,4 @@
-if(message.content.toLowerCase().startWith(`${préfix}ptlevelOld`)){
+if(message.content.toLowerCase().startsWith(`${préfix}ptlevelOld`)){
     var id = message.author.id
     if(bdd[id].ptStock == 0){
         var embed = new Discord.MessageEmbed()

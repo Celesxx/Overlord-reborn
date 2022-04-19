@@ -84,32 +84,31 @@ client.on("messageCreate", async message =>
   // const second = message.content.split(/ +/g)
   const command = args.shift().toLowerCase()
 
-  eval(fs.readFileSync(__dirname + '/data/immobilier.js')+'');
-  eval(fs.readFileSync(__dirname + '/data/ptJoueur.js')+'');
-  eval(fs.readFileSync(__dirname + '/data/shop_palier1.js')+'');
+  eval(fs.readFileSync(__dirname + '/data/immobilier.js')+'')
+  eval(fs.readFileSync(__dirname + '/data/ptJoueur.js')+'')
 
-  eval(fs.readFileSync(__dirname + '/classe/classes.js')+'');
-  eval(fs.readFileSync(__dirname + '/classe/menu.js')+'');
-  // eval(fs.readFileSync(__dirname + '/classe/palier1_classe.js')+'');
-  // eval(fs.readFileSync(__dirname + '/classe/palier2_classe.js')+'');
-  // eval(fs.readFileSync(__dirname + '/classe/palier3_classe.js')+'');
+  eval(fs.readFileSync(__dirname + '/classe/classes.js')+'')
+  eval(fs.readFileSync(__dirname + '/classe/menu.js')+'')
+  // eval(fs.readFileSync(__dirname + '/classe/palier1_classe.js')+'')
+  // eval(fs.readFileSync(__dirname + '/classe/palier2_classe.js')+'')
+  // eval(fs.readFileSync(__dirname + '/classe/palier3_classe.js')+'')
 
-  // eval(fs.readFileSync(__dirname + '/monstre/monstre.js')+'');
-  // eval(fs.readFileSync(__dirname + '/monstre/palier1_foret.js')+'');
-  // eval(fs.readFileSync(__dirname + '/monstre/palier1_monstre_marécage.js')+'');
-  // eval(fs.readFileSync(__dirname + '/monstre/palier1_monstre.js')+'');
-  // eval(fs.readFileSync(__dirname + '/monstre/palier2_donjon.js')+'');
+  // eval(fs.readFileSync(__dirname + '/monstre/monstre.js')+'')
+  // eval(fs.readFileSync(__dirname + '/monstre/palier1_foret.js')+'')
+  // eval(fs.readFileSync(__dirname + '/monstre/palier1_monstre_marécage.js')+'')
+  // eval(fs.readFileSync(__dirname + '/monstre/palier1_monstre.js')+'')
+  // eval(fs.readFileSync(__dirname + '/monstre/palier2_donjon.js')+'')
 
-  eval(fs.readFileSync(__dirname + '/commands/bestiaire/bestiaire.command.js')+'');
-  eval(fs.readFileSync(__dirname + '/commands/skill/skill.command.js')+'');
-  eval(fs.readFileSync(__dirname + '/commands/zone/zone.command.js')+'');
-  eval(fs.readFileSync(__dirname + '/commands/logs/combat.command.js')+'');
-  eval(fs.readFileSync(__dirname + '/commands/other/channel.command.js')+'');
+  eval(fs.readFileSync(__dirname + '/commands/bestiaire/bestiaire.command.js')+'')
+  eval(fs.readFileSync(__dirname + '/commands/skill/skill.command.js')+'')
+  eval(fs.readFileSync(__dirname + '/commands/zone/zone.command.js')+'')
+  eval(fs.readFileSync(__dirname + '/commands/logs/combat.command.js')+'')
+  eval(fs.readFileSync(__dirname + '/commands/other/channel.command.js')+'')
 
-  eval(fs.readFileSync(__dirname + '/commands/combat/monstre.command.js')+'');
-  eval(fs.readFileSync(__dirname + '/commands/combat/joueur.command.js')+'');
-  eval(fs.readFileSync(__dirname + '/commands/combat/gestion.command.js')+'');
-  eval(fs.readFileSync(__dirname + '/commands/character/player.command.js')+'');
+  eval(fs.readFileSync(__dirname + '/commands/combat/monstre.command.js')+'')
+  eval(fs.readFileSync(__dirname + '/commands/combat/joueur.command.js')+'')
+  eval(fs.readFileSync(__dirname + '/commands/combat/gestion.command.js')+'')
+  eval(fs.readFileSync(__dirname + '/commands/character/player.command.js')+'')
   
 
   if(message.content == `${préfix}omg` )
@@ -130,7 +129,7 @@ client.on("messageCreate", async message =>
       const help_embed = new Discord.MessageEmbed()
       .setColor(couleur)
       .setTitle("**"+ result + "**")
-       message.channel.send(help_embed);
+       message.channel.send(help_embed)
   }
 
 })
