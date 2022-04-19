@@ -2,6 +2,8 @@ const { Console } = require('console')
 const Discord = require('discord.js')
 const { DiscordMenus, ButtonBuilder, MenuBuilder } = require('discord-menus');
 const { Client, MessageEmbed, MessageAttachment, Intents }  = require('discord.js');
+let express = require('express');
+let app = express();
 
 const Canvas = require('canvas')
 const { registerFont } = require('canvas')
@@ -67,6 +69,13 @@ const connectDB = async () =>
     }
 }
 connectDB();
+
+let server = app.listen(process.env.PORT || 4000, function () 
+{ 
+  server.emit("start")
+  let port = server.address().port   
+  console.log("App listening at http://localhost:%s", port) 
+})
 
 
 client.on('ready', function () {
