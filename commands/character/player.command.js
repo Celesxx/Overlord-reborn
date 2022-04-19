@@ -2,7 +2,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}addplayer`))
 {
     try
     {
-        let id = args[0]
+        let id = args[0].replace(/[<@>]/gm, "")
         let data = args.slice(1)
 
         if(args.length == 5)
