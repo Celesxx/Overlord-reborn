@@ -1,6 +1,20 @@
 # Overlord
 
-## analyse de l'xp
+*L'objectif est de faire un bot qui sera complétement autonome afin de pouvoir gérer un serveur discord rpg afin d'augmenter l'immersion dans le jeu. Chaque joueur pourra ainsi créer son personnage, monter de niveau, combattre des monstres et intéragir avec d'autres joueurs de façon textuel*
+
+
+## Fonctionnement
+
+### Les outils
+
+### La communication 
+
+### L'architecture
+
+
+
+
+## analyse de la courbe d'expérience
 
 ### Installation
 
@@ -15,4 +29,4 @@
 ```
 conda env create -f environment.yml
 conda activate EnvName
-`̀``
+```

@@ -22,6 +22,28 @@ exports.monstreCreated = (monstre, functionName) =>
     }
 }
 
+exports.playerExist = (player, functionName) => 
+{   
+    return {
+        state: false,
+        message: `Le player <@${player.id}> existe déja`,
+        log: `The following player <@${player.id}> already exist.`,
+        function: functionName,
+        player: player,
+    }
+}
+
+exports.playerCreated = (player, functionName) => 
+{   
+    return {
+        state: true,
+        message: `La création du player <@${player.id}> est une réussite !`,
+        log: `The following player <@${player.id}> have been created.`,
+        function: functionName,
+        player: player,
+    }
+}
+
 exports.skillExist = (skill, functionName) => 
 {   
     return {

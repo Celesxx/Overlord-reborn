@@ -1,4 +1,4 @@
-const BestiaireController = require('../controllers/bestiaire.controller')
+const BestiaireController = require('../../controllers/bestiaire.controller')
 
 class BestiaireFunction 
 {

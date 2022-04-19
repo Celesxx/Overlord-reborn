@@ -1,4 +1,4 @@
-const LogCombatController = require('../controllers/logCombat.controller')
+const LogCombatController = require('../../controllers/logCombat.controller')
 
 class LogCombatFunction 
 {
@@ -23,7 +23,7 @@ class LogCombatFunction
 
         } catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
     }
 
@@ -47,7 +47,7 @@ class LogCombatFunction
 
         } catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
     }
 
@@ -68,7 +68,7 @@ class LogCombatFunction
 
         } catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
     }
 
@@ -106,7 +106,7 @@ class LogCombatFunction
 
         } catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
     }
 
@@ -133,7 +133,7 @@ class LogCombatFunction
 
         } catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
     }
 
@@ -152,7 +152,6 @@ class LogCombatFunction
      {
          try
          {
-            console.log(logCombat)
             let lastRound = logCombat.round.slice(-1)[0].number
             logCombat.recompense = true
             logCombat.round.push({number: lastRound + 1, event: status})
@@ -162,7 +161,7 @@ class LogCombatFunction
  
          } catch(error)
          {
-             console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+             console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
          }
      }
 
@@ -193,7 +192,7 @@ class LogCombatFunction
 
           } catch(error)
           {
-              console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+              console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
           }
       }
 
@@ -223,7 +222,7 @@ class LogCombatFunction
 
         } catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
     }
 
@@ -245,7 +244,7 @@ class LogCombatFunction
 
         } catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
     }
 

@@ -27,7 +27,6 @@ if(message.content.toLowerCase().startsWith(`${préfix}monstre`))
                 const zone = await zoneFunction.getZone(message)
                 const zoneData = await zoneController.getZoneByName(zone)
                 const damageResult = await combatFunction.dammageCalculMonstre(monstre, zoneData)
-                console.log(damageResult)
                 
 
                 for(const result of damageResult)
@@ -47,6 +46,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}monstre`))
 
                 let isInCombat = false
                 embed = result.embed
+                
                 for(let field of embed.fields)
                 {
                     combatId = embed.author.name
@@ -56,7 +56,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}monstre`))
                     {
                         if(field.name == "Status") 
                         {
-                            field.value = `${monstreName} attaque ${message.author.username} et : ${combatStatus}`
+                            field.value = `\n${monstreName} attaque ${message.author.username} et : ${combatStatus}`
                             embed.image.url = monstre[0].image
                         }
                     }
@@ -73,6 +73,6 @@ if(message.content.toLowerCase().startsWith(`${préfix}monstre`))
 
     }catch(error)
     {
-        console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+        console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
     }
 }

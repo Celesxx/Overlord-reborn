@@ -12,11 +12,10 @@ if(message.content.toLowerCase().startsWith(préfix + "skillcreation"))
         {
             if(data.state == false)
             {
-                embed.addField("raison", `${data.message}`)
+                embed.addField("raison", `${data.log}`)
             }else embed.addField(`${data.skill.nom}`, `${data.state}`)
-            console.log(data)
         })
-        message.channel.send(embed)
+        message.channel.send({embeds : [embed]})
         
     })
 }

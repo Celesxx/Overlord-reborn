@@ -59,7 +59,6 @@ class LogCombatController
          const functionName = "getLogCombatById";
          try
          {     
-            console.log("combatId : ", combatId)
             const logCombatGet = await LogCombat.find({combatId : combatId},'-_id -__v')
             return logCombatGet
                      
@@ -70,35 +69,35 @@ class LogCombatController
 
 
 
-     // ----------------------------------------------------edit combat log by id ---------------------------------------------------
+    // ----------------------------------------------------edit combat log by id ---------------------------------------------------
 
     /**
      * @param {String} combatId
     */
-     async editLogCombatByName(combatId, data) 
-     {
-         const functionName = "editLogCombatByName";
-         try
-         {     
-            const logCombatGet = await LogCombat.updateOne({combatId: combatId},
-            {
-                author: data.author,
-                combatId: data.combatId,
-                messageId: data.messageId,
-                createdAt: data.createdAt,
-                zoneLvl: data.zoneLvl,
-                moyLvlPlayer: data.moyLvlPlayer,
-                channel: data.channel,
-                round: data.round, 
-                reward: data.reward,
-                participant: data.participant,
-                over: data.over, 
-            }, {new: true})
-            
-            return logCombatGet
-                     
-         }catch(error) { return errorHelper.contentError(functionName, this.filename, error) }
-     }
+    async editLogCombatByName(combatId, data) 
+    {
+        const functionName = "editLogCombatByName";
+        try
+        {     
+        const logCombatGet = await LogCombat.updateOne({combatId: combatId},
+        {
+            author: data.author,
+            combatId: data.combatId,
+            messageId: data.messageId,
+            createdAt: data.createdAt,
+            zoneLvl: data.zoneLvl,
+            moyLvlPlayer: data.moyLvlPlayer,
+            channel: data.channel,
+            round: data.round, 
+            reward: data.reward,
+            participant: data.participant,
+            over: data.over, 
+        }, {new: true})
+        
+        return logCombatGet
+                    
+        }catch(error) { return errorHelper.contentError(functionName, this.filename, error) }
+    }
 
 
 

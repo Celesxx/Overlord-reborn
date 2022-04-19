@@ -36,7 +36,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}rejoindre`))
 
             }catch(error)
             {
-                console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+                console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
             }
 
         })
@@ -44,7 +44,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}rejoindre`))
 
     }catch(error)
     {
-        console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+        console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
     }
     
 }
@@ -89,7 +89,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}fin`))
         })
     } catch(error)
     {
-        console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+        console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
     }
 }
 
@@ -117,6 +117,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}recompense`))
         const bestiaireController = new BestiaireController()
         const logCombatFunction = new LogCombatFunction()
         const experienceFunction = new LevelFunction()
+        const playerCreationFunction = new PlayerCreationFunction()
 
         const logCombat = Promise.resolve(logCombatFunction.getLogCombatById(combatId))
         logCombat.then(async log =>
@@ -127,12 +128,17 @@ if(message.content.toLowerCase().startsWith(`${préfix}recompense`))
                 let moyLvl = log.moyLvlPlayer
                 let monstres = log.participant.filter(result => !result.includes(`<@`))
                 let participants = log.participant.filter(result => result.includes(`<@`))
-
+                let data = []
                 const messageResult = await messageFunction.getMessageById(log.messageId, message)
                 let embed = messageResult.embeds[0]
-                console.log(log.recompense)
                 if(!log.recompense)
                 {
+                    for(const participant of participants)
+                    {
+                        const result = await playerCreationFunction.getPlayerById(participant.replace(/[<@>]/gm,""))
+                        data.push(result[0])
+                    }
+
                     for(const monstre of monstres)
                     {
                         const resultMonstre = await bestiaireController.getMonstreByNameId(monstre.slice(0,-2))
@@ -148,17 +154,18 @@ if(message.content.toLowerCase().startsWith(`${préfix}recompense`))
                     }
 
                     let aliveCount = 0
-                    for(const participant of participants)
+                    for(const participant of data)
                     {
-                        let idParticipant = participant.replace(/[<@>\n]/gm, "")
-                        if(bdd[idParticipant].HPactuel <= 0)
+                        console.log(participant)
+                        // let idParticipant = participant.replace(/[<@>\n]/gm, "")
+                        if(participant.hp[0] <= 0)
                         {
-                            goldTotal.bronze += bdd[idParticipant].pieceBronze
-                            goldTotal.argent += bdd[idParticipant].pieceArgent
-                            goldTotal.or += bdd[idParticipant].pieceOr
+                            goldTotal.bronze += participant.money[0]
+                            goldTotal.argent += participant.money[1]
+                            goldTotal.or += participant.money[2]
 
-                            let xp = bdd[idParticipant].xp / 1000
-                            let level = bdd[idParticipant].lvl
+                            let xp = participant.xp / 1000
+                            let level = participant.lvl
                             xpTotal += Math.max(0, Math.round(xp *  (level + (moyLvl / 4) - moyLvl) * Math.exp(moyLvl / 100)))
 
                         }else aliveCount++
@@ -166,10 +173,10 @@ if(message.content.toLowerCase().startsWith(`${préfix}recompense`))
     
                     let winner = Math.floor(Math.random() * aliveCount)
                     let participantCounter = 0
-                    for(let participant of participants)
+                    for(let participant of data)
                     {
-                        participant = participant.replace(/[<@>\n]/gm, "")
-                        if(bdd[participant].HPactuel > 0 && aliveCount > 0)
+                        // participant = participant.replace(/[<@>\n]/gm, "")
+                        if(participant.hp[0] > 0 && aliveCount > 0)
                         {
                             let bronze = Math.floor(goldTotal.bronze / aliveCount)
                             let argent = Math.floor(goldTotal.argent / aliveCount)
@@ -178,27 +185,29 @@ if(message.content.toLowerCase().startsWith(`${préfix}recompense`))
                             
                             let rankBefore = await experienceFunction.getRankPlayer(participant)
 
-                            bdd[participant].xp += xpTotal
-                            bdd[participant].pieceBronze += bronze
-                            bdd[participant].pieceArgent += argent
-                            bdd[participant].pieceOr += or
-
-                            await experienceFunction.verifLvlUp(participant, message, client, rankBefore)
+                            participant.xp += xpTotal
+                            participant.money[0] += bronze
+                            participant.money[1] += argent
+                            participant.money[2] += or
 
                             for(const item of items)
                             {
                                 if(participantCounter == winner)
                                 {
-                                    if(bdd[participant].inventaire.hasOwnProperty(item)) bdd[participant].inventaire[item] = parseInt(bdd[participant].inventaire[item]) + 1
-                                    else bdd[participant].inventaire[item] = 1
+                                    // if(participant.inventaire.hasOwnProperty(item)) participant.inventaire[item] += 1
+                                    if(participant.inventaire.length != 0) participant.inventaire.map(obj => { if(obj[0] == item) obj[1] += 1 })
+                                    else participant.inventaire.push([item, 1])
+
                                     itemGain.push(item)
                                     items = log.participant.filter(result => result.includes(item))
                                     winner = Math.floor(Math.random() * aliveCount)
                                 }
                             }
 
-                            Savebdd()
-                            status.push(`\n- <@${participant}> gagne ${xpTotal} xp, ${bronze} pièces de bronze, ${argent} pièces d'argent, ${or} pièces d'or ${itemGain.length ? `et ${itemGain}` : '' } `)
+                            await playerCreationFunction.editPlayerById(participant.id, participant)
+                            await experienceFunction.verifLvlUp(participant.id, message, client, rankBefore, participant)
+
+                            status.push(`\n- <@${participant.id}> gagne ${xpTotal} xp, ${bronze} pièces de bronze, ${argent} pièces d'argent, ${or} pièces d'or ${itemGain.length ? `et ${itemGain}` : '' } `)
                             participantCounter++
 
                         }else if(aliveCount <= 0) status.push(`\n- absolument rien, car tout le monde est mort !`)
@@ -208,7 +217,8 @@ if(message.content.toLowerCase().startsWith(`${préfix}recompense`))
 
                     embed.fields.slice(-1)[0].value = `Félicitations vous gagnez les récompense suivantes : ${status}`
 
-                    await logCombatFunction.recompenseLogCombat(combatId, log, embed.fields.slice(-1)[0].value)
+                    let logRecompense = await logCombatFunction.recompenseLogCombat(combatId, log, embed.fields.slice(-1)[0].value)
+                    console.log("log : ", logRecompense)
 
                 }else 
                 {
@@ -220,12 +230,12 @@ if(message.content.toLowerCase().startsWith(`${préfix}recompense`))
             
             }catch(error)
             {
-                console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+                console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
             }
         })
 
     }catch(error)
     {
-        console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+        console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
     }
 }

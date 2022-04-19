@@ -11,7 +11,7 @@ class CombatFunction
     {
         try
         {
-            let diffLevel = zone[0].lv - monstreData[0].lvl 
+            let diffLevel = zone[0].lvl - monstreData[0].lvl 
             let skillMultiplier = Math.floor(Math.random() * (skill[0].attaque.degat[1] - skill[0].attaque.degat[0]) ) + skill[0].attaque.degat[0];
             if(Math.floor(Math.random() * 100) <= skill[0].attaque.crit[0]) skillMultiplier += skill[0].attaque.crit[1]
             
@@ -27,14 +27,14 @@ class CombatFunction
             if(Math.floor(Math.random() * 100) <= skill[0].attaque.miss) return {miss : true, degat: 0}
             else
             {
-                let degat = ((userData.ATactuel * skillMultiplier) / 100) + userData.ATactuel
+                let degat = ((userData.attaque[0] * skillMultiplier) / 100) + userData.attaque[0]
                 let degatTotal = (( degat - monstreBlocage) * (100 - monstreData[0].armure)) / 100 // attaque actuelle * multiplicateur - blocage - réduction armure
                 if(degatTotal < 0) degatTotal = 0
                 return {miss : false, degat: Math.round(degatTotal)}
             }
         } catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
     }
 
@@ -60,13 +60,13 @@ class CombatFunction
              if(Math.floor(Math.random() * 100) <= skill[0].attaque.miss) return {miss : true, degat: 0}
              else
              {
-                 let degat = ((userData.ATactuel * skillMultiplier) / 100) + userData.ATactuel
+                 let degat = ((userData.attaque[0] * skillMultiplier) / 100) + userData.attaque[0]
                  if(degat < 0) degat = 0
                  return {miss : false, degat: Math.round(degat)}
              }
          } catch(error)
          {
-             console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+             console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
          }
      }
 
@@ -99,7 +99,7 @@ class CombatFunction
             
          } catch(error)
          {
-             console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+             console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
          }
      }
 
@@ -151,7 +151,7 @@ class CombatFunction
 
         }catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
     }
 
@@ -176,7 +176,7 @@ class CombatFunction
     {
         try
         {
-            let diffLevel = zone[0].lv - monstre[0].lvl 
+            let diffLevel = zone[0].lvl - monstre[0].lvl 
             let atkLvlDiff = diffLevel * monstre[0].attaque.level[0]
             let AtkLvlCritDiff = diffLevel * monstre[0].attaque.level[1]
             let AtkLvlCritMissDiff = diffLevel * monstre[0].attaque.level[2]
@@ -273,7 +273,7 @@ class CombatFunction
            
         } catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
     }
 
@@ -331,8 +331,8 @@ class CombatFunction
                         i = 0
                         for(const degatStatus of degatForEachMonstre) // Applique les dégat à chaque cible
                         {
-                            if(field.name == multiCibleResult.cible[i] && field.value - degatStatus.degat > 0 && field.value != "mort") field.value -= degatStatus.degat
-                            else if(field.name == multiCibleResult.cible[i] && field.value - degatStatus.degat <= 0) 
+                            if(field.name == multiCibleResult.cible[i] && parseInt(field.value) - degatStatus.degat > 0 && field.value != "mort") field.value = `${parseInt(field.value) - degatStatus.degat}`
+                            else if(field.name == multiCibleResult.cible[i] && parseInt(field.value) - degatStatus.degat <= 0) 
                             {
                                 let order = embed.fields.slice(3)[0].value.split("\n").filter(participant => !participant.includes(field.name))
                                 
@@ -342,7 +342,7 @@ class CombatFunction
                                     {
                                         order[id] = order[id].replace(":white_check_mark:", ":x:") // On reset l'emoji pour tout le monde
                                     })
-                                    embed.fields.slice(2)[0].value = parseInt(embed.fields.slice(2)[0].value) + 1
+                                    embed.fields.slice(2)[0].value =  `${parseInt(embed.fields.slice(2)[0].value) + 1}`
                                 }
                                 embed.fields.slice(3)[0].value = order.join("\n")
                                 field.value = "mort"
@@ -352,8 +352,7 @@ class CombatFunction
                         
                         if(field.name == "Status" && combatStatus.length != 0 ) 
                         {
-                            field.value = `${message.author.username} ${skill[0].description} ${combatStatus}`
-                            console.log("embed image : ", embed.image)
+                            field.value = `\n${message.author.username} ${skill[0].description} ${combatStatus}`
                             if(embed.image == null ) embed.setImage("https://media.discordapp.net/attachments/951928506021998652/956361957173252147/ac8bc3366058336faf13e2414cbdb579.gif")
                             else embed.image.url = "https://media.discordapp.net/attachments/951928506021998652/956361957173252147/ac8bc3366058336faf13e2414cbdb579.gif"
                             degatForEachMonstre.forEach(degatResult => { if(degatResult.miss == false) embed.image.url = skill[0].image })
@@ -361,10 +360,11 @@ class CombatFunction
                     }
                     else if(positionResult.state == false && field.name == "Status") 
                     {
-                        field.value = `${message.author.username} ${positionResult.message}` 
+                        field.value = `\n${message.author.username} ${positionResult.message}` 
                         embed.fields.slice(3)[0].value = oldOrder
+                        embed.fields.slice(2)[0].value = `${parseInt(embed.fields.slice(2)[0].value) - 1}`
                     }
-                    else if(field.name == "Status") field.value = `${message.author.username} ${multiCibleResult.message}` 
+                    else if(field.name == "Status") field.value = `\n${message.author.username} ${multiCibleResult.message}` 
                     
                 }
                     
@@ -376,7 +376,7 @@ class CombatFunction
 
         }catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
             return {state : false, error : error}
         }
     }
@@ -445,7 +445,7 @@ class CombatFunction
                                         {
                                             order[id] = order[id].replace(":white_check_mark:", ":x:") // On reset l'emoji pour tout le monde
                                         })
-                                        embed.fields.slice(2)[0].value = parseInt(embed.fields.slice(2)[0].value) + 1
+                                        embed.fields.slice(2)[0].value = `${parseInt(embed.fields.slice(2)[0].value) + 1}`
                                     }
 
                                     for(let field of embed.fields) if(field.name == "Ordre du combat") field.value = order.join("\n") // edit le field "Ordre du combat"
@@ -469,7 +469,7 @@ class CombatFunction
 
         }catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
     }
 
@@ -498,24 +498,18 @@ class CombatFunction
     {
         try
         {
-            console.log(skill)
             let critique = 0
             let critiqueActivation = Math.floor(Math.random() * 100)
             let defense = Math.floor(Math.random() * ( (skill.defense.blocage[1]) - ( skill.defense.blocage[0]) ) ) + skill.defense.blocage[0] 
 
-            console.log("defense : ", defense)
-            console.log("critique activation : ", critiqueActivation)
-            console.log("critique : ", critique)
-            console.log("armure : ", userData.ARactuel)
             if(critiqueActivation < skill.defense.crit[0]) critique = skill.defense.crit[1]
-            degat = degat - userData.ARactuel - defense - critique
+            degat = degat - userData.armure[0] - defense - critique
             if(degat < 0) degat = 0
-            console.log("degat : ", degat)
             return degat
 
         } catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
     }
 

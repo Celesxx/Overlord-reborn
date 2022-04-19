@@ -1,0 +1,60 @@
+{
+    
+    "Epee": {
+        "nom": "Epee", 
+        "image": "https://media.discordapp.net/attachments/951928506021998652/956227190826086480/giphy_1.gif",
+        "description": "inflige un coup d'épée sur votre cible",
+        "target" : [1,1],
+        "attaque": 
+        {
+            "degat": [12, 17],
+            "crit": [10, 10],
+            "miss": 10,
+            "penetration": [],
+            "poison": {}
+        }
+    },
+
+    "PluieFleche": {
+        "nom": "PluieFleche",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/956227190826086480/giphy_1.gif",
+        "description": " tire une salve de flèche",
+        "target" : [0,1],
+        "attaque": 
+        {
+            "degat": [12, 17],
+            "crit": [10, 10],
+            "miss": 10,
+            "penetration": [],
+            "poison": {}
+        }
+    },
+
+    "CoupMultiple": {
+        "nom": "CoupMultiple",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/956597114178248734/tumblr_n1qh0yDZGR1rmrywfo1_500.gif",
+        "description": "effectue un enchainement de coup",
+        "target" : [2,1],
+        "attaque": 
+        {
+            "degat": [6, 12],
+            "crit": [10, 10],
+            "miss": 10,
+            "penetration": [],
+            "poison": {}
+        }
+    },
+
+    "blocage-s": {
+        "nom": "blocage-s",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/962501749401341972/shield-hero.gif",
+        "description": "effectue un blocage",
+        "defense": 
+        {
+            "blocage": [10, 20],
+            "crit": [10, 15],
+            "miss": 10,
+            "penetration": 0
+        }
+    }
+}

@@ -1,0 +1,122 @@
+{
+    
+    "petitLoup": {
+        "nom": "petit loup sauvage", 
+        "nomId": "loup-s",
+        "image": "https://cdn.discordapp.com/attachments/723538729012297834/724774265269911622/fantasyart-1592870026825-1545.jpg",
+        "description": "Un petit loup sauvage assoiffé de sang et de chair fraiche !",
+        "lvl": 2,
+        "hp": [40, 5],
+        "armure": 0,
+        "spawn": [{"zone": "plaine", "drop":70}, {"zone": "foret", "drop":40}],
+        "position": 1,
+        "attaque": 
+        {
+            "description": "assène un coup de griffe infligeant",
+            "descriptionCrit": "assène un énorme coup de griffe critique infligeant",
+            "degat": [12, 17],
+            "crit": [10, 10],
+            "miss": 10,
+            "penetration": [],
+            "poison": {},
+            "level": [1,2,-2]
+        },
+        "attaqueSpecial": 
+        [{
+            "activation": 5,
+            "description": "assène un puissant coup de morsure infligeant",
+            "repeat": [1, 1],
+            "degatBonus": 12,
+            "crit":
+            {
+                "description": "assène un puissant coup de morsure critique infligeant",
+                "activation": 5,
+                "degatBonus": 10
+            },
+            "miss": 10,
+            "level": [1,2,-2]
+        }],
+        "blocage": 
+        {
+            "degat": [10,15],
+            "crit": [10, 5],
+            "miss": 10,
+            "level": [1,2,-2]
+        },
+        "loot": 
+        {
+            "gold":
+            {
+                "bronze": [5,20],
+                "argent": [0,0],
+                "or": [0,0]
+            },
+            "item": 
+            { 
+                "chance": 0, 
+                "loot": []
+            },
+            "xp": [10,30]
+        }
+    },
+
+    "mercenaire": {
+        "nom": "mercenaire humain", 
+        "nomId": "mercenaire-h",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/956742243983687760/1051e4c4ef161b2bf06e8d6b2190a4dd.jpg?width=436&height=676",
+        "description": "Un brigand humain qui n'est pas la pour rigoler",
+        "lvl": 3,
+        "hp": [70, 5],
+        "armure": 10,
+        "spawn": [{"zone": "plaine", "drop":30}, {"zone": "foret", "drop":70}],
+        "position": 1,
+        "attaque": 
+        {
+            "description": "vous assène un coup d'épée infligeant",
+            "descriptionCrit": "vous assène violent et puissant un coup d'épée infligeant",
+            "degat": [17, 24],
+            "crit": [10, 10],
+            "miss": 10,
+            "penetration": [],
+            "poison": {},
+            "level": [1,2,-2]
+        },
+        "attaqueSpecial": 
+        [{
+            "description" : "vous assène un enchainement de coup d'épée infligeant", 
+            "activation": 5,
+            "repeat": [1, 1],
+            "degatBonus": 12,
+            "crit":
+            {
+                "description": "vous assène un enchainement de coup d'épée visant vos zone critique infligeant",
+                "activation": 5,
+                "degatBonus": 10
+            },
+            "miss": 10,
+            "level": [1,2,-2]
+        }],
+        "blocage": 
+        {
+            "degat": [15,20],
+            "crit": [10, 15],
+            "miss": 15,
+            "level": [1,2,-2]
+        },
+        "loot": 
+        {
+            "gold":
+            {
+                "bronze": [10,30],
+                "argent": [0,0],
+                "or": [0,0]
+            },
+            "item": 
+            { 
+                "chance": 5, 
+                "loot": ["potionhp-s"]
+            },
+            "xp": [20,40]
+        }
+    }
+}

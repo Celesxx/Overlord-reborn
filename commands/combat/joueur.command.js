@@ -18,13 +18,15 @@ if(message.content.toLowerCase().startsWith(`${préfix}attaque`))
         const bestiaireController = new BestiaireController()
         const messageFunction = new MessageFunction()
         const logCombatFunction = new LogCombatFunction()
-
+        const playerCreationFunction = new PlayerCreationFunction()
+        
         const turnVerification = Promise.resolve(combatFunction.turnVerification(user, message))
         turnVerification.then(async result => 
         {
             if(result.state)
             {
                 let i = 0
+                const data = await playerCreationFunction.getPlayerById(user) // get les données du joueur
                 const skill = await skillController.getSkillByName(skillName) // get le skill en fonction de son nom 
                 const zone = await zoneFunction.getZone(message) // get la zone ou il ce trouve 
                 const resultZone = await zoneController.getZoneByName(zone) // get les stats de la zone en fonction du nom de la zone
@@ -34,14 +36,14 @@ if(message.content.toLowerCase().startsWith(`${préfix}attaque`))
                     let damageResult
                     if(!isNaN(monstre.replace(/[<@!>]/gm, " ")))
                     {
-                        damageResult = await combatFunction.dammageCalculPlayer(skill, bdd[user]) //calcule les dommages en fonction du skill
+                        damageResult = await combatFunction.dammageCalculPlayer(skill, data[0]) //calcule les dommages en fonction du skill
                         monstreInCombat.push({nom: monstre})
                     }
                     else
                     {
                         const resultMonstre = await bestiaireController.getMonstreByNameId(monstre.slice(0,-2)) //get les stats du monstre en fonction de son id 
                         monstreInCombat.push(resultMonstre[0])
-                        damageResult = await combatFunction.dammageCalcul(skill, bdd[user], [monstreInCombat[i]], resultZone) //calcule les dommages en fonction du skill, de la défense du monstre et du lv de la zone
+                        damageResult = await combatFunction.dammageCalcul(skill, data[0], [monstreInCombat[i]], resultZone) //calcule les dommages en fonction du skill, de la défense du monstre et du lv de la zone
                     }
                     degatForEachMonstre.push(damageResult)
                     i++
@@ -59,8 +61,6 @@ if(message.content.toLowerCase().startsWith(`${préfix}attaque`))
                 const positionResult = await combatFunction.positionVerification(monstreInCombat, multiCible, skill) // vérifie si le skill peut attaquer la position ou ce trouve le(s) monstre(s) 
                 const newCombatEmbed = await combatFunction.editCombatEmbed(message, user, multiCibleResult, skill, degatForEachMonstre, combatStatus, positionResult, result.embed, result.oldOrder) // edit l'embed du combat
                 const logCombat = await logCombatFunction.getLogCombatById(newCombatEmbed.combatId)
-
-                console.log(newCombatEmbed)
                 
                 await logCombatFunction.addEventTurnLogCombatByName(newCombatEmbed.combatId, logCombat[0], { number: result.currentTurn, event: newCombatEmbed.embed.fields.slice(-1)[0].value })
                 await messageFunction.editMessageById(result.embedId, message, newCombatEmbed.embed) 
@@ -70,7 +70,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}attaque`))
         message.delete()
     }catch(error)
     {
-        console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+        console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
     }
 }
 
@@ -101,7 +101,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}fuite`))
                 let luck = Math.floor(Math.random() * 100)
                 let order = embed.fields.slice(3)[0].value.split("\n")
                 let userOrder = order.filter(participant => participant.includes(user)).join("")
-                if(result.length != 0 && result[0].participant.includes(`<@${user}>`) && userOrder.includes(":x:") && luck <= 89)
+                if(result.length != 0 && result[0].participant.includes(`<@${user}>`) && userOrder.includes(":x:") && luck <= 29)
                 {
                     userOrder = `:white_check_mark:<@${userOrder.replace(/[:x<@> ]/gm, "")}>`
                     embed.fields.slice(-1)[0].value = `<@${user}> viens de prendre la fuite !`
@@ -134,13 +134,13 @@ if(message.content.toLowerCase().startsWith(`${préfix}fuite`))
 
             }catch(error)
             {
-                console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+                console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
             }
         })
         message.delete()
     }catch(error)
     {
-        console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+        console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
     }
     
 }
@@ -164,12 +164,14 @@ if(message.content.toLowerCase().startsWith(`${préfix}defense`))
         const combatFunction = new CombatFunction()
         const messageFunction = new MessageFunction()
         const logCombatFunction = new LogCombatFunction()
+        const playerCreationFunction = new PlayerCreationFunction()
 
         const getSkill = Promise.resolve(skillController.getSkillByName(skillName))
         getSkill.then(async skillData =>
         {
             try
             {
+                const data = await playerCreationFunction.getPlayerById(user)
                 const combatId = await logCombatFunction.getCombatIdByParticipant(user)
                 const messageResult = await messageFunction.getMessageById(combatId, message)
                 embed = messageResult.embeds[0]
@@ -177,45 +179,40 @@ if(message.content.toLowerCase().startsWith(`${préfix}defense`))
                 {
                     for(const degat of multiDegat)
                     {
-                        const result = await combatFunction.defenseCalculJoueur(bdd[user], degat, skillData[0])
+                        const result = await combatFunction.defenseCalculJoueur(data[0], degat, skillData[0])
                         resultDegat.push(`\n- ${result} dégat`)
-                        bdd[user].HPactuel -= result
+                        data[0].hp[0] -= result
+                        await playerCreationFunction.editPlayerById(user, {hp: data[0].hp})
                     }
-
-                    Savebdd()
                 
-                    embed.fields.slice(-1)[0].value = `<@!${user}> ${skillData[0].description} ${resultDegat}`
+                    embed.fields.slice(-1)[0].value = `\n<@!${user}> ${skillData[0].description} ${resultDegat}`
 
-                    if(bdd[user].HPactuel <= 0) 
+                    if(data[0].hp[0] <= 0) 
                     {
-                        message.member.setNickname(bdd[user].prenom + "  [☠️ KO]")
+                        message.member.setNickname(data[0].prenom + "  [☠️ KO]")
                         let order = embed.fields.slice(3)[0].value.split("\n").filter(participant => !participant.includes(`<@${user}>`))
                         embed.fields.slice(3)[0].value = order.join("\n")
-                    }
-                    else  message.member.setNickname(bdd[user].prenom + " [❤️" + bdd[user].HPactuel + "] [🛡️"+ bdd[user].ARactuel +"] [✨" + bdd[user].MAactuel + "]")
+
+                    }else message.member.setNickname(data[0].prenom + " [❤️" + data[0].hp[0] + "] [🛡️"+ data[0].armure[0] +"] [✨" + data[0].magie[0] + "]")
                     
                 }else
                 {
-                    embed.fields.slice(-1)[0].value = `<@!${user}> merci de mettre un skill valide !`
+                    embed.fields.slice(-1)[0].value = `\n<@!${user}> merci de mettre un skill valide !`
                 }
 
-                console.log(embed.author.name)
                 const logCombat = await logCombatFunction.getLogCombatById(embed.author.name)
-                console.log(logCombat)
-                console.log("round : ", embed.fields.slice(2)[0].value)
-                console.log("event : ", embed.fields.slice(-1)[0].value)
                 await logCombatFunction.addEventTurnLogCombatByName(embed.author.name, logCombat[0], { number: embed.fields.slice(2)[0].value, event: embed.fields.slice(-1)[0].value })
                 await messageFunction.editMessageById(combatId, message, embed)
                 message.delete()
                 
             }catch(error)
             {
-                console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+                console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
             }
         })
 
     }catch(error)
     {
-        console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+        console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
     }
 }

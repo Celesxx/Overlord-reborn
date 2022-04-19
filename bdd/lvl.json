@@ -1,0 +1,128 @@
+{
+        "lvl1" : 100
+        ,"lvl2" : 200
+        ,"lvl3" : 300
+        ,"lvl4" : 400
+        ,"lvl5" : 500
+        ,"lvl6" : 600
+        ,"lvl7" : 700
+        ,"lvl8" : 800
+        ,"lvl9" : 900
+        ,"lvl10" : 1000
+        ,"lvl11" : 1100
+        ,"lvl12" : 1200
+        ,"lvl13" : 1300
+        ,"lvl14" : 1400
+        ,"lvl15" : 1700
+        ,"lvl16" : 2000
+        ,"lvl17" : 2300
+        ,"lvl18" : 2600
+        ,"lvl19" : 2900
+        ,"lvl20" : 3200
+        ,"lvl21" : 3500
+        ,"lvl22" : 3800
+        ,"lvl23" : 4100
+        ,"lvl24" : 4400
+        ,"lvl25" : 4700
+        ,"lvl26" : 5000
+        ,"lvl27" : 5300
+        ,"lvl28" : 5600
+        ,"lvl29" : 6000
+        ,"lvl30" : 6500
+        ,"lvl31" : 7000
+        ,"lvl32" : 7500
+        ,"lvl33" : 8000
+        ,"lvl34" : 8500
+        ,"lvl35" : 9000
+        ,"lvl36" : 9500
+        ,"lvl37" : 10000
+        ,"lvl38" : 10500
+        ,"lvl39" : 11000
+        ,"lvl40" : 11500
+        ,"lvl41" : 12000
+        ,"lvl42" : 12500
+        ,"lvl43" : 13000
+        ,"lvl44" : 13500
+        ,"lvl45" : 14000
+
+        ,"palier1" : 2
+        ,"palier2" : 3
+        ,"palier3" : 5
+
+        ,"combattant_HP" : 10
+        ,"combattant_AT" : 1
+        ,"combattant_MA" : 0
+        ,"combattant_AR" : 0.25
+        ,"mage_HP" : 5
+        ,"mage_AT" : 1
+        ,"mage_MA" : 10
+        ,"mage_AR" : 0
+        ,"support_HP" : 5
+        ,"support_AT" : 1
+        ,"support_MA" : 10
+        ,"support_AR" : 0
+        ,"voleur_HP" : 5
+        ,"voleur_AT" : 2
+        ,"voleur_MA" : 0
+        ,"voleur_AR" : 0.5
+
+
+        
+
+        ,"paladin_HP" : 15
+        ,"paladin_AT" : 1
+        ,"paladin_MA" : 5
+        ,"paladin_AR" : 0.5
+        ,"chevalier_HP" : 10
+        ,"chevalier_AT" : 1
+        ,"chevalier_MA" : 5
+        ,"chevalier_AR" : 1
+
+        ,"archer_HP" : 5
+        ,"archer_AT" : 2
+        ,"archer_MA" : 5
+        ,"archer_AR" : 1
+        ,"assassin_HP" : 5
+        ,"assassin_AT" : 2
+        ,"assassin_MA" : 10
+        ,"assassin_AR" : 0.5
+
+        ,"sorcier_HP" : 5
+        ,"sorcier_AT" : 1
+        ,"sorcier_MA" : 10
+        ,"sorcier_AR" : 0.5
+        ,"sorcier_ténébreux_HP" : 5
+        ,"sorcier_ténébreux_AT" : 2
+        ,"sorcier_ténébreux_MA" : 10
+        ,"sorcier_ténébreux_AR" : 0.5
+
+        
+
+
+
+        ,"clerc_HP" : 5
+        ,"clerc_AT" : 1
+        ,"clerc_MA" : 10
+        ,"clerc_AR" : 0.5
+        ,"gardien_HP" : 5
+        ,"gardien_AT" : 1
+        ,"gardien_MA" : 10
+        ,"gardien_AR" : 0.5
+
+        ,"maître_archer_HP" : 5
+        ,"maître_archer_AT" : 4
+        ,"maître_archer_MA" : 15
+        ,"maître_archer_AR" : 1
+        ,"bombardier_HP" : 10
+        ,"bombardier_AT" : 3
+        ,"bombardier_MA" : 20
+        ,"bombardier_AR" : 0.5
+       
+
+
+
+
+
+    
+    
+}

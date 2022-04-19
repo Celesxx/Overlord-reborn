@@ -1,0 +1,13 @@
+{
+    "plaine" : {
+        "nom": "plaine",
+        "image": "",
+        "description": "Une plaine très calme",
+        "lvl": 5,
+        "nombre": 2,
+        "loot": {
+            "money": [0,10],
+            "drop": {}
+        }
+    }
+}

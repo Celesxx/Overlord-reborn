@@ -1,4 +1,4 @@
-const ZoneController = require('../controllers/zone.controller')
+const ZoneController = require('../../controllers/zone.controller')
 
 class ZoneFunction 
 {

@@ -8,7 +8,7 @@ class MessageFunction
     async editMessageById(id, message, embed)
     {
         let msg = await message.channel.messages.fetch(id)
-        msg.edit(embed)
+        msg.edit({embeds: [embed]})
     }
 
 

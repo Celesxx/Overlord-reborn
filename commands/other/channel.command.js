@@ -3,7 +3,6 @@ if(message.content.toLowerCase().startsWith(`${préfix}delete`))
 {
     try
     {
-        console.log(message.member.roles.cache.some(role => role.name === '.'))
         if(message.member.roles.cache.some(role => role.name === '.'))
         {
             let msgDelete = args[0]
@@ -12,7 +11,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}delete`))
         
     }catch(error)
     {
-        console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+        console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
     }
 }
 
@@ -94,6 +93,6 @@ if(message.content.toLowerCase().startsWith(`${préfix}règle`))
 
     }catch(error)
     {
-        console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+        console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
     }
 }

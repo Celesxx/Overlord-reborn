@@ -7,10 +7,10 @@ const ZoneSchema = mongoose.Schema(
     image: { type: String, required: false},
     description: { type: String, required: true},
     nombre: { type: Number, required: true},
-    lv: { type: Number, required: true},
+    lvl: { type: Number, required: true},
     loot: 
     { 
-        money: { type: Array, required: true },
+        money: { type: Array, required: true }, // [min, max]
         drop: { type: Object, required: true },
     },
 });

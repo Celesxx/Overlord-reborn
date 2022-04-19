@@ -1,4 +1,4 @@
-const SkillController = require('../controllers/skill.controller')
+const SkillController = require('../../controllers/skill.controller')
 
 class SkillFunction 
 {

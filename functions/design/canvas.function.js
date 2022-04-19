@@ -32,7 +32,7 @@ class CanvasFunction
         
         }catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
 
     }

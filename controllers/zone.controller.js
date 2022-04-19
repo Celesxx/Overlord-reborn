@@ -24,7 +24,7 @@ class ZoneController
                 image: data.image,
                 description: data.description,
                 nombre: data.nombre,
-                lv: data.lv,
+                lvl: data.lvl,
                 loot: data.loot,
             })
         

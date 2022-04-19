@@ -34,7 +34,6 @@ class DesignCharacterFunction
 
             const canvasFunction = new CanvasFunction()
 
-            console.log("test")
             await canvasFunction.roundRect(context, 0, 0, canvas.width, canvas.height, 30, gradient)
             await canvasFunction.roundRect(context, 10, 10, canvas.width - 20 , canvas.height - 20, 30, gradientMenu)
 
@@ -109,7 +108,7 @@ class DesignCharacterFunction
 
         }catch(error)
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error}`)
+            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
     }
     

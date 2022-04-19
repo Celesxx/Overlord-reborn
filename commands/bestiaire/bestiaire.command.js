@@ -16,7 +16,7 @@ if(message.content.toLowerCase().startsWith(préfix + "monstrecreation"))
             
             
         })
-        message.channel.send(embed)
+        message.channel.send({embeds: [embed]})
         
     })
 }
