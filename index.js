@@ -112,7 +112,10 @@ client.on("messageCreate", async message =>
   eval(fs.readFileSync(__dirname + '/commands/character/player.command.js')+'');
   
 
-
+  if(message.content == `${préfix}omg` )
+  {
+    message.channel.send("Malgrès vent et marrée, je suis de retour !")
+  }
 
   if(command === 'roll')
   {
