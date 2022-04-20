@@ -41,19 +41,17 @@ if(message.content.toLowerCase().startsWith(`${préfix}profile`))
 {
     try
     {
-        let id = args[0].replace(/[<@>]/gm, "")
-        console.log("id : ", id)
+        let id = args[0]
         if(id == undefined) id = message.author.id
-
+		
         const playerCreationFunction = new PlayerCreationFunction()
-        let result = Promise.resolve(playerCreationFunction.getPlayerById(id))
+        let result = Promise.resolve(playerCreationFunction.getPlayerById(id.replace(/[<@>]/gm, "")))
         result.then(data => 
         {
             try
             {
 
                 data = data[0]
-                console.log(data)
                 let embed = new Discord.MessageEmbed()
                 .setColor("#5DADE2")
                 .setTitle(`:bust_in_silhouette: ${data.prenom} ${data.nom}`)

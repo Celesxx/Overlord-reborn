@@ -1,107 +1,47 @@
 {
     
-    "petitLoup": {
+    "petitLoup-s": {
         "nom": "petit loup sauvage", 
         "nomId": "loup-s",
         "image": "https://cdn.discordapp.com/attachments/723538729012297834/724774265269911622/fantasyart-1592870026825-1545.jpg",
         "description": "Un petit loup sauvage assoiffé de sang et de chair fraiche !",
-        "lvl": 2,
+        "lvl": 3,
         "hp": [40, 5],
         "armure": 0,
-        "spawn": [{"zone": "plaine", "drop":70}, {"zone": "foret", "drop":40}],
+        "spawn": [{"zone": "plaine", "drop":80}, {"zone": "foret", "drop":40}],
         "position": 1,
         "attaque": 
         {
-            "description": "assène un coup de griffe infligeant",
-            "descriptionCrit": "assène un énorme coup de griffe critique infligeant",
-            "degat": [12, 17],
-            "crit": [10, 10],
-            "miss": 10,
+            "description": "assène un puissant coup de morsure infligeant",
+            "descriptionCrit": "assène un puissant coup de morsure critique infligeant",
+            "degat": [15, 25],
+            "crit": [10, 15],
+            "miss": 30,
             "penetration": [],
             "poison": {},
-            "level": [1,2,-2]
+            "level": [2,1,-1]
         },
         "attaqueSpecial": 
         [{
             "activation": 5,
             "description": "assène un puissant coup de morsure infligeant",
-            "repeat": [1, 1],
-            "degatBonus": 12,
+            "repeat": [0, 1],
+            "degatBonus": 25,
             "crit":
             {
                 "description": "assène un puissant coup de morsure critique infligeant",
-                "activation": 5,
+                "activation": 10,
                 "degatBonus": 10
             },
             "miss": 10,
-            "level": [1,2,-2]
+            "level": [2,2,-1]
         }],
         "blocage": 
         {
-            "degat": [10,15],
-            "crit": [10, 5],
-            "miss": 10,
-            "level": [1,2,-2]
-        },
-        "loot": 
-        {
-            "gold":
-            {
-                "bronze": [5,20],
-                "argent": [0,0],
-                "or": [0,0]
-            },
-            "item": 
-            { 
-                "chance": 0, 
-                "loot": []
-            },
-            "xp": [10,30]
-        }
-    },
-
-    "mercenaire": {
-        "nom": "mercenaire humain", 
-        "nomId": "mercenaire-h",
-        "image": "https://media.discordapp.net/attachments/951928506021998652/956742243983687760/1051e4c4ef161b2bf06e8d6b2190a4dd.jpg?width=436&height=676",
-        "description": "Un brigand humain qui n'est pas la pour rigoler",
-        "lvl": 3,
-        "hp": [70, 5],
-        "armure": 10,
-        "spawn": [{"zone": "plaine", "drop":30}, {"zone": "foret", "drop":70}],
-        "position": 1,
-        "attaque": 
-        {
-            "description": "vous assène un coup d'épée infligeant",
-            "descriptionCrit": "vous assène violent et puissant un coup d'épée infligeant",
-            "degat": [17, 24],
-            "crit": [10, 10],
-            "miss": 10,
-            "penetration": [],
-            "poison": {},
-            "level": [1,2,-2]
-        },
-        "attaqueSpecial": 
-        [{
-            "description" : "vous assène un enchainement de coup d'épée infligeant", 
-            "activation": 5,
-            "repeat": [1, 1],
-            "degatBonus": 12,
-            "crit":
-            {
-                "description": "vous assène un enchainement de coup d'épée visant vos zone critique infligeant",
-                "activation": 5,
-                "degatBonus": 10
-            },
-            "miss": 10,
-            "level": [1,2,-2]
-        }],
-        "blocage": 
-        {
-            "degat": [15,20],
-            "crit": [10, 15],
-            "miss": 15,
-            "level": [1,2,-2]
+            "degat": [9999,9999],
+            "crit": [0, 0],
+            "miss": 70,
+            "level": [0,0,-1]
         },
         "loot": 
         {
@@ -113,10 +53,209 @@
             },
             "item": 
             { 
+                "chance": 0, 
+                "loot": []
+            },
+            "xp": [10,20]
+        }
+    },
+
+    "mercenaire-c": {
+        "nom": "mercenaire combattant", 
+        "nomId": "mercenaire-c",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/956742243983687760/1051e4c4ef161b2bf06e8d6b2190a4dd.jpg?width=436&height=676",
+        "description": "un combattant mercenaire qui n'est pas la pour rigoler, seulement pour votre bourse !",
+        "lvl": 5,
+        "hp": [65, 5],
+        "armure": 5,
+        "spawn": [{"zone": "plaine", "drop":10}, {"zone": "foret", "drop":20}],
+        "position": 1,
+        "attaque": 
+        {
+            "description": "fonce sur vous et vous assène un coup d'épée infligeant",
+            "descriptionCrit": "vous surprend assènant un coup critique touchant un point vital infligeant",
+            "degat": [20, 30],
+            "crit": [10, 20],
+            "miss": 20,
+            "penetration": [],
+            "poison": {},
+            "level": [5,1,-1]
+        },
+        "attaqueSpecial": 
+        [{
+            "description" : "tente de vous assomer avec un coup au visage mais c'est un échec, cependant il arrive à vous infliger ", 
+            "activation": 15,
+            "repeat": [0, 1],
+            "degatBonus": 10,
+            "crit":
+            {
+                "description": "vous assène un violent coup au visage, du pommeau de son arme ce qui vous sonne  (pas d'action lors de votre tour '?passe [idCombat]' ) et vous inflige ",
+                "activation": 25,
+                "degatBonus": 0
+            },
+            "miss": 20,
+            "level": [1,2,-1]
+        }],
+        "blocage": 
+        {
+            "degat": [5,15],
+            "crit": [10, 10],
+            "miss": 20,
+            "level": [5,1,-1]
+        },
+        "loot": 
+        {
+            "gold":
+            {
+                "bronze": [15,35],
+                "argent": [0,0],
+                "or": [0,0]
+            },
+            "item": 
+            { 
                 "chance": 5, 
                 "loot": ["potionhp-s"]
             },
-            "xp": [20,40]
+            "xp": [15,35]
+        }
+    },
+
+
+    "mercenaire-a": {
+        "nom": "mercenaire archer", 
+        "nomId": "mercenaire-a",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/956742243983687760/1051e4c4ef161b2bf06e8d6b2190a4dd.jpg?width=436&height=676",
+        "description": "un archer mercenaire qui n'est pas la pour rigoler, seulement pour votre bourse !",
+        "lvl": 5,
+        "hp": [60, 5],
+        "armure": 5,
+        "spawn": [{"zone": "plaine", "drop":9}, {"zone": "foret", "drop":10}],
+        "position": 2,
+        "attaque": 
+        {
+            "description": "vous tire une flèche depuis sa position et vous inflige",
+            "descriptionCrit": "vous tire une flèche causant un critique en touchant un point vital infligeant ",
+            "degat": [20, 35],
+            "crit": [15, 20],
+            "miss": 20,
+            "penetration": [],
+            "poison": {},
+            "level": [5,1,-1]
+        },
+        "attaqueSpecial": 
+        [{
+            "description" : "tire une volée de flèche touchant 1 autre personne supplémentaire au passage (priorité à la 2éme ligne si y'en à pas alors la 1ère ligne) infligeant", 
+            "activation": 10,
+            "repeat": [0, 1],
+            "degatBonus": -10,
+            "crit":
+            {
+                "description": "tire une volée de flèche qui n'épargne personne (tous le monde prend les dégats) infligeant ",
+                "activation": 10,
+                "degatBonus": 10
+            },
+            "miss": 20,
+            "level": [1,2,-1]
+        }],
+        "blocage": 
+        {
+            "degat": [5,15],
+            "crit": [10, 10],
+            "miss": 20,
+            "level": [5,1,-1]
+        },
+        "loot": 
+        {
+            "gold":
+            {
+                "bronze": [15,35],
+                "argent": [0,0],
+                "or": [0,0]
+            },
+            "item": 
+            { 
+                "chance": 5, 
+                "loot": ["potionhp-s"]
+            },
+            "xp": [15,35]
+        }
+    }, 
+
+
+    "kirishiga": {
+        "nom": "kirishiga la dernière ombre", 
+        "nomId": "kirishiga",
+        "image": "https://media.discordapp.net/attachments/966093187661832282/966151888397565982/caroline-gariba-stormwingentity.jpg?width=960&height=670",
+        "description": "Au bout d'un moment quelques choses vous semble bizarre ... Vous n'entendez plus aucun bruit d'animaux et une tempête qui semble sortir de nulle part viens d'arriver. Quand soudain une immense ombre sors des nuages, vous ressentez un frisson vous parcourir le corps avant de voir ce qui sera probablement la dernière des ombres que vous verrez",
+        "lvl": 50,
+        "hp": [2500, 0],
+        "armure": 25,
+        "spawn": [{"zone": "plaine", "drop":1}],
+        "position": 1,
+        "attaque": 
+        {
+            "description": "vous crie dessus avant de vous asséner un énorme coup de queue inflgeant",
+            "descriptionCrit": "s'envole avant de vous foncer dessus et vous chopper au passage avant de vous balancer d'une grande violence contre un arbre infligeant",
+            "degat": [50, 120],
+            "crit": [20, 30],
+            "miss": 20,
+            "penetration": [],
+            "poison": {},
+            "level": [0,0,0]
+        },
+        "attaqueSpecial": 
+        [
+            {
+                "description" : "invoque un puissant coup d'éclair venant vous paralyser pendant 2 tours (fuite toujours possible cependant) et infligeant", 
+                "activation": 20,
+                "repeat": [0, 1],
+                "degatBonus": -80,
+                "crit":
+                {
+                    "description": "invoque un puissant coup d'éclair venant du ciel touchant toutes la deuxième ligne ce qui la paralysera pendant 2 tour (fuite toujours possible cependant) et infligeant",
+                    "activation": 10,
+                    "degatBonus": 15
+                },
+                "miss": 20,
+                "level": [0,0,0]
+            },
+
+            {
+                "description" : "vous balance un coup de queue puissant avant de prendre son envole d'une vitesse fulgurante, se cachant dans les nuages avant de foncer en piqué attaquant au hasard une personne de la seconde ligne infligeant ", 
+                "activation": 35,
+                "repeat": [10, 2],
+                "degatBonus": -50,
+                "crit":
+                {
+                    "description": "vous choppe par ses griffe accérés avant de vous balancer et de prendre son envole d'une vitesse fulgurante, se cachant dans les nuages avant de foncer en piqué attaquant au hasard une personne de la seconde ligne infligeant",
+                    "activation": 15,
+                    "degatBonus": 10
+                },
+                "miss": 20,
+                "level": [0,0,0]
+            }
+        ],
+        "blocage": 
+        {
+            "degat": [50,70],
+            "crit": [10, 20],
+            "miss": 5,
+            "level": [0,0,0]
+        },
+        "loot": 
+        {
+            "gold":
+            {
+                "bronze": [1000,1500],
+                "argent": [100,150],
+                "or": [10,15]
+            },
+            "item": 
+            { 
+                "chance": 0, 
+                "loot": []
+            },
+            "xp": [300,350]
         }
     }
 }

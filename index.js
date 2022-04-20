@@ -1,7 +1,7 @@
 const { Console } = require('console')
 const Discord = require('discord.js')
 const { DiscordMenus, ButtonBuilder, MenuBuilder } = require('discord-menus');
-const { Client, MessageEmbed, MessageAttachment, Intents }  = require('discord.js');
+const { Client,  MessageEmbed, MessageAttachment, Intents }  = require('discord.js');
 
 const Canvas = require('canvas')
 const { registerFont } = require('canvas')
@@ -9,6 +9,8 @@ const { performance } = require('perf_hooks')
 const QuickChart = require('quickchart-js')
 const bdd = require('./bdd/bdd.json')
 const lvl = require('./bdd/lvl.json')
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+
 const BestiaireController = require('./controllers/bestiaire.controller.js')
 const ZoneController = require('./controllers/zone.controller.js')
 const SkillController = require('./controllers/skill.controller.js')
@@ -85,7 +87,7 @@ client.on("messageCreate", async message =>
   let rpServer = [
     "939189315781656717", "939189315781656718", "939189315781656719", "939189315781656721", "939189315781656722", "939189315781656723", "939189315781656724", "939189315781656724",
     "939189316192702565", "945974040630284288", "958786131678330880", "939189317610393707", "946054690553098340", "949447630444974141", "939189317610393706", "946054857503170580", 
-    "949447694991118337", "939189317610393709", "945766632335237150", "945766954302570518", "945768047237533777", "945767470533337128",
+    "949447694991118337", "939189317610393709", "945766632335237150", "945766954302570518", "945768047237533777", "945767470533337128", "945775381175238696",
     "949446480278732860", "949710374775693322", "945772877305741372", "945973619044012043", "945775469356273714", "945973530296717362", "946055135799427102", "946055337507700756",
     "945973584289992747", "940254750866309140", "945784495053869129", "945974006153084968", "945974437772152842", "945973555764555777", "939189317610393705", "945973470464974868", 
     "945974495640956988", "945774211887136808", "946055013371871233", "945974102143938561", "945974848226730014", "945970683480002601", "945974826013687828", "945775348656783390", 
@@ -140,11 +142,6 @@ client.on("messageCreate", async message =>
   eval(fs.readFileSync(__dirname + '/commands/combat/gestion.command.js')+'')
   eval(fs.readFileSync(__dirname + '/commands/character/player.command.js')+'')
   
-
-  if(message.content == `${préfix}omg` )
-  {
-    message.channel.send("Malgrès vent et marrée, je suis de retour !")
-  }
 
   if(command === 'roll')
   {

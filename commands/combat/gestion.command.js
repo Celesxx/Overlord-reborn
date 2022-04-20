@@ -100,6 +100,67 @@ if(message.content.toLowerCase().startsWith(`${préfix}fin`))
 
 
 
+//---------------------------- Fin combat vs monstre ----------------------------
+if(message.content.toLowerCase().startsWith(`${préfix}passe`))
+{
+    try
+    {
+        let combatId = args[0]
+        let embed
+        let isInCombat = false
+        let user = message.author.id
+
+        const logCombatFunction = new LogCombatFunction()
+        const messageFunction = new MessageFunction()
+        
+        let logCombat = Promise.resolve(logCombatFunction.getLogCombatById(combatId))
+        logCombat.then(async result => 
+        {
+            const embedData = await messageFunction.getMessageById(result[0].messageId, message)
+            embed = embedData.embeds[0]
+
+            if(embed.author != undefined && embed.author.name == combatId) isInCombat = true
+            if(isInCombat)
+            {
+                let order = embed.fields.slice(3)[0].value.split("\n")
+                let userOrder = order.filter(participant => participant.includes(user)).join("")
+                if(userOrder.includes(":x:"))
+                {
+                    userOrder = `:white_check_mark:<@${userOrder.replace(/[:x<@> ]/gm, "")}>` 
+                    order.forEach( (value, id) =>  {if(value.includes(user)) order[id] = userOrder }) 
+                    embed.fields.slice(-1)[0].value = "Vous avez passé votre tour !"  
+                }
+                else if(userOrder.includes(":white_check_mark:")) embed.fields.slice(-1)[0].value = `<@${user}> à déja effectué son action pour ce tour !`   
+                
+                if(!order.some(member => member.includes(":x:")))
+                {
+                    order.forEach((value, id) => 
+                    {
+                        order[id] = order[id].replace(":white_check_mark:", ":x:")
+                    })
+                    embed.fields.slice(2)[0].value = parseInt(embed.fields.slice(2)[0].value) + 1
+                }
+
+                embed.fields.slice(3)[0].value = order.join("\n")
+            }
+
+            await logCombatFunction.addEventTurnLogCombatByName(combatId, result[0], { number: embed.fields.slice(2)[0].value, event: embed.fields.slice(-1)[0].value })
+            await messageFunction.editMessageById(result[0].messageId, message, embed)
+            message.delete()
+        })
+    } catch(error)
+    {
+        console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
+    }
+}
+
+
+
+
+
+
+
+
 
 //---------------------------- Fin combat vs monstre ----------------------------
 if(message.content.toLowerCase().startsWith(`${préfix}recompense`))

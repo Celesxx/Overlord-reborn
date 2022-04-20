@@ -1,22 +1,45 @@
-if(message.content.toLowerCase().startsWith(préfix + "monstrecreation"))
+if(message.content.toLowerCase().startsWith(préfix + "+monstrecreation"))
 {
-    const bestiaireFunction = new BestiaireFunction()
-    const result = Promise.resolve(bestiaireFunction.monstreCreation(message.content))
-    result.then((response) => 
+    try 
     {
-        let embed = new Discord.MessageEmbed()
-        .setColor("#49b28b")
-        .setTitle("Création de monstre dans la bdd")
-        response.forEach( data =>
+
+        const file = message.attachments.first()?.url
+        if (!file) console.log('Il manque le fichier json');
+
+        const response = Promise.resolve(fetch(file))
+        response.then(async response =>
         {
-            if(data.state == false)
+            if (!response.ok) message.channel.send('Une erreur est survenue',response.statusText,)
+
+            const text = await response.text()
+
+            if (text) 
             {
-                embed.addField("Status", `${data.message}`)
-            }else embed.addField(`${data.monstre.nom}`, `${data.log}` )
-            
-            
+                data = JSON.parse(text)
+                const bestiaireFunction = new BestiaireFunction()
+
+                let embed = new Discord.MessageEmbed()
+                .setColor("#00ff00")
+                .setTitle("Création de monstre dans la bdd")
+
+                for(const [key, value] of Object.entries(data))
+                {
+                    // console.log("key : ", key)
+                    // console.log(value)
+                    const response = await bestiaireFunction.monstreCreation(value)
+ 
+                    if(response.state == false) embed.addField("Status", `${response.message}`)
+                    else embed.addField(`${response.monstre.nom}`, `${response.log}` )
+                           
+                    
+                }
+
+                message.delete()
+                message.channel.send({embeds: [embed]})
+            }
         })
-        message.channel.send({embeds: [embed]})
-        
-    })
+    } catch (error) 
+    {
+        console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
+    }
 }
