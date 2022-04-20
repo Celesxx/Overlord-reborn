@@ -86,13 +86,15 @@ if(message.content.toLowerCase().startsWith(`${préfix}règle`))
             
             "Merci d'éviter les personnages de type DarkSasuke",
             
-            "Il est STRICTEMENT interdit de tuer un personnage ou de faire toutes actions qui à pour conséquence la mort définitive, dans le pire des cas il tombe en état critique et/ou au bord de la mort. Vous devez attendre l'accord d'un staff avant de pouvoir vraiment l'achever",
+            "Il est STRICTEMENT interdit de tuer un personnage ou de faire toutes actions qui à pour conséquence la mort définitive, dans le pire des cas il tombe en état critique et/ou au bord de la mort. Vous devez attendre l'accord d'un staff avant de pouvoir vraiment l'achever. Seul un staff peut valider une mort",
                         
             "Le RPQ est interdit",
             
             "N'essayez pas de vous give de l'XP en cachette ou d'abuser de bugs du système, nous avons des logs",
                                                                         
             "Ne pas utiliser tupperbox pour des commandes de combat ! ",
+            
+            "Si vous mourrez avant le lvl 6 que cela soit en groupe ou en solo vous tombez dans le coma pendant 2 heures, cependant si vous tombez dans le coma 3 dans les dernières 12 heures, votre mort sera définitif "
             
         ]
 
@@ -116,8 +118,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}règle`))
             i++
         }
 
-        message.channel.send({embeds: [embed]})
-        message.channel.send(embed2)
+        message.channel.send({embeds: [embed, embed2]})
 
     }catch(error)
     {

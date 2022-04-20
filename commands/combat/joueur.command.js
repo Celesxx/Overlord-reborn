@@ -193,7 +193,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}defense`))
                     {
                         const result = await combatFunction.defenseCalculJoueur(data[0], degat, skillData[0])
                         resultDegat.push(`\n- ${result} dégat`)
-                        data[0].hp[0] -= result
+                        data[0].hp[0] = (data[0].hp[0] - result).toFixed(1)
                         await playerCreationFunction.editPlayerById(user, {hp: data[0].hp})
                     }
                 

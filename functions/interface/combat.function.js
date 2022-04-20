@@ -507,9 +507,9 @@ class CombatFunction
             let defense = Math.floor(Math.random() * ( (skill.defense.blocage[1]) - ( skill.defense.blocage[0]) ) ) + skill.defense.blocage[0] 
 
             if(critiqueActivation < skill.defense.crit[0]) critique = skill.defense.crit[1]
-            degat = degat - userData.armure[0] - defense - critique
+            degat = degat - (degat * userData.armure[0] / 100) - defense - critique
             if(degat < 0) degat = 0
-            return degat
+            return degat.toFixed(1)
 
         } catch(error)
         {
