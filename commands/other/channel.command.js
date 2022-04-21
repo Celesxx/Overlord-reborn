@@ -124,4 +124,26 @@ if(message.content.toLowerCase().startsWith(`${préfix}règle`))
     {
         console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
     }
+
+
+}
+
+
+if(message.content.toLowerCase() === préfix + "danger")
+{
+    console.log("test")
+    try
+    {
+        if(message.member.roles.cache.some(role => role.name === 'Administrateur'))
+        {
+            let embed = new Discord.MessageEmbed()
+            .setTitle("Une tempête approche !")
+            .setDescription("Après avoir passé un long moment dans la zone, vous commencer à sentir que quelque chose ne va pas, aucun monstre ne semble être présent comme s'il avait tout fui la zone où vous vous trouvez, vous voyez aux loin des oiseaux ce lever des arbres et fuir dans votre direction. Vous ne savez pas ce qu'il se passe la bas mais une chose est sur cela se rapproche de vous ! ")
+            .setImage("https://media.discordapp.net/attachments/951928506021998652/966436198895747132/tumblr_onvjp9rP5p1smy9ueo1_500.gif")
+            message.channel.send({embeds: [embed]})
+        }
+    }catch(error)
+    {
+        console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
+    }
 }

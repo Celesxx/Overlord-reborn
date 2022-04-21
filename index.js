@@ -99,12 +99,21 @@ client.on("messageCreate", async message =>
   {
     try
     {
-      let id = message.author.id
-      const playerCreationFunction = new PlayerCreationFunction()
-      let stat = await playerCreationFunction.getPlayerById(id.replace(/[<@>]/gm,""))
-      stat = stat[0]
-      stat.xp = Math.round(stat.xp + (message.content.length * 0.001 * (stat.lvl - (stat.lvl / 2)) * Math.exp(stat.lvl / 250)))
-      await playerCreationFunction.editPlayerById(stat.id, stat)
+      if(message.content.length >= 200)
+      {
+        let id = message.author.id
+        const playerCreationFunction = new PlayerCreationFunction()
+        const experienceFunction = new LevelFunction()
+
+        let stat = await playerCreationFunction.getPlayerById(id.replace(/[<@>]/gm,""))
+
+        stat = stat[0]
+        stat.xp = Math.round(5 + stat.xp + (message.content.length * 0.001 * (stat.lvl - (stat.lvl / 2)) * Math.exp(stat.lvl / 250)))
+
+        let rankBefore = await experienceFunction.getRankPlayer(stat)
+        await playerCreationFunction.editPlayerById(stat.id, stat)
+        await experienceFunction.verifLvlUp(stat.id, message, client, rankBefore, stat)
+      }
     
     }catch(error)
     {

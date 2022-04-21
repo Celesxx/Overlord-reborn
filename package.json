@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prestart": "git pull && npm install",
     "test": "node test.js",
     "server": "nodemon --ignore node index.js",
-    "start": "node index.js",
-    "worker": "node index.js"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
