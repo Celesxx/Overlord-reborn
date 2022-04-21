@@ -8,6 +8,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}attaque`))
         let monstreInCombat = []
         let degatForEachMonstre = []
         let combatStatus = []
+        let allMonster = []
         const user = message.author.id
 
         // Initialization des classes
@@ -30,6 +31,17 @@ if(message.content.toLowerCase().startsWith(`${préfix}attaque`))
                 const skill = await skillController.getSkillByName(skillName) // get le skill en fonction de son nom 
                 const zone = await zoneFunction.getZone(message) // get la zone ou il ce trouve 
                 const resultZone = await zoneController.getZoneByName(zone) // get les stats de la zone en fonction du nom de la zone
+                const log = await logCombatFunction.getLogCombatById(result.embed.author.name)
+
+                for(const monster of log[0].participant)
+                {
+                    
+                    if(!monster.includes(`<@`))
+                    {
+                        let mob = await bestiaireController.getMonstreByNameId(monster.slice(0,-2))
+                        allMonster.push(mob[0])
+                    }
+                }
 
                 for(const monstre of multiCible)
                 {
@@ -58,7 +70,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}attaque`))
                 }
 
                 const multiCibleResult = await combatFunction.multiCibleCalcul(skill, multiCible) // vérifie si le skill peut attaquer un/plusieurs cible(s) 
-                const positionResult = await combatFunction.positionVerification(monstreInCombat, multiCible, skill) // vérifie si le skill peut attaquer la position ou ce trouve le(s) monstre(s) 
+                const positionResult = await combatFunction.positionVerification(monstreInCombat, multiCible, skill, allMonster) // vérifie si le skill peut attaquer la position ou ce trouve le(s) monstre(s) 
                 const newCombatEmbed = await combatFunction.editCombatEmbed(message, user, multiCibleResult, skill, degatForEachMonstre, combatStatus, positionResult, result.embed, result.oldOrder) // edit l'embed du combat
                 const logCombat = await logCombatFunction.getLogCombatById(newCombatEmbed.combatId)
                 
@@ -181,7 +193,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}defense`))
                     {
                         const result = await combatFunction.defenseCalculJoueur(data[0], degat, skillData[0])
                         resultDegat.push(`\n- ${result} dégat`)
-                        data[0].hp[0] -= result
+                        data[0].hp[0] = (data[0].hp[0] - result).toFixed(1)
                         await playerCreationFunction.editPlayerById(user, {hp: data[0].hp})
                     }
                 

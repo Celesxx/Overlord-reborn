@@ -12,7 +12,7 @@ const PlayerSchema = mongoose.Schema(
     description: { type: String, required: false, default: ""},
     lvl : { type: Number, required: false, default: 1 },
     xp: { type: Number, required: false, default: 0 },
-    hp: { type: Array, required: true }, // [actuel, total, bonusByRace]
+    hp: [{ type: Double, required: true }], // [actuel, total, bonusByRace]
     magie: { type: Array, required: true }, // [actuel, total, bonusByRace]
     attaque: { type: Array, required: true }, // [actuel, total, bonusByRace]
     armure:[{ type: Double, required: true }], // [actuel, total, bonusByRace]

@@ -57,7 +57,7 @@ if(message.content.startsWith(`${préfix}Historique-active`))
                     i++
                 }
             }
-            message.channel.send(embed)
+            message.channel.send({embeds: [embed]})
         })
 
     }catch(error)

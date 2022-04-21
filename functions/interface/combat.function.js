@@ -117,12 +117,16 @@ class CombatFunction
      * @param {Array} skill
     */
 
-    async positionVerification(monstreInfo, cible, skill)
+    async positionVerification(monstreInfo, cible, skill, allMonster)
     {
         try
         {
             let validePosition = []
             let target = []
+            let position = []
+            // console.log("TESST : ", monstreInfo.forEach(monstre => {if(monstre.position == 1) return false})) 
+
+            for(const monster of allMonster) position.push(monster.position)
             for(const monstre of monstreInfo)
             {
                 
@@ -139,10 +143,10 @@ class CombatFunction
                     target.includes("all") && monstre.position == skill[0].target[1]
                     ||
                     !isNaN(monstre.nom.replace(/[<@!>]/gm, " ")) 
-                ) 
-                {
-                    validePosition.push("true")
-                }
+                    ||
+                    !position.includes(1)
+
+                ) validePosition.push("true")
                 else validePosition.push("false")
             }
 
@@ -503,9 +507,9 @@ class CombatFunction
             let defense = Math.floor(Math.random() * ( (skill.defense.blocage[1]) - ( skill.defense.blocage[0]) ) ) + skill.defense.blocage[0] 
 
             if(critiqueActivation < skill.defense.crit[0]) critique = skill.defense.crit[1]
-            degat = degat - userData.armure[0] - defense - critique
+            degat = degat - (degat * userData.armure[0] / 100) - defense - critique
             if(degat < 0) degat = 0
-            return degat
+            return degat.toFixed(1)
 
         } catch(error)
         {

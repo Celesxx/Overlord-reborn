@@ -157,7 +157,7 @@ if(command === 'mm'){
             message.channel.send("Vous gagnez aussi **" + result + "** pièces de bronze.")
             var embed = new Discord.MessageEmbed()
             .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-            message.channel.send(embed);
+            message.channel.send({embeds: [embed]});
             var channel = client.channels.cache.get('939189314779222043');
             channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
         }
@@ -251,7 +251,7 @@ if(command === 'tm'){
             message.channel.send("Vous gagnez aussi **" + result + "** pièces de bronze.")
             var embed = new Discord.MessageEmbed()
             .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-            message.channel.send(embed);
+            message.channel.send({embeds: [embed]});
             var channel = client.channels.cache.get('939189314779222043');
             channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
         }
@@ -343,7 +343,7 @@ if(command === 'pa'){
             message.channel.send("Vous gagnez aussi **" + result + "** pièces de bronze.")
             var embed = new Discord.MessageEmbed()
             .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-            message.channel.send(embed);
+            message.channel.send({embeds: [embed]});
             var channel = client.channels.cache.get('939189314779222043');
             channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
         }
@@ -438,7 +438,7 @@ if(command === 'tortank'){
                     message.channel.send("Vous gagnez aussi **" + result + "** pièces de bronze.")
                     var embed = new Discord.MessageEmbed()
                     .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-                    message.channel.send(embed);
+                    message.channel.send({embeds: [embed]});
                     var channel = client.channels.cache.get('939189314779222043');
                     channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
                 }

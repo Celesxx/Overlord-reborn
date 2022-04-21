@@ -12,7 +12,9 @@ if(message.content.startsWith(`${préfix}Zone`))
         let combatId = Math.random().toString(16).slice(8)
         let date = new Date();
         let createdAt = ("00" + (date.getMonth() + 1)).slice(-2) + "/" + ("00" + date.getDate()).slice(-2) + "/" + date.getFullYear() + " " + ("00" + date.getHours()).slice(-2) + ":" + ("00" + date.getMinutes()).slice(-2) + ":" + ("00" + date.getSeconds()).slice(-2);
-        
+        let fullDescription = []
+        let boss = false
+        let bossName = ""
         const bestiaireController = new BestiaireController()
         const zoneController = new ZoneController()
         const logCombatFunction = new LogCombatFunction()
@@ -44,18 +46,35 @@ if(message.content.startsWith(`${préfix}Zone`))
                         {
                             encounterMob = await zoneFunction.getEncounterMob(possibleMob, zoneData)
 
-                            for(const mob of encounterMob) { totalParticipant.push(`:x:${mob.nomId}\n`) }
+                            for(const mob of encounterMob) 
+                            { 
+                                if(boss == false) 
+                                {
+                                    totalParticipant.push(`:x:${mob.nomId}\n`) 
+                                    fullDescription.push(`*${mob.description}*\n`)
+                                }
+
+                                console.log("mob nom", mob.nom)
+                                if(mob.nom == "kirishiga la dernière ombre") 
+                                {
+                                    message.channel.send({files:[{attachment: 'assets/sound/kirishiga.mp3', name: 'kirishiga.mp3'}]})
+                                    boss = true
+                                    bossName = mob.nom
+                                }
+                            }
                             totalParticipant = totalParticipant.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value)
 
                             let embed = new Discord.MessageEmbed()
                             .setAuthor({name : combatId})
                             .setTitle(":crossed_swords: Début du combat")
-                            .setDescription("> Des adversaires hostile s'approche de vous pour vous réduire en charpie, soyez prêt !")
-                            // .setImage("https://cdn.discordapp.com/attachments/723538729012297834/724774265269911622/fantasyart-1592870026825-1545.jpg")
-                            .addField(":scroll: Explication", "Chaque monstre possède une référence 1x ou 2x, le premier chiffre correspond à la 1ére ligne ou à la 2éme ligne dans le combat. Une fois le combat terminé faites *?Fin CombatId*")
-                            .addField("Zone", zone, true)
-                            .addField("Tour", "1", true)
-                            .addField("Ordre du combat", totalParticipant.join(""))
+                            .setDescription(`${fullDescription}`)
+                            
+                            if(!boss) embed.addField(":scroll: Explication", "Chaque monstre possède une référence 1x ou 2x, le premier chiffre correspond à la 1ére ligne ou à la 2éme ligne dans le combat. Une fois le combat terminé faites *?Fin CombatId*")
+                            else if(bossName == "kirishiga la dernière ombre") embed.addField(":scroll: Explication", `Pas de chance, vous êtes tombez contre ${bossName}, si jamais c'est la première fois que vous l'affrontez et que vous mourrez contre lui il se contentera de vous laisser dans le coma sans vous achever en guise d'avertissement`)
+                            else if(boss) embed.addField(":scroll: Explication", "Il semblerait que le destin sois contre vous, le gardien de la zone n'est pas très content et va surement faire qu'une bouchée de vous !")
+                            embed.addField("Zone", zone, true)
+                            embed.addField("Tour", "1", true)
+                            embed.addField("Ordre du combat", totalParticipant.join(""))
                             for(const mob of encounterMob)
                             {
                                 embed.setImage(mob.image)

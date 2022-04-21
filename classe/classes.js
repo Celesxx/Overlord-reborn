@@ -4,7 +4,7 @@ if(message.content === préfix + "classe"  || message.content === préfix + "Cla
     .setColor("#5DADE2")
     .addField("●▬▬▬▬▬▬▬▬▬▬:crossed_swords: Classe ▬▬▬▬▬▬▬▬▬▬●", ":shield: **?Combattant**\n:dagger: **?Voleur**\n:sparkles: **?Mage**")
     .setImage("https://www.1zoom.me/big2/72/219926-jugra.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "combattant"){
@@ -16,7 +16,7 @@ if(message.content.toLowerCase() === préfix + "combattant"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du combattant**", "?Lvl combattant")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 15 entre ?Paladin ou ?Chevalier ")
     .setImage("https://media.discordapp.net/attachments/834159801130942466/835881460053049344/15dcb473500369cb918a91c44122a270_1.png?width=1014&height=676")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 
@@ -32,7 +32,7 @@ if(message.content.toLowerCase() === préfix + "lvl combattant"){
     .addField(":sparkles: **LVL 12**","**Vous obtenez une passif ! (hors combat) :** Le travail paye ! Vous encaissez mieux les coups et physiquement il y a de fortes chances que vous ayez un summer body.")
     .addField(":sparkles: **LVL 15**", "**__Vous pouvez évoluer__**")
     .setFooter("Menu lvl combattant")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "mage"){
@@ -44,7 +44,7 @@ if(message.content.toLowerCase() === préfix + "mage"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du mage**", "?Lvl mage")
     .addField(":diamond_shape_with_a_dot_inside: **évolution**", "évolution à partir du niveau 15 entre ?Sorcier ténébreux et ?Sorcier")
     .setImage("https://p4.wallpaperbetter.com/wallpaper/590/887/619/fantasy-magic-artistic-dark-wallpaper-preview.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl mage"){
@@ -58,7 +58,7 @@ if(message.content.toLowerCase() === préfix + "lvl mage"){
     .addField(":sparkles: **LVL 12**", "**Vous obtenez une passif ! (hors combat) :** à force d'étudier, vous connaissez à peu près 95% des livres existant dans ce monde (seulement de nom et vaguement le contenu, cela ne veut pas dire que vous l'avez lut ! Loin de là !).")
     .addField(":sparkles: **LVL 15**", "**__Vous pouvez évoluer__**")
     .setFooter("Menu lvl mage")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 
@@ -71,7 +71,7 @@ if(message.content.toLowerCase() === préfix + "voleur"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du voleur**", "?Lvl voleur")
     .addField(":diamond_shape_with_a_dot_inside: **évolution**", "évolution à partir du niveau 15 entre ?Archer ou ?Assassin")
     .setImage("https://i.pinimg.com/originals/4e/1b/c3/4e1bc397664b238556c617f88626438c.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 
@@ -86,7 +86,7 @@ if(message.content.toLowerCase() === préfix + "lvl voleur"){
     .addField(":sparkles: **LVL 12**", "**Vous obtenez une passif ! (hors combat) :** Vous gagnez en dextérité et êtes maintenant un vrai pickpoket (vous ne pouvez voler aucun item, simplement esthétique).")
     .addField(":sparkles: **LVL 15**", "**__Vous pouvez évoluer__**")
     .setFooter("Menu lvl voleur")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 
@@ -98,7 +98,7 @@ if(message.content.toLowerCase() === préfix + "paladin"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du paladin**", "?Lvl paladin")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 30 entre ?Gardien ou ?Clerc")
     .setImage("https://c4.wallpaperflare.com/wallpaper/145/225/139/fantasy-art-dragon-shield-diablo-3-reaper-of-souls-wallpaper-preview.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl paladin"){
@@ -111,7 +111,7 @@ if(message.content.toLowerCase() === préfix + "lvl paladin"){
     .addField(":sparkles: **LVL 25**", "**Vous obtenez une passif ! (hors combat) :** Généralement (sauf exception), la présence du paladin laisse à croire que le groupe/son interlocuteur est plutôt en sécurité.")
     .addField(":sparkles: **LVL 27**", "**Une de vos compétences est amélioré :** :cyclone: ``?Regeneration``")
     .setFooter("Menu lvl paladin")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "chevalier"){
@@ -122,7 +122,7 @@ if(message.content.toLowerCase() === préfix + "chevalier"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du chevalier**", "?Lvl chevalier")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 30 entre ?Berserk ou ?Duelliste")
     .setImage("https://p4.wallpaperbetter.com/wallpaper/265/611/760/knight-dark-souls-dark-souls-ii-artwork-fantasy-art-armor-sword-cape-video-games-heide-knight-wallpaper-preview.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 
@@ -136,7 +136,7 @@ if(message.content.toLowerCase() === préfix + "lvl chevalier"){
     .addField(":sparkles: **LVL 25**", "**Vous obtenez une passif ! (hors combat) :** En temps normal (sauf exception), vous êtes quelqu'un qui arrive à garder son sang-froid pour la plupart événements auquel il fait face (même en combat sauf face à la mort !).")
     .addField(":sparkles: **LVL 27**", "**Une de vos compétences est amélioré :** :cyclone: ``?Regeneration``")
     .setFooter("Menu lvl chevalier")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "archer"){
@@ -147,7 +147,7 @@ if(message.content.toLowerCase() === préfix + "archer"){
     .addField(":chart_with_upwards_trend: **Liste des attaques de l'archer**", "?Lvl archer")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 30 entre ?Maître archer ou ?Bombardier")
     .setImage("https://i.pinimg.com/originals/82/bb/33/82bb3334e8083bfae107211495d4314c.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl archer"){
@@ -161,7 +161,7 @@ if(message.content.toLowerCase() === préfix + "lvl archer"){
     .addField(":sparkles: **LVL 25**", "**Vous obtenez une passif ! (hors combat) :** En temps normal (sauf exception), votre vue est bien meilleur qu'une personne autre que de la branche des archers !")
     .addField(":sparkles: **LVL 27**", "**Une de vos compétences est amélioré :** :mending_heart: ``?Bandage @pingDuJoueur``")
     .setFooter("Menu lvl archer")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 
@@ -173,7 +173,7 @@ if(message.content.toLowerCase() === préfix + "assassin"){
     .addField(":chart_with_upwards_trend: **Liste des attaques de l'assassin**", "?Lvl assassin")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 30 entre ?Samouraï ou ?Prédateur")
     .setImage("https://images2.alphacoders.com/888/thumb-1920-888554.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl assassin"){
@@ -186,7 +186,7 @@ if(message.content.toLowerCase() === préfix + "lvl assassin"){
     .addField(":sparkles: **LVL 25**", "**Vous obtenez une passif ! (hors combat) :** Lorsque vous le désirez, vous pouvez devenir légèrement transparant mais vous oblige à rester statique. Autant vous dire que vous pouvez facilement vous fondre dans le décor ! (mais vous n'êtes pas invisible, attention)")
     .addField(":sparkles: **LVL 27**", "**Une de vos compétences est amélioré :** :dagger: ``?Coup fatal``")
     .setFooter("Menu lvl assassin")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "sorcier"){
@@ -197,7 +197,7 @@ if(message.content.toLowerCase() === préfix + "sorcier"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du sorcier**", "?Lvl sorcier")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 30 entre ?Archimage ou ?Élu")
     .setImage("https://a-static.besthdwallpaper.com/chemin-de-l-exil-mage-fond-d-ecran-1920x1080-23840_48.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl sorcier"){
@@ -210,7 +210,7 @@ if(message.content.toLowerCase() === préfix + "lvl sorcier"){
     .addField(":sparkles: **LVL 25**", "**Vous obtenez une passif ! (hors combat) :** Vous êtes cappable d'invoquer une aura autours d'une personne pour calmer ses esprits(si elle a subit un choc par exemple). Plus la personne est haut level, plus ça peu prendre du temps...Et surtout, si la personne a un niveau supérieur au votre, ça ne fonctionnera pas.")
     .addField(":sparkles: **LVL 27**", "**Une de vos compétences est amélioré :** :cyclone: ``?Regeneration de mana``")
     .setFooter("Menu lvl sorcier")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "sorcier ténébreux"){
@@ -221,7 +221,7 @@ if(message.content.toLowerCase() === préfix + "sorcier ténébreux"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du sorcier ténébreux**", "?Lvl sorcier ténébreux")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 30 entre ?Nécromancien ou ?Être maudit")
     .setImage("http://sepsis.s.e.pic.centerblog.net/b1ea4142.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl sorcier ténébreux"){
@@ -235,7 +235,7 @@ if(message.content.toLowerCase() === préfix + "lvl sorcier ténébreux"){
     .addField(":sparkles: **LVL 27**", "**Une de vos compétences est amélioré :** :cyclone: ``?Regeneration de mana``")
     .addField(":scroll: **Note**", "Les sorts ''heal'' et ''boule de feu'' ne sont pas les mêmes que ceux du sorcier !")
     .setFooter("Menu lvl sorcier ténébreux")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "berserk"){
@@ -246,7 +246,7 @@ if(message.content.toLowerCase() === préfix + "berserk"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du berserk**", "?Lvl berserk")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 45 en ??")
     .setImage("https://i.pinimg.com/originals/6e/eb/ef/6eebeffcc2a604a05b0a142ea82b7729.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl berserk"){
@@ -262,7 +262,7 @@ if(message.content.toLowerCase() === préfix + "lvl berserk"){
     .addField(":sparkles: **LVL 43**", "**Vous obtenez une nouvelle compétence :** :heartpulse: ``?Hurlement régénérateur``")
     .addField(":sparkles: **LVL 44**", "**Vous obtenez une nouvelle compétence :** :crown: ``?Ultime Berserk``")
     .setFooter("Menu lvl berserk")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 
@@ -274,7 +274,7 @@ if(message.content.toLowerCase() === préfix + "duelliste"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du duelliste**", "?Lvl duelliste")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 45 en ??")
     .setImage("https://images7.alphacoders.com/934/934064.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl duelliste"){
@@ -290,7 +290,7 @@ if(message.content.toLowerCase() === préfix + "lvl duelliste"){
     .addField(":sparkles: **LVL 43**", "**Vous obtenez une nouvelle compétence :** :crossed_swords: ``?Combo``")
     .addField(":sparkles: **LVL 44**", "**Vous obtenez une nouvelle compétence :** :crown: ``?Ultime Duelliste``")
     .setFooter("Menu lvl duelliste")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "gardien"){
@@ -301,7 +301,7 @@ if(message.content.toLowerCase() === préfix + "gardien"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du gardien**", "?Lvl gardien")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 45 en ??")
     .setImage("https://images.wallpapersden.com/image/download/black-knight-eternals-art-2020_a21ubWaUmZqaraWkpJRmbmdlrWZmZWg.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl gardien"){
@@ -317,7 +317,7 @@ if(message.content.toLowerCase() === préfix + "lvl gardien"){
     .addField(":sparkles: **LVL 43**", "**Vous obtenez une nouvelle compétence :** :shield: ``?Mur d'acier [Dégâts reçu]``")
     .addField(":sparkles: **LVL 44**", "**Vous obtenez une nouvelle compétence :** :crown: ``?Ultime gardien``")
     .setFooter("Menu lvl gardien")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 
@@ -329,7 +329,7 @@ if(message.content.toLowerCase() === préfix + "clerc"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du clerc**", "?Lvl clerc")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 45 en ??")
     .setImage("https://media.discordapp.net/attachments/918139711338475522/945402918557859850/9a5fe6488054a20da6c5be9908d9bfde.png?width=462&height=676")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl clerc"){
@@ -345,7 +345,7 @@ if(message.content.toLowerCase() === préfix + "lvl clerc"){
     .addField(":sparkles: **LVL 43**", "**Vous obtenez une nouvelle compétence :** :heartpulse: ``?Célébration``")
     .addField(":sparkles: **LVL 44**", "**Vous obtenez une nouvelle compétence :** :crown: ``?Ultime clerc``")
     .setFooter("Menu lvl clerc")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 
@@ -357,7 +357,7 @@ if(message.content.toLowerCase() === préfix + "nécromancien"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du nécromancien**", "?Lvl nécromancien")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 45 en ??")
     .setImage("https://images6.alphacoders.com/106/thumb-1920-1065654.png")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl nécromancien"){
@@ -373,7 +373,7 @@ if(message.content.toLowerCase() === préfix + "lvl nécromancien"){
     .addField(":sparkles: **LVL 43**", "**Vous obtenez une nouvelle compétence :** :bust_in_silhouette: ``?Invocation archer``")
     .addField(":sparkles: **LVL 44**", "**Vous obtenez une nouvelle compétence :** :crown: ``?Ultime nécromancien``")
     .setFooter("Menu lvl nécromancien")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "être maudit"){
@@ -384,7 +384,7 @@ if(message.content.toLowerCase() === préfix + "être maudit"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du être maudit**", "?Lvl être maudit")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 45 en ??")
     .setImage("https://hdfondsdecran.com/image/201609/2389/trone-rayon-necromancien.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl être maudit"){
@@ -400,7 +400,7 @@ if(message.content.toLowerCase() === préfix + "lvl être maudit"){
     .addField(":sparkles: **LVL 43**", "**Vous obtenez une nouvelle compétence :** :warning: ``?Vol de mana [@ping joueur]``")
     .addField(":sparkles: **LVL 44**", "**Vous obtenez une nouvelle compétence :** :crown: ``?Ultime être maudit``")
     .setFooter("Menu lvl être maudit")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "archimage"){
@@ -411,7 +411,7 @@ if(message.content.toLowerCase() === préfix + "archimage"){
     .addField(":chart_with_upwards_trend: **Liste des attaques de l'Archimage**", "?Lvl archimage")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 45 en ??")
     .setImage("https://wallpaperaccess.com/full/3464413.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl archimage"){
@@ -427,7 +427,7 @@ if(message.content.toLowerCase() === préfix + "lvl archimage"){
     .addField(":sparkles: **LVL 43**", "**Vous obtenez une nouvelle compétence :** :bust_in_silhouette: ``?Petit ange``")
     .addField(":sparkles: **LVL 44**", "**Vous obtenez une nouvelle compétence :** :crown: ``?Ultime Archimage``")
     .setFooter("Menu lvl archimage")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 
@@ -439,7 +439,7 @@ if(message.content.toLowerCase() === préfix + "élu"){
     .addField(":chart_with_upwards_trend: **Liste des attaques de l'Élu**", "?Lvl élu")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 45 en ??")
     .setImage("https://media.discordapp.net/attachments/939980293253759036/948148826886254592/staff-mage-blonde-anime-girl-long-hair-1280x800-wallpx.com_1.jpg?width=1083&height=677")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl élu"){
@@ -455,7 +455,7 @@ if(message.content.toLowerCase() === préfix + "lvl élu"){
     .addField(":sparkles: **LVL 43**", "**Vous obtenez une nouvelle compétence :** :bust_in_silhouette: ``?Petit ange``")
     .addField(":sparkles: **LVL 44**", "**Vous obtenez une nouvelle compétence :** :crown: ``?Ultime Élu``")
     .setFooter("Menu lvl élu")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "bombardier"){
@@ -466,7 +466,7 @@ if(message.content.toLowerCase() === préfix + "bombardier"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du bombardier**", "?Lvl bombardier")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 45 en ??")
     .setImage("https://i.pinimg.com/originals/a3/71/fd/a371fd640281371de0b4993085926ea2.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl bombardier"){
@@ -482,7 +482,7 @@ if(message.content.toLowerCase() === préfix + "lvl bombardier"){
     .addField(":sparkles: **LVL 43**", "**Vous obtenez une nouvelle compétence :** :bust_in_silhouette:  ``?Tourelle``")
     .addField(":sparkles: **LVL 44**", "**Vous obtenez une nouvelle compétence :** :crown: ``?Ultime Bombardier``")
     .setFooter("Menu lvl bombardier")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 
@@ -494,7 +494,7 @@ if(message.content.toLowerCase() === préfix + "maître archer"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du maître archer**", "?Lvl maître archer")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 45 en ??")
     .setImage("https://images-ext-2.discordapp.net/external/VVSPfgE6jPoP5j0OYLXCn4ebPnIpUhzvBOmxWWsaoic/https/i.pinimg.com/originals/80/27/10/802710d278ac8d7cf25daf11b77fc13b.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl maître archer"){
@@ -510,7 +510,7 @@ if(message.content.toLowerCase() === préfix + "lvl maître archer"){
     .addField(":sparkles: **LVL 43**", "**Vous obtenez une nouvelle compétence :** :bust_in_silhouette:  ``?Maître loup``")
     .addField(":sparkles: **LVL 44**", "**Vous obtenez une nouvelle compétence :** :crown: ``?Ultime Maître archer``")
     .setFooter("Menu lvl bombardier")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 
@@ -522,7 +522,7 @@ if(message.content.toLowerCase() === préfix + "prédateur"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du bombardier**", "?Lvl prédateur")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 45 en ??")
     .setImage("http://cdn.wallpaperhi.com/2559x1600/20140226/paintings%20landscapes%20assassin%20illustrations%20fantasy%20art%20digital%20art%20artwork%20drawings%20shinobi%20airbrushed%20christian%20quinot_www.wallpaperhi.com_65.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl prédateur"){
@@ -538,7 +538,7 @@ if(message.content.toLowerCase() === préfix + "lvl prédateur"){
     .addField(":sparkles: **LVL 43**", "**Vous obtenez une nouvelle compétence :** :o:  ``?Marquage``")
     .addField(":sparkles: **LVL 44**", "**Vous obtenez une nouvelle compétence :** :crown: ``?Ultime Prédateur``")
     .setFooter("Menu lvl prédateur")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 
@@ -550,7 +550,7 @@ if(message.content.toLowerCase() === préfix + "samouraï"){
     .addField(":chart_with_upwards_trend: **Liste des attaques du samouraï**", "?Lvl samouraï")
     .addField(":diamond_shape_with_a_dot_inside: **Évolution**", "Évolution à partir du niveau 45 en ??")
     .setImage("https://i.pinimg.com/564x/a1/31/f1/a131f10069fbef1154a4eaf5dfe1d51e.jpg")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 if(message.content.toLowerCase() === préfix + "lvl samouraï"){
@@ -566,7 +566,7 @@ if(message.content.toLowerCase() === préfix + "lvl samouraï"){
     .addField(":sparkles: **LVL 43**", "**Vous obtenez une nouvelle compétence :** :crossed_swords:  ``?Assassinat``")
     .addField(":sparkles: **LVL 44**", "**Vous obtenez une nouvelle compétence :** :crown: ``?Ultime Maître assassin``")
     .setFooter("Menu lvl maître assassin")
-    message.channel.send(help_embed);
+    message.channel.send({embeds: [help_embed]})
 }
 
 

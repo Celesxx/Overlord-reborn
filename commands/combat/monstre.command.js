@@ -28,7 +28,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}monstre`))
                 const zoneData = await zoneController.getZoneByName(zone)
                 const damageResult = await combatFunction.dammageCalculMonstre(monstre, zoneData)
                 
-
+                let i = 0
                 for(const result of damageResult)
                 {
                     if(result.critique && result.special && result.specialCritique || result.special && result.specialCritique) 

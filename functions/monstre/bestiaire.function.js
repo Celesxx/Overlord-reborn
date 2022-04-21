@@ -3,21 +3,14 @@ const BestiaireController = require('../../controllers/bestiaire.controller')
 class BestiaireFunction 
 {
     /**
-     * @param {String} message
+     * @param {String} data
     */
-    async monstreCreation(message)
+    async monstreCreation(data)
     {
         try
         {
-            let data = JSON.parse(message.slice(17))
-            let result = []
-            for(const monstre in data)
-            {
-                const bestiaireController = new BestiaireController()
-                const bestiaireFunction = await bestiaireController.createMonstre(data[monstre])
-                result.push(bestiaireFunction)
-            }
-            return result
+            const bestiaireController = new BestiaireController()            
+            return await bestiaireController.createMonstre(data)
 
         } catch(error)
         {

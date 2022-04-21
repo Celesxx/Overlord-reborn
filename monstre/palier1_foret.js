@@ -275,7 +275,7 @@ if(command === 'gs'){
                 message.channel.send("Vous gagnez aussi **" + pieceBronze + "** pièces de bronze et **" + argent + "** pièces d'argent.")
                 var embed = new Discord.MessageEmbed()
                 .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-                message.channel.send(embed);
+                message.channel.send({embeds: [embed]});
                 var channel = client.channels.cache.get('939189314779222043');
                 channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
             }
@@ -378,7 +378,7 @@ if(command === 'a'){
             message.channel.send("Vous gagnez aussi **" + pieceBronze + "** pièces de bronze et **" + argent + "** pièces d'argent.")
             var embed = new Discord.MessageEmbed()
             .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-            message.channel.send(embed);
+            message.channel.send({embeds: [embed]});
             var channel = client.channels.cache.get('939189314779222043');
             channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
         }
@@ -482,7 +482,7 @@ if(command === 'gh'){
                 message.channel.send("Vous gagnez aussi **" + pieceBronze + "** pièces de bronze et **" + argent + "** pièces d'argent.")
                 var embed = new Discord.MessageEmbed()
                 .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-                message.channel.send(embed);
+                message.channel.send({embeds: [embed]});
                 var channel = client.channels.cache.get('939189314779222043');
                 channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
             }
@@ -580,7 +580,7 @@ if(command === 'g'){
                 message.channel.send("Vous gagnez aussi **" + result + "** pièces d'argent'.")
                 var embed = new Discord.MessageEmbed()
                 .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-                message.channel.send(embed);
+                message.channel.send({embeds: [embed]});
                 var channel = client.channels.cache.get('939189314779222043');
                 channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
             }

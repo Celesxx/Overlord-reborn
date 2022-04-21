@@ -136,7 +136,7 @@ if(message.content === préfix + "RecompenseGhoul" || message.content === préfi
         message.channel.send("Bravo ! Vous avez gagné de l'experience. C'est le ''tutoriel'', donc pour cette fois, on vous offre 1 niveau...\n Lorsque vous gagnez un niveau, selon votre classe vous allez gagner des points bonus dans certaines statistiques de manière automatique. Néanmoins, vous n'êtes pas dépendant du système ! Car vous gagnez aussi des points qui sont à attribuer manuellement !")
         var embed = new Discord.MessageEmbed()
         .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
         message.channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
 
     } else {

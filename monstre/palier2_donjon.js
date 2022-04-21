@@ -383,7 +383,7 @@ if(command === 'gt'){
                 message.channel.send("Vous gagnez aussi **" + pieceBronze + "** pièces de bronze et **" + argent + "** pièces d'argent.")
                 var embed = new Discord.MessageEmbed()
                 .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-                message.channel.send(embed);
+                message.channel.send({embeds: [embed]});
                 var channel = client.channels.cache.get('939189314779222043');
                 channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
             }
@@ -489,7 +489,7 @@ if(command === 'ga'){
                 message.channel.send("Vous gagnez aussi **" + pieceBronze + "** pièces de bronze et **" + argent + "** pièces d'argent.")
                 var embed = new Discord.MessageEmbed()
                 .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-                message.channel.send(embed);
+                message.channel.send({embeds: [embed]});
                 var channel = client.channels.cache.get('939189314779222043');
                 channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
             }
@@ -593,7 +593,7 @@ if(command === 'gas'){
                 message.channel.send("Vous gagnez aussi **" + pieceBronze + "** pièces de bronze et **" + argent + "** pièces d'argent.")
                 var embed = new Discord.MessageEmbed()
                 .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-                message.channel.send(embed);
+                message.channel.send({embeds: [embed]});
                 var channel = client.channels.cache.get('939189314779222043');
                 channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
             }
@@ -705,7 +705,7 @@ if(command === 'gp'){
                 message.channel.send("Vous gagnez aussi **" + pieceBronze + "** pièces de bronze et **" + argent + "** pièces d'argent.")
                 var embed = new Discord.MessageEmbed()
                 .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-                message.channel.send(embed);
+                message.channel.send({embeds: [embed]});
                 var channel = client.channels.cache.get('939189314779222043');
                 channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
             }
@@ -811,7 +811,7 @@ if(command === 'ch'){
                 message.channel.send("Vous gagnez aussi **" + pieceBronze + "** pièces de bronze et **" + argent + "** pièces d'argent.")
                 var embed = new Discord.MessageEmbed()
                 .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-                message.channel.send(embed);
+                message.channel.send({embeds: [embed]});
                 var channel = client.channels.cache.get('939189314779222043');
                 channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
             }
@@ -911,7 +911,7 @@ if(command === 'fm'){
                 message.channel.send("Vous gagnez aussi **" + pieceBronze + "** pièces de bronze.")
                 var embed = new Discord.MessageEmbed()
                 .addField("Courbe d'XP",  xpActuel + " ---> " + bdd[id].xp)
-                message.channel.send(embed);
+                message.channel.send({embeds: [embed]});
                 var channel = client.channels.cache.get('939189314779222043');
                 channel.send('Commande : ' +  message.content + '\nID utilisateur : <@' + id +'>');
             }
