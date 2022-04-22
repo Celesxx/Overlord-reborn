@@ -292,7 +292,7 @@ class CombatFunction
     //--------------------------------------- Edit message embed status ------------------------------------------  
 
     /**
-     * @param {Object} message
+     * @param {Object} author
      * @param {String} user
      * @param {Array} multiCibleResult
      * @param {Array} skill
@@ -303,86 +303,64 @@ class CombatFunction
      * @param {String} oldOrder
     */
 
-    async editCombatEmbed(message, user, multiCibleResult, skill, degatForEachMonstre, combatStatus, positionResult, embed, oldOrder)
+    async editCombatEmbed(user, multiCibleResult, skill, degatForEachMonstre, combatStatus, positionResult, embed, oldOrder)
     {
-        try
-        {
-            let i = 0
-            let result = {state: false, error: "", embed: [], combatId: ""}
-            let isInCombat = false
-            let cibleDead = false
+        let i = 0
+        let result = {state: false, error: "", embed: [], combatId: ""}
 
-            for(let field of embed.fields)
+        for(let field of embed.fields)
+        {
+            if(field.value == "mort" && multiCibleResult.cible.includes(field.name))  
             {
-                
-                if(field.name == "Ordre du combat" && field.value.replace(/[<@>\n]/gm, " ").split(' ').filter(w => w !== '').includes(user)) isInCombat = true
-                if(isInCombat)
-                {
-                    // Vérifie si la cible est pas morte
-                    // for(const fields of embed.fields) 
-                    // {
-                        if(field.value == "mort" && multiCibleResult.cible.includes(field.name))  
-                        {
-                            embed.fields.slice(3)[0].value = oldOrder
-                            embed.fields.slice(-1)[0].value = `${message.author.username} vous ne pouvez pas attaquer une cible déja morte`
-                            cibleDead = true
-                            break
-                        }
-                    // }
-
-                    if(multiCibleResult.error == false && positionResult.state == true) // Si tout est good 
-                    {
-                        i = 0
-                        for(const degatStatus of degatForEachMonstre) // Applique les dégat à chaque cible
-                        {
-                            if(field.name == multiCibleResult.cible[i] && parseInt(field.value) - degatStatus.degat > 0 && field.value != "mort") field.value = `${parseInt(field.value) - degatStatus.degat}`
-                            else if(field.name == multiCibleResult.cible[i] && parseInt(field.value) - degatStatus.degat <= 0) 
-                            {
-                                let order = embed.fields.slice(3)[0].value.split("\n").filter(participant => !participant.includes(field.name))
-                                
-                                if(!order.some(member => member.includes(":x:"))) // Si tout le monde à déja fait son action ce tour
-                                {
-                                    order.forEach((value, id) => 
-                                    {
-                                        order[id] = order[id].replace(":white_check_mark:", ":x:") // On reset l'emoji pour tout le monde
-                                    })
-                                    embed.fields.slice(2)[0].value =  `${parseInt(embed.fields.slice(2)[0].value) + 1}`
-                                }
-                                embed.fields.slice(3)[0].value = order.join("\n")
-                                field.value = "mort"
-                            }
-                            i++
-                        }
-                        
-                        if(field.name == "Status" && combatStatus.length != 0 ) 
-                        {
-                            field.value = `\n${message.author.username} ${skill[0].description} ${combatStatus}`
-                            if(embed.image == null ) embed.setImage("https://media.discordapp.net/attachments/951928506021998652/956361957173252147/ac8bc3366058336faf13e2414cbdb579.gif")
-                            else embed.image.url = "https://media.discordapp.net/attachments/951928506021998652/956361957173252147/ac8bc3366058336faf13e2414cbdb579.gif"
-                            degatForEachMonstre.forEach(degatResult => { if(degatResult.miss == false) embed.image.url = skill[0].image })
-                        }
-                    }
-                    else if(positionResult.state == false && field.name == "Status") 
-                    {
-                        field.value = `\n${message.author.username} ${positionResult.message}` 
-                        embed.fields.slice(3)[0].value = oldOrder
-                        embed.fields.slice(2)[0].value = `${parseInt(embed.fields.slice(2)[0].value) - 1}`
-                    }
-                    else if(field.name == "Status") field.value = `\n${message.author.username} ${multiCibleResult.message}` 
-                    
-                }
-                    
+                embed.fields.slice(3)[0].value = oldOrder
+                embed.fields.slice(-1)[0].value = `<@${user}> vous ne pouvez pas attaquer une cible déja morte`
+                break
             }
-            result.embed = embed
-            result.state = true
-            result.combatId = embed.author.name
-            return result
-
-        }catch(error)
-        {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
-            return {state : false, error : error}
         }
+                
+
+        if(multiCibleResult.error == false && positionResult.state == true) // Si tout est good 
+        {
+            i = 0
+            for(const degatStatus of degatForEachMonstre) // Applique les dégat à chaque cible
+            {
+                let target = embed.fields.find(field => field.name === multiCibleResult.cible[i])
+                let targetIndex = embed.fields.indexOf(target)
+
+                if(target.length != 0 && parseInt(target.value) - degatStatus.degat > 0 && target.value != "mort") embed.fields.slice(targetIndex)[0].value = `${parseInt(target.value) - degatStatus.degat}`
+                else embed.fields.slice(targetIndex)[0].value = "mort"
+                i++
+            }
+
+
+            embed.fields.slice(-1)[0].value = `\n<@${user}> ${skill[0].description} ${combatStatus}`
+            if(degatForEachMonstre.some(result => result.miss == false)) embed.image.url = skill[0].image
+            else embed.image.url = skill[0].imageMiss
+            
+            let order = embed.fields.slice(3)[0].value.split("\n")     
+            if(!order.some(member => member.includes(":x:"))) // Si tout le monde à déja fait son action ce tour
+            {
+                order.forEach((value, id) => 
+                {
+                    order[id] = order[id].replace(":white_check_mark:", ":x:") // On reset l'emoji pour tout le monde
+                })
+                embed.fields.slice(2)[0].value =  `${parseInt(embed.fields.slice(2)[0].value) + 1}`
+            }
+            embed.fields.slice(3)[0].value = order.join("\n")   
+
+
+        }else if(positionResult.state == false) 
+        {
+            embed.fields.slice(-1)[0].value = `\n<@${user}> ${positionResult.message}` 
+            embed.fields.slice(3)[0].value = oldOrder
+            embed.fields.slice(2)[0].value = `${parseInt(embed.fields.slice(2)[0].value) - 1}`
+
+        }else embed.fields.slice(-1)[0] = `\n<@${user}> ${multiCibleResult.message}` 
+                            
+        result.embed = embed
+        result.state = true
+        result.combatId = embed.author.name
+        return result
     }
 
 
@@ -396,79 +374,49 @@ class CombatFunction
 
     /**
      * @param {String} user
-     * @param {Object} message
+     * @param {Object} embed
     */
 
-    async turnVerification(user, message)
+    async turnVerification(user, embed)
     {
-        let result = { state: true, error: "", embedId: "", embed: [], currentTurn: 1, oldOrder: ""}
+        let result = { state: true, error: "", embed: [], currentTurn: 1, oldOrder: ""}
         try
         {
 
-            await message.channel.messages.fetch({limit: 25}) // Cherche les 25 derniers messages du channel 
-            .then(async data => 
-            {    
-                for(const [key,value] of data.entries())
+ 
+            let order = embed.fields.slice(3)[0].value.split("\n")
+            result.oldOrder = order.join("\n")
+            let userOrder = order.filter(participant => participant.includes(user)).join("") //On get l'user qui fait son action dans la liste
+
+            if(userOrder.includes(":x:")) // Si user n'a pas déja fait son action
+            {
+                if(!isNaN(user)) userOrder = `:white_check_mark:<@${userOrder.replace(/[:x<@> ]/gm, "")}>` // user prend l'emoji 
+                else userOrder = `:white_check_mark:${userOrder.replace(/[:x<@> ]/gm, "")}` // monstre prend l'emoji 
+
+                order.forEach( (value, id) => { if(value.includes(user)) order[id] = userOrder }) //remplace l'ancier user dans la liste de l'ordre du combat
+                result.currentTurn = parseInt(embed.fields.slice(2)[0].value)
+
+                if(!order.some(member => member.includes(":x:"))) // Si tout le monde à déja fait son action ce tour
                 {
-                    let embed
-                    if(value.embeds.length != 0) // Si message contient un embed
+                    order.forEach((value, id) => 
                     {
-                        let isInCombat = false
-                        embed = value.embeds[0]
-
-                        for(let field of embed.fields)
-                        {
-                            if(
-                                field.name == "Ordre du combat" && field.value.replace(/[<@>\n]/gm, " ").split(' ').filter(w => w !== '').includes(user) 
-                                || 
-                                field.name == "Ordre du combat" && field.value.includes(user)
-                            )isInCombat = true  // Vérifie que l'user est bien dans le combat 
-
-                            if(isInCombat && field.name == "Ordre du combat") // Si le l'user est bien dans le combat
-                            {
-                                
-                                let order = field.value.split("\n")
-                                result.oldOrder = order.join("\n")
-                                let userOrder = order.filter(participant => participant.includes(user)).join("") //On get l'user qui fait son action dans la liste
-
-                                if(userOrder.includes(":x:")) // Si user n'a pas déja fait son action
-                                {
-                                    if(!isNaN(user)) userOrder = `:white_check_mark:<@${userOrder.replace(/[:x<@> ]/gm, "")}>` // user prend l'emoji 
-                                    else userOrder = `:white_check_mark:${userOrder.replace(/[:x<@> ]/gm, "")}` // monstre prend l'emoji 
-
-                                    order.forEach( (value, id) =>  //remplace l'ancier user dans la liste de l'ordre du combat
-                                    {
-                                        if(value.includes(user)) order[id] = userOrder
-                                    })
-
-                                    result.currentTurn = parseInt(embed.fields.slice(2)[0].value)
-
-                                    if(!order.some(member => member.includes(":x:"))) // Si tout le monde à déja fait son action ce tour
-                                    {
-                                        order.forEach((value, id) => 
-                                        {
-                                            order[id] = order[id].replace(":white_check_mark:", ":x:") // On reset l'emoji pour tout le monde
-                                        })
-                                        embed.fields.slice(2)[0].value = `${parseInt(embed.fields.slice(2)[0].value) + 1}`
-                                    }
-
-                                    for(let field of embed.fields) if(field.name == "Ordre du combat") field.value = order.join("\n") // edit le field "Ordre du combat"
-                                }
-                                else if(userOrder.includes(":white_check_mark:") && !order.includes(":x:")) // Si l'user à déja fait son action
-                                {
-                                    if(!isNaN(user)) embed.fields.slice(-1)[0].value = `<@${user}> tente d'attaquer mais il a déja effectué son action pour ce tour !` // Si l'user est un joueur
-                                    else embed.fields.slice(-1)[0].value = `${user} tente d'attaquer mais il a déja effectué son action pour ce tour !` // Si le joueur est un monstre
-                                    result.state = false
-                                }
-
-                                result.embedId = value.id
-                                result.embed = embed
-                                break
-                            }
-                        } 
-                    }
+                        order[id] = order[id].replace(":white_check_mark:", ":x:") // On reset l'emoji pour tout le monde
+                    })
+                    embed.fields.slice(2)[0].value = `${parseInt(embed.fields.slice(2)[0].value) + 1}`
                 }
-            })
+
+                embed.fields.slice(3)[0].value = order.join("\n") // edit le field "Ordre du combat"
+
+            }else if(userOrder.includes(":white_check_mark:") && !order.includes(":x:")) // Si l'user à déja fait son action
+            {
+                if(!isNaN(user)) embed.fields.slice(-1)[0].value = `<@${user}> tente d'attaquer mais il a déja effectué son action pour ce tour !` // Si l'user est un joueur
+                else embed.fields.slice(-1)[0].value = `${user} tente d'attaquer mais il a déja effectué son action pour ce tour !` // Si le joueur est un monstre
+                result.state = false
+            }
+
+            result.embed = embed
+                                
+                      
             return result
 
         }catch(error)

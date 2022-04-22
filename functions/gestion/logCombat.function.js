@@ -235,18 +235,40 @@ class LogCombatFunction
     /**
      * @param {String} userId
     */
-    async getCombatIdByParticipant(userId)
+    async getLogCombatParticipantId(userId)
     {
         try
         {
             const logCombatController = new LogCombatController()
-            return await logCombatController.getCombatIdByParticipant(userId)
+            return await logCombatController.getLogCombatParticipantId(userId)
 
         } catch(error)
         {
             console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
     }
+
+
+
+
+
+
+
+    /**
+     * @param {String} userId
+    */
+     async getCombatIdByParticipant(userId)
+     {
+         try
+         {
+             const logCombatController = new LogCombatController()
+             return await logCombatController.getCombatIdByParticipant(userId)
+ 
+         } catch(error)
+         {
+             console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
+         }
+     }
 
 
 

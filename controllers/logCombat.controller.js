@@ -69,6 +69,34 @@ class LogCombatController
 
 
 
+
+
+
+
+    // ----------------------------------------------------Get combat log by participant ---------------------------------------------------
+
+    /**
+     * @param {String} id
+    */
+     async getLogCombatParticipantId(id) 
+     {
+         const functionName = "getLogCombatById";
+         try
+         {  
+            const logCombatGet = await LogCombat.find({participant : {$in : [`<@!${id}>`]}, over: false, recompense: false},'-_id -__v')
+            return logCombatGet
+                     
+         }catch(error) { return errorHelper.contentError(functionName, this.filename, error) }
+     }
+
+
+
+
+
+
+
+
+
     // ----------------------------------------------------edit combat log by id ---------------------------------------------------
 
     /**
