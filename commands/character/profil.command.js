@@ -48,10 +48,10 @@ module.exports =
             .addField("●▬▬▬▬▬▬▬▬▬▬:coin:     argent     :coin:▬▬▬▬▬▬▬▬▬▬●", `:third_place: bronze : ${data.money[0]} \n:second_place: argent : ${data.money[1]} \n:first_place: or : ${data.money[2]}`)
             .setImage(data.image.replace(/["]/gm, ""))
             
-            interaction.reply({ ephermal: true, content: '** **' })
-            interaction.deleteReply()
-            interaction.channel.send({embeds: [embed]})
-                 
+            await interaction.reply({ ephermal: true, content: '** **' })
+            await interaction.deleteReply()
+            await interaction.channel.send({embeds: [embed]})
+
         })
 
     }

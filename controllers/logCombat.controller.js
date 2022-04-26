@@ -30,6 +30,7 @@ class LogCombatController
                 round: data.round, 
                 reward: data.reward,
                 participant: data.participant,
+                recompense: data.recompense,
                 over: data.over,
             })
         
@@ -120,6 +121,7 @@ class LogCombatController
             reward: data.reward,
             participant: data.participant,
             over: data.over, 
+            recompense: data.recompense
         }, {new: true})
         
         return logCombatGet

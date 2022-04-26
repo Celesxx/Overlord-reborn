@@ -110,9 +110,7 @@ module.exports =
             {
                 await logCombatFunction.logCombatCreation(author, combatId, result.id, totalParticipant, createdAt, interaction.channel.name, zoneData[0].lvl, moyLvlPlayer)
             })
-        
-            
-                                
+                     
         }else interaction.channel.send("La zone n'est pas valide !")
 
     }

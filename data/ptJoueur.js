@@ -20,7 +20,7 @@ if(message.content.toLowerCase().startsWith(`${préfix}ptlevel`))
                 }else 
                 {
 
-                    const filter = (reaction, user) => ['🛡️','⚔️','✨','🔙','❤️'].includes(reaction.emoji.name) &&user.id === message.author.id;
+                    const filter = (reaction, user) => ['🛡️','⚔️','✨','❤️'].includes(reaction.emoji.name) && user.id === message.author.id && user.id != message.author.bot;
                     let embed = new Discord.MessageEmbed()
                     .setColor("#5DADE2")
                     .setTitle("Vous pouvez attribuer " + stat.attribut[0] + " dans une de vos statistiques.")
@@ -35,67 +35,65 @@ if(message.content.toLowerCase().startsWith(`${préfix}ptlevel`))
                             await message.react('⚔️');
                             await message.react('✨');
                             await message.react('❤️');
-                            await message.react('🔙');
                 
                             let collector = await message.createReactionCollector(filter,{time: 3600000,errors:['time']});
                             await collector.on('collect', async (reaction, collector) =>  
                             {
-                                console.log("test")
-                                switch (reaction.emoji.name) 
+                                console.log(reaction.author)
+                                if(!reaction.author.bot)
                                 {
-                                    case '🛡️':
-                                        if(stat.attribut[0] == 0) message.channel.send("Vous n'avez plus de point à attribuer.")
-                                        else 
-                                        {
-                                            stat.armure[0] += 0.25  
-                                            stat.armure[1] += 0.25
-                                            stat.attribut[0] -= 1
-                                            await playerCreationFunction.editPlayerById(stat.id, stat)
-                                            message.channel.send("Vous venez d'utiliser un point dans l'armure, il ne vous en reste plus que " + stat.attribut[0])
-                                        }
-                                    break
+                                    switch (reaction.emoji.name) 
+                                    {
+                                        case '🛡️':
+                                            if(stat.attribut[0] == 0) message.channel.send("Vous n'avez plus de point à attribuer.")
+                                            else 
+                                            {
+                                                stat.armure[0] += 0.25  
+                                                stat.armure[1] += 0.25
+                                                stat.attribut[0] -= 1
+                                                await playerCreationFunction.editPlayerById(stat.id, stat)
+                                                message.channel.send("Vous venez d'utiliser un point dans l'armure, il ne vous en reste plus que " + stat.attribut[0])
+                                            }
+                                        break
 
-                                    case '⚔️':
-                                        if(stat.attribut[0] == 0) message.channel.send("Vous n'avez plus de point à attribuer.")
-                                        else 
-                                        {
-                                            stat.attaque[0] += 1
-                                            stat.attaque[1] += 1
-                                            stat.attribut[0] -= 1
-                                            await playerCreationFunction.editPlayerById(stat.id, stat)
-                                            message.channel.send("Vous venez d'utiliser un point dans l'attaque, il ne vous en reste plus que " + stat.attribut[0])
-                                        }
-                                    break
+                                        case '⚔️':
+                                            if(stat.attribut[0] == 0) message.channel.send("Vous n'avez plus de point à attribuer.")
+                                            else 
+                                            {
+                                                stat.attaque[0] += 1
+                                                stat.attaque[1] += 1
+                                                stat.attribut[0] -= 1
+                                                await playerCreationFunction.editPlayerById(stat.id, stat)
+                                                message.channel.send("Vous venez d'utiliser un point dans l'attaque, il ne vous en reste plus que " + stat.attribut[0])
+                                            }
+                                        break
 
-                                    case '❤️':
-                                        if(stat.attribut[0] == 0)message.channel.send("Vous n'avez plus de point à attribuer.")
-                                        else 
-                                        {
-                                            stat.hp[0] += 5
-                                            stat.hp[1] += 5
-                                            stat.attribut[0] =  stat.attribut[0] - 1
-                                            await playerCreationFunction.editPlayerById(stat.id, stat)
-                                            message.channel.send("Vous venez d'utiliser un point dans la vitalité, il ne vous en reste plus que " + stat.attribut[0])
-                                        }
-                                    break;
+                                        case '❤️':
+                                            if(stat.attribut[0] == 0)message.channel.send("Vous n'avez plus de point à attribuer.")
+                                            else 
+                                            {
+                                                stat.hp[0] += 5
+                                                stat.hp[1] += 5
+                                                stat.attribut[0] =  stat.attribut[0] - 1
+                                                await playerCreationFunction.editPlayerById(stat.id, stat)
+                                                message.channel.send("Vous venez d'utiliser un point dans la vitalité, il ne vous en reste plus que " + stat.attribut[0])
+                                            }
+                                        break;
 
-                                    case '✨':
-                                        if(stat.attribut[0] == 0) message.channel.send("Vous n'avez plus de point à attribuer.")
-                                        else 
-                                        {
-                                            stat.magie[0] += 5
-                                            stat.magie[1] += 5
-                                            stat.attribut[0] =  stat.attribut[0] - 1
-                                            await playerCreationFunction.editPlayerById(stat.id, stat)
-                                            message.channel.send("Vous venez d'utiliser un point dans le mana, il ne vous en reste plus que " + stat.attribut[0])
-                                        }
-                                    break;
-
-                                    case '🔙':
-                                        message.delete()
-                                    break;
-                                
-                                }  
+                                        case '✨':
+                                            if(stat.attribut[0] == 0) message.channel.send("Vous n'avez plus de point à attribuer.")
+                                            else 
+                                            {
+                                                stat.magie[0] += 5
+                                                stat.magie[1] += 5
+                                                stat.attribut[0] =  stat.attribut[0] - 1
+                                                await playerCreationFunction.editPlayerById(stat.id, stat)
+                                                message.channel.send("Vous venez d'utiliser un point dans le mana, il ne vous en reste plus que " + stat.attribut[0])
+                                            }
+                                        break;
+                                    
+                                    }
+                                }
                             })
                         }catch(error)
                         {

@@ -1,8 +1,12 @@
-if(message.content.toLowerCase().startsWith(préfix + "+monstrecreation"))
-{
-    try 
-    {
+const LogCombatFunction = require("../../functions/gestion/logCombat.function.js")
+const MessageFunction = require("../../functions/gestion/message.function.js")
 
+module.exports = 
+{
+    name: 'bdd-skill',
+    description: "permet d'ajouter les skills à la bdd",
+    run: (client, message, args) => 
+    {
         const file = message.attachments.first()?.url
         if (!file) console.log('Il manque le fichier json');
 
@@ -16,30 +20,28 @@ if(message.content.toLowerCase().startsWith(préfix + "+monstrecreation"))
             if (text) 
             {
                 data = JSON.parse(text)
-                const bestiaireFunction = new BestiaireFunction()
+                const skillFunction = new SkillFunction()
 
                 let embed = new Discord.MessageEmbed()
                 .setColor("#00ff00")
-                .setTitle("Création de monstre dans la bdd")
+                .setTitle("Création du skill dans la bdd")
 
                 for(const [key, value] of Object.entries(data))
                 {
-                    // console.log("key : ", key)
-                    // console.log(value)
-                    const response = await bestiaireFunction.monstreCreation(value)
+                    const response = await skillFunction.skillCreation(value)
  
                     if(response.state == false) embed.addField("Status", `${response.message}`)
-                    else embed.addField(`${response.monstre.nom}`, `${response.log}` )
-                           
-                    
+                    else embed.addField(`${response.skill.nom}`, `${response.log}` )     
                 }
 
                 message.delete()
                 message.channel.send({embeds: [embed]})
             }
         })
-    } catch (error) 
+    },
+   
+    runSlash: async (client, interaction) => 
     {
-        console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
+        interaction.reply("merci d'utiliser ?bdd-skill à la place")
     }
 }

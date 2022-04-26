@@ -328,13 +328,17 @@ class CombatFunction
                 let targetIndex = embed.fields.indexOf(target)
 
                 if(target.length != 0 && parseInt(target.value) - degatStatus.degat > 0 && target.value != "mort") embed.fields.slice(targetIndex)[0].value = `${parseInt(target.value) - degatStatus.degat}`
-                else embed.fields.slice(targetIndex)[0].value = "mort"
+                else 
+                {
+                    embed.fields.slice(targetIndex)[0].value = "mort"
+                    embed.fields.slice(3)[0].value = embed.fields.slice(3)[0].value.split("\n").filter(participant => !participant.includes(target.name)).join("\n") 
+                }
                 i++
             }
 
 
             embed.fields.slice(-1)[0].value = `\n<@${user}> ${skill[0].description} ${combatStatus}`
-            if(degatForEachMonstre.some(result => result.miss == false)) embed.image.url = skill[0].image
+            if(degatForEachMonstre.some(result => result.miss == false)) embed.image != null? embed.image.url = skill[0].image : embed.setImage(skill[0].image)
             else embed.image.url = skill[0].imageMiss
             
             let order = embed.fields.slice(3)[0].value.split("\n")     
@@ -379,13 +383,11 @@ class CombatFunction
 
     async turnVerification(user, embed)
     {
-        let result = { state: true, error: "", embed: [], currentTurn: 1, oldOrder: ""}
+        let result = { state: true, error: "", embed: [], currentTurn: 1, oldOrder: embed.fields.slice(3)[0].value}
         try
         {
 
- 
             let order = embed.fields.slice(3)[0].value.split("\n")
-            result.oldOrder = order.join("\n")
             let userOrder = order.filter(participant => participant.includes(user)).join("") //On get l'user qui fait son action dans la liste
 
             if(userOrder.includes(":x:")) // Si user n'a pas déja fait son action
@@ -457,7 +459,7 @@ class CombatFunction
             if(critiqueActivation < skill.defense.crit[0]) critique = skill.defense.crit[1]
             degat = degat - (degat * userData.armure[0] / 100) - defense - critique
             if(degat < 0) degat = 0
-            return degat.toFixed(1)
+            return parseInt(degat.toFixed(1))
 
         } catch(error)
         {
