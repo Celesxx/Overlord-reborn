@@ -66,7 +66,7 @@ module.exports =
                     let order = embed.fields.slice(3)[0].value.split("\n").filter(participant => !participant.includes(`<@${user}>`))
                     embed.fields.slice(3)[0].value = order.join("\n")
 
-                }else interaction.member.setNickname(data[0].prenom + " [❤️" + data[0].hp[0] + "] [🛡️"+ data[0].armure[0] +"] [✨" + data[0].magie[0] + "]")
+                }else interaction.member.setNickname(data[0].prenom + " [❤️" + data[0].hp[0] + "] [✨" + data[0].magie[0] + "]")
                 
             }else
             {
