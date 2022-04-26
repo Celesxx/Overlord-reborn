@@ -76,7 +76,7 @@ class ExperienceFunction
      * @param {Number} rankBefore
      * @param {Object} stat
    */
-   async verifLvlUp(id, message, client, rankBefore, stat)
+   async verifLvlUp(id, client, rankBefore, stat)
    {
       try
       {
@@ -90,7 +90,6 @@ class ExperienceFunction
          const canvasCharacterFunction = new CanvasCharacterFunction()
          const playerCreationFunction = new PlayerCreationFunction()
 
-         // let rankBefore = await experienceFunction.getRankPlayer(bdd, id)
 
          do
          {
@@ -118,19 +117,19 @@ class ExperienceFunction
                
                
                // Stat total + gain de classe
-               stat.attribut[0] += lvl[`palier${stat.ptPalier}`]
-               stat.attribut[1] += lvl[`palier${stat.ptPalier}`]
+               stat.attribut[0] += lvl[`palier${stat.attributPalier}`]
+               stat.attribut[1] += lvl[`palier${stat.attributPalier}`]
                stat.hp[1] += lvl[`${stat.classe}_HP`] 
                stat.magie[1] += lvl[`${stat.classe}_MA`] 
                stat.attaque[1] += lvl[`${stat.classe}_AT`]
-               stat.armure[1] = stat.armure[1] + lvl[`${stat.classe}_AR`]
+               stat.armure[1] = stat.armure[1] + lvl[`${stat.classe}_AR`].toFixed(2)
                
                
                // Stat total * stat bonus de race
                stat.hp[1] += Math.round((lvl[`${stat.classe}_HP`] * stat.lvl * stat.hp[2]) - (lvl[`${stat.classe}_HP`] * stat.lvl))
                stat.magie[1] += Math.round((lvl[`${stat.classe}_MA`] * stat.lvl * stat.magie[2]) - (lvl[`${stat.classe}_MA`] * stat.lvl))
                stat.attaque[1] += Math.round((lvl[`${stat.classe}_AT`] * stat.lvl * stat.attaque[2]) - (lvl[`${stat.classe}_AT`] * stat.lvl))
-               stat.armure[1] += (lvl[`${stat.classe}_AR`] * stat.lvl * stat.armure[2]) - (lvl[`${stat.classe}_AR`] * stat.lvl)
+               stat.armure[1] += (lvl[`${stat.classe}_AR`] * stat.lvl * stat.armure[2]) - (lvl[`${stat.classe}_AR`] * stat.lvl).toFixed(2)
 
 
                //Si équipement rajoute toutes les stats qui ont été enlevé par l'ajout des nouvelles stats 
@@ -148,7 +147,7 @@ class ExperienceFunction
          {
 
             //Affiche le canvas lvl
-            let save = await playerCreationFunction.editPlayerById(id, stat)
+            await playerCreationFunction.editPlayerById(id, stat)
             let rankAfter = await experienceFunction.getRankPlayer(id)
             let percentXp = stat.xp * 100 / xpNeedNext 
             let currentRank = ""
@@ -160,17 +159,18 @@ class ExperienceFunction
                Hp: HpGain,
                Mag: MaGain,
                Atk: AtGain,
-               Def: ArGain,
+               Def: ArGain.toFixed(2),
                percent: percentXp,
                xpNeed: xpNeedNext,
                xp: stat.xp,
-               lvl: stat.lvl
+               lvl: stat.lvl,
+               image: stat.image
             }
 
             let channel = client.channels.cache.get('965223174570664007') //Channel Niveau
             // let channel = client.channels.cache.get('955068685146529874')
-            await canvasCharacterFunction.displayCanvasLvlUp(channel, data, message, id)
-            await playerCreationFunction.setNameRp(message, id)
+            await canvasCharacterFunction.displayCanvasLvlUp(channel, data, id)
+            await playerCreationFunction.setNameRp(interaction, id)
          }
          
       }catch(error)

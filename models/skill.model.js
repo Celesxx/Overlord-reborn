@@ -5,6 +5,7 @@ const SkillSchema = mongoose.Schema(
 {
     nom: { type: String, required: true},
     image: { type: String, required: true},
+    imageMiss: { type: String, required: true},
     description: { type: String, required: true},
     target: { type: Array, required: false}, // [nbr cible, nbr ligne position]
     attaque: 
