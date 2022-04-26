@@ -1,11 +1,11 @@
-const LogCombatFunction = require("../../functions/gestion/logCombat.function.js")
-const MessageFunction = require("../../functions/gestion/message.function.js")
+const { MessageEmbed } = require("discord.js")
+const BestiaireFunction = require("../../functions/monstre/bestiaire.function.js")
 
 module.exports = 
 {
     name: 'bdd-monstre',
     description: "permet d'ajouter les monstres à la bdd",
-    run: (client, message, args) => 
+    run: async (client, message, args) => 
     {
         if(message.member.roles.cache.some(role => role.name === 'Fondateur' || role.name === 'Administrateur'))
         {
@@ -24,14 +24,12 @@ module.exports =
                     data = JSON.parse(text)
                     const bestiaireFunction = new BestiaireFunction()
 
-                    let embed = new Discord.MessageEmbed()
+                    let embed = new MessageEmbed()
                     .setColor("#00ff00")
                     .setTitle("Création de monstre dans la bdd")
 
                     for(const [key, value] of Object.entries(data))
                     {
-                        // console.log("key : ", key)
-                        // console.log(value)
                         const response = await bestiaireFunction.monstreCreation(value)
     
                         if(response.state == false) embed.addField("Status", `${response.message}`)

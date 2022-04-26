@@ -2,11 +2,99 @@
     "plaine" : {
         "nom": "plaine",
         "image": "",
-        "description": "Une plaine très calme",
+        "description": "Une zone hostile, remplis de loup et de mercenaire",
         "lvl": 5,
         "nombre": 2,
         "loot": {
-            "money": [0,10],
+            "money": [0,0],
+            "drop": {}
+        }
+    },
+    "forêt" : {
+        "nom": "foret",
+        "image": "",
+        "description": "Une foret très calme",
+        "lvl": 0,
+        "nombre": 0,
+        "loot": {
+            "money": [0,0],
+            "drop": {}
+        }
+    },
+    "colline" : {
+        "nom": "colline",
+        "image": "",
+        "description": "Une colline très calme remplis de verdure",
+        "lvl": 0,
+        "nombre": 0,
+        "loot": {
+            "money": [0,0],
+            "drop": {}
+        }
+    },
+    "lac" : {
+        "nom": "lac",
+        "image": "",
+        "description": "Un grand lac d'un bleue transparent",
+        "lvl": 0,
+        "nombre": 0,
+        "loot": {
+            "money": [0,0],
+            "drop": {}
+        }
+    },
+    "grotte" : {
+        "nom": "grotte",
+        "image": "",
+        "description": "Une colline très calme remplis de verdure",
+        "lvl": 0,
+        "nombre": 0,
+        "loot": {
+            "money": [0,0],
+            "drop": {}
+        }
+    },
+    "montagne" : {
+        "nom": "montagne",
+        "image": "",
+        "description": "Une très haute montagne dépassant les nuages",
+        "lvl": 0,
+        "nombre": 0,
+        "loot": {
+            "money": [0,0],
+            "drop": {}
+        }
+    },
+    "terreArride" : {
+        "nom": "terre-arride",
+        "image": "",
+        "description": "Les terres arides sont le lieux ou ce rassemble les démons",
+        "lvl": 0,
+        "nombre": 0,
+        "loot": {
+            "money": [0,0],
+            "drop": {}
+        }
+    },
+    "taverne" : {
+        "nom": "taverne",
+        "image": "",
+        "description": "taverne inter-espèce rassemblant de multiples races",
+        "lvl": 0,
+        "nombre": 0,
+        "loot": {
+            "money": [0,0],
+            "drop": {}
+        }
+    },
+    "foretMagique" : {
+        "nom": "foret-magique",
+        "image": "",
+        "description": "La forêt magique est le lieux ou vivent les epsèces neutre",
+        "lvl": 0,
+        "nombre": 0,
+        "loot": {
+            "money": [0,0],
             "drop": {}
         }
     }

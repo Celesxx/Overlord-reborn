@@ -13,7 +13,7 @@ module.exports =
     {   
         let id = interaction.member.user.id
         const playerCreationFunction = new PlayerCreationFunction()
-        playerCreationFunction.setNameRp(interaction, id)
+        await playerCreationFunction.setNameRp(interaction, id)
         interaction.reply("Done !")
     }
 }

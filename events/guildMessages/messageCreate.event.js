@@ -1,5 +1,7 @@
 const { CachedManager } = require("discord.js");
 require("dotenv").config();
+const PlayerCreationFunction = require("../../functions/character/creation.function.js")
+const ExperienceFunction = require("../../functions/character/level.function")
 
 const prefix = process.env.PREFIX
 
@@ -22,15 +24,15 @@ module.exports =
             "945974568395358218", "945774986000486450", "945974585587793971", "945974077825380352", "945775181631209522", "945973634751668244", "945973572625661992", "940252629840314388",
             "945973484251668480", "939189317610393706", "945974119374139412", "945974019709087785", "945775505850921010", "945772961934221322", "945974513458372608"
         ]
-            
-        if(message.content.length >= 0 && rpServer.includes(message.channel.id))
+        
+        if(process.env.MODE == "prod" && message.content.length >= 0 && rpServer.includes(message.channel.id))
         {
         
             if(message.content.length >= 200)
             {
             let id = message.author.id
             const playerCreationFunction = new PlayerCreationFunction()
-            const experienceFunction = new LevelFunction()
+            const experienceFunction = new ExperienceFunction()
     
             let stat = await playerCreationFunction.getPlayerById(id.replace(/[<@>]/gm,""))
     

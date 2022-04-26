@@ -1,43 +1,46 @@
-const LogCombatFunction = require("../../functions/gestion/logCombat.function.js")
-const MessageFunction = require("../../functions/gestion/message.function.js")
+const { MessageEmbed } = require("discord.js")
+const SkillFunction = require("../../functions/character/skill.function.js")
 
 module.exports = 
 {
     name: 'bdd-skill',
     description: "permet d'ajouter les skills à la bdd",
-    run: (client, message, args) => 
+    run: async (client, message, args) => 
     {
-        const file = message.attachments.first()?.url
-        if (!file) console.log('Il manque le fichier json');
-
-        const response = Promise.resolve(fetch(file))
-        response.then(async response =>
+        if(message.member.roles.cache.some(role => role.name === 'Fondateur'))
         {
-            if (!response.ok) message.channel.send('Une erreur est survenue',response.statusText,)
+            const file = message.attachments.first()?.url
+            if (!file) console.log('Il manque le fichier json');
 
-            const text = await response.text()
-
-            if (text) 
+            const response = Promise.resolve(fetch(file))
+            response.then(async response =>
             {
-                data = JSON.parse(text)
-                const skillFunction = new SkillFunction()
+                if (!response.ok) message.channel.send('Une erreur est survenue',response.statusText,)
 
-                let embed = new Discord.MessageEmbed()
-                .setColor("#00ff00")
-                .setTitle("Création du skill dans la bdd")
+                const text = await response.text()
 
-                for(const [key, value] of Object.entries(data))
+                if (text) 
                 {
-                    const response = await skillFunction.skillCreation(value)
- 
-                    if(response.state == false) embed.addField("Status", `${response.message}`)
-                    else embed.addField(`${response.skill.nom}`, `${response.log}` )     
-                }
+                    data = JSON.parse(text)
+                    const skillFunction = new SkillFunction()
 
-                message.delete()
-                message.channel.send({embeds: [embed]})
-            }
-        })
+                    let embed = new MessageEmbed()
+                    .setColor("#00ff00")
+                    .setTitle("Création du skill dans la bdd")
+
+                    for(const [key, value] of Object.entries(data))
+                    {
+                        const response = await skillFunction.skillCreation(value)
+    
+                        if(response.state == false) embed.addField("Status", `${response.message}`)
+                        else embed.addField(`${response.skill.nom}`, `${response.log}` )     
+                    }
+
+                    message.delete()
+                    message.channel.send({embeds: [embed]})
+                }
+            })
+        }
     },
    
     runSlash: async (client, interaction) => 

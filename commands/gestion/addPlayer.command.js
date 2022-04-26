@@ -5,7 +5,7 @@ module.exports =
 {
     name: 'addplayer',
     description: "Permet d'enregister un joueur dans la bdd",
-    run: (client, message, args) => 
+    run: async (client, message, args) => 
     {
         message.channel.send("merci d'utiliser la commande /addplayer !")
     },
