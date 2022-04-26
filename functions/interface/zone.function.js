@@ -3,21 +3,14 @@ const ZoneController = require('../../controllers/zone.controller')
 class ZoneFunction 
 {
     /**
-     * @param {String} message
+     * @param {String} data
     */
-    async zoneCreation(message)
+    async zoneCreation(data)
     {
         try
         {
-            let data = JSON.parse(message.slice(14))
-            let result = []
-            for(const zone in data)
-            {
-                const zoneController = new ZoneController()
-                const zoneFunction = await zoneController.createZone(data[zone])
-                result.push(zoneFunction)
-            }
-            return result
+            const zoneController = new ZoneController()
+            return await zoneController.createZone(data)
 
         } catch(error)
         {

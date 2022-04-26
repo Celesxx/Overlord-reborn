@@ -5,11 +5,15 @@ const BestiaireSchema = mongoose.Schema(
 {
     nom: { type: String, required: true},
     nomId: {type: String, required: true},
-    image: { type: String, required: false, default: ""},
     description: { type: String, required: false, default: ""},
     lvl : { type: Number, required: true },
     hp: { type: Array, required: true }, // [hp, hp par level]
     position: { type: Number, required: true}, // Position dans le combat (1 = 1ére ligne, 2 = 2éme ligne)
+    image: { type: String, required: true},
+    imageAttaque: { type: String, required: true},
+    imageCritique: { type: String, required: true},
+    imageSkill: { type: String, required: true},
+    imageMiss: { type: String, required: true},
     armure: {type : Number, required: true},
     spawn: 
     [{ 

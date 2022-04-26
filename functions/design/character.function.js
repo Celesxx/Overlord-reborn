@@ -12,10 +12,9 @@ class DesignCharacterFunction
     /**
      * @param {Object} channel
      * @param {Object} data
-     * @param {Object} damessageta
      * @param {String} id
     */
-    async displayCanvasLvlUp(channel, data, message, id)
+    async displayCanvasLvlUp(channel, data, id)
     {
         try
         {
@@ -96,7 +95,8 @@ class DesignCharacterFunction
             context.closePath();
             context.clip();
             // const avatar = await Canvas.loadImage(message.author.displayAvatarURL({ format: 'jpg' }));
-            const avatar = await Canvas.loadImage("https://media.discordapp.net/attachments/939189315563585569/954841640982441984/Zelgius_FE10_Artwork.png?width=617&height=675");
+            console.log("image : ", data.image)
+            const avatar = await Canvas.loadImage(data.image);
             context.drawImage(avatar, 40, 30, 200, 200);
             //_____________________________________________________________________________
 

@@ -30,6 +30,7 @@ class LogCombatController
                 round: data.round, 
                 reward: data.reward,
                 participant: data.participant,
+                recompense: data.recompense,
                 over: data.over,
             })
         
@@ -69,6 +70,34 @@ class LogCombatController
 
 
 
+
+
+
+
+    // ----------------------------------------------------Get combat log by participant ---------------------------------------------------
+
+    /**
+     * @param {String} id
+    */
+     async getLogCombatParticipantId(id) 
+     {
+         const functionName = "getLogCombatById";
+         try
+         {  
+            const logCombatGet = await LogCombat.find({participant : {$in : [`<@!${id}>`]}, over: false, recompense: false},'-_id -__v')
+            return logCombatGet
+                     
+         }catch(error) { return errorHelper.contentError(functionName, this.filename, error) }
+     }
+
+
+
+
+
+
+
+
+
     // ----------------------------------------------------edit combat log by id ---------------------------------------------------
 
     /**
@@ -92,6 +121,7 @@ class LogCombatController
             reward: data.reward,
             participant: data.participant,
             over: data.over, 
+            recompense: data.recompense
         }, {new: true})
         
         return logCombatGet
