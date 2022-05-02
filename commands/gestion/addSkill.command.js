@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js")
 const SkillFunction = require("../../functions/character/skill.function.js")
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 module.exports = 
 {

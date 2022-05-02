@@ -119,3 +119,28 @@ exports.contentError = (functionName, filename, err) =>
         log: `An error append in file : ${filename} with following function : ${functionName} with error : ${err} `,
     }
 }
+
+
+
+
+exports.shopExist = (shop, functionName) => 
+{   
+    return {
+        state: false,
+        message: `L'item ${shop.nomId} existe déja`,
+        log: `The following item ${shop.nomId} already exist.`,
+        function: functionName,
+        shop: shop,
+    }
+}
+
+exports.shopCreated = (shop, functionName) => 
+{   
+    return {
+        state: true,
+        message: `La création de l'item ${shop.nomId} est une réussite !`,
+        log: `The following item ${shop.nomId} have been created.`,
+        function: functionName,
+        shop: shop,
+    }
+}

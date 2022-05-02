@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js")
 const PlayerCreationFunction = require("../../functions/character/creation.function")
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 module.exports = 
 {
@@ -69,7 +70,7 @@ module.exports =
     {   
         if(interaction.member.roles.cache.some(role => role.name === 'Fondateur' || role.name === "Super Helper"))
         {
-            let user = interaction.options.get("ping").value
+            let user = interaction.options.get("ping").value.replace(/[<@!>]/gm, "")
             let nom = interaction.options.get("nom").value
             let prenom = interaction.options.get("prenom").value
             let race = interaction.options.get("race").value

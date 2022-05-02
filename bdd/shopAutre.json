@@ -1,0 +1,262 @@
+{
+    "parchemin-s": 
+    {
+        "nom": "Petit parchemin de message",
+        "nomId": "parchemin-s",
+        "unique": false,
+        "type": "autre",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":{},
+        "description": "permet d'envoyer un message de 5 mot max",
+        "image": "",
+        "price": [30,0,0]
+    },
+
+    "parchemin-m": 
+    {
+        "nom": "Parchemin de message",
+        "nomId": "parchemin-m",
+        "unique": false,
+        "type": "autre",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":{},
+        "description": "permet d'envoyer un message de 30 mot max",
+        "image": "",
+        "price": [100,0,0]
+    },
+
+    "parchemin-l": 
+    {
+        "nom": "Petit parchemin de message",
+        "nomId": "parchemin-l",
+        "unique": false,
+        "type": "autre",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":{},
+        "description": "Permet d'envoyer un message sans limite de taille",
+        "image": "",
+        "price": [150,1,0]
+    },
+
+
+
+
+
+
+
+    "potion-vs": 
+    {
+        "nom": "Petite potion de soins",
+        "nomId": "potion-vs",
+        "unique": false,
+        "type": "potion",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":{},
+        "regeneration":
+        {
+            "hp": 20,
+            "mana": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [60,0,0]
+    },
+
+    "potion-vm": 
+    {
+        "nom": "Potion de soins",
+        "nomId": "potion-vm",
+        "unique": false,
+        "type": "potion",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":{},
+        "regeneration":
+        {
+            "hp": 40,
+            "mana": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [110,0,0]
+    },
+
+    "potion-vl": 
+    {
+        "nom": "Grande potion de soins",
+        "nomId": "potion-vl",
+        "unique": false,
+        "type": "potion",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":{},
+        "regeneration":
+        {
+            "hp": 60,
+            "mana": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [150,1,0]
+    },
+
+    "potion-vx": 
+    {
+        "nom": "Potion de soins suprême",
+        "nomId": "potion-vx",
+        "unique": false,
+        "type": "potion",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":{},
+        "regeneration":
+        {
+            "hp": 100,
+            "mana": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [200,5,0]
+    },
+
+
+
+
+
+
+
+    "potion-ms": 
+    {
+        "nom": "Petite potion de mana",
+        "nomId": "potion-ms",
+        "unique": false,
+        "type": "potion",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":{},
+        "regeneration":
+        {
+            "hp": 0,
+            "mana": 20
+        },
+        "description": "",
+        "image": "",
+        "price": [60,0,0]
+    },
+
+    "potion-mm": 
+    {
+        "nom": "Potion de mana",
+        "nomId": "potion-mm",
+        "unique": false,
+        "type": "potion",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":{},
+        "regeneration":
+        {
+            "hp": 0,
+            "mana": 40
+        },
+        "description": "",
+        "image": "",
+        "price": [110,0,0]
+    },
+
+    "potion-ml": 
+    {
+        "nom": "Grande potion de mana",
+        "nomId": "potion-ml",
+        "unique": false,
+        "type": "potion",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":{},
+        "regeneration":
+        {
+            "hp": 0,
+            "mana": 60
+        },
+        "description": "",
+        "image": "",
+        "price": [150,1,0]
+    },
+
+    "potion-mx": 
+    {
+        "nom": "Potion de mana suprême",
+        "nomId": "potion-mx",
+        "unique": false,
+        "type": "potion",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":{},
+        "regeneration":
+        {
+            "hp": 0,
+            "mana": 100
+        },
+        "description": "",
+        "image": "",
+        "price": [200,5,0]
+    }
+}

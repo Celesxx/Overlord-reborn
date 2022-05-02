@@ -37,36 +37,40 @@ module.exports =
     ],
     runSlash: async (client, interaction) => 
     {   
-        let type = interaction.options.get("type").value
-        let combatId
-        if(type == "single" && !interaction.options.get("id")) return interaction.reply("Il manque l'id du combat !")
-        else if(type == "single") combatId = interaction.options.get("id").value
 
-        const logCombatFunction = new LogCombatFunction()
-        let embed = new MessageEmbed()
-        
-        
-        if(type == "single")
+        if(interaction.member.roles.cache.some(role => role.name === 'Fondateur' || role.name === "Administrateur"))
         {
-            const logCombat = await logCombatFunction.getLogCombatById(combatId)
-            console.log(logCombat)
-            embed.setTitle(`Historique du combat : ${combatId}`)
-            embed.addField("Participant", `${logCombat[0].participant.join("\n")}`, true)
-            embed.addField("Channel", `${logCombat[0].channel}`, true)
-            for(const round of logCombat[0].round) embed.addField(`tour : ${round.number}`, `${round.event}`)
+            let type = interaction.options.get("type").value
+            let combatId
+            if(type == "single" && !interaction.options.get("id")) return interaction.reply("Il manque l'id du combat !")
+            else if(type == "single") combatId = interaction.options.get("id").value
 
-        }else if(type == "active")
-        {
-    
-            const logCombat = await logCombatFunction.getAllLogCombat()
-            let i = 1
-            embed.setTitle(`Liste des combats actif`)
-            for(const log of logCombat)
+            const logCombatFunction = new LogCombatFunction()
+            let embed = new MessageEmbed()
+            
+            
+            if(type == "single")
             {
-                if(!log.over)
+                const logCombat = await logCombatFunction.getLogCombatById(combatId)
+                console.log(logCombat)
+                embed.setTitle(`Historique du combat : ${combatId}`)
+                embed.addField("Participant", `${logCombat[0].participant.join("\n")}`, true)
+                embed.addField("Channel", `${logCombat[0].channel}`, true)
+                for(const round of logCombat[0].round) embed.addField(`tour : ${round.number}`, `${round.event}`)
+
+            }else if(type == "active")
+            {
+        
+                const logCombat = await logCombatFunction.getAllLogCombat()
+                let i = 1
+                embed.setTitle(`Liste des combats actif`)
+                for(const log of logCombat)
                 {
-                    embed.addField(`Combat #${i}`, `combatId : ${log.combatId} \n channel: ${log.channel} \n createdAt : ${log.createdAt}`)
-                    i++
+                    if(!log.over)
+                    {
+                        embed.addField(`Combat #${i}`, `combatId : ${log.combatId} \n channel: ${log.channel} \n createdAt : ${log.createdAt}`)
+                        i++
+                    }
                 }
             }
         }

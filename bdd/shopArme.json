@@ -1,0 +1,1274 @@
+{
+    "epee-fer": 
+    {
+        "nom": "Epee en fer",
+        "nomId": "epee-fer",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 10,
+            "penetration":0,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [110,0,0]
+    },
+
+    "epee-acier": 
+    {
+        "nom": "Epee en acier",
+        "nomId": "epee-acier",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 25,
+            "penetration":5,
+            "critique": 5
+        },
+        "description": "",
+        "image": "",
+        "price": [200,5,0]
+    },
+
+    "epee-argent": 
+    {
+        "nom": "Epee en argent",
+        "nomId": "epee-argent",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 40,
+            "penetration":15,
+            "critique": 10
+        },
+        "description": "",
+        "image": "",
+        "price": [500,25,1]
+    },
+
+    "epee-letal": 
+    {
+        "nom": "Epee letal",
+        "nomId": "epee-letal",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 25,
+            "penetration":10,
+            "critique": 30
+        },
+        "description": "",
+        "image": "",
+        "price": [400,35,1]
+    },
+
+    "epee-heros": 
+    {
+        "nom": "Epee de héros",
+        "nomId": "epee-heros",
+        "unique": true,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 35,
+            "penetration":15,
+            "critique": 10
+        },
+        "effet": 
+        {
+            "type": "repeat",
+            "activation": 30,
+            "description": "Vous avez 30% de chance d'infliger une attaque supplémentaire, attaque qui peut s'enchainer plus d'une fois"
+        },
+        "description": "",
+        "image": "",
+        "price": [1000,100,10]
+    },
+
+
+
+
+
+
+
+    "lance-fer": 
+    {
+        "nom": "Lance en fer",
+        "nomId": "lance-fer",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 5,
+            "penetration":5,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [150,0,0]
+    },
+
+    "lance-acier": 
+    {
+        "nom": "Lance en acier",
+        "nomId": "lance-acier",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 15,
+            "penetration":15,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [250,8,0]
+    },
+
+    "lance-argent": 
+    {
+        "nom": "Lance en argent",
+        "nomId": "lance-argent",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 30,
+            "penetration":30,
+            "critique": 15
+        },
+        "description": "",
+        "image": "",
+        "price": [600,30,2]
+    },
+
+    "lance-letal": 
+    {
+        "nom": "Lance letal",
+        "nomId": "lance-letal",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 10,
+            "penetration":20,
+            "critique": 30
+        },
+        "description": "",
+        "image": "",
+        "price": [500,80,1]
+    },
+
+    "lance-heros": 
+    {
+        "nom": "Lance de héros",
+        "nomId": "lance-heros",
+        "unique": true,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 25,
+            "penetration":30,
+            "critique": 5
+        },
+        "effet": 
+        {
+            "type": "repeat",
+            "activation": 30,
+            "description": "Vous avez 30% de chance d'infliger une attaque supplémentaire, attaque qui peut s'enchainer plus d'une fois"
+        },
+        "description": "",
+        "image": "",
+        "price": [1200,150,13]
+    },
+
+
+
+
+
+
+    "hache-fer": 
+    {
+        "nom": "Hache en fer",
+        "nomId": "hache-fer",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 15,
+            "penetration":0,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [150,0,0]
+    },
+
+    "hache-acier": 
+    {
+        "nom": "Hache en acier",
+        "nomId": "hache-acier",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 35,
+            "penetration": 5,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [250,8,0]
+    },
+
+    "hache-argent": 
+    {
+        "nom": "Hache en argent",
+        "nomId": "hache-argent",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 50,
+            "penetration":10,
+            "critique": 5
+        },
+        "description": "",
+        "image": "",
+        "price": [600,30,2]
+    },
+
+    "hache-letal": 
+    {
+        "nom": "Hache letal",
+        "nomId": "hache-letal",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 35,
+            "penetration":0,
+            "critique": 30
+        },
+        "description": "",
+        "image": "",
+        "price": [500,80,1]
+    },
+
+    "hache-heros": 
+    {
+        "nom": "Hache de héros",
+        "nomId": "hache-heros",
+        "unique": true,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 45,
+            "penetration":10,
+            "critique": 5
+        },
+        "effet": 
+        {
+            "type": "repeat",
+            "activation": 30,
+            "description": "Vous avez 30% de chance d'infliger une attaque supplémentaire, attaque qui peut s'enchainer plus d'une fois"
+        },
+        "description": "",
+        "image": "",
+        "price": [1200,150,13]
+    },
+
+
+
+
+
+
+
+    "dague-fer": 
+    {
+        "nom": "Dague en fer",
+        "nomId": "dague-fer",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 0,
+            "penetration": 10,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [150,0,0]
+    },
+
+    "dague-acier": 
+    {
+        "nom": "Dague en acier",
+        "nomId": "dague-acier",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 5,
+            "penetration": 25,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [250,8,0]
+    },
+
+    "dague-argent": 
+    {
+        "nom": "Dague en argent",
+        "nomId": "dague-argent",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 10,
+            "penetration":50,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [600,30,2]
+    },
+
+    "dague-letal": 
+    {
+        "nom": "Dague letal",
+        "nomId": "dague-letal",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 0,
+            "penetration": 40,
+            "critique": 30
+        },
+        "description": "",
+        "image": "",
+        "price": [500,80,1]
+    },
+
+    "dague-heros": 
+    {
+        "nom": "Dague de héros",
+        "nomId": "dague-heros",
+        "unique": true,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 10,
+            "penetration":60,
+            "critique": 10
+        },
+        "effet": 
+        {
+            "type": "repeat",
+            "activation": 30,
+            "description": "Vous avez 30% de chance d'infliger une attaque supplémentaire, attaque qui peut s'enchainer plus d'une fois"
+        },
+        "description": "",
+        "image": "",
+        "price": [1200,150,13]
+    },
+
+
+
+
+
+
+
+    "arbalete-fer": 
+    {
+        "nom": "Arbalète en fer",
+        "nomId": "arbalete-fer",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique":
+        {
+            "degat": 5,
+            "penetration": 5,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [80,0,0]
+    },
+
+    "arbalete-acier": 
+    {
+        "nom": "Arbalète en acier",
+        "nomId": "arbalete-acier",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique":
+        {
+            "degat": 15,
+            "penetration": 15,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [180,4,0]
+    },
+
+    "arbalete-argent": 
+    {
+        "nom": "Arbalète en argent",
+        "nomId": "arbalete-argent",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique":
+        {
+            "degat": 30,
+            "penetration":30,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [450,20,1]
+    },
+
+    "arbalete-letal": 
+    {
+        "nom": "Arbalète letal",
+        "nomId": "arbalete-letal",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique":
+        {
+            "degat": 20,
+            "penetration": 20,
+            "critique": 30
+        },
+        "description": "",
+        "image": "",
+        "price": [400,30,1]
+    },
+
+    "arbalete-heros": 
+    {
+        "nom": "Arbalète de héros",
+        "nomId": "arbalete-heros",
+        "unique": true,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique":
+        {
+            "degat": 30,
+            "penetration":30,
+            "critique": 10
+        },
+        "effet": 
+        {
+            "type": "repeat",
+            "activation": 30,
+            "description": "Vous avez 30% de chance d'infliger une attaque supplémentaire, attaque qui peut s'enchainer plus d'une fois"
+        },
+        "description": "",
+        "image": "",
+        "price": [900,90,8]
+    },
+
+
+
+
+
+
+
+
+    "arc-fer": 
+    {
+        "nom": "Arc en fer",
+        "nomId": "arc-fer",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique":
+        {
+            "degat": 5,
+            "penetration": 0,
+            "critique": 5
+        },
+        "description": "",
+        "image": "",
+        "price": [75,0,0]
+    },
+
+    "arc-acier": 
+    {
+        "nom": "Arc en acier",
+        "nomId": "arc-acier",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique":
+        {
+            "degat": 15,
+            "penetration": 5,
+            "critique": 10
+        },
+        "description": "",
+        "image": "",
+        "price": [175,4,0]
+    },
+
+    "arc-argent": 
+    {
+        "nom": "Arc en argent",
+        "nomId": "arc-argent",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique":
+        {
+            "degat": 30,
+            "penetration": 10,
+            "critique": 20
+        },
+        "description": "",
+        "image": "",
+        "price": [440,19,1]
+    },
+
+    "arc-letal": 
+    {
+        "nom": "Arc letal",
+        "nomId": "arc-letal",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique":
+        {
+            "degat": 20,
+            "penetration": 10,
+            "critique": 40
+        },
+        "description": "",
+        "image": "",
+        "price": [390,26,1]
+    },
+
+    "arc-heros": 
+    {
+        "nom": "Arc de héros",
+        "nomId": "arc-heros",
+        "unique": true,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique":
+        {
+            "degat": 30,
+            "penetration":10,
+            "critique": 30
+        },
+        "effet": 
+        {
+            "type": "repeat",
+            "activation": 30,
+            "description": "Vous avez 30% de chance d'infliger une attaque supplémentaire, attaque qui peut s'enchainer plus d'une fois"
+        },
+        "description": "",
+        "image": "",
+        "price": [880,90,8]
+    },
+
+
+
+
+
+
+
+
+    "tome-s": 
+    {
+        "nom": "Petit tome de mage",
+        "nomId": "tome-s",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": true,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 10,
+            "penetration": 0,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [150,0,0]
+    },
+
+    "tome-m": 
+    {
+        "nom": "Tome de mage",
+        "nomId": "tome-m",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": true,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 25,
+            "penetration": 5,
+            "critique": 5
+        },
+        "description": "",
+        "image": "",
+        "price": [250,8,0]
+    },
+
+    "tome-l": 
+    {
+        "nom": "Tome de mage supérieur",
+        "nomId": "tome-l",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": true,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 40,
+            "penetration": 15,
+            "critique": 10
+        },
+        "description": "",
+        "image": "",
+        "price": [600,30,2]
+    },
+
+    "tome-letal": 
+    {
+        "nom": "Tome de mage létal",
+        "nomId": "tome-letal",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": true,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 25,
+            "penetration": 10,
+            "critique": 40
+        },
+        "description": "",
+        "image": "",
+        "price": [500,80,1]
+    },
+
+    "tome-heros": 
+    {
+        "nom": "Tome de héros",
+        "nomId": "tome-heros",
+        "unique": true,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": true,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 35,
+            "penetration": 20,
+            "critique": 10
+        },
+        "effet": 
+        {
+            "type": "repeat",
+            "activation": 30,
+            "description": "Vous avez 30% de chance d'infliger une attaque supplémentaire, attaque qui peut s'enchainer plus d'une fois"
+        },
+        "description": "",
+        "image": "",
+        "price": [1200,150,13]
+    },
+
+
+
+
+
+
+
+
+
+    "baton-s": 
+    {
+        "nom": "Petit baton de mage",
+        "nomId": "baton-s",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": true,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 5,
+            "penetration": 5,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [150,0,0]
+    },
+
+    "baton-m": 
+    {
+        "nom": "Baton de mage",
+        "nomId": "baton-m",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": true,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 15,
+            "penetration": 15,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [250,8,0]
+    },
+
+    "baton-l": 
+    {
+        "nom": "Baton de mage supérieur",
+        "nomId": "baton-l",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": true,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 30,
+            "penetration": 25,
+            "critique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [600,30,2]
+    },
+
+    "baton-letal": 
+    {
+        "nom": "Baton de mage létal",
+        "nomId": "baton-letal",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": true,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 15,
+            "penetration": 20,
+            "critique": 30
+        },
+        "description": "",
+        "image": "",
+        "price": [500,80,1]
+    },
+
+    "baton-heros": 
+    {
+        "nom": "Baton de héros",
+        "nomId": "baton-heros",
+        "unique": true,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": false,
+            "mage": true,
+            "archer": false
+        },
+        "statistique":
+        {
+            "degat": 25,
+            "penetration": 30,
+            "critique": 5
+        },
+        "effet": 
+        {
+            "type": "repeat",
+            "activation": 30,
+            "description": "Vous avez 30% de chance d'infliger une attaque supplémentaire, attaque qui peut s'enchainer plus d'une fois"
+        },
+        "description": "",
+        "image": "",
+        "price": [1200,150,13]
+    },
+
+
+
+
+
+
+
+
+    "bouclier-fer": 
+    {
+        "nom": "Bouclier en fer",
+        "nomId": "bouclier-fer",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "hp": 10,
+            "defensePhysique": 5,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [110,0,0]
+    },
+
+    "bouclier-acier": 
+    {
+        "nom": "Bouclier en acier",
+        "nomId": "bouclier-acier",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "hp": 40,
+            "defensePhysique": 10,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [200,5,0]
+    },
+
+    "bouclier-argent": 
+    {
+        "nom": "Bouclier en argent",
+        "nomId": "bouclier-argent",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "hp": 80,
+            "defensePhysique": 15,
+            "defenseMagique": 5
+        },
+        "description": "",
+        "image": "",
+        "price": [500,25,1]
+    },
+
+    "bouclier-heros": 
+    {
+        "nom": "Bouclier de héros",
+        "nomId": "bouclier-heros",
+        "unique": true,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": false
+        },
+        "statistique":
+        {
+            "hp": 100,
+            "defensePhysique": 20,
+            "defenseMagique": 5
+        },
+        "effet": 
+        {
+            "type": "block",
+            "activation": 10,
+            "description": "Vous avez 10% de chance d'annuler complétement les dégats"
+        },
+        "description": "",
+        "image": "",
+        "price": [800,50,10]
+    },
+
+
+
+
+
+
+
+
+    "ecu-fer": 
+    {
+        "nom": "Ecu en fer",
+        "nomId": "ecu-fer",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 5,
+            "defensePhysique": 0,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [90,0,0]
+    },
+
+    "ecu-acier": 
+    {
+        "nom": "Ecu en acier",
+        "nomId": "ecu-acier",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 30,
+            "defensePhysique": 5,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [150,4,0]
+    },
+
+    "ecu-argent": 
+    {
+        "nom": "Ecu en argent",
+        "nomId": "ecu-argent",
+        "unique": false,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 50,
+            "defensePhysique": 10,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [450,20,1]
+    },
+
+    "ecu-heros": 
+    {
+        "nom": "Ecu de héros",
+        "nomId": "ecu-heros",
+        "unique": true,
+        "type": "arme",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 70,
+            "defensePhysique": 15,
+            "defenseMagique": 5
+        },
+        "effet": 
+        {
+            "type": "block",
+            "activation": 5,
+            "description": "Vous avez 5% de chance d'annuler complétement les dégats"
+        },
+        "description": "",
+        "image": "",
+        "price": [750,40,8]
+    }
+
+
+}

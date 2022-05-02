@@ -1,11 +1,11 @@
 const { MessageEmbed } = require("discord.js")
-const BestiaireFunction = require("../../functions/monstre/bestiaire.function.js")
+const ShopFunction = require("../../functions/interface/shop.function.js")
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 module.exports = 
 {
-    name: 'bdd-monstre',
-    description: "permet d'ajouter les monstres à la bdd",
+    name: 'bdd-shop',
+    description: "permet d'ajouter les items du shop dans la bdd",
     run: async (client, message, args) => 
     {
         if(message.member.roles.cache.some(role => role.name === 'Fondateur' || role.name === 'Administrateur'))
@@ -22,25 +22,28 @@ module.exports =
 
                 if (text) 
                 {
+                    
                     data = JSON.parse(text)
-                    const bestiaireFunction = new BestiaireFunction()
+                    const shopFunction = new ShopFunction()
 
-                    let embed = new MessageEmbed()
-                    .setColor("#00ff00")
-                    .setTitle("Création de monstre dans la bdd")
+                    const timer = ms => new Promise(res => setTimeout(res, ms))
 
                     for(const [key, value] of Object.entries(data))
                     {
-                        const response = await bestiaireFunction.monstreCreation(value)
-    
-                        if(response.state == false) embed.addField("Status", `${response.message}`)
-                        else embed.addField(`${response.monstre.nom}`, `${response.log}` )
+                        const response = await shopFunction.shopCreation(value)
+
+                        let embed = new MessageEmbed()
+                        .addField(`${response.shop.nomId}`, `${response.message}`)
+
+                        if(response.state == false) embed.setColor("#ff0000")
+                        else embed.setColor("#00ff00")
+                        await timer(1000)
                             
-                        
+                        message.channel.send({embeds: [ embed ]})
+                            
                     }
 
-                    message.delete()
-                    message.channel.send({embeds: [embed]})
+                    message.channel.send("Done")
                 }
             })
         }
@@ -48,6 +51,6 @@ module.exports =
    
     runSlash: async (client, interaction) => 
     {
-        interaction.reply("merci d'utiliser ?bdd-monstre à la place")
+        interaction.reply("merci d'utiliser ?bdd-arme à la place")
     }
 }
