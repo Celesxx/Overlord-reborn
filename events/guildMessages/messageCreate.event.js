@@ -25,23 +25,24 @@ module.exports =
             "945973484251668480", "939189317610393706", "945974119374139412", "945974019709087785", "945775505850921010", "945772961934221322", "945974513458372608"
         ]
         
-        if(process.env.MODE == "prod" && message.content.length >= 0 && rpServer.includes(message.channel.id))
+        if(process.env.MODE == "PROD" && message.content.length >= 0 && rpServer.includes(message.channel.id))
         {
-        
             if(message.content.length >= 200)
             {
-            let id = message.author.id
-            const playerCreationFunction = new PlayerCreationFunction()
-            const experienceFunction = new ExperienceFunction()
-    
-            let stat = await playerCreationFunction.getPlayerById(id.replace(/[<@>]/gm,""))
-    
-            stat = stat[0]
-            stat.xp = Math.round(5 + stat.xp + (message.content.length * 0.001 * (stat.lvl - (stat.lvl / 2)) * Math.exp(stat.lvl / 250)))
-    
-            let rankBefore = await experienceFunction.getRankPlayer(stat)
-            await playerCreationFunction.editPlayerById(stat.id, stat)
-            await experienceFunction.verifLvlUp(stat.id, message, client, rankBefore, stat)
+                let id = message.author.id
+                const playerCreationFunction = new PlayerCreationFunction()
+                const experienceFunction = new ExperienceFunction()
+        
+                let stat = await playerCreationFunction.getPlayerById(id.replace(/[<@>]/gm,""))
+        
+                stat = stat[0]
+                console.log("Server status : xp before " + stat.xp)
+                stat.xp = Math.round(5 + stat.xp + (message.content.length * 0.001 * (stat.lvl - (stat.lvl / 2)) * Math.exp(stat.lvl / 250)))
+                console.log("Server status : xp after " + stat.xp)
+        
+                let rankBefore = await experienceFunction.getRankPlayer(stat)
+                await playerCreationFunction.editPlayerById(stat.id, stat)
+                await experienceFunction.verifLvlUp(stat.id, client, message, rankBefore, stat)
             }
         }
             

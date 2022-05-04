@@ -8,7 +8,7 @@ const buttons = new MessageActionRow()
 (
     
     new MessageButton()
-    .setCustomId('previous-divers')
+    .setCustomId('previous-arme')
     .setLabel('⟵')
     .setStyle('PRIMARY'),
 
@@ -18,7 +18,7 @@ const buttons = new MessageActionRow()
     .setStyle('DANGER'),
 
     new MessageButton()
-    .setCustomId('next-divers')
+    .setCustomId('next-arme')
     .setLabel('⟶')
     .setStyle('PRIMARY'),
     

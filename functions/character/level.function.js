@@ -18,7 +18,9 @@ class ExperienceFunction
         try
         {
 
-         let xp = Math.round(100 + lvl + (lvl * 5 * 1.3))
+         let y = 100
+         for(let i = 1; i < lvl; i++)  y = y + i + (i * 5 * 1.3)
+         let xp = Math.round(y + lvl + (lvl * 5 * 1.3))
          return xp
 
         }catch(error)
@@ -76,7 +78,7 @@ class ExperienceFunction
      * @param {Number} rankBefore
      * @param {Object} stat
    */
-   async verifLvlUp(id, client, rankBefore, stat)
+   async verifLvlUp(id, client,interaction, rankBefore, stat)
    {
       try
       {
@@ -93,7 +95,9 @@ class ExperienceFunction
 
          do
          {
+            console.log("lvl : ", stat.lvl)
             xpNeed = await experienceFunction.getXpNeedByLvl(stat.lvl + 1)
+            console.log("xpNeed : ", xpNeed)
             xpNeedNext = await experienceFunction.getXpNeedByLvl(stat.lvl + 2)
                      
             if(stat.xp >= xpNeed)
@@ -122,15 +126,20 @@ class ExperienceFunction
                stat.hp[1] += lvl[`${stat.classe}_HP`] 
                stat.magie[1] += lvl[`${stat.classe}_MA`] 
                stat.attaque[1] += lvl[`${stat.classe}_AT`]
-               stat.armure[1] = stat.armure[1] + lvl[`${stat.classe}_AR`].toFixed(2)
+               console.log("armure before : ", stat.armure)
+               console.log((parseFloat(stat.armure[1]) + parseFloat(lvl[`${stat.classe}_AR`])).toFixed(2))
+               stat.armure[1] = (parseFloat(stat.armure[1]) + parseFloat(lvl[`${stat.classe}_AR`])).toFixed(2)
+               console.log("armure before1 : ", stat.armure)
                
                
                // Stat total * stat bonus de race
                stat.hp[1] += Math.round((lvl[`${stat.classe}_HP`] * stat.lvl * stat.hp[2]) - (lvl[`${stat.classe}_HP`] * stat.lvl))
                stat.magie[1] += Math.round((lvl[`${stat.classe}_MA`] * stat.lvl * stat.magie[2]) - (lvl[`${stat.classe}_MA`] * stat.lvl))
                stat.attaque[1] += Math.round((lvl[`${stat.classe}_AT`] * stat.lvl * stat.attaque[2]) - (lvl[`${stat.classe}_AT`] * stat.lvl))
+               console.log("armure before2 : ", stat.armure)
                stat.armure[1] += (lvl[`${stat.classe}_AR`] * stat.lvl * stat.armure[2]) - (lvl[`${stat.classe}_AR`] * stat.lvl).toFixed(2)
-
+               console.log("armure before3 : ", stat.armure)
+               
 
                //Si équipement rajoute toutes les stats qui ont été enlevé par l'ajout des nouvelles stats 
                stat = await inventaireFunction.addEquipmentStat(stat)
@@ -138,7 +147,7 @@ class ExperienceFunction
                //Ajoute les stat actuel après calcul de tous les bonus
                stat.hp[0] = stat.hp[1] 
                stat.magie[0] = stat.magie[1] 
-               stat.attaque[0] = stat.attaque[1] 
+               stat.attaque[0] = stat.attaque[1]
                stat.armure[0] = stat.armure[1]
             }
          }while(stat.xp >= xpNeed)
@@ -147,7 +156,10 @@ class ExperienceFunction
          {
 
             //Affiche le canvas lvl
-            await playerCreationFunction.editPlayerById(id, stat)
+            console.log(stat)
+            console.log("id : ", id)
+            let response = await playerCreationFunction.editPlayerById(id, stat)
+            console.log(response)
             let rankAfter = await experienceFunction.getRankPlayer(id)
             let percentXp = stat.xp * 100 / xpNeedNext 
             let currentRank = ""

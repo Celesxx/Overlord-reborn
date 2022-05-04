@@ -49,6 +49,7 @@ module.exports =
         const logCombatFunction = new LogCombatFunction()
         const playerCreationFunction = new PlayerCreationFunction()
         
+        console.log("user : ", user)
         const logCombat = await logCombatFunction.getLogCombatParticipantId(user)
         if(logCombat.length == 0) interaction.channel.send("Vous n'êtes présent dans aucun combat !")
         else if(logCombat.length > 1) interaction.channel.send("Vous êtes présent dans deux fight en même temps merci de vérifier d'avoir bien fais la commande /fin une fois vos précédent combat terminé")

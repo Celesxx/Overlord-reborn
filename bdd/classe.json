@@ -1,0 +1,643 @@
+{
+    "combattant" : 
+    {
+        "nom": "combattant",
+        "image": "https://media.discordapp.net/attachments/834159801130942466/835881460053049344/15dcb473500369cb918a91c44122a270_1.png?width=1014&height=676",
+        "statistiques":
+        {
+            "hp": 10,
+            "mana": 0,
+            "attaque": 1,
+            "armure": 0.5
+        },
+        "description" : "Vous êtes une classe polyvalente qui s'utilise en première ligne. Vous pouvez très bien être utilisé comme garde du corps ou voir même comme un redoutable attaquant !",
+        "level": 
+        [
+            {
+                "lvl": 1,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "epee-s", "description": "Attaque infligeant un simple coup d'épée"},
+                    { "nom": "roulade-v", "description": "Vous tentez d'effectuer une roulade d'esquive"}
+                ]
+            },
+
+            {
+                "lvl": 3,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "blocage-cs", "description": "Vous effectuer un blocage afin de bloquer l'attaque"}
+                ]
+            },
+
+            {
+                "lvl": 7,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "estoc-s", "description": "Vous effectuer un coup d'estoc ayant une chance de percer l'armure"}
+                ]
+            },
+
+            {
+                "lvl": 12,
+                "passif": [{"nom": "resistance physique", "description": "Après de dur entrainement vous êtes plus résistance en combat passif (+5 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 14,
+                "passif": "",
+                "skill":
+                [
+                    { "nom": "combattant-ultime", "description": "Vous effectuer un coup puissant à votre adversaire (1 fois par combat)"}
+                ]
+            }
+        ]
+    },
+
+
+
+    "mage" : 
+    {
+        "nom": "mage",
+        "image": "https://p4.wallpaperbetter.com/wallpaper/590/887/619/fantasy-magic-artistic-dark-wallpaper-preview.jpg",
+        "statistiques":
+        {
+            "hp": 5,
+            "mana": 10,
+            "attaque": 1,
+            "armure": 0
+        },
+        "description" : "Vous êtes un mage, vous utilisez des sortilèges pour vous défendre et pour attaquer ! Vous êtes en général sur la deuxième ligne et pouvez être aussi bien fort pour ce qui est de soutenir votre équipe, ou bien pour infliger de gros dégâts !",
+        "level": 
+        [
+            {
+                "lvl": 1,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "sort-s", "description": "Attaque infligeant un simple coup d'épée"},
+                    { "nom": "roulade-v", "description": "Vous tentez d'effectuer une roulade d'esquive"}
+                ]
+            },
+
+            {
+                "lvl": 3,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "blocage-ms", "description": "Vous effectuer un blocage afin de bloquer l'attaque"}
+                ]
+            },
+
+            {
+                "lvl": 7,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "eclair-s", "description": "Vous jeter un petit eclair sur votre cible (peut toucher la 2éme ligne)"}
+                ]
+            },
+
+            {
+                "lvl": 12,
+                "passif": [{"nom": "détection mensonger", "description": "A force d'étudier la magie vous arrivez plus facilement à détecter un mensonge(+5 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 14,
+                "passif": "",
+                "skill":
+                [
+                    { "nom": "mage-ultime", "description": "Vous vous concentrez et regagner du mana (1 fois par combat)"}
+                ]
+            }
+        ]
+    },
+
+
+    "voleur" : 
+    {
+        "nom": "voleur",
+        "image": "https://i.pinimg.com/originals/4e/1b/c3/4e1bc397664b238556c617f88626438c.jpg",
+        "statistiques":
+        {
+            "hp": 5,
+            "mana": 0,
+            "attaque": 2,
+            "armure": 0.5
+        },
+        "description" : "Le voleur est une classe à l'inverse d'une classe 'resistante', vous êtes même fragile cependant vous miser tous sur l'agilité et l'attaque car c'est bien connue que la meilleurs défense c'est l'attaque ! ",
+        "level": 
+        [
+            {
+                "lvl": 1,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "dague-s", "description": "Coup de dague sur votre cible"},
+                    { "nom": "roulade-v", "description": "Vous tentez d'effectuer une roulade d'esquive"}
+                ]
+            },
+
+            {
+                "lvl": 3,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "blocage-vs", "description": "Vous effectuer un blocage afin de bloquer l'attaque"}
+                ]
+            },
+
+            {
+                "lvl": 7,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "lancer-ds", "description": "Vous lancer une dague sur votre cible (peut toucher la 2éme ligne)"}
+                ]
+            },
+
+            {
+                "lvl": 12,
+                "passif": [{"nom": "pas léger", "description": "A force de vous entrainer à être discret vous êtes plus difficile à repérer (+5 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 14,
+                "passif": "",
+                "skill":
+                [
+                    { "nom": "voleur-ultime", "description": "Vous effectué un gros coup de dague sur un point critique de votre cible (1 fois par combat)"}
+                ]
+            }
+        ]
+    },
+
+
+    "ranger" : 
+    {
+        "nom": "ranger",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/970784228402954260/unknown.png?width=474&height=675",
+        "statistiques":
+        {
+            "hp": 5,
+            "mana": 0,
+            "attaque": 2,
+            "armure": 0.5
+        },
+        "description" : "Le ranger est un spécialiste du maniement des armes à distance, il est capable d'atteindre des cibles cachés et d'infliger de lourd dégat",
+        "level": 
+        [
+            {
+                "lvl": 1,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "tir-s", "description": "Vous effectuer un tir avec votre arc"},
+                    { "nom": "roulade-v", "description": "Vous tentez d'effectuer une roulade d'esquive"}
+                ]
+            },
+
+            {
+                "lvl": 3,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "blocage-as", "description": "Vous effectuer un blocage afin de bloquer l'attaque"}
+                ]
+            },
+
+            {
+                "lvl": 7,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "tir-multiple-s", "description": "Vous tirer deux flèche pouvant toucher 2 cible différentes (peut toucher la 2éme ligne)"}
+                ]
+            },
+
+            {
+                "lvl": 12,
+                "passif": [{"nom": "pas rapide", "description": "A force de vous entrainer vous êtes devenu beaucoup plus rapide (+5 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 14,
+                "passif": "",
+                "skill":
+                [
+                    { "nom": "archer-ultime", "description": "Vous effectué une pluie de fleche touchant toutes vos cibles (1 fois par combat)"}
+                ]
+            }
+        ]
+    },
+    
+
+
+    "paladin" : 
+    {
+        "nom": "paladin",
+        "image": "https://c4.wallpaperflare.com/wallpaper/145/225/139/fantasy-art-dragon-shield-diablo-3-reaper-of-souls-wallpaper-preview.jpg",
+        "statistiques":
+        {
+            "hp": 20,
+            "mana": 0,
+            "attaque": 1,
+            "armure": 0.25
+        },
+        "description" : "Vous êtes un paladin, quelqu'un spécialisé dans la défense du groupe et qui n'a pas peur de ce prendre des coups !",
+        "level": 
+        [
+            {
+                "lvl": 16,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "blocage-cm", "description": "Votre blocage est amélioré !"}
+                ]
+            },
+
+            {
+                "lvl": 19,
+                "passif": [],
+                "skill": [ { "nom": "provocation-s", "description": "Vous pouvez provoquer vos ennemis"} ]
+            },
+
+            {
+                "lvl": 23,
+                "passif": [{"nom": "aura appaisante", "description": " La présence du paladin laisse à croire que le groupe/son interlocuteur est plutôt en sécurité."}],
+                "skill": []
+            },
+
+            {
+                "lvl": 25,
+                "passif": [{"nom": "resistance", "description": "Votre musculature et votre force fait qu'il est compliqué de vous mettre à terre ! (+10 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 27,
+                "passif": "",
+                "skill":[ { "nom": "paladin-ultime", "description": "Vous effectuer un blocage parfait bloquant totalement les dégats subit(1 fois par combat)"} ]
+            }
+        ]
+    },
+
+
+    "chevalier" : 
+    {
+        "nom": "chevalier",
+        "image": "https://p4.wallpaperbetter.com/wallpaper/265/611/760/knight-dark-souls-dark-souls-ii-artwork-fantasy-art-armor-sword-cape-video-games-heide-knight-wallpaper-preview.jpg",
+        "statistiques":
+        {
+            "hp": 10,
+            "mana": 0,
+            "attaque": 3,
+            "armure": 0.10
+        },
+        "description" : "Vous êtes un chevalier, quelqu'un de polyvalent capable d'encaisser et de frapper fort !",
+        "level": 
+        [
+            {
+                "lvl": 16,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "parade-cs", "description": "Un blocage vous donnant l'occasion de riposter si vous le pouvez"}
+                ]
+            },
+
+            {
+                "lvl": 19,
+                "passif": [],
+                "skill": [ { "nom": "etourdissement-cs", "description": "Vous pouvez tenter d'étourdir votre cible en plus de lui infliger des dégats"} ]
+            },
+
+            {
+                "lvl": 23,
+                "passif": [{"nom": "aura appaisante", "description": "En temps normal (sauf exception), vous êtes quelqu'un qui arrive à garder son sang-froid pour la plupart événements auquel il fait face (même en combat sauf face à la mort !)."}],
+                "skill": []
+            },
+
+            {
+                "lvl": 25,
+                "passif": [{"nom": "art martial", "description": "Votre connaissance des art martiaux fait que vous arrivez plus facilement à maitriser quelqu'un ! (+10 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 27,
+                "passif": "",
+                "skill":[ { "nom": "chevalier-ultime", "description": "Vous effectuer un enchainement de coup capable de toucher 2 personnes en même temps(1 fois par combat)"} ]
+            }
+        ]
+    },
+
+
+    "assassin" : 
+    {
+        "nom": "assassin",
+        "image": "https://images2.alphacoders.com/888/thumb-1920-888554.jpg",
+        "statistiques":
+        {
+            "hp": 5,
+            "mana": 5,
+            "attaque": 4,
+            "armure": 0
+        },
+        "description" : "Vous êtes un assassin, quelqu'un de très agile pouvant infliger des gros dégats à des cibles individuels",
+        "level": 
+        [
+            {
+                "lvl": 16,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "esquive-s", "description": "Une esquive digne d'un vrai assassin"}
+                ]
+            },
+
+            {
+                "lvl": 19,
+                "passif": [],
+                "skill": [ { "nom": "dague-m", "description": "Un puissant coup de dague infligeant de lourd dégat"} ]
+            },
+
+            {
+                "lvl": 23,
+                "passif": [{"nom": "ombre immobile", "description": "Vous arrivez maintenant à être quasiment invisible une fois dans les ombres, mais seulement si vous êtes invisible (+10 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 25,
+                "passif": [{"nom": "Vision des ombres", "description": "A force de rester dans les ombres votre vision dans l'obscurité augmente (+10 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 27,
+                "passif": "",
+                "skill":[ { "nom": "assassin-ultime", "description": "Vous effectuer un gros coup de dague infliger des dégats critiques sur votre cible(1 fois par combat)"} ]
+            }
+        ]
+    },
+
+
+    "rodeur" : 
+    {
+        "nom": "rodeur",
+        "image": "https://images2.alphacoders.com/888/thumb-1920-888554.jpg",
+        "statistiques":
+        {
+            "hp": 10,
+            "mana": 0,
+            "attaque": 4,
+            "armure": 0
+        },
+        "description" : "Vous êtes un rodeur, quelqu'un de très discret capable d'infliger des gros dégats à des cibles multiples",
+        "level": 
+        [
+            {
+                "lvl": 16,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "esquive-s", "description": "Une esquive digne d'un vrai assassin"}
+                ]
+            },
+
+            {
+                "lvl": 19,
+                "passif": [],
+                "skill": [ { "nom": "lancer-multiple-s", "description": "Vous envoyez plusieurs dague sur différents ennemie"} ]
+            },
+
+            {
+                "lvl": 23,
+                "passif": [{"nom": "ombre immobile", "description": "Vous arrivez maintenant à être quasiment invisible une fois dans les ombres, mais seulement si vous êtes invisible (+10 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 25,
+                "passif": [{"nom": "acrobatie", "description": "A force d'entrainement vous avez beaucoup plus de faciliter à monter des murs et à faire des acrobatie (+10 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 27,
+                "passif": "",
+                "skill":[ { "nom": "rodeur-ultime", "description": "Vous effectuer une parade qui inflige de lourd dégat sur votre cible(1 fois par combat)"} ]
+            }
+        ]
+    },
+
+
+    "sorcier" : 
+    {
+        "nom": "sorcier",
+        "image": "https://a-static.besthdwallpaper.com/chemin-de-l-exil-mage-fond-d-ecran-1920x1080-23840_48.jpg",
+        "statistiques":
+        {
+            "hp": 5,
+            "mana": 10,
+            "attaque": 2,
+            "armure": 0.1
+        },
+        "description" : "Vous êtes un sorcier, quelqu'un de très discret capable d'infliger des gros dégats à des cibles multiples",
+        "level": 
+        [
+            {
+                "lvl": 16,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "blocage-mm", "description": "Un bouclier avec une meilleur resistance"}
+                ]
+            },
+
+            {
+                "lvl": 19,
+                "passif": [],
+                "skill": [ { "nom": "firebolt-s", "description": "Vous envoyez une boule de feu infligeant de lourd dégat"} ]
+            },
+
+            {
+                "lvl": 23,
+                "passif": [{"nom": "aura appaisante", "description": "Vous êtes capable d'invoquer une aura autours d'une personne pour calmer ses esprits(si elle a subit un choc par exemple). Si la personne a un niveau supérieur au votre, ça ne fonctionnera pas"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 25,
+                "passif": [{"nom": "force magique", "description": "Avec votre magie qui augmente vous pouvez maintenant réussir à pousser avec votre magie des gens et soulever des objets (+10 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 27,
+                "passif": "",
+                "skill":[ { "nom": "soricer-ultime", "description": "Vous pouvez soigner un de vos allié (1 fois par combat)"} ]
+            }
+        ]
+    },
+
+
+    "invocateur" : 
+    {
+        "nom": "invocateur",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/970980615556042752/1629369731_DD-guide-de-classe-Wizard-5E--la-magie-est-768x432.jpg",
+        "statistiques":
+        {
+            "hp": 5,
+            "mana": 15,
+            "attaque": 1,
+            "armure": 0
+        },
+        "description" : "Vous êtes un invocateur, quelqu'un spécialiser dans l'invocation de créature magique pour vous supporter",
+        "level": 
+        [
+            {
+                "lvl": 16,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "blocage-mm", "description": "Un bouclier avec une meilleur resistance"}
+                ]
+            },
+
+            {
+                "lvl": 19,
+                "passif": [],
+                "skill": [ { "nom": "invocation-s", "description": "Vous invoquer une petite créature capable de ce battre"} ]
+            },
+
+            {
+                "lvl": 23,
+                "passif": [{"nom": "invocation familier", "description": "Vous êtes capable d'invoquer une petite créature magique (pas plus de 20cm de haut et sert uniquement en passif)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 25,
+                "passif": [{"nom": "Manipulation", "description": "Vous pouvez tenter de manipuler quelqu'un pendant quelques secondes qui est plus bas level que vous (+10 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 27,
+                "passif": "",
+                "skill":[ { "nom": "soricer-ultime", "description": "Vous pouvez invoquer un grand loup magique (1 fois par combat)"} ]
+            }
+        ]
+    },
+
+
+    "archer" : 
+    {
+        "nom": "archer",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/970985459863945236/2a7a6d817f8a0bb55c352eb6f5c89fbc-700.jpg?width=1075&height=676",
+        "statistiques":
+        {
+            "hp": 5,
+            "mana": 5,
+            "attaque": 2,
+            "armure": 0.1
+        },
+        "description" : "Vous êtes un archer, quelqu'un spécialiser dans les attaques unique à distance capable de toucher n'importe quel cible",
+        "level": 
+        [
+            {
+                "lvl": 16,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "roulade-as", "description": "Une esquive de meilleur qualité"}
+                ]
+            },
+
+            {
+                "lvl": 19,
+                "passif": [],
+                "skill": [ { "nom": "tir-m", "description": "Vous tirez des flèches avec plus de puissance"} ]
+            },
+
+            {
+                "lvl": 23,
+                "passif": [{"nom": "oeil de lynx", "description": "Vous êtes capable de voir des choses éloigné (+10 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 25,
+                "passif": [{"nom": "pas rapide", "description": "Vous êtes capable de courir rapidement (+10 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 27,
+                "passif": "",
+                "skill":[ { "nom": "archer-ultime", "description": "Vous tirer une puissante flèche qui pénètre toutes les armures (1 fois par combat)"} ]
+            }
+        ]
+    },
+
+
+    "bombardier" : 
+    {
+        "nom": "bombardier",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/970985460132352011/fantasy-art-archer-fantasy-art-wallpaper.jpg?width=957&height=676",
+        "statistiques":
+        {
+            "hp": 5,
+            "mana": 5,
+            "attaque": 2,
+            "armure": 0.1
+        },
+        "description" : "Vous êtes un bombardier, quelqu'un spécialiser dans les attaques multiples à distance capable de toucher n'importe quel cible",
+        "level": 
+        [
+            {
+                "lvl": 16,
+                "passif": [],
+                "skill":
+                [
+                    { "nom": "roulade-as", "description": "Une esquive de meilleur qualité"}
+                ]
+            },
+
+            {
+                "lvl": 19,
+                "passif": [],
+                "skill": [ { "nom": "tim-multiple-m", "description": "Vous êtes capable de toucher plusieurs cibles en même temps (2 max)"} ]
+            },
+
+            {
+                "lvl": 23,
+                "passif": [{"nom": "tympans de fer", "description": "Vos oreilles sont très résistantes. On pourrait crier dans vos oreilles que cela n'aurait aucun effet sur vos tympans."}],
+                "skill": []
+            },
+
+            {
+                "lvl": 25,
+                "passif": [{"nom": "ouie amélioré", "description": "Malgrès vos tympans de fer, vous avez une très bonne ouie et pouvait entendre plus loins que les autres (sans abuser), (+10 au score de roll)"}],
+                "skill": []
+            },
+
+            {
+                "lvl": 27,
+                "passif": "",
+                "skill":[ { "nom": "bombardier-ultime", "description": "Vous tirer une pluie de flèche qui touche tous vos ennemie (1 fois par combat)"} ]
+            }
+        ]
+    }
+
+}

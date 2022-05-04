@@ -125,8 +125,8 @@ class PlayerCreationFunction
     /**
      * @param {String} id
     */
-     async setNameRp(interaction, id)
-     {
+    async setNameRp(interaction, id)
+    {
         try
         {
             const playerCreationFunction = new PlayerCreationFunction()
@@ -138,7 +138,7 @@ class PlayerCreationFunction
         {
             console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
-     }
+    }
 }
 
 module.exports = PlayerCreationFunction

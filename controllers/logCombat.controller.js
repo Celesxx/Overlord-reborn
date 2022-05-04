@@ -84,7 +84,8 @@ class LogCombatController
          const functionName = "getLogCombatById";
          try
          {  
-            const logCombatGet = await LogCombat.find({participant : {$in : [`<@!${id}>`]}, over: false, recompense: false},'-_id -__v')
+            let logCombatGet = await LogCombat.find({participant : {$in : [`<@!${id}>`]}, over: false, recompense: false},'-_id -__v')
+            if(logCombatGet.length == 0) logCombatGet = await LogCombat.find({participant : {$in : [`<@${id}>`]}, over: false, recompense: false},'-_id -__v')
             return logCombatGet
                      
          }catch(error) { return errorHelper.contentError(functionName, this.filename, error) }

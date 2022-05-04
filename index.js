@@ -1,5 +1,5 @@
 const { Client, Collection, MessageEmbed, MessageAttachment, Intents }  = require('discord.js');
-const allIntents = new Intents(98045)
+const allIntents = new Intents(98303)
 const client = new Client({ intents: allIntents })
 const mongoose = require('mongoose');
 require("dotenv").config();

@@ -3,7 +3,7 @@ const PlayerCreationFunction = require("../../functions/character/creation.funct
 
 module.exports = 
 {
-    name: 'classe-evolution',
+    name: 'test',
     description: "Affiche l'arbre d'évolution des classes",
     run: (client, message, args) => 
     {

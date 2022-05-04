@@ -75,7 +75,7 @@ module.exports =
             let prenom = interaction.options.get("prenom").value
             let race = interaction.options.get("race").value
             let classe = interaction.options.get("classe").value
-            let image = interaction.options.get("classe").value
+            let image = interaction.options.get("image").value
 
             const playerCreationFunction = new PlayerCreationFunction()
             let creation = await playerCreationFunction.playerCreation(user, nom, prenom, race, classe, image)

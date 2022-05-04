@@ -34,6 +34,7 @@ class PlayerController
                 magie: data.magie,
                 attaque: data.attaque,
                 armure: data.armure,
+                protection: data.protection,
                 money: data.money,
                 attribut: data.attribut,
                 attributPalier: data.attributPalier,
@@ -68,7 +69,7 @@ class PlayerController
         const functionName = "getPlayerById";
         try
         {     
-        const getPlayer = await Player.find({id : id},'-_id -__v')
+        const getPlayer = await Player.find({id : id},'-_id -__v').populate('shop','-__v')
         return getPlayer
                     
         }catch(error) { return errorHelper.contentError(functionName, this.filename, error) }

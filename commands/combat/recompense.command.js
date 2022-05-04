@@ -92,7 +92,7 @@ module.exports =
 
                     
                     
-                    participantAlive.xp += xpTotal
+                    participantAlive.xp += parseInt(xpTotal)
                     participantAlive.money[0] += goldTotal.bronze
                     participantAlive.money[1] += goldTotal.argent
                     participantAlive.money[2] += goldTotal.or
@@ -114,7 +114,7 @@ module.exports =
                     winnerCounter++
 
                     await playerCreationFunction.editPlayerById(participantAlive.id, participantAlive)
-                    await experienceFunction.verifLvlUp(participantAlive.id, interaction, client, rankBefore, participantAlive)
+                    await experienceFunction.verifLvlUp(participantAlive.id, client, interaction, rankBefore, participantAlive)
 
                     status.push(`\n- <@${participantAlive.id}> gagne ${xpTotal} xp, ${goldTotal.bronze} pièces de bronze, ${goldTotal.argent} pièces d'argent, ${goldTotal.or} pièces d'or ${itemGain.length ? `et ${itemGain}` : '' } `)
             
