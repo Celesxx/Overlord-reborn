@@ -62,12 +62,32 @@ class ShopController
         const functionName = "getShopItemById"
         try
         {     
-            return await Shop.find({id : id},'-_id -__v')
+            return await Shop.find({id : id},'-__v')
 
         }catch(error) { return errorHelper.contentError(functionName, this.filename, error) }
     }
 
 
+
+    
+
+
+
+
+    // ----------------------------------------------------Get shop by id ---------------------------------------------------
+
+    /**
+     * @param {String} name
+    */
+    async getShopItemByName(name) 
+    {
+        const functionName = "getShopItemById"
+        try
+        {     
+            return await Shop.find({nomId : name}, '-__v')
+
+        }catch(error) { return errorHelper.contentError(functionName, this.filename, error) }
+    }
 
 
 

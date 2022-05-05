@@ -43,21 +43,38 @@ class ShopFunction
 
 
 
-     /**
+    /**
      * @param {String} type
     */
-      async getShopItemByType(type)
-      {
-          try
-          {
-              const shopController = new ShopController()
-              return await shopController.getShopItemByType(type)
-  
-          }catch(error) { console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`) }
-      }
+    async getShopItemByType(type)
+    {
+        try
+        {
+            const shopController = new ShopController()
+            return await shopController.getShopItemByType(type)
+
+        }catch(error) { console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`) }
+    }
 
 
 
+
+
+
+
+    /**
+     * @param {String} name
+    */
+    async getShopItemByName(name)
+    {
+        try
+        {
+            const shopController = new ShopController()
+            return await shopController.getShopItemByName(name)
+
+        }catch(error) { console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`) }
+    }
+      
 
 
     /**

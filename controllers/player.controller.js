@@ -69,9 +69,13 @@ class PlayerController
         const functionName = "getPlayerById";
         try
         {     
-        const getPlayer = await Player.find({id : id},'-_id -__v').populate('shop','-__v')
-        return getPlayer
-                    
+            const getPlayer = await Player.find({id : id},'-_id -__v')
+            .populate('inventaire','-__v')
+            .populate('equipement.plastron', '-__v')
+            .populate('equipement.casque', '-__v')
+            .populate('equipement.arme', '-__v')
+            return getPlayer
+                        
         }catch(error) { return errorHelper.contentError(functionName, this.filename, error) }
     }
 
@@ -113,6 +117,7 @@ class PlayerController
          const functionName = "editPlayerById";
          try
          {    
+            console.log(data)
             const player = await Player.updateOne({id: id}, data, {new: true})
             return player
                      

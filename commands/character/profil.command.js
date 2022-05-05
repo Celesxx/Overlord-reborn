@@ -21,15 +21,38 @@ module.exports =
     runSlash: async (client, interaction) => 
     {   
         let user = interaction.options.get("personnage")
+        let [inventaire, equipement] = [[], []]
         
         if(user) id = user.value
         else id = interaction.member.user.id
         
         const playerCreationFunction = new PlayerCreationFunction()
-        const canvasCharacter = new CanvasCharacter()
+        // const canvasCharacter = new CanvasCharacter()
 
         let data = await playerCreationFunction.getPlayerById(id.replace(/[<@!>]/gm, ""))
         data = data[0]
+
+        if(Object.keys(data.inventaire).length != 0) 
+        {
+            for(const item of data.inventaire)
+            { 
+                let stat = []
+                if(item.type == "arme" || item.type == "armure" || item.type == "accessoire") for(const [key, value] of Object.entries(item.statistique)) stat.push(`**${key}**: ${value}\n`)
+                inventaire.push(`**nom:** ${item.nom}\n**id:** ${item.nomId}\n${stat.join("").replace(/[,]/gm,"")}\n`) 
+            }
+        }
+        if(Object.values(data.equipement).some(value => value != undefined))
+        {
+            for(const [key, item] of Object.entries(data.equipement))
+            {
+                let stat = []
+                if(item != undefined) 
+                {
+                    for(const [key, value] of Object.entries(item.statistique)) stat.push(`**${key}**: ${value}\n`)
+                    equipement.push(`**nom:** ${item.nom}\n${stat.join("").replace(/[,]/gm,"")}\n`)
+                }
+            }
+        }
 
         let embed = new MessageEmbed()
         .setColor("#5DADE2")
@@ -43,8 +66,8 @@ module.exports =
         .addField(`:sparkles: magie`, `${data.magie[0]}`, true)
         .addField(`:crossed_swords: attaque`, `${data.attaque[0]}`, true)
         .addField(`:shield: armure`, `${data.armure[0]}`, true)
-        .addField("●▬▬▬▬▬▬▬▬▬▬:gear: equipement :gear:▬▬▬▬▬▬▬▬▬▬●", `casque : ${Object.values(data.equipement.casque)} \nplastron : ${Object.values(data.equipement.plastron)} \narme : ${Object.values(data.equipement.arme)}`)
-        .addField("●▬▬▬▬▬▬▬▬▬▬:tools: : inventaire :tools:▬▬▬▬▬▬▬▬▬▬●", Object.keys(data.inventaire).length != 0 ? `${data.inventaire}` : '-')
+        .addField("●▬▬▬▬▬▬▬▬▬▬:gear: equipement :gear:▬▬▬▬▬▬▬▬▬▬●", `${equipement.length == 0 ? '-' : `${equipement.join("").replace(/[,]/gm,"")}`}`)
+        .addField("●▬▬▬▬▬▬▬▬▬▬:tools: : inventaire :tools:▬▬▬▬▬▬▬▬▬▬●", `${inventaire.length == 0 ? '-' : `${inventaire.join("").replace(/[,]/gm,"")}`}`)
         .addField("●▬▬▬▬▬▬▬▬▬▬:coin:     argent     :coin:▬▬▬▬▬▬▬▬▬▬●", `:third_place: bronze : ${data.money[0]} \n:second_place: argent : ${data.money[1]} \n:first_place: or : ${data.money[2]}`)
         .setImage(data.image.replace(/["]/gm, ""))
         

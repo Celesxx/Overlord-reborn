@@ -27,7 +27,7 @@ const PlayerSchema = mongoose.Schema(
         plastron: {type: mongoose.Schema.Types.ObjectId, ref: 'Shop'},
         arme: {type: mongoose.Schema.Types.ObjectId, ref: 'Shop'}
     },
-    inventaire: [ _id= {type: mongoose.Schema.Types.ObjectId, ref: 'Shop'} ],
+    inventaire: [{type: mongoose.Schema.Types.ObjectId, ref: 'Shop'}],
     skill: { type: Array, required: false, default: [] },
 });
 
