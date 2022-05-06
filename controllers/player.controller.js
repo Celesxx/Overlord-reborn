@@ -34,6 +34,7 @@ class PlayerController
                 magie: data.magie,
                 attaque: data.attaque,
                 armure: data.armure,
+                protection: data.protection,
                 money: data.money,
                 attribut: data.attribut,
                 attributPalier: data.attributPalier,
@@ -68,9 +69,13 @@ class PlayerController
         const functionName = "getPlayerById";
         try
         {     
-        const getPlayer = await Player.find({id : id},'-_id -__v')
-        return getPlayer
-                    
+            const getPlayer = await Player.find({id : id},'-_id -__v')
+            .populate('inventaire','-__v')
+            .populate('equipement.plastron', '-__v')
+            .populate('equipement.casque', '-__v')
+            .populate('equipement.arme', '-__v')
+            return getPlayer
+                        
         }catch(error) { return errorHelper.contentError(functionName, this.filename, error) }
     }
 

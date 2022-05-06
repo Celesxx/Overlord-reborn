@@ -60,6 +60,7 @@
         }
     },
 
+    
     "mercenaire-c": {
         "nom": "mercenaire combattant", 
         "nomId": "mercenaire-c",
@@ -256,6 +257,333 @@
                 "loot": []
             },
             "xp": [300,350]
+        }
+    },
+
+
+
+    "monstre-m": 
+    {
+        "nom": "monstre des marécages", 
+        "nomId": "monstre-m",
+        "image": "https://www.journalduparanormal.com/wp-content/uploads/2015/10/la-creature-des-marais.jpg",
+        "imageAttaque": "https://www.journalduparanormal.com/wp-content/uploads/2015/10/la-creature-des-marais.jpg",
+        "imageCritique": "https://www.journalduparanormal.com/wp-content/uploads/2015/10/la-creature-des-marais.jpg",
+        "imageSkill": "https://www.journalduparanormal.com/wp-content/uploads/2015/10/la-creature-des-marais.jpg",
+        "imageMiss": "https://www.journalduparanormal.com/wp-content/uploads/2015/10/la-creature-des-marais.jpg",
+        "description": "un petit monstre empestant les marécages ",
+        "lvl": 12,
+        "hp": [70, 5],
+        "armure": 0,
+        "spawn": [{"zone":"marécages","drop":60}],
+        "position": 2,
+        "attaque": 
+        {
+            "description": "vous crache un jet d'acide.",
+            "descriptionCrit": "grince des dents avant de gonfler sa gorge et vous balance une remontée gastrique du fond de son estomac. ",
+            "degat": [30, 38],
+            "crit": [10, 15],
+            "miss": 10,
+            "penetration": 0,
+            "poison": 0,
+            "level": [1,1,-1]
+        },
+        "attaqueSpecial": 
+        [{
+            "activation": 15,
+            "description": "Se racle la gorge et dans la foulée vous jette au visage les reste de son dernier repas.",
+            "repeat": [0, 1],
+            "degatBonus": 25,
+            "crit":
+            {
+                "description": "Envoi un liquide vert et visqueux depuis une de ses cavitées abdominales. Une verue ? Un abscès ? Qu'importe, dans le dégout vous tentez de l'esquiver mais vous vous le prenez de plein fouet.",
+                "activation": 10,
+                "degatBonus": 10
+            },
+            "miss": 15,
+            "level": [1,1,-1]
+        }],
+        "blocage": 
+        {
+            "degat": [9999,9999],
+            "crit": [0, 0],
+            "miss": 65,
+            "level": [5,1,-1]
+        },
+        "loot": 
+        {
+            "gold":
+            {
+                "bronze": [20,35],
+                "argent": [0,0],
+                "or": [0,0]
+            },
+            "item": 
+            { 
+                "chance": [], 
+                "loot": []
+            },
+            "xp": [20,40]
+        }
+    },
+
+
+    "tigre-m": {
+        "nom": "tigre des marécages", 
+        "nomId": "tigre-m",
+        "image": "http://st.gde-fon.com/wallpapers_original/437655_art_boloto_monstr_voda_les_chashha_tuman_1680x1050_www.Gde-Fon.com.jpg",
+        "imageAttaque": "https://cdn.discordapp.com/attachments/562281586549194752/971045315195068496/unknown.png",
+        "imageCritique": "https://cdn.discordapp.com/attachments/562281586549194752/971045315195068496/unknown.png",
+        "imageSkill": "https://media.discordapp.net/attachments/562281586549194752/971045535559602186/unknown.png?width=520&height=677",
+        "imageMiss": "http://st.gde-fon.com/wallpapers_original/437655_art_boloto_monstr_voda_les_chashha_tuman_1680x1050_www.Gde-Fon.com.jpg",
+        "description": "Un tigre géant qui semble extrement rapide et agile !",
+        "lvl": 14,
+        "hp": [120, 5],
+        "armure": 5,
+        "spawn": [{"zone":"marécages","drop":20}],
+        "position": 1,
+        "attaque": 
+        {
+            "description": "sort ses griffes acérées se rue rapidement sur vous.",
+            "descriptionCrit": "utilise ses dents acérées pour les planter dans votre chair.",
+            "degat": [35, 40],
+            "crit": [20, 15],
+            "miss": 10,
+            "penetration": 0,
+            "poison": 0,
+            "level": [2,1,-1]
+        },
+        "attaqueSpecial": 
+        [{
+            "activation": 10,
+            "description": "se déchaîne. Il bondit d'arbres en rochers et vous rue de coups de griffes et de crocs. Ses coups sont critique et puissants et ils sont plus nombreux. ",
+            "repeat": [50, 1],
+            "degatBonus": -25,
+            "crit":
+            {
+                "description": "se déchaîne. Il bondit d'arbres en rochers et vous rue de coups de griffes et de crocs. Ses coups sont moins puissants dans sa folie mais ils sont plus nombreux. ",
+                "activation": 10,
+                "degatBonus": 15
+            },
+            "miss": 35,
+            "level": [1,1,-1]
+        }],
+        "blocage": 
+        {
+            "degat": [9999,9999],
+            "crit": [0, 0],
+            "miss": 60,
+            "level": [5,1,-1]
+        },
+        "loot": 
+        {
+            "gold":
+            {
+                "bronze": [35,50],
+                "argent": [0,0],
+                "or": [0,0]
+            },
+            "item": 
+            { 
+                "chance": [], 
+                "loot": []
+            },
+            "xp": [25,45]
+        }
+    },
+
+
+    "arbros": {
+        "nom": "petit arbros", 
+        "nomId": "arbros",
+        "image": "https://images-ext-1.discordapp.net/external/GBbI20P6Aj0WEuZgCRJt1R77oEwZ6-DuRufOON35koE/https/besthqwallpapers.com/Uploads/26-9-2017/21718/thumb2-monster-fantasy-art-forest-darkness.jpg",
+        "imageAttaque": "https://images-ext-1.discordapp.net/external/GBbI20P6Aj0WEuZgCRJt1R77oEwZ6-DuRufOON35koE/https/besthqwallpapers.com/Uploads/26-9-2017/21718/thumb2-monster-fantasy-art-forest-darkness.jpg",
+        "imageCritique": "https://images-ext-1.discordapp.net/external/GBbI20P6Aj0WEuZgCRJt1R77oEwZ6-DuRufOON35koE/https/besthqwallpapers.com/Uploads/26-9-2017/21718/thumb2-monster-fantasy-art-forest-darkness.jpg",
+        "imageSkill": "https://images-ext-1.discordapp.net/external/GBbI20P6Aj0WEuZgCRJt1R77oEwZ6-DuRufOON35koE/https/besthqwallpapers.com/Uploads/26-9-2017/21718/thumb2-monster-fantasy-art-forest-darkness.jpg",
+        "imageMiss": "https://images-ext-1.discordapp.net/external/GBbI20P6Aj0WEuZgCRJt1R77oEwZ6-DuRufOON35koE/https/besthqwallpapers.com/Uploads/26-9-2017/21718/thumb2-monster-fantasy-art-forest-darkness.jpg",
+        "description": "Un pas si petit arbre centenaire bien vivant qui est prêt à vous écraser",
+        "lvl": 15,
+        "hp": [200, 7],
+        "armure": 0,
+        "spawn": [{"zone":"marécages","drop":15}],
+        "position": 1,
+        "attaque": 
+        {
+            "description": "lance son immense bras sur vous, deblayant tout sur son passage. ",
+            "descriptionCrit": "prend une posture différente. Vous êtes comme hypnotisé par la lueur qui s'intensifie en son coeur, tandis qu'il se laisse tomber de tous son poids sur vous.",
+            "degat": [45, 65],
+            "crit": [10, 12],
+            "miss": 35,
+            "penetration": 0,
+            "poison": 0,
+            "level": [2,1,-1]
+        },
+        "attaqueSpecial": 
+        [{
+            "activation": 5,
+            "description": "arrête d'attaquer. Son coeur devient d'un rouge intense et flamboie de mille feux. Il se met à exploser de façon critique.",
+            "repeat": [0, 1],
+            "degatBonus": 60,
+            "crit":
+            {
+                "description": "arrête d'attaquer. Son coeur devient d'un rouge intense et flamboie de mille feux. Il se met à exploser.",
+                "activation": 5,
+                "degatBonus": 20
+            },
+            "miss": 10,
+            "level": [1,1,-1]
+        }],
+        "blocage": 
+        {
+            "degat": [15,30],
+            "crit": [10, 10],
+            "miss": 20,
+            "level": [5,1,-1]
+        },
+        "loot": 
+        {
+            "gold":
+            {
+                "bronze": [50,60],
+                "argent": [0,0],
+                "or": [0,0]
+            },
+            "item": 
+            { 
+                "chance": [], 
+                "loot": []
+            },
+            "xp": [30,50]
+        }
+    },
+
+
+    "tortue-m": {
+        "nom": "tortue colossale des marécages", 
+        "nomId": "tortue-m",
+        "image": "https://media.discordapp.net/attachments/939189314993139752/939630879498698772/318dfa188093eef801ef750b09885d13.png?width=477&height=675",
+        "imageAttaque": "https://cdn.discordapp.com/attachments/562281586549194752/971042654227943444/unknown.png",
+        "imageCritique": "https://cdn.discordapp.com/attachments/562281586549194752/971042654227943444/unknown.png",
+        "imageSkill": "https://cdn.discordapp.com/attachments/562281586549194752/971042654227943444/unknown.png",
+        "imageMiss": "https://media.discordapp.net/attachments/939189314993139752/939630879498698772/318dfa188093eef801ef750b09885d13.png?width=477&height=675",
+        "description": "Une géante tortue qui semble pour le moins indestructible ",
+        "lvl": 15,
+        "hp": [300, 10],
+        "armure": 15,
+        "spawn": [{"zone":"marécages","drop":4}],
+        "position": 1,
+        "attaque": 
+        {
+            "description": "se retourne et tente de vous désiquillibrer avec sa queue.",
+            "descriptionCrit": "se déchaîne et allonge violement son coup jusqu'à vous attraper avec sa solide machoîre.",
+            "degat": [25, 35],
+            "crit": [5, 20],
+            "miss": 15,
+            "penetration": 0,
+            "poison": 0,
+            "level": [2,1,-1]
+        },
+        "attaqueSpecial": 
+        [{
+            "activation": 10,
+            "description": "La tortue bondit et se recroqueville dans sa carapace. Elle se laisse tomber de tout son poid et crée une onde de choc critique qui affecte la première ligne.",
+            "repeat": [0, 1],
+            "degatBonus": 15,
+            "crit":
+            {
+                "description": "La tortue bondit et se recroqueville dans sa carapace. Elle se laisse tomber de tout son poid et crée une onde de choc qui affecte la première ligne.",
+                "activation": 0,
+                "degatBonus": 0
+            },
+            "miss": 0,
+            "level": [1,1,-1]
+        }],
+        "blocage": 
+        {
+            "degat": [10,20],
+            "crit": [5, 9999],
+            "miss": 20,
+            "level": [5,1,-1]
+        },
+        "loot": 
+        {
+            "gold":
+            {
+                "bronze": [55,70],
+                "argent": [0,0],
+                "or": [0,0]
+            },
+            "item": 
+            { 
+                "chance": [], 
+                "loot": []
+            },
+            "xp": [35,55]
+        }
+    },
+
+
+    "roi-marecages": {
+        "nom": "Le roi des marécages", 
+        "nomId": "roi-marecages",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971879685116014592/3def3ee019360c77eda5f8c74c3705d6.jpg",
+        "imageAttaque": "https://media.discordapp.net/attachments/951928506021998652/971879685434769408/tales-of-legendia-anime.gif",
+        "imageCritique": "https://media.discordapp.net/attachments/951928506021998652/971880148234289272/a04ba37064c96262acb6c553d1315c2c.gif",
+        "imageSkill": "https://media.discordapp.net/attachments/951928506021998652/971880147563204669/7TZe.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971879685116014592/3def3ee019360c77eda5f8c74c3705d6.jpg",
+        "description": "Au bout d'un moment vous ressentez comme de léger tremblement venant du sol, puis au fur et à mesure que le temps passe, les tremblements sont de plus en plus fort et vous entendez dans le même temps de lourd bruit de pas qui déchire les arbres à son passage. Avant même que vous ailliez le temps de réaliser ce qu'il ce passe, c'était trop tard... Le roi des marécages gardien de ce sanctuaire n'était plus qu'à quelques mètre de vous, c'est à vous demander comment il est à pu arriver aussi vite... La seul solution, COURIR !",
+        "lvl": 65,
+        "hp": [5000, 0],
+        "armure": 50,
+        "spawn": [{"zone":"marécages","drop":1}],
+        "position": 1,
+        "attaque": 
+        {
+            "description": "Le roi vous charge et vous inflige de lourd dégats !",
+            "descriptionCrit": "Le roi vous charge et vous inflige un énorme coup de tête qui inflige des dégats critique !",
+            "degat": [80, 130],
+            "crit": [10, 30],
+            "miss": 30,
+            "penetration": 20,
+            "poison": 0,
+            "level": [0,0,0]
+        },
+        "attaqueSpecial": 
+        [{
+            "activation": 5,
+            "description": "Le roi lache un crie extrement lourd qui paralyse tout le monde pendant 2 tours !",
+            "repeat": [0, 1],
+            "degatBonus": -100,
+            "crit":
+            {
+                "description": "Le roi lache un crie extrement lourd qui inflige des dégats à tout le monde et paralyse tout le monde pendant 2 tours !",
+                "activation": 20,
+                "degatBonus": 20
+            },
+            "miss": 0,
+            "level": [0,0,0]
+        }],
+        "blocage": 
+        {
+            "degat": [60,100],
+            "crit": [10, 9999],
+            "miss": 25,
+            "level": [0,0,0]
+        },
+        "loot": 
+        {
+            "gold":
+            {
+                "bronze": [2000,3000],
+                "argent": [200,300],
+                "or": [25,35]
+            },
+            "item": 
+            { 
+                "chance": [], 
+                "loot": []
+            },
+            "xp": [400,450]
         }
     }
 }

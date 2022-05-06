@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js")
 const BestiaireFunction = require("../../functions/monstre/bestiaire.function.js")
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 module.exports = 
 {
@@ -24,22 +25,32 @@ module.exports =
                     data = JSON.parse(text)
                     const bestiaireFunction = new BestiaireFunction()
 
-                    let embed = new MessageEmbed()
-                    .setColor("#00ff00")
-                    .setTitle("Création de monstre dans la bdd")
+                    const timer = ms => new Promise(res => setTimeout(res, ms))
 
                     for(const [key, value] of Object.entries(data))
                     {
                         const response = await bestiaireFunction.monstreCreation(value)
     
-                        if(response.state == false) embed.addField("Status", `${response.message}`)
-                        else embed.addField(`${response.monstre.nom}`, `${response.log}` )
+                        let embed = new MessageEmbed()
+
+                        if(response.state == false) 
+                        {
+                            embed.addField(`${value.nomId}`, `${response.log}`)
+                            embed.setColor("#ff0000")
+                        }
+                        else
+                        {
+                            embed.addField(`${value.nomId}`, `${response.message}`)
+                            embed.setColor("#00ff00")
+                        }
+
+                        await timer(1000)
                             
+                        message.channel.send({embeds: [ embed ]})
                         
                     }
 
-                    message.delete()
-                    message.channel.send({embeds: [embed]})
+                    message.channel.send("done")
                 }
             })
         }

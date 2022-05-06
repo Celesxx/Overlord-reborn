@@ -1,0 +1,29 @@
+{
+    "bronze": 
+    {
+        "rang": "bronze",
+        "quete":
+        [
+            {
+                "gain": "15 pièces de bronze",
+                "description": "Vous devez allez récolter les plantes médicinal eledas qui ce trouve dans la montagne, la plante est très fragile donc prenez votre temps (minimum 6 message rp concernant la plante et 20min)"
+            },
+            {
+                "gain": "10 pièces de bronze + 35 pièces de bronze par informations valable",
+                "description": "La garde recherche des informations sur des possibles traitres humains, aller dans l'auberge inter espèce et récolter des informations sur des possibles humain séjournant la bas (minimum 6 message rp concernant la plante et 20min) "
+            },
+            {
+                "gain": "10 pièces de bronze",
+                "description": "Un client recherche des peaux de loup, aller en chasser et récolter la peau"
+            },
+            {
+                "gain": "25 pièces de bronze",
+                "description": "Des mercenaires traine dans les plaines ramener mort ou vif"
+            },
+            {
+                "gain": "50 pièces de bronze",
+                "description": "Ramener les plaques d'aventurier défunt, selon les informations un ce trouve dans les plaines sauvage et l'autre dans les marécages'"
+            }
+        ]
+    }
+}

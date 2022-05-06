@@ -57,7 +57,7 @@ class CombatFunction
              let skillMultiplier = Math.floor(Math.random() * (skill[0].attaque.degat[1] - skill[0].attaque.degat[0]) ) + skill[0].attaque.degat[0];
              if(Math.floor(Math.random() * 100) <= skill[0].attaque.crit[0]) skillMultiplier += skill[0].attaque.crit[1]
              
-             if(Math.floor(Math.random() * 100) <= skill[0].attaque.miss) return {miss : true, degat: 0}
+             if(Math.floor(Math.random() * 100) <= skill[0].attaque.miss && skill[0].attaque.miss != 0) return {miss : true, degat: 0}
              else
              {
                  let degat = ((userData.attaque[0] * skillMultiplier) / 100) + userData.attaque[0]
@@ -452,14 +452,16 @@ class CombatFunction
     {
         try
         {
+            let miss = false
             let critique = 0
             let critiqueActivation = Math.floor(Math.random() * 100)
             let defense = Math.floor(Math.random() * ( (skill.defense.blocage[1]) - ( skill.defense.blocage[0]) ) ) + skill.defense.blocage[0] 
 
+            if(Math.floor(Math.random() * 100) <= skill.defense.miss) miss = true
             if(critiqueActivation < skill.defense.crit[0]) critique = skill.defense.crit[1]
-            degat = degat - (degat * userData.armure[0] / 100) - defense - critique
+            if(!miss) degat = degat - (degat * userData.armure[0] / 100) - defense - critique
             if(degat < 0) degat = 0
-            return parseInt(degat.toFixed(1))
+            return {miss: miss, degat : parseInt(degat.toFixed(1)) }
 
         } catch(error)
         {

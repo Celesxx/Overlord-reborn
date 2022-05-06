@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js")
 const SkillFunction = require("../../functions/character/skill.function.js")
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 module.exports = 
 {
@@ -23,17 +24,29 @@ module.exports =
                 {
                     data = JSON.parse(text)
                     const skillFunction = new SkillFunction()
+                    const timer = ms => new Promise(res => setTimeout(res, ms))
 
-                    let embed = new MessageEmbed()
-                    .setColor("#00ff00")
-                    .setTitle("Création du skill dans la bdd")
 
                     for(const [key, value] of Object.entries(data))
                     {
                         const response = await skillFunction.skillCreation(value)
     
-                        if(response.state == false) embed.addField("Status", `${response.message}`)
-                        else embed.addField(`${response.skill.nom}`, `${response.log}` )     
+                        let embed = new MessageEmbed()
+
+                        if(response.state == false) 
+                        {
+                            embed.addField(`${value.nom}`, `${response.log}`)
+                            embed.setColor("#ff0000")
+                        }
+                        else
+                        {
+                            embed.addField(`${value.nom}`, `${response.message}`)
+                            embed.setColor("#00ff00")
+                        }
+
+                        await timer(1000)
+                            
+                        message.channel.send({embeds: [ embed ]})  
                     }
 
                     message.delete()

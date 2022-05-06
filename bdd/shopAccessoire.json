@@ -1,0 +1,509 @@
+{
+    "anneau-vs": 
+    {
+        "nom": "Petit anneau de vitalité",
+        "nomId": "anneau-vs",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 20,
+            "mana": 0,
+            "defensePhysique": 0,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [50,0,0]
+    },
+
+    "anneau-vm": 
+    {
+        "nom": "Anneau de vitalité",
+        "nomId": "anneau-vm",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 40,
+            "mana": 0,
+            "defensePhysique": 0,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [100,1,0]
+    },
+
+    "anneau-vl": 
+    {
+        "nom": "Grand anneau de vitalité",
+        "nomId": "anneau-vl",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 60,
+            "mana": 0,
+            "defensePhysique": 0,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [200,5,1]
+    },
+
+    "anneau-vx": 
+    {
+        "nom": "Anneau de vitalité suprême",
+        "nomId": "anneau-vx",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 80,
+            "mana": 0,
+            "defensePhysique": 0,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [400,15,3]
+    },
+
+
+
+
+
+
+    "anneau-ms": 
+    {
+        "nom": "Petit anneau de mana",
+        "nomId": "anneau-ms",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 0,
+            "mana": 20,
+            "defensePhysique": 0,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [50,0,0]
+    },
+
+    "anneau-mm": 
+    {
+        "nom": "Anneau de mana",
+        "nomId": "anneau-mm",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 0,
+            "mana": 40,
+            "defensePhysique": 0,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [100,1,0]
+    },
+
+    "anneau-ml": 
+    {
+        "nom": "Grand anneau de mana",
+        "nomId": "anneau-ml",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 0,
+            "mana": 60,
+            "defensePhysique": 0,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [200,5,1]
+    },
+
+    "anneau-mx": 
+    {
+        "nom": "Anneau de mana suprême",
+        "nomId": "anneau-mx",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 0,
+            "mana": 80,
+            "defensePhysique": 0,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [400,15,3]
+    },
+
+
+
+
+
+
+    "anneau-rs": 
+    {
+        "nom": "Petit anneau de resistance",
+        "nomId": "anneau-rs",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 0,
+            "mana": 0,
+            "defensePhysique": 2,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [50,0,0]
+    },
+
+    "anneau-rm": 
+    {
+        "nom": "Anneau de resistance",
+        "nomId": "anneau-rm",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 0,
+            "mana": 0,
+            "defensePhysique": 4,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [100,1,0]
+    },
+
+    "anneau-rl": 
+    {
+        "nom": "Grand anneau de resistance",
+        "nomId": "anneau-rl",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 0,
+            "mana": 0,
+            "defensePhysique": 6,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [200,5,1]
+    },
+
+    "anneau-rx": 
+    {
+        "nom": "Anneau de resitance suprême",
+        "nomId": "anneau-rx",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 0,
+            "mana": 0,
+            "defensePhysique": 8,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [400,15,3]
+    },
+
+
+
+
+
+
+    "anneau-ps": 
+    {
+        "nom": "Petit anneau de protection",
+        "nomId": "anneau-ps",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 0,
+            "mana": 0,
+            "defensePhysique": 0,
+            "defenseMagique": 2
+        },
+        "description": "",
+        "image": "",
+        "price": [50,0,0]
+    },
+
+    "anneau-pm": 
+    {
+        "nom": "Anneau de mana",
+        "nomId": "anneau-pm",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 0,
+            "mana": 0,
+            "defensePhysique": 0,
+            "defenseMagique": 4
+        },
+        "description": "",
+        "image": "",
+        "price": [100,1,0]
+    },
+
+    "anneau-pl": 
+    {
+        "nom": "Grand anneau de protection",
+        "nomId": "anneau-pl",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 0,
+            "mana": 0,
+            "defensePhysique": 0,
+            "defenseMagique": 6
+        },
+        "description": "",
+        "image": "",
+        "price": [200,5,1]
+    },
+
+    "anneau-px": 
+    {
+        "nom": "Anneau de protection suprême",
+        "nomId": "anneau-px",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "hp": 0,
+            "mana": 80,
+            "defensePhysique": 0,
+            "defenseMagique": 0
+        },
+        "description": "",
+        "image": "",
+        "price": [400,15,3]
+    },
+
+
+
+
+
+
+    "anneau-fs": 
+    {
+        "nom": "Petit anneau de force",
+        "nomId": "anneau-fs",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "degat": 5
+        },
+        "description": "",
+        "image": "",
+        "price": [50,0,0]
+    },
+
+    "anneau-fm": 
+    {
+        "nom": "Anneau de force",
+        "nomId": "anneau-fm",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "degat": 10
+        },
+        "description": "",
+        "image": "",
+        "price": [100,1,0]
+    },
+
+    "anneau-fl": 
+    {
+        "nom": "Grand anneau de force",
+        "nomId": "anneau-fl",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "degat": 15
+        },
+        "description": "",
+        "image": "",
+        "price": [200,5,1]
+    },
+
+    "anneau-fx": 
+    {
+        "nom": "Anneau de force suprême",
+        "nomId": "anneau-fx",
+        "unique": false,
+        "type": "accesoire",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": true,
+            "mage": true,
+            "archer": true
+        },
+        "statistique":
+        {
+            "degat": 5
+        },
+        "description": "",
+        "image": "",
+        "price": [400,15,3]
+    }
+}

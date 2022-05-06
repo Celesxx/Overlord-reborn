@@ -22,15 +22,28 @@ module.exports =
                 data = JSON.parse(text)
                 const zoneFunction = new ZoneFunction()
 
-                let embed = new MessageEmbed()
-                .setColor("#00ff00")
-                .setTitle("Création de la zone dans la bdd")
+                const timer = ms => new Promise(res => setTimeout(res, ms))
 
                 for(const [key, value] of Object.entries(data))
                 {
                     const response = await zoneFunction.zoneCreation(value)
-                    if(response.state == false) embed.addField("Status", `${response.message}`)
-                    else embed.addField(`${response.zone.nom}`, `${response.log}`)
+                    
+                    let embed = new MessageEmbed()
+
+                    if(response.state == false) 
+                    {
+                        embed.addField(`${value.nom}`, `${response.log}`)
+                        embed.setColor("#ff0000")
+                    }
+                    else
+                    {
+                        embed.addField(`${value.nom}`, `${response.message}`)
+                        embed.setColor("#00ff00")
+                    }
+
+                    await timer(1000)
+                        
+                    message.channel.send({embeds: [ embed ]})
                 }
 
                 message.delete()

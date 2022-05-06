@@ -10,7 +10,7 @@ module.exports =
         var id = message.author.id
         console.log("id : ", id)
         const playerCreationFunction = new PlayerCreationFunction()
-        const stat = await playerCreationFunction.getPlayerById(id.replace(/[<@>]/gm,""))
+        let stat = await playerCreationFunction.getPlayerById(id.replace(/[<@>]/gm,""))
             
         stat = stat[0]
         if(stat.attribut[0] == 0)
@@ -23,7 +23,7 @@ module.exports =
         {
 
             const filter = (reaction, user) => ['🛡️','⚔️','✨','❤️'].includes(reaction.emoji.name) && user.id === message.author.id && user.id != message.author.bot;
-            let embed = new Discord.MessageEmbed()
+            let embed = new MessageEmbed()
             .setColor("#5DADE2")
             .setTitle("Vous pouvez attribuer " + stat.attribut[0] + " dans une de vos statistiques.")
             .setDescription("🛡️ = 0,25 dans l'armure\n⚔️ = 1 dans l'attaque\n✨ = 5 dans le mana\n❤️ = 5 dans la santé\n🔙 = Fermer la commande")
@@ -97,5 +97,9 @@ module.exports =
                 })
             })
         }
+    },
+    runSlash: async (client, interaction) => 
+    {   
+        interaction.reply("Merci d'utiliser la commande ?ptlevel à la place")
     }
 }
