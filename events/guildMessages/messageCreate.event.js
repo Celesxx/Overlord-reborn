@@ -24,7 +24,7 @@ module.exports =
             "945973484251668480", "939189317610393706", "945974119374139412", "945974019709087785", "945775505850921010", "945772961934221322", "945974513458372608"
         ]
         
-        if(process.env.MODE == "PROD" && message.content.length >= 0 && rpServer.includes(message.channel.id))
+        if(process.env.MODE == "prod" && message.content.length >= 0 && rpServer.includes(message.channel.id))
         {
             if(message.content.length >= 200)
             {
