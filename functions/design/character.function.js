@@ -53,21 +53,25 @@ class DesignCharacterFunction
             context.fillText(`Vos statistiques augmente`, canvas.width - 400, canvas.height / 2.2, canvas.width - 20, canvas.height - 20)
             context.font = `18px Big Space`
             context.fillStyle = '#23ad00'
-            context.fillText(`Hp:`, canvas.width - 400, canvas.height / 1.7, 114, canvas.height - 20 )
+            context.fillText(`Hp:`, canvas.width - 435, canvas.height / 1.7, 114, canvas.height - 20 )
             context.fillStyle = '#666666'
-            context.fillText(`+${data.Hp}`, canvas.width - 375, canvas.height / 1.7, 114, canvas.height - 20 )
+            context.fillText(`+${data.Hp}`, canvas.width - 405, canvas.height / 1.7, 114, canvas.height - 20 )
             context.fillStyle = '#23ad00'
-            context.fillText(`Mag:`, canvas.width - 335, canvas.height / 1.7, canvas.width - 20, canvas.height - 20 )
+            context.fillText(`Mag:`, canvas.width - 375, canvas.height / 1.7, canvas.width - 20, canvas.height - 20 )
             context.fillStyle = '#666666'
-            context.fillText(`+${data.Mag}`, canvas.width - 300, canvas.height / 1.7, canvas.width - 20, canvas.height - 20 )
+            context.fillText(`+${data.Mag}`, canvas.width - 335, canvas.height / 1.7, canvas.width - 20, canvas.height - 20 )
             context.fillStyle = '#23ad00'
-            context.fillText(`Atk:`, canvas.width - 260, canvas.height / 1.7, canvas.width - 20, canvas.height - 20 )
+            context.fillText(`Atk:`, canvas.width - 305, canvas.height / 1.7, canvas.width - 20, canvas.height - 20 )
             context.fillStyle = '#666666'
-            context.fillText(`+${data.Atk}`, canvas.width - 225, canvas.height / 1.7, canvas.width - 20, canvas.height - 20 )
+            context.fillText(`+${data.Atk}`, canvas.width - 270, canvas.height / 1.7, canvas.width - 20, canvas.height - 20 )
             context.fillStyle = '#23ad00'
-            context.fillText(`Def:`, canvas.width - 185, canvas.height / 1.7, canvas.width - 20, canvas.height - 20 )
+            context.fillText(`Def:`, canvas.width - 240, canvas.height / 1.7, canvas.width - 20, canvas.height - 20 )
             context.fillStyle = '#666666'
-            context.fillText(`+${data.Def}`, canvas.width - 150, canvas.height / 1.7, canvas.width - 20, canvas.height - 20 )
+            context.fillText(`+${data.Def}`, canvas.width - 205, canvas.height / 1.7, canvas.width - 20, canvas.height - 20 )
+            context.fillStyle = '#23ad00'
+            context.fillText(`Prot:`, canvas.width - 155, canvas.height / 1.7, canvas.width - 20, canvas.height - 20 )
+            context.fillStyle = '#666666'
+            context.fillText(`+${data.Pt}`, canvas.width - 110, canvas.height / 1.7, canvas.width - 20, canvas.height - 20 )
             //_____________________________________________________________________________
         
         

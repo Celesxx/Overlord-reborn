@@ -26,6 +26,7 @@ module.exports =
         
         if(process.env.MODE == "prod" && message.content.length >= 0 && rpServer.includes(message.channel.id))
         {
+            //process.env.MODE == "prod" &&
             if(message.content.length >= 200)
             {
                 let id = message.author.id
@@ -35,11 +36,12 @@ module.exports =
                 let stat = await playerCreationFunction.getPlayerById(id.replace(/[<@>]/gm,""))
         
                 stat = stat[0]
+                let rankBefore = await experienceFunction.getRankPlayer(stat.id)
+
                 console.log("Server status : xp before " + stat.xp)
                 stat.xp = Math.round(5 + stat.xp + (message.content.length * 0.001 * (stat.lvl - (stat.lvl / 2)) * Math.exp(stat.lvl / 250)))
                 console.log("Server status : xp after " + stat.xp)
         
-                let rankBefore = await experienceFunction.getRankPlayer(stat)
                 await playerCreationFunction.editPlayerById(stat.id, stat)
                 await experienceFunction.verifLvlUp(stat.id, client, message, rankBefore, stat)
             }

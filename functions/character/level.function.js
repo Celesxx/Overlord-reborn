@@ -2,7 +2,9 @@ const CanvasCharacterFunction = require("../design/character.function.js")
 const InventaireFunction = require("./inventaire.function.js")
 const PlayerCreationFunction = require("./creation.function.js")
 const lvl = require('../../bdd/lvl.json')
+const classe = require('../../bdd/classe.json')
 const fs = require("fs")
+const { type } = require("express/lib/response")
 
 
 class ExperienceFunction 
@@ -45,17 +47,13 @@ class ExperienceFunction
          const playerCreationFunction = new PlayerCreationFunction()
          let rank = await playerCreationFunction.getPlayerStatForRankById(id)
 
-         // console.log("rank before", rank)
-         rank.sort((a,b)=>b.lvl - a.lvl)[0].lvl
-         // console.log("rank after", rank)
-         rank.sort((a,b)=>b.xp - a.xp)[0].xp
-         // console.log("rank final", rank)
+         rank.sort((a,b)=> b.lvl == a.lvl ? b.xp - a.xp : b.lvl - a.lvl )[0].lvl
 
          let i = 0
          let rankPosition = rank.length
-         for(const user of rank) user[0] == id ? rankPosition = i - 1 : i--
-
-         return rankPosition
+         for(const user of rank) user.id == id ? rankPosition = i - 1 : i--
+         
+         return rankPosition.toString().replace(/[-+]/gm, "")
 
       }catch(error)
       {
@@ -84,7 +82,7 @@ class ExperienceFunction
 
          // let stat = bdd[id]
          let xpNeed, xpNeedNext
-         let [HpGain, MaGain, AtGain, ArGain] = [0, 0, 0, 0]
+         let [HpGain, MaGain, AtGain, ArGain, PtGain] = [0, 0, 0, 0, 0]
          let levelUp = false
          const experienceFunction = new ExperienceFunction()
          const inventaireFunction = new InventaireFunction()
@@ -94,60 +92,63 @@ class ExperienceFunction
 
          do
          {
-            console.log("lvl : ", stat.lvl)
             xpNeed = await experienceFunction.getXpNeedByLvl(stat.lvl + 1)
-            console.log("xpNeed : ", xpNeed)
+            console.log("Server status : xpNeed => ", xpNeed)
             xpNeedNext = await experienceFunction.getXpNeedByLvl(stat.lvl + 2)
-                     
+         
             if(stat.xp >= xpNeed)
             {
                levelUp = true
                
-               
-               stat = await inventaireFunction.removeEquipmentStat(stat)
+               let classStat = classe[stat.classe].statistiques
+               let palier = 2
+               // stat = await inventaireFunction.removeEquipmentStat(stat)
 
                //ajoute le gain pour l'afficher dans l'image de level up
-               HpGain += Math.round( lvl[`${stat.classe}_HP`] + ((lvl[`${stat.classe}_HP`] * stat.lvl * stat.hp[2]) - (lvl[`${stat.classe}_HP`] * stat.lvl)))
-               MaGain += Math.round( lvl[`${stat.classe}_MA`] + ((lvl[`${stat.classe}_MA`] * stat.lvl * stat.magie[2]) - (lvl[`${stat.classe}_MA`] * stat.lvl)))
-               AtGain += Math.round( lvl[`${stat.classe}_AT`] + ((lvl[`${stat.classe}_AT`] * stat.lvl * stat.attaque[2]) - (lvl[`${stat.classe}_AT`] * stat.lvl)))
-               ArGain += lvl[`${stat.classe}_AR`] + ((lvl[`${stat.classe}_AR`] * stat.lvl * stat.armure[2]) - (lvl[`${stat.classe}_AR`] * stat.lvl))
-
+               HpGain += Math.round( classStat.hp + ((classStat.hp * stat.lvl * stat.hp[2]) - (classStat.hp * stat.lvl)))
+               MaGain += Math.round( classStat.mana + ((classStat.mana * stat.lvl * stat.magie[2]) - (classStat.mana * stat.lvl)))
+               AtGain += Math.round( classStat.attaque + ((classStat.attaque * stat.lvl * stat.attaque[2]) - (classStat.attaque * stat.lvl)))
+               ArGain += classStat.armure + ((classStat.armure * stat.lvl * stat.armure[2]) - (classStat.armure * stat.lvl))
+               PtGain += classStat.protection + ((classStat.protection * stat.lvl * stat.protection[2]) - (classStat.protection * stat.lvl))
 
                // Augmentation des stats en fonction de la classe et du palier
                stat.xp -= xpNeed
                stat.lvl += 1
                xpNeed = await experienceFunction.getXpNeedByLvl(stat.lvl + 1)
                
-               
+               if(stat.lvl >= 30) palier = 3
+               else if(stat.lvl >= 45) palier = 4
+
                // Stat total + gain de classe
-               stat.attribut[0] += lvl[`palier${stat.attributPalier}`]
-               stat.attribut[1] += lvl[`palier${stat.attributPalier}`]
-               stat.hp[1] += lvl[`${stat.classe}_HP`] 
-               stat.magie[1] += lvl[`${stat.classe}_MA`] 
-               stat.attaque[1] += lvl[`${stat.classe}_AT`]
-               console.log("armure before : ", stat.armure)
-               console.log((parseFloat(stat.armure[1]) + parseFloat(lvl[`${stat.classe}_AR`])).toFixed(2))
-               stat.armure[1] = (parseFloat(stat.armure[1]) + parseFloat(lvl[`${stat.classe}_AR`])).toFixed(2)
-               console.log("armure before1 : ", stat.armure)
+               stat.attribut[0] += palier
+               stat.attribut[1] += palier
+
+               stat.hp[1] += classStat.hp
+               stat.magie[1] += classStat.mana
+               stat.attaque[1] += classStat.attaque
+               stat.armure[1] = parseFloat((stat.armure[1] + classStat.armure).toFixed(2))
+               stat.protection[1] = parseFloat((stat.protection[1] + classStat.protection).toFixed(2))
                
-               
+               console.log("type : ", typeof(stat.protection[1]))
                // Stat total * stat bonus de race
-               stat.hp[1] += Math.round((lvl[`${stat.classe}_HP`] * stat.lvl * stat.hp[2]) - (lvl[`${stat.classe}_HP`] * stat.lvl))
-               stat.magie[1] += Math.round((lvl[`${stat.classe}_MA`] * stat.lvl * stat.magie[2]) - (lvl[`${stat.classe}_MA`] * stat.lvl))
-               stat.attaque[1] += Math.round((lvl[`${stat.classe}_AT`] * stat.lvl * stat.attaque[2]) - (lvl[`${stat.classe}_AT`] * stat.lvl))
-               console.log("armure before2 : ", stat.armure)
-               stat.armure[1] += (lvl[`${stat.classe}_AR`] * stat.lvl * stat.armure[2]) - (lvl[`${stat.classe}_AR`] * stat.lvl).toFixed(2)
-               console.log("armure before3 : ", stat.armure)
+               stat.hp[1] += Math.round((classStat.hp * stat.lvl * stat.hp[2]) - (classStat.hp * stat.lvl))
+               stat.magie[1] += Math.round((classStat.mana * stat.lvl * stat.magie[2]) - (classStat.mana * stat.lvl))
+               stat.attaque[1] += Math.round((classStat.attaque * stat.lvl * stat.attaque[2]) - (classStat.attaque * stat.lvl))
+               console.log("type : ", typeof(parseFloat(((classStat.armure * stat.lvl * stat.armure[2]) - (classStat.armure * stat.lvl)).toFixed(2))))
+               console.log("type : ", parseFloat(((classStat.armure * stat.lvl * stat.armure[2]) - (classStat.armure * stat.lvl)).toFixed(2)))
+               stat.armure[1] += parseFloat(((classStat.armure * stat.lvl * stat.armure[2]) - (classStat.armure * stat.lvl)).toFixed(2))
+               stat.protection[1] += parseFloat(((classStat.protection * stat.lvl * stat.protection[2]) - (classStat.protection * stat.lvl)).toFixed(2))
                
 
                //Si équipement rajoute toutes les stats qui ont été enlevé par l'ajout des nouvelles stats 
-               stat = await inventaireFunction.addEquipmentStat(stat)
+               // stat = await inventaireFunction.addEquipmentStat(stat)
 
                //Ajoute les stat actuel après calcul de tous les bonus
                stat.hp[0] = stat.hp[1] 
                stat.magie[0] = stat.magie[1] 
                stat.attaque[0] = stat.attaque[1]
                stat.armure[0] = stat.armure[1]
+               stat.protection[0] = stat.protection[1]
             }
          }while(stat.xp >= xpNeed)
 
@@ -155,15 +156,15 @@ class ExperienceFunction
          {
 
             //Affiche le canvas lvl
-            console.log(stat)
-            console.log("id : ", id)
             let response = await playerCreationFunction.editPlayerById(id, stat)
-            console.log(response)
             let rankAfter = await experienceFunction.getRankPlayer(id)
             let percentXp = stat.xp * 100 / xpNeedNext 
             let currentRank = ""
 
-            rankAfter < rankBefore ? currentRank = "down" : rankAfter > rankBefore ? currentRank = "up" : currentRank = "equal"
+            if(rankAfter < rankBefore) currentRank = "down"
+            else if(rankAfter > rankBefore) currentRank = "up"
+            else currentRank = "equal"
+
             const data = 
             {
                rank: [currentRank, rankAfter],
@@ -171,6 +172,7 @@ class ExperienceFunction
                Mag: MaGain,
                Atk: AtGain,
                Def: ArGain.toFixed(2),
+               Pt: PtGain.toFixed(2),
                percent: percentXp,
                xpNeed: xpNeedNext,
                xp: stat.xp,

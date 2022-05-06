@@ -8,7 +8,6 @@ module.exports =
     run: async (client, message, args) => 
     {
         var id = message.author.id
-        console.log("id : ", id)
         const playerCreationFunction = new PlayerCreationFunction()
         let stat = await playerCreationFunction.getPlayerById(id.replace(/[<@>]/gm,""))
             
@@ -22,11 +21,11 @@ module.exports =
         }else 
         {
 
-            const filter = (reaction, user) => ['🛡️','⚔️','✨','❤️'].includes(reaction.emoji.name) && user.id === message.author.id && user.id != message.author.bot;
+            const filter = (reaction, user) => ['🛡️','⚔️','✨','❤️', '💠'].includes(reaction.emoji.name) && user.id === message.author.id && user.id != message.author.bot;
             let embed = new MessageEmbed()
             .setColor("#5DADE2")
             .setTitle("Vous pouvez attribuer " + stat.attribut[0] + " dans une de vos statistiques.")
-            .setDescription("🛡️ = 0,25 dans l'armure\n⚔️ = 1 dans l'attaque\n✨ = 5 dans le mana\n❤️ = 5 dans la santé\n🔙 = Fermer la commande")
+            .setDescription("❤️ = 3 dans la santé \n✨ = 5 dans le mana \n⚔️ = 0,5 dans l'attaque \n🛡️ = 0,25 dans l'armure\n💠 = 0,25 dans la protection\n🔙 = Fermer la commande")
             .setImage("https://static.wikia.nocookie.net/log-horizon/images/0/0f/Teacher_System.png/revision/latest?cb=20131214072538")
 
             message.channel.send({embeds: [embed]}).then(async message => 
@@ -36,6 +35,7 @@ module.exports =
                 await message.react('⚔️');
                 await message.react('✨');
                 await message.react('❤️');
+                await message.react('💠');
     
                 let collector = await message.createReactionCollector(filter,{time: 3600000,errors:['time']});
                 await collector.on('collect', async (reaction, collector) =>  
@@ -56,12 +56,24 @@ module.exports =
                                 }
                             break
 
+                            case '💠':
+                                if(stat.attribut[0] == 0) message.channel.send("Vous n'avez plus de point à attribuer.")
+                                else 
+                                {
+                                    stat.protection[0] += 0.25  
+                                    stat.protection[1] += 0.25
+                                    stat.attribut[0] -= 1
+                                    await playerCreationFunction.editPlayerById(stat.id, stat)
+                                    message.channel.send("Vous venez d'utiliser un point dans la protection, il ne vous en reste plus que " + stat.attribut[0])
+                                }
+                            break
+
                             case '⚔️':
                                 if(stat.attribut[0] == 0) message.channel.send("Vous n'avez plus de point à attribuer.")
                                 else 
                                 {
-                                    stat.attaque[0] += 1
-                                    stat.attaque[1] += 1
+                                    stat.attaque[0] += 0.5
+                                    stat.attaque[1] += 0.5
                                     stat.attribut[0] -= 1
                                     await playerCreationFunction.editPlayerById(stat.id, stat)
                                     message.channel.send("Vous venez d'utiliser un point dans l'attaque, il ne vous en reste plus que " + stat.attribut[0])
@@ -72,8 +84,8 @@ module.exports =
                                 if(stat.attribut[0] == 0)message.channel.send("Vous n'avez plus de point à attribuer.")
                                 else 
                                 {
-                                    stat.hp[0] += 5
-                                    stat.hp[1] += 5
+                                    stat.hp[0] += 3
+                                    stat.hp[1] += 3
                                     stat.attribut[0] =  stat.attribut[0] - 1
                                     await playerCreationFunction.editPlayerById(stat.id, stat)
                                     message.channel.send("Vous venez d'utiliser un point dans la vitalité, il ne vous en reste plus que " + stat.attribut[0])
