@@ -1,5 +1,3 @@
-const bdd = require('../../bdd/bdd.json')
-
 class InventaireFunction 
 {
 

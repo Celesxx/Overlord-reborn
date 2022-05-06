@@ -10,6 +10,7 @@
             "drop": {}
         }
     },
+    
     "forêt" : {
         "nom": "foret",
         "image": "",
@@ -21,6 +22,19 @@
             "drop": {}
         }
     },
+
+    "marecage" : {
+        "nom": "marecage",
+        "image": "",
+        "description": "Une zone nauséabonde qui est remplie de monstre redoutable",
+        "lvl": 15,
+        "nombre": 3,
+        "loot": {
+            "money": [0,0],
+            "drop": {}
+        }
+    },
+    
     "colline" : {
         "nom": "colline",
         "image": "",

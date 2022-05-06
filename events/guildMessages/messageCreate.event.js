@@ -1,4 +1,3 @@
-const { CachedManager } = require("discord.js");
 require("dotenv").config();
 const PlayerCreationFunction = require("../../functions/character/creation.function.js")
 const ExperienceFunction = require("../../functions/character/level.function")

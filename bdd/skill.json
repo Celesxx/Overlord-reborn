@@ -1,98 +1,497 @@
 {
-    
-    "epee-s": {
-        "nom": "epee-s", 
-        "image": "https://media.discordapp.net/attachments/951928506021998652/956227190826086480/giphy_1.gif",
-        "description": "effectue un puissant coup d'épée sur la cible et inflige",
-        "target" : [1,1],
-        "attaque": 
+    "roulade-s": {
+        "nom": "roulade-s",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/962501749401341972/shield-hero.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/967093650557378590/attack-anime.gif",
+        "description": "vous esquivez parfaitement l'attaque de votre adversaire",
+        "cost": "0",
+        "defense": 
         {
-            "degat": [10, 30],
-            "crit": [10, 10],
-            "miss": 20,
-            "penetration": [],
-            "poison": {}
-        }
-    },
-
-    "dague-s": {
-        "nom": "dague-s",
-        "image": "https://media.discordapp.net/attachments/951928506021998652/966174111481073724/QiAC0YB.gif",
-        "description": "tire une salve de flèche",
-        "target" : [1,1],
-        "attaque": 
-        {
-            "degat": [20, 30],
-            "crit": [15, 10],
-            "miss": 30,
-            "penetration": [],
-            "poison": {}
-        }
-    },
-
-    "sort-s": {
-        "nom": "sort-s",
-        "image": "https://images-ext-2.discordapp.net/external/BQFPaY6ixiKZ3u6GcYNAHRqwyZgJGtmlfMmoUnR-uwc/https/c.tenor.com/jZm-P8qtA-YAAAAd/magic-castlevania.gif",
-        "description": "effectue un enchainement de coup",
-        "target" : [1,2],
-        "attaque": 
-        {
-            "degat": [15, 30],
-            "crit": [10, 10],
-            "miss": 15,
-            "penetration": [],
-            "poison": {}
+            "blocage": [9999,9999],
+            "miss": 70
         }
     },
 
     "blocage-cs": {
         "nom": "blocage-cs",
         "image": "https://media.discordapp.net/attachments/951928506021998652/962501749401341972/shield-hero.gif",
-        "description": "effectue un blocage",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/967097773562409010/4k1JOyQ.gif",
+        "description": "vous parer l'attaque de votre adversaire et subissez ",
+        "cost": "0",
         "defense": 
         {
-            "blocage": [10, 20],
+            "blocage": [10,20],
             "crit": [10, 10],
-            "miss": 20,
-            "penetration": 0
+            "miss": 10
         }
     },
 
     "blocage-vs": {
         "nom": "blocage-vs",
         "image": "https://media.discordapp.net/attachments/951928506021998652/962501749401341972/shield-hero.gif",
-        "description": "effectue un blocage",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/967097773562409010/4k1JOyQ.gif",
+        "description": "vous parer l'attaque de votre adversaire et subissez ",
+        "cost": "0",
         "defense": 
         {
-            "blocage": [8, 15],
+            "blocage": [8,15],
             "crit": [5, 10],
-            "miss": 15,
-            "penetration": 0
+            "miss": 10
         }
     },
 
-    "blocage-ms": {
-        "nom": "blocage-ms",
+    "bouclier-ms": {
+        "nom": "bouclier-ms",
         "image": "https://cdn.discordapp.com/attachments/951928506021998652/966174933585641512/archer-fate.gif",
-        "description": "effectue un blocage",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/967095309333299280/shiledfaild.gif",
+        "description": "vous parer l'attaque de votre adversaire et subissez ",
+        "cost": "10",
         "defense": 
         {
-            "blocage": [15, 25],
-            "crit": [10, 15],
-            "miss": 20,
-            "penetration": 0
+            "blocage": [15,25],
+            "crit": [10, 10],
+            "miss": 15
         }
     },
 
-    "roulade-v": {
-        "nom": "roulade-v",
-        "image": "https://cdn.discordapp.com/attachments/951928506021998652/966175918915743754/heitens-anime.gif",
-        "description": "effectue un blocage",
+    "bouclier-as": {
+        "nom": "bouclier-as",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/962501749401341972/shield-hero.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/967097773562409010/4k1JOyQ.gif",
+        "description": "vous parer l'attaque de votre adversaire et subissez ",
+        "cost": "0",
         "defense": 
         {
-            "blocage": [9999, 9999],
+            "blocage": [7,14],
+            "crit": [5, 8],
+            "miss": 10
+        }
+    },
+    "estoc-s": {
+        "nom": "estoc-s",
+        "image": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F62%2F96%2F74%2F62967413185848a898eb7c4f99b7c635.gif&imgrefurl=https%3A%2F%2Fwww.pinterest.com%2Fpin%2Fsao-screenshots-gifs--281543701459559%2F&tbnid=wIpL6QDwuAMykM&vet=10CAMQxiAoAGoXChMI-MGGi_vI9wIVAAAAAB0AAAAAED8..i&docid=UGNOw57loOwhqM&w=400&h=225&itg=1&q=coup%20d%27estoc&hl=fr&ved=0CAMQxiAoAGoXChMI-MGGi_vI9wIVAAAAAB0AAAAAED8",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/956361957173252147/ac8bc3366058336faf13e2414cbdb579.giff",
+        "description": "effectue un coup d'estoc afin de percer l'armure et vous infligez ",
+        "target": [1, 1],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [10, 35],
+            "crit": [10, 10],
+            "miss": 30,
+            "penetration": 25,
+            "poison": 0
+        }
+    },
+    "combattant-ultime": {
+        "nom": "combattant-ultime",
+        "image": "http://pa1.narvii.com/5824/6a711e5142347814e4241d1970555648b30b3bd1_00.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/956361957173252147/ac8bc3366058336faf13e2414cbdb579.gifff",
+        "description": "effectuer un puissance coup unique et infligez de lourd dégat ",
+        "target": [1, 1],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [30, 50],
+            "crit": [20, 20],
+            "miss": 0,
+            "penetration": 0,
+            "poison": 0
+        }
+    },
+    "eclair-s": {
+        "nom": "eclair-s",
+        "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Faminoapps.com%2Fc%2Fanime%2Fpage%2Fitem%2Fnarberal-gamma%2FeXt6_Ibm5BGr4b22QGYB14BJllQjZV&psig=AOvVaw2y1VyKBMkjhUeTkLNC7SWv&ust=1651862728755000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKDjl6yCyfcCFQAAAAAdAAAAABAc",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/967099926528004116/3gpX.giff",
+        "description": "jete un puissant éclair infligeant",
+        "target": [1, 2],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [30, 55],
+            "crit": [10, 25],
+            "miss": 15,
+            "penetration": 0,
+            "poison": 0
+        }
+    },
+    "mage-ultime": {
+        "nom": "mage-ultime",
+        "image": "https://vignette.wikia.nocookie.net/fairytailfanon/images/c/c2/Will_of_Michael_Spell_Absorption.gif/revision/latest?cb=20170522222455",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/967099926528004116/3gpX.giff",
+        "description": "ce concentre malgrès le combat acharné et regagnee du mana",
+        "cost": "0",
+        "effet": "-"
+    },
+    "lancer-ds": {
+        "nom": "lancer-ds",
+        "image": "https://discord.com/channels/@me/562281586549194752/971849026108543016",
+        "imageMiss": "https://i.pinimg.com/originals/3c/bb/23/3cbb2365e44442140dcb2e8b5a7a50cc.gif",
+        "description": "lance une dague sur la cible et lui inflige ",
+        "target": [1, 2],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [20, 30],
+            "crit": [15, 20],
+            "miss": 15,
+            "penetration": 0,
+            "poison": 0
+        }
+    },
+    "voleur-ultime": {
+        "nom": "voleur-ultime",
+        "image": "https://animesher.com/orig/1/118/1184/11842/animesher.com_clementine-overlord-momonga-1184247.gif",
+        "imageMiss": "https://64.media.tumblr.com/7a926a88150ff5bd6b9b9cb6d04ee97c/tumblr_inline_ohp16a15Zf1t7i19o_1280.jpg",
+        "description": "effectue un gros coup de dague sur un point critique et lui inflige",
+        "target": [1, 1],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [20, 50],
+            "crit": [30, 20],
+            "miss": 0,
+            "penetration": 0,
+            "poison": 0
+        }
+    },
+    "tir-s": {
+        "nom": "tir-s",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971928954179055616/e8e85a556d81097d6ab8506c1490ed02.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971928883983155200/8faf0e8d9ad3d1b61b448549e11b418d.gif",
+        "description": "tire une flèche et infligez ",
+        "target": [1, 2],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [20, 30],
+            "crit": [10, 10],
+            "miss": 20,
+            "penetration": 0,
+            "poison": 0
+        }
+    },
+    "tir-multiple-s": {
+        "nom": "tir-multiple-s",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971928883605684225/6d56e67f3b6fd569551d0fbef245b056.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971928957324775444/yochi-shoot.gif",
+        "description": "effectue un tir multiple qui inflige ",
+        "target": [2, 2],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [10, 35],
+            "crit": [10, 10],
+            "miss": 20,
+            "penetration": 0,
+            "poison": 0
+        }
+    },
+    "ranger-ultime": {
+        "nom": "ranger-ultime",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971928955416350750/guerre.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971928957324775444/yochi-shoot.gif",
+        "description": "tire une pluie de flèche ne laissant aucun répit à ses cible, il leurs inflige ",
+        "target": [0, 2],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [20, 35],
+            "crit": [10, 10],
+            "miss": 0,
+            "penetration": 0,
+            "poison": 0
+        }
+    },
+    "roulade-as": {
+        "nom": "roulade-as",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971933769613324289/harima-kenji-school-rumble.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971933754790654002/naofumi-iwatani-anger.gif",
+        "description": "vous esquivez parfaitement l'attaque de votre adversaire",
+        "cost": "0",
+        "defense": 
+        {
+            "blocage": [9999,9999],
+            "miss": 60
+        }
+    },
+
+    "tir-m": {
+        "nom": "tir-m",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971928955911274556/longbow-arrow.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971928957324775444/yochi-shoot.gif",
+        "description": "tire une puissante flèche et infligez ",
+        "target": [1, 2],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [25, 35],
+            "crit": [15, 10],
+            "miss": 18,
+            "penetration": 0,
+            "poison": 0
+        }
+    },
+    "archer-ultime": {
+        "nom": "archer-ultime",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971928954862706738/fate-archer.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971928954862706738/fate-archer.gif",
+        "description": "ce concentre avant de tirer une flèche d'un puissance et d'une rapidité sans égale capable de traverser toutes les armures. Cela inflige",
+        "target": [1, 2],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [40, 60],
+            "crit": [10, 10],
+            "miss": 0,
+            "penetration": 100,
+            "poison": 0
+        }
+    },
+    "tir-multiple-m": {
+        "nom": "tir-multiple-m",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971928885304365087/archer-fate.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971928957324775444/yochi-shoot.gif",
+        "description": "effectue un tir multiple puissant qui inflige ",
+        "target": [2, 2],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [20, 40],
+            "crit": [15, 10],
+            "miss": 15,
+            "penetration": 0,
+            "poison": 0
+        }
+    },
+    "bombardier-ultime": {
+        "nom": "bombardier-ultime",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971928884465512469/78ea7416e2c9f9ab81350238dcfb685a.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971928884465512469/78ea7416e2c9f9ab81350238dcfb685a.gif",
+        "description": "tire une gigantesque pluie de fleche penetrante infligeant",
+        "target": [0, 2],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [40, 50],
+            "crit": [15, 10],
+            "miss": 10,
+            "penetration": 10,
+            "poison": 0
+        }
+    },
+    "blocage-cm": {
+        "nom": "blocage-cm",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971933768900280370/erza-scarlet-fairy-tail.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971933754790654002/naofumi-iwatani-anger.gif",
+        "description": "vous parer de façon experte l'attaque de votre adversaire et subissez ",
+        "cost": "0",
+        "defense": 
+        {
+            "blocage": [25,35],
+            "crit": [10, 10],
+            "miss": 8
+        }
+    },
+    "provocation-s": {
+        "nom": "provocation-s",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971934736006123530/c8a8dbd0771f93d11467be7c553d6922.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971933754790654002/naofumi-iwatani-anger.gif",
+        "description": "provoque vos adversaire afin de les attirer ",
+        "target": [2, 2],
+        "cost": "0",
+        "effet": "provocation-s"
+    },
+    "paladin-ultime": {
+        "nom": "paladin-ultime",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971933753503019008/AntiqueAbsoluteArcticseal-size_restricted.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971933753503019008/AntiqueAbsoluteArcticseal-size_restricted.gif",
+        "description": "vous effectuer un blocage ultime que rien ne peut arrêter, vous subissez ",
+        "cost": "0",
+        "defense": 
+        {
+            "blocage": [9999,9999],
             "crit": [0, 0],
-            "miss": 70,
+            "miss": 0
+        }
+    },
+    "parade-cs": {
+        "nom": "parade-cs",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971930487268450324/giphy-downsized-large.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971933754450907201/kirito-sword-art-online.gif",
+        "description": "vous effectuer un blocage avant de riposter par une contre attaque. vous subissez",
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [15, 25],
+            "crit": [10, 10],
+            "miss": 10,
+            "penetration": 0,
+            "poison": 0
+        },
+        "defense": 
+        {
+            "blocage": [15,25],
+            "crit": [10, 10],
+            "miss": 10
+        }
+    },
+    "etourdissement -cs": {
+        "nom": "etourdissement -cs",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971930485943070720/68526cd551d8630339770b2c9f05177d.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971933754790654002/naofumi-iwatani-anger.gif",
+        "description": "effectue une puissante attaque du revers de sa lame afin d'assomer la cible avant de lui infliger ",
+        "target": [1, 1],
+        "cost": "0",
+        "effet": "stun-s",
+        "attaque": 
+        {
+            "degat": [15, 25],
+            "crit": [10, 10],
+            "miss": 10,
+            "penetration": 0,
+            "poison": 0
+        }
+    },
+    "chevalier-ultime": {
+        "nom": "chevalier-ultime",
+        "image": "https://cdn.discordapp.com/attachments/951928506021998652/971930485171322950/1d011f64fa22b01f5cc0b45e2fb22d26.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971933754790654002/naofumi-iwatani-anger.gif",
+        "description": "effectue un puissant enchainement de coup touchant vos adversaires et leurs infligeant ",
+        "target": [2, 1],
+        "cost": "0",
+        "effet": "0",
+        "attaque": 
+        {
+            "degat": [35, 45],
+            "crit": [10, 10],
+            "miss": 0,
+            "penetration": 10,
+            "poison": 0
+        }
+    },
+    "bouclier-mm": {
+        "nom": "bouclier-mm",
+        "image": "https://cdn.discordapp.com/attachments/951928506021998652/966174933585641512/archer-fate.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/967095309333299280/shiledfaild.gif",
+        "description": "vous parer l'attaque avec un puissant bouclier magique. vous  subissez ",
+        "cost": "15",
+        "defense": 
+        {
+            "blocage": [40,60],
+            "crit": [10, 20],
+            "miss": 10
+        }
+    },
+    "firebolt-s": {
+        "nom": "firebolt-s",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971931486121000980/anime-cool.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971931473181548545/flamethrower-magical.gif",
+        "description": "tire une puissante boule de feu infligeant",
+        "target": [1, 2],
+        "cost": "25",
+        "attaque": 
+        {
+            "degat": [30, 45],
+            "crit": [10, 10],
+            "miss": 15,
+            "penetration": 0,
+            "poison": 0
+        }
+    },
+    "sorcier-ultime": {
+        "nom": "sorcier-ultime",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971931486506852382/anime-magic.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971931486506852382/anime-magic.gif",
+        "description": "vous lancez un puissant sort qui soigne vos alliez",
+        "target": [0, 2],
+        "cost": "-",
+        "effet": "heal-ultime"
+    },
+    "invocation-s": {
+        "nom": "invocation-s",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971931471025700885/87b00fa2692bad0d3c8266fd598eb36b.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971931471025700885/87b00fa2692bad0d3c8266fd598eb36b.gif",
+        "description": "vous invoquez un famillier pour vous aider dans le combat",
+        "cost": "40",
+        "effet": "invocation-s"
+    },
+    "invocateur-ultime": {
+        "nom": "invocateur-ultime",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971931487463145522/anime-spells.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971931487463145522/anime-spells.gif",
+        "description": "vous invoquez un puissant loup géant pour réduire vos ennemie en charpie",
+        "cost": "0",
+        "effet": "invocation-ultime"
+    },
+    "dague-m": {
+        "nom": "dague-m",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971932168773312512/202133.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971932170555883550/MpUV-JLOnjeG6kLruuF-17Ow_vPe0ZG3amcT8Yx9_Bomn1MAka7AlZy9tqAKefh2Jtp0zBxFrK-PQVGMV25mUA0i4bsCfVjWmgD0MfrnLRzs1YsZmLVXAofDEpQ6f3JS.gif",
+        "description": "effectue un puissant coup de dague pénétrant infligeant",
+        "target": [1, 1],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [25, 40],
+            "crit": [20, 10],
+            "miss": 20,
+            "penetration": 10,
+            "poison": 0
+        }
+    },
+    "assassin-ultime": {
+        "nom": "assassin-ultime",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971932169163378718/3813164e4b947881c10efe62ae92829f.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971932169163378718/3813164e4b947881c10efe62ae92829f.gif",
+        "description": "effectue un énome coup de dague dans un point vital qui inflige ",
+        "target": [1, 2],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [35, 50],
+            "crit": [15, 10],
+            "miss": 0,
+            "penetration": 20,
+            "poison": 0
+        }
+    },
+    "lancer-multiple-s": {
+        "nom": "lancer-multiple-s",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971932168240627752/33d9ffd6aedbe046aa851c3596831650.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971932169637343322/hei-darker-than-black.gif",
+        "description": "lance de multiple dague sur ses adversaires et leurs infliges",
+        "target": [2, 2],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [15, 35],
+            "crit": [10, 10],
+            "miss": 20,
+            "penetration": 0,
+            "poison": 0
+        }
+    },
+    "rodeur-ultime": {
+        "nom": "rodeur-ultime",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/971930486496694272/drifters-toyohisa_1.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/971932168773312512/202133.gif",
+        "description": "vous parez l'attaque de votre adversaire et lui infligez une puissante contre attaque. vous subissez",
+        "target": [1, 1],
+        "cost": "0",
+        "attaque": 
+        {
+            "degat": [20, 35],
+            "crit": [10, 10],
+            "miss": 0,
+            "penetration": 0,
+            "poison": 0
+        },
+        "defense": 
+        {
+            "blocage": [20,35],
+            "crit": [10, 10],
+            "miss": 0,
             "penetration": 0
         }
     }

@@ -1,10 +1,10 @@
 const { MessageEmbed } = require("discord.js")
-const BestiaireFunction = require("../../functions/monstre/bestiaire.function.js")
+const PlayerCreationFunction = require("../../functions/character/creation.function")
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 module.exports = 
 {
-    name: 'bdd-monstre',
+    name: 'bdd-player-update',
     description: "permet d'ajouter les monstres à la bdd",
     run: async (client, message, args) => 
     {
@@ -23,34 +23,35 @@ module.exports =
                 if (text) 
                 {
                     data = JSON.parse(text)
-                    const bestiaireFunction = new BestiaireFunction()
+                    const playerCreationFunction = new PlayerCreationFunction()
 
                     const timer = ms => new Promise(res => setTimeout(res, ms))
 
-                    for(const [key, value] of Object.entries(data))
+                    for(const player of data)
                     {
-                        const response = await bestiaireFunction.monstreCreation(value)
-    
+
+                        let response = await playerCreationFunction.editPlayerById(player.id, player)
+
                         let embed = new MessageEmbed()
+                        
 
                         if(response.state == false) 
                         {
-                            embed.addField(`${value.nomId}`, `${response.log}`)
+                            embed.addField(`${player.prenom} ${player.nom}`, `${response.log}`)
                             embed.setColor("#ff0000")
                         }
                         else
                         {
-                            embed.addField(`${value.nomId}`, `${response.message}`)
+                            embed.addField(`${player.prenom} ${player.nom}`, `Le joueur est update !`)
                             embed.setColor("#00ff00")
                         }
-
                         await timer(1000)
                             
                         message.channel.send({embeds: [ embed ]})
                         
+                            
+                        
                     }
-
-                    message.channel.send("done")
                 }
             })
         }

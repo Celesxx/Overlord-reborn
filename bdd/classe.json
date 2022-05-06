@@ -5,10 +5,11 @@
         "image": "https://media.discordapp.net/attachments/834159801130942466/835881460053049344/15dcb473500369cb918a91c44122a270_1.png?width=1014&height=676",
         "statistiques":
         {
-            "hp": 10,
-            "mana": 0,
+            "hp": 5,
+            "mana": 1,
             "attaque": 1,
-            "armure": 0.5
+            "armure": 0.5,
+            "protection": 0.2
         },
         "description" : "Vous êtes une classe polyvalente qui s'utilise en première ligne. Vous pouvez très bien être utilisé comme garde du corps ou voir même comme un redoutable attaquant !",
         "level": 
@@ -69,7 +70,8 @@
             "hp": 5,
             "mana": 10,
             "attaque": 1,
-            "armure": 0
+            "armure": 0,
+            "protection": 0.5
         },
         "description" : "Vous êtes un mage, vous utilisez des sortilèges pour vous défendre et pour attaquer ! Vous êtes en général sur la deuxième ligne et pouvez être aussi bien fort pour ce qui est de soutenir votre équipe, ou bien pour infliger de gros dégâts !",
         "level": 
@@ -126,10 +128,11 @@
         "image": "https://i.pinimg.com/originals/4e/1b/c3/4e1bc397664b238556c617f88626438c.jpg",
         "statistiques":
         {
-            "hp": 5,
-            "mana": 0,
+            "hp": 2,
+            "mana": 5,
             "attaque": 2,
-            "armure": 0.5
+            "armure": 0.2,
+            "protection": 0
         },
         "description" : "Le voleur est une classe à l'inverse d'une classe 'resistante', vous êtes même fragile cependant vous miser tous sur l'agilité et l'attaque car c'est bien connue que la meilleurs défense c'est l'attaque ! ",
         "level": 
@@ -187,9 +190,10 @@
         "statistiques":
         {
             "hp": 5,
-            "mana": 0,
+            "mana": 5,
             "attaque": 2,
-            "armure": 0.5
+            "armure": 0.1,
+            "protection": 0.1
         },
         "description" : "Le ranger est un spécialiste du maniement des armes à distance, il est capable d'atteindre des cibles cachés et d'infliger de lourd dégat",
         "level": 
@@ -247,10 +251,11 @@
         "image": "https://c4.wallpaperflare.com/wallpaper/145/225/139/fantasy-art-dragon-shield-diablo-3-reaper-of-souls-wallpaper-preview.jpg",
         "statistiques":
         {
-            "hp": 20,
-            "mana": 0,
-            "attaque": 1,
-            "armure": 0.25
+            "hp": 10,
+            "mana": 3,
+            "attaque": 0.5,
+            "armure": 0.5,
+            "protection": 0.1
         },
         "description" : "Vous êtes un paladin, quelqu'un spécialisé dans la défense du groupe et qui n'a pas peur de ce prendre des coups !",
         "level": 
@@ -297,10 +302,11 @@
         "image": "https://p4.wallpaperbetter.com/wallpaper/265/611/760/knight-dark-souls-dark-souls-ii-artwork-fantasy-art-armor-sword-cape-video-games-heide-knight-wallpaper-preview.jpg",
         "statistiques":
         {
-            "hp": 10,
-            "mana": 0,
-            "attaque": 3,
-            "armure": 0.10
+            "hp": 5,
+            "mana": 4,
+            "attaque": 1.5,
+            "armure": 0.25,
+            "protection": 0.1
         },
         "description" : "Vous êtes un chevalier, quelqu'un de polyvalent capable d'encaisser et de frapper fort !",
         "level": 
@@ -347,10 +353,11 @@
         "image": "https://images2.alphacoders.com/888/thumb-1920-888554.jpg",
         "statistiques":
         {
-            "hp": 5,
+            "hp": 0.5,
             "mana": 5,
-            "attaque": 4,
-            "armure": 0
+            "attaque": 1.5,
+            "armure": 0.2,
+            "protection": 0.1
         },
         "description" : "Vous êtes un assassin, quelqu'un de très agile pouvant infliger des gros dégats à des cibles individuels",
         "level": 
@@ -397,10 +404,11 @@
         "image": "https://images2.alphacoders.com/888/thumb-1920-888554.jpg",
         "statistiques":
         {
-            "hp": 10,
-            "mana": 0,
-            "attaque": 4,
-            "armure": 0
+            "hp": 2,
+            "mana": 5,
+            "attaque": 1,
+            "armure": 0.2,
+            "protection": 0.1
         },
         "description" : "Vous êtes un rodeur, quelqu'un de très discret capable d'infliger des gros dégats à des cibles multiples",
         "level": 
@@ -447,10 +455,11 @@
         "image": "https://a-static.besthdwallpaper.com/chemin-de-l-exil-mage-fond-d-ecran-1920x1080-23840_48.jpg",
         "statistiques":
         {
-            "hp": 5,
+            "hp": 2,
             "mana": 10,
-            "attaque": 2,
-            "armure": 0.1
+            "attaque": 1,
+            "armure": 0,
+            "protection": 0.5
         },
         "description" : "Vous êtes un sorcier, quelqu'un de très discret capable d'infliger des gros dégats à des cibles multiples",
         "level": 
@@ -497,10 +506,11 @@
         "image": "https://media.discordapp.net/attachments/951928506021998652/970980615556042752/1629369731_DD-guide-de-classe-Wizard-5E--la-magie-est-768x432.jpg",
         "statistiques":
         {
-            "hp": 5,
+            "hp": 2,
             "mana": 15,
-            "attaque": 1,
-            "armure": 0
+            "attaque": 0.5,
+            "armure": 0,
+            "protection": 0.5
         },
         "description" : "Vous êtes un invocateur, quelqu'un spécialiser dans l'invocation de créature magique pour vous supporter",
         "level": 
@@ -547,10 +557,11 @@
         "image": "https://media.discordapp.net/attachments/951928506021998652/970985459863945236/2a7a6d817f8a0bb55c352eb6f5c89fbc-700.jpg?width=1075&height=676",
         "statistiques":
         {
-            "hp": 5,
-            "mana": 5,
-            "attaque": 2,
-            "armure": 0.1
+            "hp": 3,
+            "mana": 6,
+            "attaque": 1,
+            "armure": 0.1,
+            "protection": 0.1
         },
         "description" : "Vous êtes un archer, quelqu'un spécialiser dans les attaques unique à distance capable de toucher n'importe quel cible",
         "level": 
@@ -597,10 +608,11 @@
         "image": "https://media.discordapp.net/attachments/951928506021998652/970985460132352011/fantasy-art-archer-fantasy-art-wallpaper.jpg?width=957&height=676",
         "statistiques":
         {
-            "hp": 5,
-            "mana": 5,
-            "attaque": 2,
-            "armure": 0.1
+            "hp": 4,
+            "mana": 10,
+            "attaque": 0.5,
+            "armure": 0.1,
+            "protection": 0.1
         },
         "description" : "Vous êtes un bombardier, quelqu'un spécialiser dans les attaques multiples à distance capable de toucher n'importe quel cible",
         "level": 

@@ -3,7 +3,7 @@ const PlayerCreationFunction = require("../../functions/character/creation.funct
 module.exports = 
 {
     name: 'equiper',
-    description: "Affiche le profil d'un personnage",
+    description: "Permet de s'équiper d'un item",
     run: (client, message, args) => 
     {
         message.channel.send("merci d'utiliser le préfix /equiper ")
@@ -14,7 +14,7 @@ module.exports =
             name: "item",
             description: "le nom id de l'equipement",
             type: "STRING",
-            required: false,
+            required: true,
         },
         
     ],
@@ -22,7 +22,6 @@ module.exports =
     {   
         const item = interaction.options.get("item").value
         const id = interaction.member.user.id
-        console.log("id : ", id)
         const playerCreationFunction = new PlayerCreationFunction()
 
         let player = await playerCreationFunction.getPlayerById(id)
@@ -30,7 +29,7 @@ module.exports =
 
         if(player.inventaire.some(data => data.nomId == item))
         {
-            let [type, idItem] = []
+            let [type, idItem, alreadyEquiped] = ["", "", false]
 
             for(const data of player.inventaire)
             {
@@ -39,25 +38,36 @@ module.exports =
                     if(data.type == "armure" && data.nom.includes("casque")) type = "casque"
                     else if(data.type == "armure") type = "plastron"
                     else if(data.type == "arme") type = "arme"
+
+                    for(const [key, value] of Object.entries(player.equipement))
+                    {
+                        if(key == type && value != undefined) 
+                        {
+                            alreadyEquiped = true
+                            break
+                        }
+                    }
+
+                    if(alreadyEquiped) break
                     idItem = data._id
 
                     let index = player.inventaire.indexOf(data)
                     if (index !== -1) { player.inventaire.splice(index, 1) }
-                    console.log("taille après : ", player.inventaire.length)
                     break
                 }
             }
-            for(let [key, value] of Object.entries(player.equipement)) 
+            if(!alreadyEquiped)
             {
-                if(key == type) player.equipement[key] = {_id : idItem}
-            }
+                for(let [key, value] of Object.entries(player.equipement)) 
+                {
+                    if(key == type) player.equipement[key] = {_id : idItem}
+                }
+                
+                await playerCreationFunction.editPlayerById(id, player)
+                interaction.reply(`Vous vous êtes bien équiper de l'item ${item}`)
             
-            await playerCreationFunction.editPlayerById(id, player)
-            interaction.reply(`Vous vous êtes bien équiper de l'item ${item}`)
-        }
+            }else interaction.reply("Vous avez déja un item d'équiper, mercide faire /déséquiper")
         
-
-
-
+        }else interaction.reply("Vous n'avez pas cet item dans votre inventaire !")
     }
 }

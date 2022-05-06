@@ -19,11 +19,16 @@ class BestiaireController
         const functionName = "createMonstre"
         try
         {      
+            
             const monstre = new Monstre(
             {
                 nom: data.nom,
                 nomId: data.nomId,
                 image: data.image,
+                imageMiss: data.imageMiss,
+                imageSkill: data.imageSkill,
+                imageCritique: data.imageCritique,
+                imageAttaque: data.imageAttaque,
                 description: data.description, 
                 lvl : data.lvl, 
                 hp: data.hp,

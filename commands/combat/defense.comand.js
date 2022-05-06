@@ -56,18 +56,22 @@ module.exports =
             {
     
                 const result = await combatFunction.defenseCalculJoueur(data[0], degat, skillData[0])
-                data[0].hp[0] -= result
+                data[0].hp[0] -= result.degat
                 await playerCreationFunction.editPlayerById(user, {hp: data[0].hp})
-                embed.fields.slice(-1)[0].value = `\n<@!${user}> ${skillData[0].description} \n- ${result} dégat`
-
+                if(!result.miss) embed.fields.slice(-1)[0].value = `\n<@!${user}> ${skillData[0].description} \n- ${result.degat} dégat`
+                else embed.fields.slice(-1)[0].value = `\n<@!${user}> vous ratez complétement votre défense et subissez \n- ${result.degat} dégat`
+                
                 if(data[0].hp[0] <= 0) 
                 {
                     interaction.member.setNickname(data[0].prenom + "  [☠️ KO]")
                     let order = embed.fields.slice(3)[0].value.split("\n").filter(participant => !participant.includes(`<@${user}>`))
                     embed.fields.slice(3)[0].value = order.join("\n")
+                    
 
                 }else interaction.member.setNickname(data[0].prenom + " [❤️" + data[0].hp[0] + "] [✨" + data[0].magie[0] + "]")
                 
+                if(result.miss) embed.image.url = skillData[0].imageMiss
+                else embed.image.url = skillData[0].image
             }else
             {
                 embed.fields.slice(-1)[0].value = `\n<@!${user}> merci de mettre un skill valide !`

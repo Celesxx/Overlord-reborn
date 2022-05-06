@@ -6,7 +6,7 @@ module.exports =
     once: false,
     async execute(client, interaction){
 
-        if(process.env.MODE == "dev" && interaction.member.roles.cache.some(role => role.name === 'Fondateur' || role.name === "Super Helper")) 
+        if(process.env.MODE == "dev" && interaction.member.roles.cache.some(role => role.name === 'Fondateur' || role.name === "Super Helper" || role.name == "Helper" || role.name == "apprenti-helper")) 
         {
             if(interaction.isCommand())
             {

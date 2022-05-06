@@ -22,7 +22,10 @@ class SkillController
             {
                 nom: data.nom,
                 image: data.image,
-                description: data.description, 
+                imageMiss: data.imageMiss,
+                description: data.description,
+                cost: data.cost,
+                effet: data.effet,
                 attaque: data.attaque,
                 defense: data.defense,
                 target: data.target,

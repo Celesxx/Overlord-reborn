@@ -49,7 +49,6 @@ module.exports =
         const logCombatFunction = new LogCombatFunction()
         const playerCreationFunction = new PlayerCreationFunction()
         
-        console.log("user : ", user)
         const logCombat = await logCombatFunction.getLogCombatParticipantId(user)
         if(logCombat.length == 0) interaction.channel.send("Vous n'êtes présent dans aucun combat !")
         else if(logCombat.length > 1) interaction.channel.send("Vous êtes présent dans deux fight en même temps merci de vérifier d'avoir bien fais la commande /fin une fois vos précédent combat terminé")
@@ -67,11 +66,12 @@ module.exports =
                     const resultZone = await zoneController.getZoneByName(embedData.embeds[0].fields.slice(1)[0].value) // get les stats de la zone en fonction du nom de la zone
                     const log = await logCombatFunction.getLogCombatById(turnVerification.embed.author.name)
 
-                    for(const monster of log[0].participant)
+                   for(let monster of embedData.embeds[0].fields[3].value.split("\n"))
                     {
-                        
                         if(!monster.includes(`<@`))
                         {
+                        	monster = monster.replace(":x:", "")
+                        	monster = monster.replace(":white_check_mark:", "")
                             let mob = await bestiaireController.getMonstreByNameId(monster.slice(0,-2))
                             allMonster.push(mob[0])
                         }

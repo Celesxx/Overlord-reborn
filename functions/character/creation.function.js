@@ -1,9 +1,10 @@
 const PlayerController = require('../../controllers/player.controller')
+const classBdd = require('../../bdd/classe.json')
+
+
 
 class PlayerCreationFunction 
 {
-
-
 
 
     /**
@@ -15,26 +16,20 @@ class PlayerCreationFunction
         try
         {
             let stat = {}
+            
+            let statistique = classBdd[classe].statistiques
+            let [hp , mana, attaque, armure, protection] = [statistique.hp, statistique.mana, statistique.attaque, statistique.armure, statistique.protection]
+            stat = {hp: [hp, hp], magie: [mana, mana], attaque: [attaque, attaque], armure: [armure, armure], protection: [protection, protection]}
 
-            if (classe === 'voleur') stat = {hp: [50, 50], magie: [30, 30], attaque: [14, 14], armure: [1, 1]}
-            else if (classe === 'combattant') stat = {hp: [60, 60], magie: [20, 20], attaque: [10, 10], armure: [2, 2]}
-            else if (classe === 'mage') stat = {hp: [40, 40], magie: [40, 40], attaque: [14, 14], armure: [0, 0]}
-
-            if(race == "humain") stat.hp.push(1), stat.magie.push(1), stat.attaque.push(1), stat.armure.push(1)
-            else if(race == "automate") stat.hp.push(1.05), stat.magie.push(0.95), stat.attaque.push(1.05), stat.armure.push(0.95)
-            else if(race == "démon") stat.hp.push(0.9), stat.magie.push(1), stat.attaque.push(1.1), stat.armure.push(1)
-            else if(race == "demi-beastman") stat.hp.push(1.15), stat.magie.push(0.85), stat.attaque.push(1), stat.armure.push(1)
-            else if(race == "beastman") stat.hp.push(1.3), stat.magie.push(0.7), stat.attaque.push(1), stat.armure.push(1)
-            else if(race == "demi-dragon") stat.hp.push(1.2), stat.magie.push(0.9), stat.attaque.push(0.95), stat.armure.push(0.95)
-            else if(race == "elf") stat.hp.push(0.9), stat.magie.push(1.1), stat.attaque.push(1), stat.armure.push(1)
-            else if(race == "nain") stat.hp.push(1.1), stat.magie.push(1), stat.attaque.push(0.8), stat.armure.push(1.1)
-            else if(race == "liche") stat.hp.push(0.75), stat.magie.push(1.2), stat.attaque.push(1), stat.armure.push(1.05)
-            else if(race == "nymphe") stat.hp.push(1), stat.magie.push(1.2), stat.attaque.push(0.9), stat.armure.push(0.9)
-            else if(race == "gobelin") stat.hp.push(1), stat.magie.push(1), stat.attaque.push(0.9), stat.armure.push(1.1)
-            else if(race == "lamia") stat.hp.push(0.9), stat.magie.push(1.2), stat.attaque.push(0.9), stat.armure.push(1)
-            else if(race == "succube") stat.hp.push(1), stat.magie.push(1.1), stat.attaque.push(1), stat.armure.push(0.9)
-            else if(race == "vampire") stat.hp.push(0.95), stat.magie.push(1.05), stat.attaque.push(1.05), stat.armure.push(0.95)
-            else if(race == "ghoul") stat.hp.push(1.05), stat.magie.push(1), stat.attaque.push(1.05), stat.armure.push(0.9)
+            if(race == "humain") stat.hp.push(1), stat.magie.push(1), stat.attaque.push(1), stat.armure.push(1), stat.protection.push(1)
+            else if(race == "automate") stat.hp.push(1.05), stat.magie.push(0.90), stat.attaque.push(1.05), stat.armure.push(0.95), stat.protection.push(1.05)
+            else if(race == "beastman") stat.hp.push(1.3), stat.magie.push(0.7), stat.attaque.push(1), stat.armure.push(1), stat.protection.push(1)
+            else if(race == "elf") stat.hp.push(0.9), stat.magie.push(1.1), stat.attaque.push(1), stat.armure.push(0.95), stat.protection.push(1.05)
+            else if(race == "nymphe") stat.hp.push(0.9), stat.magie.push(1.2), stat.attaque.push(0.9), stat.armure.push(0.90), stat.protection.push(1.1)
+            else if(race == "nain") stat.hp.push(1.1), stat.magie.push(1), stat.attaque.push(0.8), stat.armure.push(1.1), stat.protection.push(1)
+            else if(race == "vampire") stat.hp.push(0.95), stat.magie.push(1.05), stat.attaque.push(1.05), stat.armure.push(0.95), stat.protection.push(1)
+            else if(race == "liche") stat.hp.push(0.75), stat.magie.push(1.2), stat.attaque.push(1), stat.armure.push(1.05), stat.protection.push(1)
+            else if(race == "démon") stat.hp.push(1.3), stat.magie.push(0.7), stat.attaque.push(1.1), stat.armure.push(1), stat.protection.push(0.9)
 
             let newData = 
             {
@@ -47,6 +42,7 @@ class PlayerCreationFunction
                 magie: stat.magie,
                 attaque: stat.attaque,
                 armure: stat.armure,
+                protection: stat.protection,
                 image: image,
             }
 

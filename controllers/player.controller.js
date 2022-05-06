@@ -117,7 +117,6 @@ class PlayerController
          const functionName = "editPlayerById";
          try
          {    
-            console.log(data)
             const player = await Player.updateOne({id: id}, data, {new: true})
             return player
                      

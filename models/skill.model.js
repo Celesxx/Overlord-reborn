@@ -8,6 +8,8 @@ const SkillSchema = mongoose.Schema(
     imageMiss: { type: String, required: true},
     description: { type: String, required: true},
     target: { type: Array, required: false}, // [nbr cible, nbr ligne position]
+    cost: { type : Number, required: false},
+    effet: { type : String, required: false},
     attaque: 
     { 
         degat: { type: Array, required: false }, // [min, max]

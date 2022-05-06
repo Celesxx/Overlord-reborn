@@ -1,7 +1,6 @@
 const CanvasCharacterFunction = require("../design/character.function.js")
 const InventaireFunction = require("./inventaire.function.js")
 const PlayerCreationFunction = require("./creation.function.js")
-const bdd = require('../../bdd/bdd.json')
 const lvl = require('../../bdd/lvl.json')
 const fs = require("fs")
 
