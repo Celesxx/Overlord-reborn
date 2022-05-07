@@ -105,11 +105,11 @@ class ExperienceFunction
                // stat = await inventaireFunction.removeEquipmentStat(stat)
 
                //ajoute le gain pour l'afficher dans l'image de level up
-               HpGain += Math.round( classStat.hp + ((classStat.hp * stat.lvl * stat.hp[2]) - (classStat.hp * stat.lvl)))
-               MaGain += Math.round( classStat.mana + ((classStat.mana * stat.lvl * stat.magie[2]) - (classStat.mana * stat.lvl)))
-               AtGain += Math.round( classStat.attaque + ((classStat.attaque * stat.lvl * stat.attaque[2]) - (classStat.attaque * stat.lvl)))
-               ArGain += classStat.armure + ((classStat.armure * stat.lvl * stat.armure[2]) - (classStat.armure * stat.lvl))
-               PtGain += classStat.protection + ((classStat.protection * stat.lvl * stat.protection[2]) - (classStat.protection * stat.lvl))
+               HpGain += Math.round( classStat.hp * (stat.lvl - 1) * stat.hp[2] - (classStat.hp * (stat.lvl - 2) * stat.hp[2]) )
+               MaGain += Math.round( (classStat.mana * (stat.lvl - 1) * stat.magie[2]) - (classStat.mana * (stat.lvl - 2) * stat.magie[2]) )
+               AtGain += parseFloat(((classStat.attaque * (stat.lvl - 1) * stat.attaque[2]) - (classStat.attaque * (stat.lvl - 2) * stat.attaque[2])).toFixed(2))
+               ArGain += parseFloat(((classStat.armure * (stat.lvl - 1) * stat.armure[2]) - (classStat.armure * (stat.lvl - 2) * stat.armure[2])).toFixed(2))
+               PtGain += parseFloat(((classStat.protection * (stat.lvl - 1) * stat.protection[2]) - (classStat.protection * (stat.lvl - 2) * stat.protection[2])).toFixed(2))
 
                // Augmentation des stats en fonction de la classe et du palier
                stat.xp -= xpNeed
@@ -122,24 +122,14 @@ class ExperienceFunction
                // Stat total + gain de classe
                stat.attribut[0] += palier
                stat.attribut[1] += palier
-
-               stat.hp[1] += classStat.hp
-               stat.magie[1] += classStat.mana
-               stat.attaque[1] += classStat.attaque
-               stat.armure[1] = parseFloat((stat.armure[1] + classStat.armure).toFixed(2))
-               stat.protection[1] = parseFloat((stat.protection[1] + classStat.protection).toFixed(2))
                
-               console.log("type : ", typeof(stat.protection[1]))
                // Stat total * stat bonus de race
-               stat.hp[1] += Math.round((classStat.hp * stat.lvl * stat.hp[2]) - (classStat.hp * stat.lvl))
-               stat.magie[1] += Math.round((classStat.mana * stat.lvl * stat.magie[2]) - (classStat.mana * stat.lvl))
-               stat.attaque[1] += Math.round((classStat.attaque * stat.lvl * stat.attaque[2]) - (classStat.attaque * stat.lvl))
-               console.log("type : ", typeof(parseFloat(((classStat.armure * stat.lvl * stat.armure[2]) - (classStat.armure * stat.lvl)).toFixed(2))))
-               console.log("type : ", parseFloat(((classStat.armure * stat.lvl * stat.armure[2]) - (classStat.armure * stat.lvl)).toFixed(2)))
-               stat.armure[1] += parseFloat(((classStat.armure * stat.lvl * stat.armure[2]) - (classStat.armure * stat.lvl)).toFixed(2))
-               stat.protection[1] += parseFloat(((classStat.protection * stat.lvl * stat.protection[2]) - (classStat.protection * stat.lvl)).toFixed(2))
+               stat.hp[1] = Math.round( stat.hp[1] - (classStat.hp * (stat.lvl - 2) * stat.hp[2]) + (classStat.hp * (stat.lvl - 1) * stat.hp[2]) )
+               stat.magie[1] = Math.round( stat.magie[1] - (classStat.mana * (stat.lvl - 2) * stat.magie[2]) + (classStat.mana * (stat.lvl - 1) * stat.magie[2]) )
+               stat.attaque[1] = parseFloat( (stat.attaque[1] - (classStat.attaque * (stat.lvl - 2) * stat.attaque[2]) + (classStat.attaque * (stat.lvl - 1) * stat.attaque[2])).toFixed(2) )
+               stat.armure[1] = parseFloat( (stat.armure[1] - (classStat.armure * (stat.lvl - 2) * stat.armure[2]) + (classStat.armure * (stat.lvl - 1) * stat.armure[2])).toFixed(2) )
+               stat.protection[1] = parseFloat( (stat.protection[1] - (classStat.protection * (stat.lvl - 2) * stat.protection[2]) + (classStat.protection * (stat.lvl - 1) * stat.protection[2])).toFixed(2) )
                
-
                //Si équipement rajoute toutes les stats qui ont été enlevé par l'ajout des nouvelles stats 
                // stat = await inventaireFunction.addEquipmentStat(stat)
 
@@ -171,8 +161,8 @@ class ExperienceFunction
                Hp: HpGain,
                Mag: MaGain,
                Atk: AtGain,
-               Def: ArGain.toFixed(2),
-               Pt: PtGain.toFixed(2),
+               Def: ArGain,
+               Pt: PtGain,
                percent: percentXp,
                xpNeed: xpNeedNext,
                xp: stat.xp,

@@ -22,7 +22,7 @@ class CombatFunction
 
             let monstreBlocage = Math.floor(Math.random() * ( (monstreData[0].blocage.degat[1] + blocageLevelDiff) - ( monstreData[0].blocage.degat[0] + blocageLevelDiff) ) ) + ( monstreData[0].blocage.degat[0] + blocageLevelDiff )
             if(Math.floor(Math.random() * 100) <= monstreData[0].blocage.crit[0] + blocageCritLevelDiff) monstreBlocage += monstreData[0].blocage.crit[1]
-            if(Math.floor(Math.random() * 100) <= monstreData[0].blocage.miss + blocageMissLevelDiff) monstreBlocage = 0
+            if(Math.floor(Math.random() * 100) >= monstreData[0].blocage.miss + blocageMissLevelDiff) monstreBlocage = 0
 
             if(Math.floor(Math.random() * 100) <= skill[0].attaque.miss) return {miss : true, degat: 0}
             else

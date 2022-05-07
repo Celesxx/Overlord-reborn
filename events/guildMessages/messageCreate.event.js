@@ -24,7 +24,12 @@ module.exports =
             "945973484251668480", "939189317610393706", "945974119374139412", "945974019709087785", "945775505850921010", "945772961934221322", "945974513458372608"
         ]
         
-        if(process.env.MODE == "prod" && message.content.length >= 0 && rpServer.includes(message.channel.id))
+        if
+        (
+            process.env.MODE == "prod" && message.content.length >= 0 && rpServer.includes(message.channel.id)
+            ||
+            message.channel.id == "955068685146529874" && message.member.roles.cache.some(role => role.name === 'Fondateur')
+        )
         {
             //process.env.MODE == "prod" &&
             if(message.content.length >= 200)

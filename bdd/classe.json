@@ -20,7 +20,7 @@
                 "skill":
                 [
                     { "nom": "epee-s", "description": "Attaque infligeant un simple coup d'épée"},
-                    { "nom": "roulade-v", "description": "Vous tentez d'effectuer une roulade d'esquive"}
+                    { "nom": "roulade-s", "description": "Vous tentez d'effectuer une roulade d'esquive"}
                 ]
             },
 
@@ -82,7 +82,7 @@
                 "skill":
                 [
                     { "nom": "sort-s", "description": "Attaque infligeant un simple coup d'épée"},
-                    { "nom": "roulade-v", "description": "Vous tentez d'effectuer une roulade d'esquive"}
+                    { "nom": "roulade-s", "description": "Vous tentez d'effectuer une roulade d'esquive"}
                 ]
             },
 
@@ -143,7 +143,7 @@
                 "skill":
                 [
                     { "nom": "dague-s", "description": "Coup de dague sur votre cible"},
-                    { "nom": "roulade-v", "description": "Vous tentez d'effectuer une roulade d'esquive"}
+                    { "nom": "roulade-s", "description": "Vous tentez d'effectuer une roulade d'esquive"}
                 ]
             },
 
@@ -204,7 +204,7 @@
                 "skill":
                 [
                     { "nom": "tir-s", "description": "Vous effectuer un tir avec votre arc"},
-                    { "nom": "roulade-v", "description": "Vous tentez d'effectuer une roulade d'esquive"}
+                    { "nom": "roulade-s", "description": "Vous tentez d'effectuer une roulade d'esquive"}
                 ]
             },
 
