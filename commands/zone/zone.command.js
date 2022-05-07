@@ -58,14 +58,13 @@ module.exports =
         })
 
         moyLvlPlayer = moyLvlPlayer / participants.length
-
         const possibleMob = await bestiaireController.getMonstreByZone(zone)
         const zoneData = await zoneController.getZoneByName(zone)
         if(zoneData.length !=0)
         {
             if(possibleMob.length != 0) 
             {
-                const encounterMob = await zoneFunction.getEncounterMob(possibleMob, zoneData)
+                encounterMob = await zoneFunction.getEncounterMob(possibleMob, zoneData)
                 for(const mob of encounterMob) 
                 { 
                     if(boss == false) 
@@ -82,6 +81,7 @@ module.exports =
                     }
                 }
             }
+
 
             totalParticipant = totalParticipant.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value)
 
@@ -100,6 +100,8 @@ module.exports =
             embed.addField("Ordre du combat", totalParticipant.join(""))
             for(const mob of encounterMob)
             {
+                console.log("test")
+                console.log(mob)
                 embed.setImage(mob.image)
                 diffLv = zoneData[0].lvl - mob.lvl
                 embed.addField(`${mob.nomId}`, `${mob.hp[0] + (mob.hp[1] * diffLv)}`, true)

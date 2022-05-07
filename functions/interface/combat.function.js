@@ -30,7 +30,7 @@ class CombatFunction
                 let degat = ((userData.attaque[0] * skillMultiplier) / 100) + userData.attaque[0]
                 let degatTotal = (( degat - monstreBlocage) * (100 - monstreData[0].armure)) / 100 // attaque actuelle * multiplicateur - blocage - réduction armure
                 if(degatTotal < 0) degatTotal = 0
-                return {miss : false, degat: Math.round(degatTotal)}
+                return {miss : false, degat: Math.round(degatTotal), isMob: true}
             }
         } catch(error)
         {
@@ -62,7 +62,7 @@ class CombatFunction
              {
                  let degat = ((userData.attaque[0] * skillMultiplier) / 100) + userData.attaque[0]
                  if(degat < 0) degat = 0
-                 return {miss : false, degat: Math.round(degat)}
+                 return {miss : false, degat: Math.round(degat), isMob : false}
              }
          } catch(error)
          {
@@ -324,14 +324,16 @@ class CombatFunction
             i = 0
             for(const degatStatus of degatForEachMonstre) // Applique les dégat à chaque cible
             {
-                let target = embed.fields.find(field => field.name === multiCibleResult.cible[i])
-                let targetIndex = embed.fields.indexOf(target)
-
-                if(target.length != 0 && parseInt(target.value) - degatStatus.degat > 0 && target.value != "mort") embed.fields.slice(targetIndex)[0].value = `${parseInt(target.value) - degatStatus.degat}`
-                else 
+                if(degatStatus.isMob)
                 {
-                    embed.fields.slice(targetIndex)[0].value = "mort"
-                    embed.fields.slice(3)[0].value = embed.fields.slice(3)[0].value.split("\n").filter(participant => !participant.includes(target.name)).join("\n") 
+                    let target = embed.fields.find(field => field.name === multiCibleResult.cible[i])
+                    let targetIndex = embed.fields.indexOf(target)
+                    if(target.length != 0 && parseInt(target.value) - degatStatus.degat > 0 && target.value != "mort") embed.fields.slice(targetIndex)[0].value = `${parseInt(target.value) - degatStatus.degat}`
+                    else 
+                    {
+                        embed.fields.slice(targetIndex)[0].value = "mort"
+                        embed.fields.slice(3)[0].value = embed.fields.slice(3)[0].value.split("\n").filter(participant => !participant.includes(target.name)).join("\n") 
+                    }
                 }
                 i++
             }

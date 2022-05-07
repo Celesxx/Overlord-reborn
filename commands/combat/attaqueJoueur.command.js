@@ -95,6 +95,7 @@ module.exports =
                         i++
                     }
 
+                    console.log(degatForEachMonstre)
                     i = 0 
                     for(const degatResult of degatForEachMonstre)
                     {
