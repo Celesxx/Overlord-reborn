@@ -60,24 +60,26 @@ module.exports =
         moyLvlPlayer = moyLvlPlayer / participants.length
 
         const possibleMob = await bestiaireController.getMonstreByZone(zone)
-        if(possibleMob.length !=0)
+        const zoneData = await zoneController.getZoneByName(zone)
+        if(zoneData.length !=0)
         {
-            const zoneData = await zoneController.getZoneByName(zone)
-            const encounterMob = await zoneFunction.getEncounterMob(possibleMob, zoneData)
+            if(possibleMob.length != 0) 
+            {
+                const encounterMob = await zoneFunction.getEncounterMob(possibleMob, zoneData)
+                for(const mob of encounterMob) 
+                { 
+                    if(boss == false) 
+                    {
+                        totalParticipant.push(`:x:${mob.nomId}\n`) 
+                        fullDescription.push(`> *- ${mob.description}*\n`)
+                    }
 
-            for(const mob of encounterMob) 
-            { 
-                if(boss == false) 
-                {
-                    totalParticipant.push(`:x:${mob.nomId}\n`) 
-                    fullDescription.push(`> *- ${mob.description}*\n`)
-                }
-
-                if(mob.nom == "kirishiga la dernière ombre") 
-                {
-                    message.channel.send({files:[{attachment: 'assets/sound/kirishiga.mp3', name: 'kirishiga.mp3'}]})
-                    boss = true
-                    bossName = mob.nom
+                    if(mob.nom == "kirishiga la dernière ombre") 
+                    {
+                        message.channel.send({files:[{attachment: 'assets/sound/kirishiga.mp3', name: 'kirishiga.mp3'}]})
+                        boss = true
+                        bossName = mob.nom
+                    }
                 }
             }
 
@@ -86,8 +88,9 @@ module.exports =
             let embed = new MessageEmbed()
             .setAuthor({name : combatId})
             .setTitle(":crossed_swords: Début du combat")
-            .setDescription(`${fullDescription.join().replace(/[,]/gm, "")}`)
             
+            if(fullDescription.length != 0) embed.setDescription(`${fullDescription.join().replace(/[,]/gm, "")}`)
+            else embed.setDescription("> _Un combat féroce vient de commencer que le meilleur gagne !_ ")
             if(!boss) embed.addField(":scroll: Explication", "Chaque monstre possède une référence 1x ou 2x, le premier chiffre correspond à la 1ére ligne ou à la 2éme ligne dans le combat. Une fois le combat terminé faites *?Fin CombatId*")
             else if(bossName == "kirishiga la dernière ombre") embed.addField(":scroll: Explication", `Pas de chance, vous êtes tombez contre ${bossName}, si jamais c'est la première fois que vous l'affrontez et que vous mourrez contre lui il se contentera de vous laisser dans le coma sans vous achever en guise d'avertissement`)
             else if(boss) embed.addField(":scroll: Explication", "Il semblerait que le destin sois contre vous, le gardien de la zone n'est pas très content et va surement faire qu'une bouchée de vous !")
@@ -95,7 +98,6 @@ module.exports =
             embed.addField("Zone", zone, true)
             embed.addField("Tour", "1", true)
             embed.addField("Ordre du combat", totalParticipant.join(""))
-            
             for(const mob of encounterMob)
             {
                 embed.setImage(mob.image)
@@ -104,7 +106,6 @@ module.exports =
             }
 
             embed.addField("Status", "Que le combat commence, merci de respecter l'ordre du combat !")
-
             await interaction.reply({ ephermal: true, content: '** **' })
             interaction.channel.send({embeds: [embed]}).then(async result => 
             {

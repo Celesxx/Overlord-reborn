@@ -111,5 +111,16 @@
             "money": [0,0],
             "drop": {}
         }
+    },
+    "caserneGarde" : {
+        "nom": "caserne-garde",
+        "image": "",
+        "description": "La caserne des gardes est un lieu de rassemblement pour tous les gardes de la cité",
+        "lvl": 0,
+        "nombre": 0,
+        "loot": {
+            "money": [0,0],
+            "drop": {}
+        }
     }
 }
