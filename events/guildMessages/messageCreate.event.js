@@ -27,8 +27,8 @@ module.exports =
         if
         (
             process.env.MODE == "prod" && message.content.length >= 0 && rpServer.includes(message.channel.id)
-            /*||
-            message.channel.id == "955068685146529874" && message.member.roles.cache.some(role => role.name === 'Fondateur') */
+            ||
+            message.channel.id == "955068685146529874" && message.member.roles.cache.some(role => role.name === 'Fondateur') 
         )
         {
             if(message.content.length >= 200)

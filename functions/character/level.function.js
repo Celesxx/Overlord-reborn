@@ -103,7 +103,7 @@ class ExperienceFunction
                let classStat = classe[stat.classe].statistiques
                let palier = 2
 
-               // stat = await inventaireFunction.removeEquipmentStat(stat)
+               stat = await inventaireFunction.removeEquipmentStat(stat)
 
                //ajoute le gain pour l'afficher dans l'image de level up
                HpGain += Math.round( classStat.hp * (stat.lvl - 1) * stat.hp[2] - (classStat.hp * (stat.lvl - 2) * stat.hp[2]) )
@@ -132,7 +132,7 @@ class ExperienceFunction
                stat.protection[1] = parseFloat( (stat.protection[1] - (classStat.protection * (stat.lvl - 2) * stat.protection[2]) + (classStat.protection * (stat.lvl - 1) * stat.protection[2])).toFixed(2) )
                
                //Si équipement rajoute toutes les stats qui ont été enlevé par l'ajout des nouvelles stats 
-               // stat = await inventaireFunction.addEquipmentStat(stat)
+               stat = await inventaireFunction.addEquipmentStat(stat)
 
                //Ajoute les stat actuel après calcul de tous les bonus
                stat.hp[0] = stat.hp[1] 
@@ -147,7 +147,7 @@ class ExperienceFunction
          {
 
             //Affiche le canvas lvl
-            let response = await playerCreationFunction.editPlayerById(id, stat)
+            // let response = await playerCreationFunction.editPlayerById(id, stat)
             let rankAfter = await experienceFunction.getRankPlayer(id)
             let percentXp = stat.xp * 100 / xpNeedNext 
             let currentRank = ""
@@ -173,8 +173,8 @@ class ExperienceFunction
 
             let channel = client.channels.cache.get('965223174570664007') //Channel Niveau
             // let channel = client.channels.cache.get('955068685146529874')
-            await canvasCharacterFunction.displayCanvasLvlUp(channel, data, id)
-            await playerCreationFunction.setNameRp(interaction, id)
+            // await canvasCharacterFunction.displayCanvasLvlUp(channel, data, id)
+            // await playerCreationFunction.setNameRp(interaction, id)
          }
          
       }catch(error)

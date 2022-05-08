@@ -34,7 +34,7 @@ module.exports =
             {
                 if(value != undefined && value.nomId == item || value != null && value.nomId == item)
                 {
-                    for( [keyStat, valueStat] of Object.entries(value.statistique))
+                    for(const [keyStat, valueStat] of Object.entries(value.statistique))
                     {
                         if(keyStat == "hp") player.hp[1] -= valueStat
                         else if(keyStat == "mana") player.magie[1] -= valueStat
