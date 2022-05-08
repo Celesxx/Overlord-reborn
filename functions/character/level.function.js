@@ -102,6 +102,7 @@ class ExperienceFunction
                
                let classStat = classe[stat.classe].statistiques
                let palier = 2
+
                // stat = await inventaireFunction.removeEquipmentStat(stat)
 
                //ajoute le gain pour l'afficher dans l'image de level up

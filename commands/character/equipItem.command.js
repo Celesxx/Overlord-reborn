@@ -29,7 +29,7 @@ module.exports =
 
         if(player.inventaire.some(data => data.nomId == item))
         {
-            let [type, idItem, alreadyEquiped] = ["", "", false]
+            let [type, idItem, alreadyEquiped, statistiques] = ["", "", false, []]
 
             for(const data of player.inventaire)
             {
@@ -50,6 +50,7 @@ module.exports =
 
                     if(alreadyEquiped) break
                     idItem = data._id
+                    statistiques.push(data.statistique)
 
                     let index = player.inventaire.indexOf(data)
                     if (index !== -1) { player.inventaire.splice(index, 1) }
@@ -63,6 +64,15 @@ module.exports =
                     if(key == type) player.equipement[key] = {_id : idItem}
                 }
                 
+                for( [key, value] of Object.entries(statistiques[0]))
+                {
+                    if(key == "hp") player.hp[0] += value, player.hp[1] += value
+                    else if(key == "mana") player.magie[0] += value, player.magie[1] += value
+                    else if(key == "degat") player.attaque[0] += parseFloat(value), player.attaque[1] += parseFloat(value)
+                    else if(key == "defensePhysique") player.armure[0] += parseFloat(value), player.armure[1] += parseFloat(value)
+                    else if(key == "defenseMagique") player.protection[0] += parseFloat(value), player.protection[1] += parseFloat(value)
+                }
+
                 await playerCreationFunction.editPlayerById(id, player)
                 interaction.reply(`Vous vous êtes bien équiper de l'item ${item}`)
             

@@ -144,3 +144,27 @@ exports.shopCreated = (shop, functionName) =>
         shop: shop,
     }
 }
+
+
+
+exports.bumpExist = (logBump, functionName) => 
+{   
+    return {
+        state: false,
+        message: `Le log bump de l'user ${logBump.userId} existe déja`,
+        log: `The following user log of bump ${logBump.userId} already exist.`,
+        function: functionName,
+        logBump: logBump,
+    }
+}
+
+exports.bumpCreated = (logBump, functionName) => 
+{   
+    return {
+        state: true,
+        message: `La création du log bump de l'user ${logBump.userId} est une réussite !`,
+        log: `The following user log of bump${logBump.userId} have been created.`,
+        function: functionName,
+        logBump: logBump,
+    }
+}

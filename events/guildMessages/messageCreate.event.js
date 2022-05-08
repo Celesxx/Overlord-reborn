@@ -27,11 +27,10 @@ module.exports =
         if
         (
             process.env.MODE == "prod" && message.content.length >= 0 && rpServer.includes(message.channel.id)
-            ||
-            message.channel.id == "955068685146529874" && message.member.roles.cache.some(role => role.name === 'Fondateur')
+            /*||
+            message.channel.id == "955068685146529874" && message.member.roles.cache.some(role => role.name === 'Fondateur') */
         )
         {
-            //process.env.MODE == "prod" &&
             if(message.content.length >= 200)
             {
                 let id = message.author.id
@@ -51,10 +50,8 @@ module.exports =
                 await experienceFunction.verifLvlUp(stat.id, client, message, rankBefore, stat)
             }
         }
-            
-
         
-        if(!message.content.startsWith(prefix)) return;
+        if(!message.content.startsWith(prefix)) return
 
         const args = message.content.slice(prefix.length).trim().split(/ +/g)
         const commandName = args.shift().toLowerCase()
