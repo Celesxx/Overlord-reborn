@@ -65,19 +65,20 @@ module.exports =
             if(possibleMob.length != 0) 
             {
                 encounterMob = await zoneFunction.getEncounterMob(possibleMob, zoneData)
+                if(encounterMob.some(mob => mob.nom == "kirishiga la dernière ombre" || mob.nom == "Le roi des marécages")) boss = true
                 for(const mob of encounterMob) 
                 { 
                     if(boss == false) 
                     {
                         totalParticipant.push(`:x:${mob.nomId}\n`) 
                         fullDescription.push(`> *- ${mob.description}*\n`)
-                    }
-
-                    if(mob.nom == "kirishiga la dernière ombre") 
+                    
+                    }else if(mob.nom == "kirishiga la dernière ombre" || mob.nom == "Le roi des marécages")
                     {
-                        message.channel.send({files:[{attachment: 'assets/sound/kirishiga.mp3', name: 'kirishiga.mp3'}]})
-                        boss = true
                         bossName = mob.nom
+                        totalParticipant.push(`:x:${mob.nomId}\n`) 
+                        fullDescription.push(`> *- ${mob.description}*\n`)
+                        break
                     }
                 }
             }
@@ -92,7 +93,7 @@ module.exports =
             if(fullDescription.length != 0) embed.setDescription(`${fullDescription.join().replace(/[,]/gm, "")}`)
             else embed.setDescription("> _Un combat féroce vient de commencer que le meilleur gagne !_ ")
             if(!boss) embed.addField(":scroll: Explication", "Chaque monstre possède une référence 1x ou 2x, le premier chiffre correspond à la 1ére ligne ou à la 2éme ligne dans le combat. Une fois le combat terminé faites *?Fin CombatId*")
-            else if(bossName == "kirishiga la dernière ombre") embed.addField(":scroll: Explication", `Pas de chance, vous êtes tombez contre ${bossName}, si jamais c'est la première fois que vous l'affrontez et que vous mourrez contre lui il se contentera de vous laisser dans le coma sans vous achever en guise d'avertissement`)
+            else if(bossName == "kirishiga la dernière ombre" || bossName == "Le roi des marécages") embed.addField(":scroll: Explication", `Pas de chance, vous êtes tombez contre ${bossName}, si jamais c'est la première fois que vous l'affrontez et que vous mourrez contre lui il se contentera de vous laisser dans le coma sans vous achever en guise d'avertissement`)
             else if(boss) embed.addField(":scroll: Explication", "Il semblerait que le destin sois contre vous, le gardien de la zone n'est pas très content et va surement faire qu'une bouchée de vous !")
             
             embed.addField("Zone", zone, true)
@@ -100,17 +101,31 @@ module.exports =
             embed.addField("Ordre du combat", totalParticipant.join(""))
             for(const mob of encounterMob)
             {
-                console.log("test")
-                console.log(mob)
-                embed.setImage(mob.image)
-                diffLv = zoneData[0].lvl - mob.lvl
-                embed.addField(`${mob.nomId}`, `${mob.hp[0] + (mob.hp[1] * diffLv)}`, true)
+                if(boss && bossName == mob.nom)
+                {
+                    embed.setImage(mob.image)
+                    diffLv = zoneData[0].lvl - mob.lvl
+                    embed.addField(`${mob.nomId}`, `${mob.hp[0] + (mob.hp[1] * diffLv)}`, true)
+                    break
+
+                }else if(!boss)
+                {
+                    embed.setImage(mob.image)
+                    diffLv = zoneData[0].lvl - mob.lvl
+                    embed.addField(`${mob.nomId}`, `${mob.hp[0] + (mob.hp[1] * diffLv)}`, true)
+                }
+
             }
 
             embed.addField("Status", "Que le combat commence, merci de respecter l'ordre du combat !")
             await interaction.reply({ ephermal: true, content: '** **' })
             interaction.channel.send({embeds: [embed]}).then(async result => 
             {
+                if(boss)
+                {
+                    if(bossName == "kirishiga la dernière ombre") interaction.channel.send({files:[{attachment: 'assets/sound/kirishiga.mp3', name: 'kirishiga.mp3'}]})
+                    else if(bossName == "Le roi des marécages") interaction.channel.send({files:[{attachment: 'assets/sound/kingMarecage.mp3', name: 'kingMarecage.mp3'}]})
+                }
                 await logCombatFunction.logCombatCreation(author, combatId, result.id, totalParticipant, createdAt, interaction.channel.name, zoneData[0].lvl, moyLvlPlayer)
             })
                      
