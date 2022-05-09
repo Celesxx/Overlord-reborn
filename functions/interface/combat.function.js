@@ -13,13 +13,13 @@ class CombatFunction
         {
             let [weaponCrit, weaponPenetration] = [0,0]
 
-            if(userData.equipement.some(item => item.type != undefined))
-            {
-                weaponCrit = userData.equipement.arme.statistique.critique
-                weaponPenetration = userData.equipement.arme.statistique.penetration
-                console.log("penetration : ", userData.equipement.arme.statistique.penetration) 
-                console.log("critique : ", userData.equipement.arme.statistique.critique) 
-            }
+            // if(userData.equipement.some(item => item.type != undefined))
+            // {
+            //     weaponCrit = userData.equipement.arme.statistique.critique
+            //     weaponPenetration = userData.equipement.arme.statistique.penetration
+            //     console.log("penetration : ", userData.equipement.arme.statistique.penetration) 
+            //     console.log("critique : ", userData.equipement.arme.statistique.critique) 
+            // }
 
             let diffLevel = zone[0].lvl - monstreData[0].lvl 
             if(diffLevel >= -5 && diffLevel <= 5) diffLevel = 0
@@ -69,8 +69,8 @@ class CombatFunction
          
         let weaponCrit = 0
 
-        if(userData.equipement.some(item => item.type != undefined)) weaponCrit = userData.equipement.arme.statistique.critique
-        console.log("critique : ", userData.equipement.arme.statistique.critique) 
+        // if(userData.equipement.some(item => item.type != undefined)) weaponCrit = userData.equipement.arme.statistique.critique
+        // console.log("critique : ", userData.equipement.arme.statistique.critique) 
         
         let skillMultiplier = Math.floor(Math.random() * (skill[0].attaque.degat[1] - skill[0].attaque.degat[0]) ) + skill[0].attaque.degat[0];
         if(Math.floor(Math.random() * 100) <= skill[0].attaque.crit[0] + weaponCrit) skillMultiplier += skill[0].attaque.crit[1]
