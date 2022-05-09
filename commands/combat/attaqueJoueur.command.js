@@ -98,7 +98,6 @@ module.exports =
                     i = 0 
                     for(const degatResult of degatForEachMonstre)
                     {
-                        console
                         if(degatResult.miss == false) combatStatus.push(`\n - ${degatResult.degat} à ${monstreInCombat[i].nom}`)
                         else if(degatResult.miss == true) combatStatus.push(`\n - rate son attaque sur ${monstreInCombat[i].nom} `)
                         i++
