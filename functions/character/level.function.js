@@ -93,6 +93,7 @@ class ExperienceFunction
          do
          {
             xpNeed = await experienceFunction.getXpNeedByLvl(stat.lvl + 1)
+            console.log("Server status : xp actuel => ", stat.xp)
             console.log("Server status : xpNeed => ", xpNeed)
             xpNeedNext = await experienceFunction.getXpNeedByLvl(stat.lvl + 2)
          
