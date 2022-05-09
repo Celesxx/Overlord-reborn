@@ -72,12 +72,12 @@ module.exports =
                 
                 if(embed.image != null)
                 {      
-                    if(result.miss) embed.setImage(skillData[0].imageMiss)
-                    else embed.setImage(skillData[0].image)
-                }else
-                {
                     if(result.miss) embed.image.url = skillData[0].imageMiss
                     else embed.image.url = skillData[0].image
+                }else
+                {
+                    if(result.miss) embed.setImage(skillData[0].imageMiss)
+                    else embed.setImage(skillData[0].image)
                 }
             }else
             {
