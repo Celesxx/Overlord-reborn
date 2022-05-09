@@ -105,6 +105,7 @@ module.exports =
                 {
                     embed.setImage(mob.image)
                     diffLv = zoneData[0].lvl - mob.lvl
+                    if(diffLv >= -5 && diffLv <= 5) diffLv = 0
                     embed.addField(`${mob.nomId}`, `${mob.hp[0] + (mob.hp[1] * diffLv)}`, true)
                     break
 
@@ -112,6 +113,7 @@ module.exports =
                 {
                     embed.setImage(mob.image)
                     diffLv = zoneData[0].lvl - mob.lvl
+                    if(diffLv >= -5 && diffLv <= 5) diffLv = 0
                     embed.addField(`${mob.nomId}`, `${mob.hp[0] + (mob.hp[1] * diffLv)}`, true)
                 }
 

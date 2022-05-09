@@ -12,6 +12,8 @@ class CombatFunction
         try
         {
             let diffLevel = zone[0].lvl - monstreData[0].lvl 
+            if(diffLevel >= -5 && diffLevel <= 5) diffLevel = 0
+
             let skillMultiplier = Math.floor(Math.random() * (skill[0].attaque.degat[1] - skill[0].attaque.degat[0]) ) + skill[0].attaque.degat[0];
             if(Math.floor(Math.random() * 100) <= skill[0].attaque.crit[0]) skillMultiplier += skill[0].attaque.crit[1]
             
@@ -181,6 +183,7 @@ class CombatFunction
         try
         {
             let diffLevel = zone[0].lvl - monstre[0].lvl 
+            if(diffLevel >= -5 && diffLevel <= 5) diffLevel = 0
             let atkLvlDiff = diffLevel * monstre[0].attaque.level[0]
             let AtkLvlCritDiff = diffLevel * monstre[0].attaque.level[1]
             let AtkLvlCritMissDiff = diffLevel * monstre[0].attaque.level[2]
