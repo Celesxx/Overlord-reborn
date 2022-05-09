@@ -62,15 +62,17 @@ class ZoneFunction
      /**
      * @param {Array} possibleMob
      * @param {Object} zone
+     * @param {Number} nbrPlayer
     */
-      async getEncounterMob(possibleMob, zone)
+      async getEncounterMob(possibleMob, zone, nbrPlayer)
       {
           try
           {
-            let encounterMob = []
-            let index = [] 
+            let [encounterMob, index , maxMob] = [[], [], 0]
             let monstreId
-            let maxMob = Math.floor((Math.random() * zone[0].nombre) + 1)
+            let diff = nbrPlayer - zone[0].nombre
+            if(diff > 0) maxMob = Math.floor((Math.random() * (zone[0].nombre + diff)) + 1)
+            else maxMob = Math.floor((Math.random() * zone[0].nombre) + 1)
 
             while(encounterMob.length < maxMob)
             {
