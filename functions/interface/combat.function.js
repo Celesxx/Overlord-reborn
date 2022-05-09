@@ -11,6 +11,16 @@ class CombatFunction
     {
         try
         {
+            let [weaponCrit, weaponPenetration] = [0,0]
+
+            if(userData.equipement.some(item => item.type != undefined))
+            {
+                weaponCrit = userData.equipement.arme.statistique.critique
+                weaponPenetration = userData.equipement.arme.statistique.penetration
+                console.log("penetration : ", userData.equipement.arme.statistique.penetration) 
+                console.log("critique : ", userData.equipement.arme.statistique.critique) 
+            }
+
             let diffLevel = zone[0].lvl - monstreData[0].lvl 
             if(diffLevel >= -5 && diffLevel <= 5) diffLevel = 0
 
@@ -21,15 +31,14 @@ class CombatFunction
             let blocageLevelDiff = diffLevel * monstreData[0].blocage.level[0]
             let blocageCritLevelDiff = diffLevel * monstreData[0].blocage.level[1]
             let blocageMissLevelDiff = diffLevel * monstreData[0].blocage.level[2]
-
-            let monstreBlocage = Math.floor(Math.random() * ( (monstreData[0].blocage.degat[1] + blocageLevelDiff) - ( monstreData[0].blocage.degat[0] + blocageLevelDiff) ) ) + ( monstreData[0].blocage.degat[0] + blocageLevelDiff )
-            if(Math.floor(Math.random() * 100) <= monstreData[0].blocage.crit[0] + blocageCritLevelDiff) monstreBlocage += monstreData[0].blocage.crit[1]
-            
             let missRoll = Math.floor(Math.random() * 100)
-            console.log(`Server status : miss defense mob ${missRoll}`)
-            if(missRoll <= monstreData[0].blocage.miss + blocageMissLevelDiff) monstreBlocage = 0
+            let missRollPlayer = Math.floor(Math.random() * 100)
+            let monstreBlocage = Math.floor(Math.random() * ( (monstreData[0].blocage.degat[1] + blocageLevelDiff) - ( monstreData[0].blocage.degat[0] + blocageLevelDiff) ) ) + ( monstreData[0].blocage.degat[0] + blocageLevelDiff )
+            console.log("Server status : miss player attack" + missRollPlayer)
 
-            if(Math.floor(Math.random() * 100) <= skill[0].attaque.miss) return {miss : true, degat: 0}
+            if(Math.floor(Math.random() * 100) <= monstreData[0].blocage.crit[0] + blocageCritLevelDiff) monstreBlocage += monstreData[0].blocage.crit[1]
+            if(missRoll <= monstreData[0].blocage.miss + blocageMissLevelDiff) monstreBlocage = 0
+            if(missRollPlayer <= skill[0].attaque.miss) return {miss : true, degat: 0}
             else
             {
                 let degat = ((userData.attaque[0] * skillMultiplier) / 100) + userData.attaque[0]
@@ -55,25 +64,25 @@ class CombatFunction
      * @param {Object} userData
     */
 
-     async dammageCalculPlayer(skill, userData)
-     {
-         try
-         {
-             let skillMultiplier = Math.floor(Math.random() * (skill[0].attaque.degat[1] - skill[0].attaque.degat[0]) ) + skill[0].attaque.degat[0];
-             if(Math.floor(Math.random() * 100) <= skill[0].attaque.crit[0]) skillMultiplier += skill[0].attaque.crit[1]
-             
-             if(Math.floor(Math.random() * 100) <= skill[0].attaque.miss && skill[0].attaque.miss != 0) return {miss : true, degat: 0}
-             else
-             {
-                 let degat = ((userData.attaque[0] * skillMultiplier) / 100) + userData.attaque[0]
-                 if(degat < 0) degat = 0
-                 return {miss : false, degat: Math.round(degat), isMob : false}
-             }
-         } catch(error)
-         {
-             console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
-         }
-     }
+    async dammageCalculPlayer(skill, userData)
+    {
+         
+        let weaponCrit = 0
+
+        if(userData.equipement.some(item => item.type != undefined)) weaponCrit = userData.equipement.arme.statistique.critique
+        console.log("critique : ", userData.equipement.arme.statistique.critique) 
+        
+        let skillMultiplier = Math.floor(Math.random() * (skill[0].attaque.degat[1] - skill[0].attaque.degat[0]) ) + skill[0].attaque.degat[0];
+        if(Math.floor(Math.random() * 100) <= skill[0].attaque.crit[0] + weaponCrit) skillMultiplier += skill[0].attaque.crit[1]
+        
+        if(Math.floor(Math.random() * 100) <= skill[0].attaque.miss && skill[0].attaque.miss != 0) return {miss : true, degat: 0}
+        else
+        {
+            let degat = ((userData.attaque[0] * skillMultiplier) / 100) + userData.attaque[0]
+            if(degat < 0) degat = 0
+            return {miss : false, degat: Math.round(degat), isMob : false}
+        }
+    }
 
 
 
