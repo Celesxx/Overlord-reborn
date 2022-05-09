@@ -70,8 +70,15 @@ module.exports =
 
                 }else interaction.member.setNickname(data[0].prenom + " [❤️" + data[0].hp[0] + "] [✨" + data[0].magie[0] + "]")
                 
-                if(result.miss) embed.image.url = skillData[0].imageMiss
-                else embed.image.url = skillData[0].image
+                if(embed.image != null)
+                {      
+                    if(result.miss) embed.setImage(skillData[0].imageMiss)
+                    else embed.setImage(skillData[0].image)
+                }else
+                {
+                    if(result.miss) embed.image.url = skillData[0].imageMiss
+                    else embed.image.url = skillData[0].image
+                }
             }else
             {
                 embed.fields.slice(-1)[0].value = `\n<@!${user}> merci de mettre un skill valide !`
