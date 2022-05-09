@@ -148,7 +148,7 @@ class ExperienceFunction
          {
 
             //Affiche le canvas lvl
-            // let response = await playerCreationFunction.editPlayerById(id, stat)
+            let response = await playerCreationFunction.editPlayerById(id, stat)
             let rankAfter = await experienceFunction.getRankPlayer(id)
             let percentXp = stat.xp * 100 / xpNeedNext 
             let currentRank = ""
@@ -174,8 +174,8 @@ class ExperienceFunction
 
             let channel = client.channels.cache.get('965223174570664007') //Channel Niveau
             // let channel = client.channels.cache.get('955068685146529874')
-            // await canvasCharacterFunction.displayCanvasLvlUp(channel, data, id)
-            // await playerCreationFunction.setNameRp(interaction, id)
+            await canvasCharacterFunction.displayCanvasLvlUp(channel, data, id)
+            await playerCreationFunction.setNameRp(interaction, id)
          }
          
       }catch(error)
