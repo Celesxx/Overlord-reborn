@@ -59,18 +59,25 @@ module.exports =
                 {
                     if(result.critique && result.special && result.specialCritique || result.special && result.specialCritique)
                     {
+                        console.log("test")
+                        console.log(monstre[0])
                         combatStatus.push(`\n - ${monstre[0].attaqueSpecial[result.attaqueIndex].crit.description} ${result.degat} de dégat`)
-                        embed.image.url = monstre[0].imageSkill
+                        if(embed.image != null) embed.image.url = monstre[0].imageSkill
+                        else embed.setImage(monstre[0].imageAttaque)
                     }
                     else if(result.critique && result.special || result.special)
                     {
+                        console.log("test1")
+                        console.log(monstre[0])
                         combatStatus.push(`\n - ${monstre[0].attaqueSpecial[result.attaqueIndex].description} ${result.degat} de dégat`)
-                        embed.image.url = monstre[0].imageSkill
+                        if(embed.image != null) embed.image.url = monstre[0].imageSkill
+                        else embed.setImage(monstre[0].imageAttaque)
                     }
                     else if(result.critique)
                     {
                         combatStatus.push(`\n - ${monstre[0].attaque.descriptionCrit} ${result.degat} de dégat`)
-                        embed.image.url = monstre[0].imageCritique
+                        if(embed.image != null) embed.image.url = monstre[0].imageCritique
+                        else embed.setImage(monstre[0].imageAttaque)
 
                     }
                     else if(result.miss) 
@@ -79,10 +86,13 @@ module.exports =
                         embed.image.url = monstre[0].imageMiss
                     }else 
                     {
+                        console.log(embed.image)
                         combatStatus.push(`\n - ${monstre[0].attaque.description} ${result.degat} de dégat`)
-                        embed.image.url = monstre[0].imageAttaque
+                        if(embed.image != null) embed.image.url = monstre[0].imageAttaque
+                        else embed.setImage(monstre[0].imageAttaque)
                     }
                     
+                    console.log(embed.image.url)
                     i++
                 }
 
