@@ -41,9 +41,9 @@ module.exports =
         
         const log = logCombat[0]
         let embed = messageResult.embeds[0]
-        let monstres = log.participant.filter(result => !result.includes(`<@!`))
-        let participants = log.participant.filter(result => result.includes(`<@!`))
-
+        let monstres = log.participant.filter(result => !result.includes(`<@`))
+        let participants = log.participant.filter(result => result.includes(`<@`))
+        
 
         if(!log.recompense)
         {

@@ -64,7 +64,7 @@ module.exports =
         {
             if(possibleMob.length != 0) 
             {
-                encounterMob = await zoneFunction.getEncounterMob(possibleMob, zoneData)
+                encounterMob = await zoneFunction.getEncounterMob(possibleMob, zoneData, totalParticipant.length)
                 if(encounterMob.some(mob => mob.nom == "kirishiga la dernière ombre" || mob.nom == "Le roi des marécages")) boss = true
                 for(const mob of encounterMob) 
                 { 
