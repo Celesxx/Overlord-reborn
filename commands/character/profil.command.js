@@ -37,7 +37,8 @@ module.exports =
             for(const item of data.inventaire)
             { 
                 let stat = []
-                if(item.type == "arme" || item.type == "armure" || item.type == "accessoire") for(const [key, value] of Object.entries(item.statistique)) stat.push(`**${key}**: ${value}\n`)
+                console.log("type inventaire : ", item.type)
+                if(item.type == "arme" || item.type == "armure" || item.type == "accesoire" || item.type == "bouclier") for(const [key, value] of Object.entries(item.statistique)) stat.push(`**${key}**: ${value}\n`)
                 inventaire.push(`**nom:** ${item.nom}\n**id:** ${item.nomId}\n${stat.join("").replace(/[,]/gm,"")}\n`) 
             }
         }
@@ -46,10 +47,19 @@ module.exports =
             for(const [key, item] of Object.entries(data.equipement))
             {
                 let stat = []
-                if(item != undefined) 
+                if(item != undefined && item.statistique != undefined && key != "accessoire") 
                 {
-                    for(const [key, value] of Object.entries(item.statistique)) stat.push(`**${key}**: ${value}\n`)
+                    for(const [keys, value] of Object.entries(item.statistique)) stat.push(`**${keys}**: ${value}\n`)
                     equipement.push(`**nom:** ${item.nom}\n${stat.join("").replace(/[,]/gm,"")}\n`)
+                
+                }else if(item != undefined && key == "accessoire" && item.length != 0)
+                {
+                    for(const element of item)
+                    {
+                        stat = []
+                        for(const [keys, values] of Object.entries(element.statistique)) stat.push(`**${keys}**: ${values}\n`)
+                        equipement.push(`**nom:** ${element.nom}\n${stat.join("").replace(/[,]/gm,"")}\n`)
+                    }
                 }
             }
         }

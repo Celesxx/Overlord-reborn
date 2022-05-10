@@ -35,7 +35,10 @@ module.exports =
         const shopFunction = new ShopFunction()
 
         const message = await messageFunction.getMessageByIdInteraction(interaction.message.id, interaction)
-        const arme = await shopFunction.getShopItemByType("arme")
+        let arme = await shopFunction.getShopItemByType("arme")
+        const bouclier = await shopFunction.getShopItemByType("bouclier")
+        arme = arme.concat(bouclier)
+
         const armeSplit = arme.map((e, i) => { return i % chunkSize === 0 ? arme.slice(i, i + chunkSize) : null }).filter(e => { return e })
         
         let embed = message.embeds[0]

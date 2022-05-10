@@ -74,6 +74,8 @@ class PlayerController
             .populate('equipement.plastron', '-__v')
             .populate('equipement.casque', '-__v')
             .populate('equipement.arme', '-__v')
+            .populate('equipement.bouclier', '-__v')
+            .populate('equipement.accessoire', '-__v')
             return getPlayer
                         
         }catch(error) { return errorHelper.contentError(functionName, this.filename, error) }

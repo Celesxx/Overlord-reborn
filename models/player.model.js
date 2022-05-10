@@ -25,10 +25,12 @@ const PlayerSchema = mongoose.Schema(
     { 
         casque: {type: mongoose.Schema.Types.ObjectId, ref: 'Shop'} ,
         plastron: {type: mongoose.Schema.Types.ObjectId, ref: 'Shop'},
-        arme: {type: mongoose.Schema.Types.ObjectId, ref: 'Shop'}
+        arme: {type: mongoose.Schema.Types.ObjectId, ref: 'Shop'},
+        bouclier: {type: mongoose.Schema.Types.ObjectId, ref: 'Shop'},
+        accessoire: [{type: mongoose.Schema.Types.ObjectId, ref: 'Shop'}]
     },
     inventaire: [{type: mongoose.Schema.Types.ObjectId, ref: 'Shop'}],
     skill: { type: Array, required: false, default: [] },
-});
+})
 
 module.exports = mongoose.model('Player', PlayerSchema);
