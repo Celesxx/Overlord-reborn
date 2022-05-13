@@ -13,7 +13,14 @@ module.exports =
         await devGuild.commands.set(client.commands.map(cmd => cmd))
         // for(const [key, value] of fetch)
         // {
-        //     for(const command of commands) if(command.name == value.name) await devGuild.commands.edit(key, command)
+        //     for(const command of commands) 
+        //     {
+        //         if(command.name == value.name) 
+        //         {
+        //             await devGuild.commands.edit(key, command)
+        //             break
+        //         }
+        //     }
         //     console.log(`Server status : commande ${value.name} with id ${key} was updated`)
         // }
 

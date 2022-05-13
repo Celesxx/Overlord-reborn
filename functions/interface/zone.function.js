@@ -1,3 +1,4 @@
+const { type } = require('express/lib/response')
 const ZoneController = require('../../controllers/zone.controller')
 
 class ZoneFunction 
@@ -63,36 +64,39 @@ class ZoneFunction
      * @param {Array} possibleMob
      * @param {Object} zone
      * @param {Number} nbrPlayer
+     * @param {Number} totalCombatParticipant
     */
-      async getEncounterMob(possibleMob, zone, nbrPlayer)
-      {
-          try
-          {
-            let [encounterMob, index , maxMob] = [[], [], 0]
-            let monstreId
-            let diff = nbrPlayer - zone[0].nombre
-            if(diff > 0) maxMob = Math.floor((Math.random() * (zone[0].nombre + diff)) + 1)
-            else maxMob = Math.floor((Math.random() * zone[0].nombre) + 1)
+    async getEncounterMob(possibleMob, zone, nbrPlayer, totalCombatParticipant)
+    {
+        let [encounterMob, index , maxMob, verification] = [[], [], 0, false]
+        let monstreId
+        let diff = nbrPlayer - zone[0].nombre
 
-            while(encounterMob.length < maxMob)
+        if(diff > 0) maxMob = Math.floor((Math.random() * (zone[0].nombre + diff)) + 1)
+        else maxMob = Math.floor((Math.random() * zone[0].nombre) + 1)
+
+        if(totalCombatParticipant >= 5 ) totalCombatParticipant += 5
+
+        while(encounterMob.length < maxMob)
+        {   
+            for(const mob of possibleMob)
             {
-                for(const mob of possibleMob)
+                monstreId = mob.nomId
+                if(Math.floor((Math.random() * 100) + 1) > totalCombatParticipant || verification) 
                 {
-                    monstreId = mob.nomId
                     if(Math.floor((Math.random() * 100) + 1) < mob.spawn.find(data => data.zone === zone[0].nom).drop && encounterMob.length < maxMob) 
                     {
                         let newMob = JSON.parse(JSON.stringify(mob))
                         if( encounterMob.some(value => value.nom === newMob.nom) ) // si mob est déja spawn une fois 
                         {
-                            index.forEach( value => 
-                            { 
+                            for(const value of index)
+                            {
                                 if(value.nom == newMob.nom )
                                 {
                                     value.id++ // incrémente l'id
                                     newMob.nomId = `${monstreId}${newMob.position}${value.id}` // donne l'index au monstre
-
                                 }
-                            })
+                            }
                             encounterMob.push(newMob)
                         }else
                         {
@@ -101,15 +105,17 @@ class ZoneFunction
                             encounterMob.push(newMob)
                         }
                     }
+                }else 
+                {
+                    if(maxMob == 1 && nbrPlayer > 1) maxMob = Math.round(4 * (nbrPlayer / 1.5))
+                    else if(maxMob == 1) maxMob = 4
+                    else maxMob = (maxMob * 1.5 ) + nbrPlayer
+                    verification = true
                 }
             }
-            return encounterMob
-
-          } catch(error)
-          {
-              console.log(`error : ${error}`)
-          }
-      }
+        }
+        return {mob : encounterMob, isGardien: verification}     
+    }
     
 }
 

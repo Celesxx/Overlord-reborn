@@ -4,10 +4,10 @@ class CombatFunction
      * @param {Object} skill
      * @param {Object} userData
      * @param {Object} monstreData
-     * @param {Object} zone
+     * @param {Object} zoneLvl
     */
 
-    async dammageCalcul(skill, userData, monstreData, zone)
+    async dammageCalcul(skill, userData, monstreData, zoneLvl)
     {
         try
         {
@@ -21,7 +21,7 @@ class CombatFunction
             //     console.log("critique : ", userData.equipement.arme.statistique.critique) 
             // }
 
-            let diffLevel = zone[0].lvl - monstreData[0].lvl 
+            let diffLevel = zoneLvl - monstreData[0].lvl 
             if(diffLevel >= -5 && diffLevel <= 5) diffLevel = 0
 
             let skillMultiplier = Math.floor(Math.random() * (skill[0].attaque.degat[1] - skill[0].attaque.degat[0]) ) + skill[0].attaque.degat[0];
@@ -187,14 +187,14 @@ class CombatFunction
 
     /**
      * @param {Array} monstre
-     * @param {Array} zone
+     * @param {Array} zoneLvl
     */
 
-    async dammageCalculMonstre(monstre, zone)
+    async dammageCalculMonstre(monstre, zoneLvl)
     {
         try
         {
-            let diffLevel = zone[0].lvl - monstre[0].lvl 
+            let diffLevel = zoneLvl - monstre[0].lvl 
             if(diffLevel >= -5 && diffLevel <= 5) diffLevel = 0
             let atkLvlDiff = diffLevel * monstre[0].attaque.level[0]
             let AtkLvlCritDiff = diffLevel * monstre[0].attaque.level[1]

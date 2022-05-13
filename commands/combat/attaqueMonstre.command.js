@@ -52,7 +52,7 @@ module.exports =
             {
                 const monstre = await bestiaireController.getMonstreByNameId(monstreName.slice(0,-2))
                 const zoneData = await zoneController.getZoneByName(embed.fields.slice(1)[0].value)
-                const damageResult = await combatFunction.dammageCalculMonstre(monstre, zoneData)
+                const damageResult = await combatFunction.dammageCalculMonstre(monstre, logCombat[0].zoneLvl)
                 
                 let i = 0
                 for(const result of damageResult)
@@ -94,7 +94,7 @@ module.exports =
                 embed.fields.slice(-1)[0].value = `\n${monstreName} attaque <@${user}> et : ${combatStatus}`
                 
         
-                let logCombat = await logCombatFunction.getLogCombatById(combatId)
+                // let logCombat = await logCombatFunction.getLogCombatById(combatId)
                 await logCombatFunction.addEventTurnLogCombatByName(combatId, logCombat[0], { number: turnVerification.currentTurn, event: embed.fields.slice(-1)[0].value })
                 await messageFunction.editMessageByIdInteraction(logCombat[0].messageId, interaction, embed) 
 

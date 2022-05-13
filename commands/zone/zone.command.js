@@ -5,6 +5,7 @@ const BestiaireController = require('../../controllers/bestiaire.controller.js')
 const ZoneController = require('../../controllers/zone.controller.js')
 const ZoneFunction = require('../../functions/interface/zone.function.js')
 const LogCombatFunction = require("../../functions/gestion/logCombat.function.js")
+const LogZone = require("../../functions/gestion/logZone.function")
 
 module.exports = 
 {
@@ -33,40 +34,50 @@ module.exports =
     {   
         let participants = interaction.options.get("participant").value.replace(/[\s]/gm, "").split("/")
         const zone = interaction.options.get("zone").value
-
         let [encounterMob, totalParticipant, fullDescription]= [[], [], [], []]
+        let [moyLvlPlayer, moyZoneCombatTotal, boss, bossName] = [0, 0, false, ""]
         let diffLv
-        let moyLvlPlayer = 0
-        let boss = false
-        let bossName = ""
+
         const author = interaction.member.user.id
         const combatId = Math.random().toString(16).slice(8)
         const date = new Date()
         const createdAt = ("00" + (date.getMonth() + 1)).slice(-2) + "/" + ("00" + date.getDate()).slice(-2) + "/" + date.getFullYear() + " " + ("00" + date.getHours()).slice(-2) + ":" + ("00" + date.getMinutes()).slice(-2) + ":" + ("00" + date.getSeconds()).slice(-2);
+        const day = date.getDate()
         
         const bestiaireController = new BestiaireController()
         const zoneController = new ZoneController()
         const logCombatFunction = new LogCombatFunction()
         const zoneFunction = new ZoneFunction()
         const playerCreationFunction = new PlayerCreationFunction()
+        const logZone = new LogZone()
 
-        participants.forEach(async participant => 
-        { 
+        
+        for(const participant of participants)
+        {
             const data = await playerCreationFunction.getPlayerById(participant.replace(/[<@!>]/g, ''))
-            totalParticipant.push(`:x:${participant}\n`) 
-            moyLvlPlayer += data[0].lvl
-        })
+            const logZoneResult = await logZone.logZoneAdd(participant.replace(/[<@!>]/g, ''), day, createdAt)
 
+            moyZoneCombatTotal += logZoneResult.totalCombat
+            moyLvlPlayer += data[0].lvl
+            totalParticipant.push(`:x:${participant}\n`) 
+        }
+        
         moyLvlPlayer = moyLvlPlayer / participants.length
+        moyZoneCombatTotal = Math.round(moyZoneCombatTotal / participants.length)
+
         const possibleMob = await bestiaireController.getMonstreByZone(zone)
         const zoneData = await zoneController.getZoneByName(zone)
+
         if(zoneData.length !=0)
         {
             if(possibleMob.length != 0) 
             {
-                encounterMob = await zoneFunction.getEncounterMob(possibleMob, zoneData, totalParticipant.length)
-                if(encounterMob.some(mob => mob.nom == "kirishiga la dernière ombre" || mob.nom == "Le roi des marécages")) boss = true
-                for(const mob of encounterMob) 
+                encounterMob = await zoneFunction.getEncounterMob(possibleMob, zoneData, totalParticipant.length, moyZoneCombatTotal)
+
+                if(encounterMob.isGardien) zoneData[0].lvl += Math.round(moyLvlPlayer / 1.5)
+                if(encounterMob.mob.some(mob => mob.nom == "kirishiga la dernière ombre" || mob.nom == "Le roi des marécages")) boss = true
+
+                for(const mob of encounterMob.mob) 
                 { 
                     if(boss == false) 
                     {
@@ -85,7 +96,7 @@ module.exports =
 
 
             totalParticipant = totalParticipant.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value)
-
+            console.log("participant : ", totalParticipant)
             let embed = new MessageEmbed()
             .setAuthor({name : combatId})
             .setTitle(":crossed_swords: Début du combat")
@@ -99,7 +110,7 @@ module.exports =
             embed.addField("Zone", zone, true)
             embed.addField("Tour", "1", true)
             embed.addField("Ordre du combat", totalParticipant.join(""))
-            for(const mob of encounterMob)
+            for(const mob of encounterMob.mob)
             {
                 if(boss && bossName == mob.nom)
                 {

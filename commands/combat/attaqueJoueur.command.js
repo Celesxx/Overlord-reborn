@@ -89,7 +89,7 @@ module.exports =
                         {
                             const resultMonstre = await bestiaireController.getMonstreByNameId(target.slice(0,-2)) //get les stats du monstre en fonction de son id 
                             monstreInCombat.push(resultMonstre[0])
-                            damageResult = await combatFunction.dammageCalcul(skill, data[0], [monstreInCombat[i]], resultZone) //calcule les dommages en fonction du skill, de la défense du monstre et du lv de la zone
+                            damageResult = await combatFunction.dammageCalcul(skill, data[0], [monstreInCombat[i]], logCombat[0].zoneLvl) //calcule les dommages en fonction du skill, de la défense du monstre et du lv de la zone
                         }
                         degatForEachMonstre.push(damageResult)
                         i++
