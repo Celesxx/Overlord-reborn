@@ -71,6 +71,7 @@ class ZoneFunction
         let [encounterMob, index , maxMob, verification] = [[], [], 0, false]
         let monstreId
         let diff = nbrPlayer - zone[0].nombre
+        let roll = Math.floor((Math.random() * 100) + 1)
 
         if(diff > 0) maxMob = Math.floor((Math.random() * (zone[0].nombre + diff)) + 1)
         else maxMob = Math.floor((Math.random() * zone[0].nombre) + 1)
@@ -82,7 +83,9 @@ class ZoneFunction
             for(const mob of possibleMob)
             {
                 monstreId = mob.nomId
-                if(Math.floor((Math.random() * 100) + 1) > totalCombatParticipant || verification) 
+                console.log("roll : ", roll)
+                console.log("totalCombatParticipant : ", totalCombatParticipant)
+                if(roll >= totalCombatParticipant || verification) 
                 {
                     if(Math.floor((Math.random() * 100) + 1) < mob.spawn.find(data => data.zone === zone[0].nom).drop && encounterMob.length < maxMob) 
                     {

@@ -51,98 +51,101 @@ module.exports =
         const playerCreationFunction = new PlayerCreationFunction()
         const logZone = new LogZone()
 
-        
-        for(const participant of participants)
+        if(!participants.map(participant => { if(isNaN(participant.replace(/[<@!>]/g, ''))) return false } ).includes(false)) 
         {
-            const data = await playerCreationFunction.getPlayerById(participant.replace(/[<@!>]/g, ''))
-            const logZoneResult = await logZone.logZoneAdd(participant.replace(/[<@!>]/g, ''), day, createdAt)
-
-            moyZoneCombatTotal += logZoneResult.totalCombat
-            moyLvlPlayer += data[0].lvl
-            totalParticipant.push(`:x:${participant}\n`) 
-        }
-        
-        moyLvlPlayer = moyLvlPlayer / participants.length
-        moyZoneCombatTotal = Math.round(moyZoneCombatTotal / participants.length)
-
-        const possibleMob = await bestiaireController.getMonstreByZone(zone)
-        const zoneData = await zoneController.getZoneByName(zone)
-
-        if(zoneData.length !=0)
-        {
-            if(possibleMob.length != 0) 
+            for(const participant of participants)
             {
-                encounterMob = await zoneFunction.getEncounterMob(possibleMob, zoneData, totalParticipant.length, moyZoneCombatTotal)
+                const data = await playerCreationFunction.getPlayerById(participant.replace(/[<@!>]/g, ''))
+                const logZoneResult = await logZone.logZoneAdd(participant.replace(/[<@!>]/g, ''), day, createdAt)
 
-                if(encounterMob.isGardien) zoneData[0].lvl += Math.round(moyLvlPlayer / 1.5)
-                if(encounterMob.mob.some(mob => mob.nom == "kirishiga la dernière ombre" || mob.nom == "Le roi des marécages")) boss = true
+                moyZoneCombatTotal += logZoneResult.totalCombat
+                moyLvlPlayer += data[0].lvl
+                totalParticipant.push(`:x:${participant}\n`) 
+            }
+            
+            moyLvlPlayer = moyLvlPlayer / participants.length
+            moyZoneCombatTotal = Math.round(moyZoneCombatTotal / participants.length)
+            console.log("moyenne zone : ", moyZoneCombatTotal )
 
-                for(const mob of encounterMob.mob) 
-                { 
-                    if(boss == false) 
-                    {
-                        totalParticipant.push(`:x:${mob.nomId}\n`) 
-                        fullDescription.push(`> *- ${mob.description}*\n`)
-                    
-                    }else if(mob.nom == "kirishiga la dernière ombre" || mob.nom == "Le roi des marécages")
-                    {
-                        bossName = mob.nom
-                        totalParticipant.push(`:x:${mob.nomId}\n`) 
-                        fullDescription.push(`> *- ${mob.description}*\n`)
-                        break
+            const possibleMob = await bestiaireController.getMonstreByZone(zone)
+            const zoneData = await zoneController.getZoneByName(zone)
+
+            if(zoneData.length !=0)
+            {
+                if(possibleMob.length != 0) 
+                {
+                    encounterMob = await zoneFunction.getEncounterMob(possibleMob, zoneData, totalParticipant.length, moyZoneCombatTotal)
+
+                    if(encounterMob.isGardien) zoneData[0].lvl += Math.round(moyLvlPlayer / 1.5)
+                    if(encounterMob.mob.some(mob => mob.nom == "kirishiga la dernière ombre" || mob.nom == "Le roi des marécages")) boss = true
+
+                    for(const mob of encounterMob.mob) 
+                    { 
+                        if(boss == false) 
+                        {
+                            totalParticipant.push(`:x:${mob.nomId}\n`) 
+                            fullDescription.push(`> *- ${mob.description}*\n`)
+                        
+                        }else if(mob.nom == "kirishiga la dernière ombre" || mob.nom == "Le roi des marécages")
+                        {
+                            bossName = mob.nom
+                            totalParticipant.push(`:x:${mob.nomId}\n`) 
+                            fullDescription.push(`> *- ${mob.description}*\n`)
+                            break
+                        }
                     }
                 }
-            }
 
 
-            totalParticipant = totalParticipant.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value)
-            console.log("participant : ", totalParticipant)
-            let embed = new MessageEmbed()
-            .setAuthor({name : combatId})
-            .setTitle(":crossed_swords: Début du combat")
-            
-            if(fullDescription.length != 0) embed.setDescription(`${fullDescription.join().replace(/[,]/gm, "")}`)
-            else embed.setDescription("> _Un combat féroce vient de commencer que le meilleur gagne !_ ")
-            if(!boss) embed.addField(":scroll: Explication", "Chaque monstre possède une référence 1x ou 2x, le premier chiffre correspond à la 1ére ligne ou à la 2éme ligne dans le combat. Une fois le combat terminé faites *?Fin CombatId*")
-            else if(bossName == "kirishiga la dernière ombre" || bossName == "Le roi des marécages") embed.addField(":scroll: Explication", `Pas de chance, vous êtes tombez contre ${bossName}, si jamais c'est la première fois que vous l'affrontez et que vous mourrez contre lui il se contentera de vous laisser dans le coma sans vous achever en guise d'avertissement`)
-            else if(boss) embed.addField(":scroll: Explication", "Il semblerait que le destin sois contre vous, le gardien de la zone n'est pas très content et va surement faire qu'une bouchée de vous !")
-            
-            embed.addField("Zone", zone, true)
-            embed.addField("Tour", "1", true)
-            embed.addField("Ordre du combat", totalParticipant.join(""))
-            for(const mob of encounterMob.mob)
-            {
-                if(boss && bossName == mob.nom)
+                totalParticipant = totalParticipant.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value)
+                console.log("participant : ", totalParticipant)
+                let embed = new MessageEmbed()
+                .setAuthor({name : combatId})
+                .setTitle(":crossed_swords: Début du combat")
+                
+                if(fullDescription.length != 0) embed.setDescription(`${fullDescription.join().replace(/[,]/gm, "")}`)
+                else embed.setDescription("> _Un combat féroce vient de commencer que le meilleur gagne !_ ")
+                if(!boss) embed.addField(":scroll: Explication", "Chaque monstre possède une référence 1x ou 2x, le premier chiffre correspond à la 1ére ligne ou à la 2éme ligne dans le combat. Une fois le combat terminé faites *?Fin CombatId*")
+                else if(bossName == "kirishiga la dernière ombre" || bossName == "Le roi des marécages") embed.addField(":scroll: Explication", `Pas de chance, vous êtes tombez contre ${bossName}, si jamais c'est la première fois que vous l'affrontez et que vous mourrez contre lui il se contentera de vous laisser dans le coma sans vous achever en guise d'avertissement`)
+                else if(boss) embed.addField(":scroll: Explication", "Il semblerait que le destin sois contre vous, le gardien de la zone n'est pas très content et va surement faire qu'une bouchée de vous !")
+                
+                embed.addField("Zone", zone, true)
+                embed.addField("Tour", "1", true)
+                embed.addField("Ordre du combat", totalParticipant.join(""))
+                for(const mob of encounterMob.mob)
                 {
-                    embed.setImage(mob.image)
-                    diffLv = zoneData[0].lvl - mob.lvl
-                    if(diffLv >= -5 && diffLv <= 5) diffLv = 0
-                    embed.addField(`${mob.nomId}`, `${mob.hp[0] + (mob.hp[1] * diffLv)}`, true)
-                    break
+                    if(boss && bossName == mob.nom)
+                    {
+                        embed.setImage(mob.image)
+                        diffLv = zoneData[0].lvl - mob.lvl
+                        if(diffLv >= -5 && diffLv <= 5) diffLv = 0
+                        embed.addField(`${mob.nomId}`, `${mob.hp[0] + (mob.hp[1] * diffLv)}`, true)
+                        break
 
-                }else if(!boss)
-                {
-                    embed.setImage(mob.image)
-                    diffLv = zoneData[0].lvl - mob.lvl
-                    if(diffLv >= -5 && diffLv <= 5) diffLv = 0
-                    embed.addField(`${mob.nomId}`, `${mob.hp[0] + (mob.hp[1] * diffLv)}`, true)
+                    }else if(!boss)
+                    {
+                        embed.setImage(mob.image)
+                        diffLv = zoneData[0].lvl - mob.lvl
+                        if(diffLv >= -5 && diffLv <= 5) diffLv = 0
+                        embed.addField(`${mob.nomId}`, `${mob.hp[0] + (mob.hp[1] * diffLv)}`, true)
+                    }
+
                 }
 
-            }
-
-            embed.addField("Status", "Que le combat commence, merci de respecter l'ordre du combat !")
-            await interaction.reply({ ephermal: true, content: '** **' })
-            interaction.channel.send({embeds: [embed]}).then(async result => 
-            {
-                if(boss)
+                embed.addField("Status", "Que le combat commence, merci de respecter l'ordre du combat !")
+                await interaction.reply({ ephermal: true, content: '** **' })
+                interaction.channel.send({embeds: [embed]}).then(async result => 
                 {
-                    if(bossName == "kirishiga la dernière ombre") interaction.channel.send({files:[{attachment: 'assets/sound/kirishiga.mp3', name: 'kirishiga.mp3'}]})
-                    else if(bossName == "Le roi des marécages") interaction.channel.send({files:[{attachment: 'assets/sound/kingMarecage.mp3', name: 'kingMarecage.mp3'}]})
-                }
-                await logCombatFunction.logCombatCreation(author, combatId, result.id, totalParticipant, createdAt, interaction.channel.name, zoneData[0].lvl, moyLvlPlayer)
-            })
-                     
-        }else interaction.reply("La zone n'est pas valide !")
+                    if(boss)
+                    {
+                        if(bossName == "kirishiga la dernière ombre") interaction.channel.send({files:[{attachment: 'assets/sound/kirishiga.mp3', name: 'kirishiga.mp3'}]})
+                        else if(bossName == "Le roi des marécages") interaction.channel.send({files:[{attachment: 'assets/sound/kingMarecage.mp3', name: 'kingMarecage.mp3'}]})
+                    }
+                    await logCombatFunction.logCombatCreation(author, combatId, result.id, totalParticipant, createdAt, interaction.channel.name, zoneData[0].lvl, moyLvlPlayer)
+                })
+                        
+            }else interaction.reply("La zone n'est pas valide !")
+        }else interaction.reply(`Le participant ${participants.map(participant => { if(isNaN(participant.replace(/[<@!>]/g, ''))) return participant }).join("").replace(/[,]/gm, "")} n'est pas valide`)
 
     }
 }
