@@ -38,16 +38,75 @@ module.exports =
             ]
         },
         {
-            name: "participant",
+            name: "participant-1",
             description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
             type: "MENTIONABLE",
             required: true,
+        },
+        {
+            name: "participant-2",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-3",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-4",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-5",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-6",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-7",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-8",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-9",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-10",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
         }
     ],
     runSlash: async (client, interaction) => 
     {   
-        let participants = interaction.options.get("participant").value.replace(/[\s]/gm, "").split("/")
-        for(const [key, value] of Object.entries(participants)) participants[key] = `<@!${value}>`
+        let participants = []
+        console.log("length : ", interaction.options._hoistedOptions.length)
+        for(let i = 1; i < interaction.options._hoistedOptions.length; i++)
+        {
+            let participant = interaction.options.get(`participant-${i}`).value
+            participants.push(`<@!${participant}>`)
+        }
         const zone = interaction.options.get("zone").value
 
         let [encounterMob, totalParticipant, fullDescription]= [[], [], [], []]
