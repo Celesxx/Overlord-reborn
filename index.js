@@ -4,10 +4,13 @@ const client = new Client({ intents: allIntents })
 const mongoose = require('mongoose');
 require("dotenv").config();
 
+
+// client.commands = new Collection()
+// client.buttons = new Collection()
+
 ['commands', 'buttons', 'selects'].forEach(x => client[x] = new Collection())
 const utils = ['command.util', 'event.util', 'button.util', 'select.util']
 utils.forEach(handler => { require(`./utils/handlers/${handler}`)(client)})
-
 
 process.on('exit', code => { console.log(`_____________⚠️ Erreur ⚠️_____________\nServer status : Le processes s'est arrété avec le code => ${code}\n____________________________________`)})
 process.on('uncaughtException', (err, origin) => {console.log(`_____________⚠️ Erreur ⚠️_____________\nServer status : UNCAUGHT_EXCEPTION => ${err}\nServer status: source du problème => ${origin}\n____________________________________`)})
