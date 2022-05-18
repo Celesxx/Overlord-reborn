@@ -14,7 +14,7 @@ const PlayerSchema = mongoose.Schema(
     xp: { type: Number, required: false, default: 0 },
     hp: [{ type: Double, required: true }], // [actuel, total, bonusByRace]
     magie: [{ type: Double, required: true }], // [actuel, total, bonusByRace]
-    attaque: { type: Array, required: true }, // [actuel, total, bonusByRace]
+    attaque: [{ type: Double, required: true }], // [actuel, total, bonusByRace]
     armure:[{ type: Double, required: true }], // [actuel, total, bonusByRace]
     protection:[{ type: Double, required: true }], // [actuel, total, bonusByRace]
     money: { type: Array, required: false, default: [0, 0, 0] }, // [bronze, argent, or]
@@ -25,10 +25,12 @@ const PlayerSchema = mongoose.Schema(
     { 
         casque: {type: mongoose.Schema.Types.ObjectId, ref: 'Shop'} ,
         plastron: {type: mongoose.Schema.Types.ObjectId, ref: 'Shop'},
-        arme: {type: mongoose.Schema.Types.ObjectId, ref: 'Shop'}
+        arme: {type: mongoose.Schema.Types.ObjectId, ref: 'Shop'},
+        bouclier: {type: mongoose.Schema.Types.ObjectId, ref: 'Shop'},
+        accessoire: [{type: mongoose.Schema.Types.ObjectId, ref: 'Shop'}]
     },
     inventaire: [{type: mongoose.Schema.Types.ObjectId, ref: 'Shop'}],
     skill: { type: Array, required: false, default: [] },
-});
+})
 
 module.exports = mongoose.model('Player', PlayerSchema);

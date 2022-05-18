@@ -41,9 +41,9 @@ module.exports =
         
         const log = logCombat[0]
         let embed = messageResult.embeds[0]
-        let monstres = log.participant.filter(result => !result.includes(`<@!`))
-        let participants = log.participant.filter(result => result.includes(`<@!`))
-
+        let monstres = log.participant.filter(result => !result.includes(`<@`))
+        let participants = log.participant.filter(result => result.includes(`<@`))
+        
 
         if(!log.recompense)
         {
@@ -65,7 +65,6 @@ module.exports =
                     for(const monstre of monstres)
                     {
                         const resultMonstre = await bestiaireController.getMonstreByNameId(monstre.slice(0,-2))
-                        let zoneLvl = log.zoneLvl
         
                         if(Math.floor(Math.random() * 100) < resultMonstre[0].loot.item.chance) resultMonstre[0].loot.item.loot.forEach(item => { items.push(item) })
                         goldTotal.bronze += Math.floor(Math.random() * ( resultMonstre[0].loot.gold.bronze[1]  - resultMonstre[0].loot.gold.bronze[0] ) ) +  resultMonstre[0].loot.gold.bronze[0]
@@ -73,7 +72,7 @@ module.exports =
                         goldTotal.or += Math.floor(Math.random() * ( resultMonstre[0].loot.gold.or[1]  - resultMonstre[0].loot.gold.or[0] ) ) +  resultMonstre[0].loot.gold.or[0]
                         
                         let xp = Math.floor(Math.random() * ( resultMonstre[0].loot.xp[1]  - resultMonstre[0].loot.xp[0] ) ) +  resultMonstre[0].loot.xp[0]
-                        xpTotal += Math.max(0, Math.round(xp + (xp *  (zoneLvl + (participantAlive.lvl / 15) - participantAlive.lvl)) * 1.5 * Math.exp(participantAlive.lvl / 100)))
+                        xpTotal += Math.max(0, Math.round( (xp + (xp *  ( (resultMonstre[0].lvl + 2) + (participantAlive.lvl / 15) - participantAlive.lvl ) ) * 1.5 * Math.exp(participantAlive.lvl / 100) ) / 2 ))
                     }
 
                     for(const participant of participantDead)
@@ -91,11 +90,10 @@ module.exports =
                     let rankBefore = await experienceFunction.getRankPlayer(participantAlive)
 
                     
-                    
-                    participantAlive.xp += parseInt(xpTotal)
-                    participantAlive.money[0] += goldTotal.bronze
-                    participantAlive.money[1] += goldTotal.argent
-                    participantAlive.money[2] += goldTotal.or
+                    participantAlive.xp += parseInt(xpTotal / alive.length)
+                    participantAlive.money[0] += Math.round(goldTotal.bronze / alive.length)
+                    participantAlive.money[1] += Math.round(goldTotal.argent / alive.length)
+                    participantAlive.money[2] += Math.round(goldTotal.or / alive.length)
 
                     
                     for(const item of items)

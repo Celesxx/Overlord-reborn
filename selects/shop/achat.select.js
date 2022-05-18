@@ -15,8 +15,6 @@ module.exports =
 
         const item = await shopFunction.getShopItemByName(interaction.values[0])
         let player = await playerFunction.getPlayerById(interaction.user.id)
-        console.log(item)
-        console.log(player)
         
         if(player[0].money[0] >= item[0].price[0] && player[0].money[1] >= item[0].price[1] && player[0].money[2] >= item[0].price[2])
         {

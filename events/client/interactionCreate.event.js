@@ -28,7 +28,7 @@ module.exports =
                 if(!btn) return interaction.reply("Ce select n'existe pas")
                 btn.runSlash(client, interaction)
             }
-        }else if(process.env.MODE == "PROD")
+        }else if(process.env.MODE == "prod")
         {
             if(interaction.isCommand())
             {

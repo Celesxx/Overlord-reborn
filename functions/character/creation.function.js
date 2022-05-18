@@ -17,7 +17,7 @@ class PlayerCreationFunction
         {
             let stat = {}
             
-            let statistique = classBdd[classe].statistiques
+            let statistique = classBdd[classe].base
             let [hp , mana, attaque, armure, protection] = [statistique.hp, statistique.mana, statistique.attaque, statistique.armure, statistique.protection]
             stat = {hp: [hp, hp], magie: [mana, mana], attaque: [attaque, attaque], armure: [armure, armure], protection: [protection, protection]}
 

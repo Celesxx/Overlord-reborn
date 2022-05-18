@@ -17,7 +17,7 @@ module.exports =
         embed.description = `_${classe.description}_`
         embed.image.url = classe.image
         embed.fields = []
-        embed.addField("Gain par niveau", `❤️ ${classe.statistiques.hp} | ✨ ${classe.statistiques.mana} |🛡️ ${classe.statistiques.armure} | ⚔️ ${classe.statistiques.attaque} `)
+        embed.addField("Gain par niveau", `❤️ ${classe.statistiques.hp} | ✨ ${classe.statistiques.mana} | ⚔️ ${classe.statistiques.attaque} |🛡️ ${classe.statistiques.armure} | 💠 ${classe.statistiques.armure}`)
         embed.addField("Compétences", "ci-dessous vous allez trouvé les différentes aptitudes et compétences que vous allez débloquer au fur et a mesure de votre level")
 
         classe.level.forEach(element => 

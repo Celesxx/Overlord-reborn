@@ -152,9 +152,7 @@ class LogCombatFunction
          try
          {
             let lastRound = logCombat.round.slice(-1)[0].number
-            console.log(logCombat.recompense)
             logCombat.recompense = true
-            console.log(logCombat.recompense)
             logCombat.round.push({number: lastRound + 1, event: status})
             const logCombatController = new LogCombatController()
             const result = await logCombatController.editLogCombatByName(combatId, logCombat)

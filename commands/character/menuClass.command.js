@@ -103,7 +103,6 @@ module.exports =
             {
                 color = "#2d2d2d"
                 allClass = [{ name: "voleur", value: "voleur" }, { name: "assassin", value: "assassin" },{ name: "rodeur", value: "rodeur" } /* ,{ name: "espion", value: "espion" },{ name: "ombre", value: "ombre" },{ name: "ninja", value: "ninja" }, { name: "prédateur", value: "predateur" }*/]
-            
             }else if(interaction.options.get("ranger") != undefined && interaction.options.get("ranger").name == "ranger")  
             {
                 color = "#057e00"
@@ -124,7 +123,7 @@ module.exports =
             .setTitle(`__${classe.nom}__`)
             .setDescription(`_${classe.description}_`)
             .setImage(classe.image)
-            .addField("Gain par niveau", `❤️ ${classe.statistiques.hp} | ✨ ${classe.statistiques.mana} |🛡️ ${classe.statistiques.armure} | ⚔️ ${classe.statistiques.attaque} `)
+            .addField("Gain par niveau", `❤️ ${classe.statistiques.hp} | ✨ ${classe.statistiques.mana} | ⚔️ ${classe.statistiques.attaque} |🛡️ ${classe.statistiques.armure} | 💠 ${classe.statistiques.armure}`)
             .addField("Compétences", "ci-dessous vous allez trouvé les différentes aptitudes et compétences que vous allez débloquer au fur et a mesure de votre level")
 
             classe.level.forEach(element => 

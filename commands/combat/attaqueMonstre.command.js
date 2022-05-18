@@ -52,7 +52,7 @@ module.exports =
             {
                 const monstre = await bestiaireController.getMonstreByNameId(monstreName.slice(0,-2))
                 const zoneData = await zoneController.getZoneByName(embed.fields.slice(1)[0].value)
-                const damageResult = await combatFunction.dammageCalculMonstre(monstre, zoneData)
+                const damageResult = await combatFunction.dammageCalculMonstre(monstre, logCombat[0].zoneLvl)
                 
                 let i = 0
                 for(const result of damageResult)
@@ -60,17 +60,20 @@ module.exports =
                     if(result.critique && result.special && result.specialCritique || result.special && result.specialCritique)
                     {
                         combatStatus.push(`\n - ${monstre[0].attaqueSpecial[result.attaqueIndex].crit.description} ${result.degat} de dégat`)
-                        embed.image.url = monstre[0].imageSkill
+                        if(embed.image != null) embed.image.url = monstre[0].imageSkill
+                        else embed.setImage(monstre[0].imageAttaque)
                     }
                     else if(result.critique && result.special || result.special)
                     {
                         combatStatus.push(`\n - ${monstre[0].attaqueSpecial[result.attaqueIndex].description} ${result.degat} de dégat`)
-                        embed.image.url = monstre[0].imageSkill
+                        if(embed.image != null) embed.image.url = monstre[0].imageSkill
+                        else embed.setImage(monstre[0].imageAttaque)
                     }
                     else if(result.critique)
                     {
                         combatStatus.push(`\n - ${monstre[0].attaque.descriptionCrit} ${result.degat} de dégat`)
-                        embed.image.url = monstre[0].imageCritique
+                        if(embed.image != null) embed.image.url = monstre[0].imageCritique
+                        else embed.setImage(monstre[0].imageAttaque)
 
                     }
                     else if(result.miss) 
@@ -80,7 +83,8 @@ module.exports =
                     }else 
                     {
                         combatStatus.push(`\n - ${monstre[0].attaque.description} ${result.degat} de dégat`)
-                        embed.image.url = monstre[0].imageAttaque
+                        if(embed.image != null) embed.image.url = monstre[0].imageAttaque
+                        else embed.setImage(monstre[0].imageAttaque)
                     }
                     
                     i++
@@ -90,7 +94,7 @@ module.exports =
                 embed.fields.slice(-1)[0].value = `\n${monstreName} attaque <@${user}> et : ${combatStatus}`
                 
         
-                let logCombat = await logCombatFunction.getLogCombatById(combatId)
+                // let logCombat = await logCombatFunction.getLogCombatById(combatId)
                 await logCombatFunction.addEventTurnLogCombatByName(combatId, logCombat[0], { number: turnVerification.currentTurn, event: embed.fields.slice(-1)[0].value })
                 await messageFunction.editMessageByIdInteraction(logCombat[0].messageId, interaction, embed) 
 
