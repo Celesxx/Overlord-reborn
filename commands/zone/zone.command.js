@@ -22,6 +22,20 @@ module.exports =
             description: "zone du channel ou vous vous trouvez",
             type: "STRING",
             required: true,
+            choices:
+            [
+                { name: "plaine", value: "plaine" },
+                { name: "foret", value: "foret" },
+                { name: "colline", value: "colline" },
+                { name: "lac", value: "lac" },
+                { name: "grotte", value: "grotte" },
+                { name: "montagne", value: "montagne" },
+                { name: "terre-arride", value: "terre-arride" },
+                { name: "taverne", value: "taverne" },
+                { name: "foret-magique", value: "foret-magique" },
+                { name: "marécages", value: "marécages" },
+                { name: "caserne-garde", value: "caserne-garde" },
+            ]
         },
         {
             name: "participant",
