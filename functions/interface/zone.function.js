@@ -83,8 +83,6 @@ class ZoneFunction
             for(const mob of possibleMob)
             {
                 monstreId = mob.nomId
-                console.log("roll : ", roll)
-                console.log("totalCombatParticipant : ", totalCombatParticipant)
                 if(roll >= totalCombatParticipant || verification) 
                 {
                     if(Math.floor((Math.random() * 100) + 1) < mob.spawn.find(data => data.zone === zone[0].nom).drop && encounterMob.length < maxMob) 

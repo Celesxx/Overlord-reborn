@@ -103,7 +103,6 @@ module.exports =
             {
                 color = "#2d2d2d"
                 allClass = [{ name: "voleur", value: "voleur" }, { name: "assassin", value: "assassin" },{ name: "rodeur", value: "rodeur" } /* ,{ name: "espion", value: "espion" },{ name: "ombre", value: "ombre" },{ name: "ninja", value: "ninja" }, { name: "prédateur", value: "predateur" }*/]
-            
             }else if(interaction.options.get("ranger") != undefined && interaction.options.get("ranger").name == "ranger")  
             {
                 color = "#057e00"

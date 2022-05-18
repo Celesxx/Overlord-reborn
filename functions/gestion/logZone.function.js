@@ -18,7 +18,7 @@ class LogZone
             let get = await logZoneController.getLogZoneById(userId)
             if(get.resetDate == day)
             {
-                get.totalCombat += 1
+                get.totalCombat += 2
                 get.createdAt.push(date)
             }else
             {

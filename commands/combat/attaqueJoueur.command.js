@@ -41,7 +41,6 @@ module.exports =
 
         // Initialization des classes
         const skillController = new SkillController()
-        const zoneFunction = new ZoneFunction()
         const zoneController = new ZoneController()
         const combatFunction = new CombatFunction()
         const bestiaireController = new BestiaireController()
