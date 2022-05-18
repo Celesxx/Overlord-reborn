@@ -6,7 +6,6 @@ module.exports =
     once: true,
     async execute(client){
         
-       
         const devGuild = await client.guilds.cache.get(process.env.GUILD_ID);
         let fetch = await devGuild.commands.fetch()
         let commands = client.commands.map(cmd => cmd)

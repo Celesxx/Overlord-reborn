@@ -40,14 +40,16 @@ module.exports =
         {
             name: "participant",
             description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
-            type: "STRING",
+            type: "MENTIONABLE",
             required: true,
         }
     ],
     runSlash: async (client, interaction) => 
     {   
         let participants = interaction.options.get("participant").value.replace(/[\s]/gm, "").split("/")
+        for(const [key, value] of Object.entries(participants)) participants[key] = `<@!${value}>`
         const zone = interaction.options.get("zone").value
+
         let [encounterMob, totalParticipant, fullDescription]= [[], [], [], []]
         let [moyLvlPlayer, moyZoneCombatTotal, boss, bossName] = [0, 0, false, ""]
         let diffLv
@@ -79,8 +81,6 @@ module.exports =
             
             moyLvlPlayer = moyLvlPlayer / participants.length
             moyZoneCombatTotal = Math.round(moyZoneCombatTotal / participants.length)
-            console.log("moyenne zone : ", moyZoneCombatTotal )
-
             const possibleMob = await bestiaireController.getMonstreByZone(zone)
             const zoneData = await zoneController.getZoneByName(zone)
 
@@ -112,7 +112,6 @@ module.exports =
 
 
                 totalParticipant = totalParticipant.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value)
-                console.log("participant : ", totalParticipant)
                 let embed = new MessageEmbed()
                 .setAuthor({name : combatId})
                 .setTitle(":crossed_swords: Début du combat")
@@ -126,24 +125,26 @@ module.exports =
                 embed.addField("Zone", zone, true)
                 embed.addField("Tour", "1", true)
                 embed.addField("Ordre du combat", totalParticipant.join(""))
-                for(const mob of encounterMob.mob)
+                if(possibleMob.length != 0)
                 {
-                    if(boss && bossName == mob.nom)
+                    for(const mob of encounterMob.mob)
                     {
-                        embed.setImage(mob.image)
-                        diffLv = zoneData[0].lvl - mob.lvl
-                        if(diffLv >= -5 && diffLv <= 5) diffLv = 0
-                        embed.addField(`${mob.nomId}`, `${mob.hp[0] + (mob.hp[1] * diffLv)}`, true)
-                        break
+                        if(boss && bossName == mob.nom)
+                        {
+                            embed.setImage(mob.image)
+                            diffLv = zoneData[0].lvl - mob.lvl
+                            if(diffLv >= -5 && diffLv <= 5) diffLv = 0
+                            embed.addField(`${mob.nomId}`, `${mob.hp[0] + (mob.hp[1] * diffLv)}`, true)
+                            break
 
-                    }else if(!boss)
-                    {
-                        embed.setImage(mob.image)
-                        diffLv = zoneData[0].lvl - mob.lvl
-                        if(diffLv >= -5 && diffLv <= 5) diffLv = 0
-                        embed.addField(`${mob.nomId}`, `${mob.hp[0] + (mob.hp[1] * diffLv)}`, true)
+                        }else if(!boss)
+                        {
+                            embed.setImage(mob.image)
+                            diffLv = zoneData[0].lvl - mob.lvl
+                            if(diffLv >= -5 && diffLv <= 5) diffLv = 0
+                            embed.addField(`${mob.nomId}`, `${mob.hp[0] + (mob.hp[1] * diffLv)}`, true)
+                        }
                     }
-
                 }
 
                 embed.addField("Status", "Que le combat commence, merci de respecter l'ordre du combat !")
