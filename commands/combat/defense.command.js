@@ -52,12 +52,15 @@ module.exports =
             const messageResult = await messageFunction.getMessageByIdInteraction(logCombat[0].messageId, interaction)
 
             embed = messageResult.embeds[0]
-            if(skillData.length != 0 && skillData[0].defense.blocage.length != 0)
+            if(skillData.length != 0 && skillData[0].cost == undefined) skillData[0].cost = 0
+
+            if(skillData.length != 0 && skillData[0].defense.blocage.length != 0 && skillData[0].cost <= data[0].magie[0].value)
             {
-    
                 const result = await combatFunction.defenseCalculJoueur(data[0], degat, skillData[0])
                 data[0].hp[0] -= result.degat
-                await playerCreationFunction.editPlayerById(user, {hp: data[0].hp})
+                data[0].magie[0] -= skillData[0].cost
+
+                await playerCreationFunction.editPlayerById(user, {hp: data[0].hp, magie: data[0].magie})
                 if(!result.miss) embed.fields.slice(-1)[0].value = `\n<@!${user}> ${skillData[0].description} \n- ${result.degat} dégat`
                 else embed.fields.slice(-1)[0].value = `\n<@!${user}> vous ratez complétement votre défense et subissez \n- ${result.degat} dégat`
                 
@@ -79,12 +82,9 @@ module.exports =
                     if(result.miss) embed.setImage(skillData[0].imageMiss)
                     else embed.setImage(skillData[0].image)
                 }
-            }else
-            {
-                embed.fields.slice(-1)[0].value = `\n<@!${user}> merci de mettre un skill valide !`
-            }
-
-
+            }else if(skillData.length != 0 && skillData[0].cost > data[0].magie[0].value) embed.fields.slice(-1)[0].value = `\n<@!${user}> vous n'avez pas assez de mana pour faire cette compétence !`
+            else embed.fields.slice(-1)[0].value = `\n<@!${user}> merci de mettre un skill valide !`
+            
             await logCombatFunction.addEventTurnLogCombatByName(embed.author.name, logCombat[0], { number: embed.fields.slice(2)[0].value, event: embed.fields.slice(-1)[0].value })
             await messageFunction.editMessageByIdInteraction(logCombat[0].messageId, interaction, embed) 
         }

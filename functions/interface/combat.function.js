@@ -11,7 +11,7 @@ class CombatFunction
     {
         try
         {
-            let [weaponCrit, weaponPenetration] = [0,0]
+            let [weaponCrit, weaponPenetration, esquive] = [0,0, false]
 
             // if(userData.equipement.some(item => item.type != undefined))
             // {
@@ -34,17 +34,22 @@ class CombatFunction
             let missRoll = Math.floor(Math.random() * 100)
             let missRollPlayer = Math.floor(Math.random() * 100)
             let monstreBlocage = Math.floor(Math.random() * ( (monstreData[0].blocage.degat[1] + blocageLevelDiff) - ( monstreData[0].blocage.degat[0] + blocageLevelDiff) ) ) + ( monstreData[0].blocage.degat[0] + blocageLevelDiff )
-            console.log("Server status : miss player attack" + missRollPlayer)
 
             if(Math.floor(Math.random() * 100) <= monstreData[0].blocage.crit[0] + blocageCritLevelDiff) monstreBlocage += monstreData[0].blocage.crit[1]
-            if(missRoll <= monstreData[0].blocage.miss + blocageMissLevelDiff) monstreBlocage = 0
-            if(missRollPlayer <= skill[0].attaque.miss) return {miss : true, degat: 0}
+            if(monstreData[0].blocage.degat[0] == 9999) esquive = true
+            if(missRoll <= monstreData[0].blocage.miss + blocageMissLevelDiff) 
+            {
+                monstreBlocage = 0
+                esquive = false
+            }
+
+            if(missRollPlayer <= skill[0].attaque.miss) return {miss : true, degat: 0, esquive: esquive, isMob: true}
             else
             {
                 let degat = ((userData.attaque[0] * skillMultiplier) / 100) + userData.attaque[0]
                 let degatTotal = (( degat - monstreBlocage) * (100 - monstreData[0].armure)) / 100 // attaque actuelle * multiplicateur - blocage - réduction armure
                 if(degatTotal < 0) degatTotal = 0
-                return {miss : false, degat: Math.round(degatTotal), isMob: true}
+                return {miss : false, degat: Math.round(degatTotal), isMob: true, esquive: esquive}
             }
         } catch(error)
         {
