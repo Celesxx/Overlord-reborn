@@ -30,14 +30,15 @@ module.exports =
         // const canvasCharacter = new CanvasCharacter()
 
         let data = await playerCreationFunction.getPlayerById(id.replace(/[<@!>]/gm, ""))
+        // const canvas = await canvasCharacter.displayCanvasProfil(data[0])
         data = data[0]
+        // interaction.reply({files: [canvas]})
 
         if(Object.keys(data.inventaire).length != 0) 
         {
             for(const item of data.inventaire)
             { 
                 let stat = []
-                console.log("type inventaire : ", item.type)
                 if(item.type == "arme" || item.type == "armure" || item.type == "accesoire" || item.type == "bouclier") for(const [key, value] of Object.entries(item.statistique)) stat.push(`**${key}**: ${value}\n`)
                 inventaire.push(`**nom:** ${item.nom}\n**id:** ${item.nomId}\n${stat.join("").replace(/[,]/gm,"")}\n`) 
             }
@@ -85,7 +86,6 @@ module.exports =
         await interaction.reply({ ephermal: true, content: '** **' })
         await interaction.deleteReply()
         await interaction.channel.send({embeds: [embed]})
-
-
+        
     }
 }

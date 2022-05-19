@@ -56,7 +56,8 @@ module.exports =
             [
                 { name: "combattant", value: "combattant" },
                 { name: "mage", value: "mage" },
-                { name: "voleur", value: "voleur" }
+                { name: "voleur", value: "voleur" },
+                { name: "ranger", value: "ranger" }
             ]
         },
         {
