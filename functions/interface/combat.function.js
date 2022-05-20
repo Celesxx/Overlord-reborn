@@ -486,6 +486,7 @@ class CombatFunction
             if(Math.floor(Math.random() * 100) <= skill.defense.miss) miss = true
             if(critiqueActivation < skill.defense.crit[0]) critique = skill.defense.crit[1]
             if(!miss) degat = degat - (degat * userData.armure[0] / 100) - defense - critique
+            else degat = degat - (degat * userData.armure[0] / 100)
             if(degat < 0) degat = 0
             return {miss: miss, degat : parseInt(degat.toFixed(1)) }
 
@@ -524,6 +525,7 @@ class CombatFunction
             else secondLine.push(playerData[0])
         }
 
+        console.log()
         if(monster.position > 1 && secondLine.length != 0)
         {
             let roll = Math.floor(Math.random() * secondLine.length)
@@ -534,7 +536,7 @@ class CombatFunction
             target = secondLine[roll].id
         }else
         {
-            let roll = Math.floor(Math.random() * secondLine.length)
+            let roll = Math.floor(Math.random() * firstLine.length)
             target = firstLine[roll].id
         }
 
