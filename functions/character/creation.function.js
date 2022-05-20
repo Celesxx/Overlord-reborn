@@ -76,6 +76,22 @@ class PlayerCreationFunction
     }
 
 
+    /**
+     * @param {String} id
+    */
+     async getPlayerPositionById(id)
+     {
+         try
+         {
+             const playerController = new PlayerController()
+             return await playerController.getPlayerPositionById(id)
+         }catch(error)
+         {
+             console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
+         }
+     }
+
+
 
 
 

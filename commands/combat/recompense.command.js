@@ -114,7 +114,7 @@ module.exports =
                     await playerCreationFunction.editPlayerById(participantAlive.id, participantAlive)
                     await experienceFunction.verifLvlUp(participantAlive.id, client, interaction, rankBefore, participantAlive)
 
-                    status.push(`\n- <@${participantAlive.id}> gagne ${xpTotal} xp, ${goldTotal.bronze} pièces de bronze, ${goldTotal.argent} pièces d'argent, ${goldTotal.or} pièces d'or ${itemGain.length ? `et ${itemGain}` : '' } `)
+                    status.push(`\n- <@${participantAlive.id}> gagne ${xpTotal / alive.length} xp, ${goldTotal.bronze / alive.length } pièces de bronze, ${goldTotal.argent / alive.length} pièces d'argent, ${goldTotal.or / alive.length} pièces d'or ${itemGain.length ? `et ${itemGain}` : '' } `)
             
                 }
 

@@ -33,8 +33,6 @@ module.exports =
         let user = interaction.member.user.id
 
         const bestiaireController = new BestiaireController()
-        const zoneFunction = new ZoneFunction()
-        const zoneController = new ZoneController()
         const combatFunction = new CombatFunction()
         const messageFunction = new MessageFunction()
         const logCombatFunction = new LogCombatFunction()
@@ -51,8 +49,8 @@ module.exports =
             if(turnVerification.state)
             {
                 const monstre = await bestiaireController.getMonstreByNameId(monstreName.slice(0,-2))
-                const zoneData = await zoneController.getZoneByName(embed.fields.slice(1)[0].value)
                 const damageResult = await combatFunction.dammageCalculMonstre(monstre, logCombat[0].zoneLvl)
+                const target = await combatFunction.getMonstreTarget(logCombat[0].participant, monstre[0])
                 
                 let i = 0
                 for(const result of damageResult)
@@ -91,10 +89,8 @@ module.exports =
                 }
 
                 combatId = embed.author.name
-                embed.fields.slice(-1)[0].value = `\n${monstreName} attaque <@${user}> et : ${combatStatus}`
+                embed.fields.slice(-1)[0].value = `\n${monstreName} attaque <@${target}> et : ${combatStatus}`
                 
-        
-                // let logCombat = await logCombatFunction.getLogCombatById(combatId)
                 await logCombatFunction.addEventTurnLogCombatByName(combatId, logCombat[0], { number: turnVerification.currentTurn, event: embed.fields.slice(-1)[0].value })
                 await messageFunction.editMessageByIdInteraction(logCombat[0].messageId, interaction, embed) 
 

@@ -1,3 +1,7 @@
+const PlayerCreationFunction = require("../../functions/character/creation.function.js")
+
+
+
 class CombatFunction 
 {
     /**
@@ -489,6 +493,52 @@ class CombatFunction
         {
             console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
+    }
+
+
+
+
+
+
+
+
+
+     //--------------------------------------- calcul dommage player attaque ---------------------------------------
+    /**
+     * @param {Array} participant
+     * @param {Object} monster
+    */
+
+    async getMonstreTarget(participant, monster)
+    {
+        let [firstLine, secondLine, target] = [[],[], ""]
+        let classeFirstLine = ["combattant", "paladin", "chevalier", "berserker", "gardien", "duelliste"]
+        let players = participant.filter(participant => participant.includes("<@"))
+
+        const playerCreationFunction = new PlayerCreationFunction()
+
+        for(const player of players)
+        {
+            const playerData = await playerCreationFunction.getPlayerPositionById(player.replace(/[<@!>]/gm, "")) // get les données du joueur
+            if(classeFirstLine.includes(playerData[0].classe)) firstLine.push(playerData[0])
+            else secondLine.push(playerData[0])
+        }
+
+        if(monster.position > 1 && secondLine.length != 0)
+        {
+            let roll = Math.floor(Math.random() * secondLine.length)
+            target = secondLine[roll].id
+        }else if(firstLine.length == 0)
+        {
+            let roll = Math.floor(Math.random() * secondLine.length)
+            target = secondLine[roll].id
+        }else
+        {
+            let roll = Math.floor(Math.random() * secondLine.length)
+            target = firstLine[roll].id
+        }
+
+        return target
     }
 
 }
