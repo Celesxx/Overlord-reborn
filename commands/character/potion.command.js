@@ -50,10 +50,10 @@ module.exports =
                 if(data.nomId == item)
                 {
                     name = data.nom
-                    regeneration.hp = data.regeneration.hp
-                    regeneration.mana = data.regeneration.mana
-                    player.hp[0] += data.regeneration.hp
-                    player.magie[0] += data.regeneration.mana
+                    regeneration.hp = (player.hp[1] * data.regeneration.hp) / 100
+                    regeneration.mana = (player.magie[1] * data.regeneration.mana)  / 100
+                    player.hp[0] += (player.hp[1] * data.regeneration.hp) / 100
+                    player.magie[0] += (player.magie[1] * data.regeneration.mana)  / 100
 
                     if(player.hp[0] > player.hp[1]) player.hp[0] = player.hp[1]
                     if(player.magie[0] > player.magie[1]) player.magie[0] = player.magie[1]
