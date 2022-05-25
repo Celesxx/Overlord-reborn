@@ -89,7 +89,7 @@ class CombatFunction
         {
             let degat = ((userData.attaque[0] * skillMultiplier) / 100) + userData.attaque[0]
             if(degat < 0) degat = 0
-            return {miss : false, degat: Math.round(degat), isMob : false}
+            return {miss : false, degat: Math.round(degat), isMob : false, esquive: false}
         }
     }
 

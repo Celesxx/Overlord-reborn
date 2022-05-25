@@ -1,30 +1,28 @@
 [{
+  "_id": {
+    "$oid": "625e195ba076a3001677fe8d"
+  },
   "description": "",
-  "lvl": 2,
-  "xp": 120,
+  "lvl": 3,
+  "xp": 129,
   "hp": [
-    65,
-    65,
+    73,
+    73,
     1
   ],
   "magie": [
-    21,
-    21,
+    22,
+    22,
     1
   ],
   "attaque": [
-    11,
-    11,
+    18,
+    18,
     1
   ],
   "armure": [
-    2.5,
-    2.5,
-    1
-  ],
-  "protection": [
-    0,
-    0,
+    3.25,
+    3.25,
     1
   ],
   "money": [
@@ -33,23 +31,35 @@
     0
   ],
   "attribut": [
-    2,
-    2
+    0,
+    4
   ],
   "attributPalier": 1,
   "image": "https://media.discordapp.net/attachments/955165140733558784/967217143378739230/581B0270-3B30-4F79-BB3A-3BB58C96E9C6.jpg?width=417&height=676",
-  "inventaire": [
-    {
-      "_id": "626eb61bba7ecf8137c1984b"
-    }
-  ],
+  "inventaire": [],
   "skill": [],
   "id": "682913712461447178",
   "prenom": "Léonhart",
   "nom": "Iggdrahaal",
   "classe": "combattant",
-  "race": "humain"
+  "race": "humain",
+  "__v": 0,
+  "protection": [
+    0.2,
+    0.2,
+    1
+  ],
+  "equipement": {
+    "accessoire": [
+      {
+        "$oid": "626eb61bba7ecf8137c1984b"
+      }
+    ]
+  }
 },{
+  "_id": {
+    "$oid": "625e22c8336f50001634c536"
+  },
   "description": "",
   "lvl": 8,
   "xp": 4,
@@ -73,11 +83,6 @@
     5.5,
     1
   ],
-  "protection": [
-    0,
-    0,
-    1
-  ],
   "money": [
     532,
     0,
@@ -95,51 +100,54 @@
   "prenom": "Balthazar",
   "nom": "Amarov",
   "classe": "combattant",
-  "race": "beastman"
-},{
-  
-  "description": "",
-  "lvl": 13,
-  "xp": 531,
-  "hp": [
-    123,
-    123,
-    1.05
-  ],
-  "magie": [
-    31,
-    31,
-    0.9
-  ],
-  "attaque": [
-    21,
-    21,
-    0.95
-  ],
-  "armure": [
-    8.3,
-    8.3,
-    1.05
-  ],
+  "race": "beastman",
+  "__v": 0,
   "protection": [
     0,
     0,
+    1
+  ]
+},{
+  "_id": {
+    "$oid": "625ea84e88a19e001ab4762e"
+  },
+  "description": "",
+  "lvl": 16,
+  "xp": 781,
+  "hp": [
+    328,
+    328,
+    1.05
+  ],
+  "magie": [
+    9,
+    34,
+    0.9
+  ],
+  "attaque": [
+    68.85,
+    68.85,
+    0.95
+  ],
+  "armure": [
+    42.879999999999995,
+    42.879999999999995,
     1.05
   ],
   "money": [
-    975,
+    581,
     0,
     0
   ],
   "attribut": [
-    26,
-    26
+    0,
+    32
   ],
   "attributPalier": 1,
   "image": "https://media.discordapp.net/attachments/939189314993139753/967786002301206578/tanky-removebg-preview.png",
   "inventaire": [
     {
-      "_id": "626eb8faba7ecf8137c19860"
+      "$oid": "626eb8fbba7ecf8137c19863"
     }
   ],
   "skill": [],
@@ -147,50 +155,73 @@
   "prenom": "Tanky",
   "nom": "???",
   "classe": "combattant",
-  "race": "automate"
+  "race": "automate",
+  "__v": 0,
+  "protection": [
+    3.13,
+    3.13,
+    1.05
+  ],
+  "equipement": {
+    "accessoire": [
+      {
+        "$oid": "626eb61cba7ecf8137c1984e"
+      },
+      {
+        "$oid": "626eb608ba7ecf8137c1981e"
+      }
+    ],
+    "arme": {
+      "$oid": "626e911bba7ecf8137c19725"
+    },
+    "plastron": {
+      "$oid": "626eae97ba7ecf8137c197a6"
+    },
+    "bouclier": {
+      "$oid": "626e9141ba7ecf8137c1977f"
+    }
+  }
 },{
+  "_id": {
+    "$oid": "625ea88f88a19e001ab47631"
+  },
   "description": "",
   "lvl": 9,
-  "xp": 278,
+  "xp": 375,
   "hp": [
-    100,
-    100,
+    140,
+    140,
     1
   ],
   "magie": [
-    28,
-    28,
+    24,
+    24,
     1
   ],
   "attaque": [
-    18,
-    18,
+    37,
+    37,
     1
   ],
   "armure": [
-    6,
-    6,
-    1
-  ],
-  "protection": [
-    6,
-    6,
+    16,
+    16,
     1
   ],
   "money": [
-    393,
+    105,
     0,
     0
   ],
   "attribut": [
-    18,
+    0,
     18
   ],
   "attributPalier": 1,
   "image": "",
   "inventaire": [
     {
-      "_id": "626eb8faba7ecf8137c19860"
+      "$oid": "626eb8faba7ecf8137c19860"
     }
   ],
   "skill": [],
@@ -198,9 +229,30 @@
   "prenom": "Kelen",
   "nom": "Argos",
   "classe": "combattant",
-  "race": "humain"
+  "race": "humain",
+  "__v": 0,
+  "protection": [
+    6,
+    6,
+    1
+  ],
+  "equipement": {
+    "accessoire": [
+      {
+        "$oid": "626eb61bba7ecf8137c1984b"
+      },
+      {
+        "$oid": "626eb61bba7ecf8137c1984b"
+      }
+    ],
+    "plastron": {
+      "$oid": "626eae97ba7ecf8137c197a6"
+    }
+  }
 },{
-  
+  "_id": {
+    "$oid": "625ea92888a19e001ab47634"
+  },
   "description": "",
   "lvl": 7,
   "xp": 5,
@@ -224,13 +276,8 @@
     0,
     0.9
   ],
-  "protection": [
-    3.3,
-    3.3,
-    1.1
-  ],
   "money": [
-    17,
+    150,
     0,
     0
   ],
@@ -246,25 +293,33 @@
   "prenom": "Anna",
   "nom": "Kami",
   "classe": "mage",
-  "race": "nymphe"
+  "race": "nymphe",
+  "__v": 0,
+  "protection": [
+    3.3,
+    3.3,
+    1.1
+  ]
 },{
-  
+  "_id": {
+    "$oid": "625ea97588a19e001ab47637"
+  },
   "description": "",
-  "lvl": 9,
-  "xp": 153,
+  "lvl": 11,
+  "xp": 569,
   "hp": [
-    92,
-    92,
+    106,
+    106,
     1.3
   ],
   "magie": [
-    96,
-    96,
+    110,
+    110,
     0.7
   ],
   "attaque": [
-    23,
-    23,
+    50.2,
+    50.2,
     1.1
   ],
   "armure": [
@@ -272,19 +327,14 @@
     0,
     1
   ],
-  "protection": [
-    3.6,
-    3.6,
-    0.9
-  ],
   "money": [
-    421,
+    969,
     0,
     0
   ],
   "attribut": [
-    18,
-    18
+    2,
+    22
   ],
   "attributPalier": 1,
   "image": "",
@@ -294,9 +344,27 @@
   "prenom": "Shinobu",
   "nom": "Alfery",
   "classe": "mage",
-  "race": "démon"
+  "race": "démon",
+  "__v": 0,
+  "protection": [
+    4.5,
+    4.5,
+    0.9
+  ],
+  "equipement": {
+    "accessoire": [
+      {
+        "$oid": "626eb61bba7ecf8137c1984b"
+      }
+    ],
+    "arme": {
+      "$oid": "626e9133ba7ecf8137c1975e"
+    }
+  }
 },{
-  
+  "_id": {
+    "$oid": "625eaa357155be001af444a5"
+  },
   "description": "",
   "lvl": 7,
   "xp": 10,
@@ -320,11 +388,6 @@
     4.85,
     0
   ],
-  "protection": [
-    0,
-    0,
-    0.9
-  ],
   "money": [
     149,
     0,
@@ -338,7 +401,7 @@
   "image": "",
   "inventaire": [
     {
-      "_id": "626eb8faba7ecf8137c19860"
+      "$oid": "626eb8faba7ecf8137c19860"
     }
   ],
   "skill": [],
@@ -346,9 +409,17 @@
   "prenom": "Kurotaka",
   "nom": "????",
   "classe": "combattant",
-  "race": "démon"
+  "race": "démon",
+  "__v": 0,
+  "protection": [
+    0,
+    0,
+    0.9
+  ]
 },{
-  
+  "_id": {
+    "$oid": "625eac257155be001af444a8"
+  },
   "description": "",
   "lvl": 1,
   "xp": 0,
@@ -372,11 +443,6 @@
     0,
     1
   ],
-  "protection": [
-    0,
-    0,
-    0.9
-  ],
   "money": [
     0,
     0,
@@ -394,54 +460,54 @@
   "prenom": "Lazaven",
   "nom": "Ostos",
   "classe": "mage",
-  "race": "démon"
-},{
-
-  "description": "",
-  "lvl": 11,
-  "xp": 152,
-  "hp": [
-    110,
-    110,
-    1
-  ],
-  "magie": [
-    30,
-    30,
-    1
-  ],
-  "attaque": [
-    20,
-    20,
-    1
-  ],
-  "armure": [
-    7,
-    7,
-    1
-  ],
+  "race": "démon",
+  "__v": 0,
   "protection": [
     0,
     0,
+    0.9
+  ]
+},{
+  "_id": {
+    "$oid": "625eac3d7155be001af444ab"
+  },
+  "description": "",
+  "lvl": 13,
+  "xp": 333,
+  "hp": [
+    168,
+    172,
+    1
+  ],
+  "magie": [
+    32,
+    32,
+    1
+  ],
+  "attaque": [
+    62,
+    62,
+    1
+  ],
+  "armure": [
+    19,
+    19,
     1
   ],
   "money": [
-    1009,
+    690,
     0,
     0
   ],
   "attribut": [
-    22,
-    22
+    4,
+    26
   ],
   "attributPalier": 1,
   "image": "",
   "inventaire": [
     {
-      "_id": "626eb8faba7ecf8137c19860"
-    },
-    {
-      "_id": "626eb8faba7ecf8137c19860"
+      "$oid": "626eb8faba7ecf8137c19860"
     }
   ],
   "skill": [],
@@ -449,119 +515,26 @@
   "prenom": "Zéphyr",
   "nom": "Graat",
   "classe": "combattant",
-  "race": "humain"
-},{
-  
-  "description": "",
-  "lvl": 5,
-  "xp": 220,
-  "hp": [
-    86,
-    86,
-    1.3
-  ],
-  "magie": [
-    23,
-    23,
-    0.7
-  ],
-  "attaque": [
-    18,
-    18,
-    1
-  ],
-  "armure": [
-    4.5,
-    4.5,
-    1
-  ],
+  "race": "humain",
+  "__v": 0,
   "protection": [
-    0,
-    0,
+    1.4,
+    1.4,
     1
   ],
-  "money": [
-    148,
-    0,
-    0
-  ],
-  "attribut": [
-    10,
-    10
-  ],
-  "attributPalier": 1,
-  "image": "",
-  "inventaire": [
-    {
-      "_id": "626eb8faba7ecf8137c19860"
-    }
-  ],
-  "skill": [],
-  "id": "956195957740044318",
-  "prenom": "Felix",
-  "nom": "Tsukiyomi",
-  "classe": "combattant",
-  "race": "beastman"
-},{
-  
-  "description": "",
-  "lvl": 8,
-  "xp": 150,
-  "hp": [
-    66,
-    66,
-    0.75
-  ],
-  "magie": [
-    124,
-    124,
-    1.2
-  ],
-  "attaque": [
-    21,
-    21,
-    1.05
-  ],
-  "armure": [
-    0,
-    0,
-    0
-  ],
-  "protection": [
-    3.5,
-    3.5,
-    0
-  ],
-  "money": [
-    497,
-    0,
-    0
-  ],
-  "attribut": [
-    16,
-    16
-  ],
-  "attributPalier": 1,
-  "image": "",
-  "inventaire": [
-    {
-      "_id": "626eb8faba7ecf8137c19860"
+  "equipement": {
+    "accessoire": [],
+    "arme": {
+      "$oid": "626e910fba7ecf8137c19707"
     },
-    {
-      "_id": "626eb8faba7ecf8137c19860"
-    },
-    {
-      "_id": "626eb8ffba7ecf8137c1986c"
+    "plastron": {
+      "$oid": "626eae97ba7ecf8137c197a6"
     }
-  ],
-  "skill": [],
-  "id": "524722738300977152",
-  "prenom": "Vlad",
-  "nom": "tepes",
-  "classe": "mage",
-  "race": "liche"
+  }
 },{
- 
+  "_id": {
+    "$oid": "625eacef7155be001af444b4"
+  },
   "description": "",
   "lvl": 1,
   "xp": 0,
@@ -585,11 +558,6 @@
     0,
     1
   ],
-  "protection": [
-    0,
-    0,
-    1
-  ],
   "money": [
     0,
     0,
@@ -607,9 +575,17 @@
   "prenom": "Kida",
   "nom": "Aishi",
   "classe": "mage",
-  "race": "humain"
+  "race": "humain",
+  "__v": 0,
+  "protection": [
+    0,
+    0,
+    1
+  ]
 },{
-  
+  "_id": {
+    "$oid": "625eb2117155be001af444b8"
+  },
   "description": "",
   "lvl": 4,
   "xp": 15,
@@ -633,11 +609,6 @@
     0,
     0.9
   ],
-  "protection": [
-    1.65,
-    1.65,
-    1.1
-  ],
   "money": [
     0,
     0,
@@ -655,36 +626,39 @@
   "prenom": "Sara",
   "nom": "Verdane",
   "classe": "mage",
-  "race": "nymphe"
+  "race": "nymphe",
+  "__v": 0,
+  "protection": [
+    1.65,
+    1.65,
+    1.1
+  ]
 },{
-  
+  "_id": {
+    "$oid": "625eb23e7155be001af444bb"
+  },
   "description": "",
   "lvl": 4,
-  "xp": 170,
+  "xp": 182,
   "hp": [
-    60,
-    60,
-    1.7
+    70,
+    70,
+    1.3
   ],
   "magie": [
-    54,
-    54,
+    40,
+    40,
     0.7
   ],
   "attaque": [
-    17,
-    17,
+    23,
+    23,
     1.1
   ],
   "armure": [
-    0,
-    0,
+    1.6,
+    1.6,
     1
-  ],
-  "protection": [
-    1.35,
-    1.35,
-    0.9
   ],
   "money": [
     65,
@@ -692,24 +666,35 @@
     0
   ],
   "attribut": [
-    8,
+    0,
     8
   ],
   "attributPalier": 1,
   "image": "",
   "inventaire": [
     {
-      "_id": "626eb8faba7ecf8137c19860"
+      "$oid": "626eb8faba7ecf8137c19860"
     }
   ],
   "skill": [],
   "id": "868227279547940916",
   "prenom": "Jin",
   "nom": "Saori",
-  "classe": "mage",
-  "race": "démon"
+  "classe": "voleur",
+  "race": "démon",
+  "__v": 0,
+  "protection": [
+    1,
+    1,
+    0.9
+  ],
+  "equipement": {
+    "accessoire": []
+  }
 },{
-  
+  "_id": {
+    "$oid": "625eb25e7155be001af444be"
+  },
   "description": "",
   "lvl": 5,
   "xp": 62,
@@ -733,11 +718,6 @@
     0,
     0.9
   ],
-  "protection": [
-    2.2,
-    2.2,
-    1.1
-  ],
   "money": [
     158,
     0,
@@ -755,9 +735,17 @@
   "prenom": "Hanabi",
   "nom": "Kishibe",
   "classe": "mage",
-  "race": "nymphe"
+  "race": "nymphe",
+  "__v": 0,
+  "protection": [
+    2.2,
+    2.2,
+    1.1
+  ]
 },{
-  
+  "_id": {
+    "$oid": "625ed9287155be001af444c3"
+  },
   "description": "",
   "lvl": 6,
   "xp": 10,
@@ -781,12 +769,6 @@
     4.62,
     1.05
   ],
-
-  "protection": [
-    0,
-    0,
-    1.05
-  ],
   "money": [
     167,
     0,
@@ -804,9 +786,17 @@
   "prenom": "GM1674",
   "nom": "????",
   "classe": "voleur",
-  "race": "automate"
+  "race": "automate",
+  "__v": 0,
+  "protection": [
+    0,
+    0,
+    1.05
+  ]
 },{
-  
+  "_id": {
+    "$oid": "625eff31f4d79e001aa24315"
+  },
   "description": "",
   "lvl": 8,
   "xp": 66,
@@ -830,11 +820,6 @@
     0,
     0.95
   ],
-  "protection": [
-    3.5,
-    3.5,
-    1
-  ],
   "money": [
     311,
     0,
@@ -848,7 +833,7 @@
   "image": "",
   "inventaire": [
     {
-      "_id": "626eb8faba7ecf8137c19860"
+      "$oid": "626eb8faba7ecf8137c19860"
     }
   ],
   "skill": [],
@@ -856,35 +841,38 @@
   "prenom": "Mono",
   "nom": "Michaëlis",
   "classe": "mage",
-  "race": "vampire"
+  "race": "vampire",
+  "__v": 0,
+  "protection": [
+    3.5,
+    3.5,
+    1
+  ]
 },{
-  
+  "_id": {
+    "$oid": "62654b059bf7b80023904029"
+  },
   "description": "",
-  "lvl": 3,
-  "xp": 550,
+  "lvl": 6,
+  "xp": 45,
   "hp": [
-    53,
-    53,
+    73,
+    73,
     1.3
   ],
   "magie": [
-    54,
-    54,
+    75,
+    75,
     0.7
   ],
   "attaque": [
-    16,
-    16,
+    19,
+    19,
     1
   ],
   "armure": [
     1,
     1,
-    1
-  ],
-  "protection": [
-    0.3,
-    0.3,
     1
   ],
   "money": [
@@ -893,8 +881,8 @@
     0
   ],
   "attribut": [
-    4,
-    4
+    10,
+    10
   ],
   "attributPalier": 1,
   "image": "https://media.discordapp.net/attachments/467663071981207554/964556346534027304/unknown.png?width=427&height=427",
@@ -904,9 +892,17 @@
   "prenom": "Solace",
   "nom": "???",
   "classe": "mage",
-  "race": "beastman"
+  "race": "beastman",
+  "__v": 0,
+  "protection": [
+    2.5,
+    2.5,
+    1
+  ]
 },{
-  
+  "_id": {
+    "$oid": "6266cbea1cf8640023965e0c"
+  },
   "description": "",
   "lvl": 1,
   "xp": 480,
@@ -930,11 +926,6 @@
     2,
     1
   ],
-  "protection": [
-    0,
-    0,
-    0.9
-  ],
   "money": [
     91,
     0,
@@ -952,9 +943,17 @@
   "prenom": "Hannya",
   "nom": "Yaichiro",
   "classe": "combattant",
-  "race": "démon"
+  "race": "démon",
+  "__v": 0,
+  "protection": [
+    0,
+    0,
+    0.9
+  ]
 },{
-  
+  "_id": {
+    "$oid": "6266cf561995bf0023d537a4"
+  },
   "description": "",
   "lvl": 1,
   "xp": 18,
@@ -978,11 +977,6 @@
     1,
     1
   ],
-  "protection": [
-    1,
-    1,
-    1
-  ],
   "money": [
     0,
     0,
@@ -1000,25 +994,33 @@
   "prenom": "Yuta",
   "nom": "Okkostu",
   "classe": "voleur",
-  "race": "humain"
+  "race": "humain",
+  "__v": 0,
+  "protection": [
+    1,
+    1,
+    1
+  ]
 },{
-  
+  "_id": {
+    "$oid": "6266cffe1995bf0023d537da"
+  },
   "description": "",
-  "lvl": 1,
-  "xp": 174,
+  "lvl": 5,
+  "xp": 26,
   "hp": [
-    40,
-    40,
+    60,
+    60,
     0.9
   ],
   "magie": [
-    40,
-    40,
+    84,
+    84,
     1.1
   ],
   "attaque": [
-    14,
-    14,
+    18,
+    18,
     1
   ],
   "armure": [
@@ -1032,8 +1034,8 @@
     0
   ],
   "attribut": [
-    0,
-    0
+    8,
+    8
   ],
   "attributPalier": 1,
   "image": "https://media.discordapp.net/attachments/934921713869807676/968139227932028958/f9b2d334e4818dbde3441027b78e7955.jpg",
@@ -1043,9 +1045,20 @@
   "prenom": "Shin",
   "nom": "Kazui",
   "classe": "mage",
-  "race": "elf"
+  "race": "elf",
+  "__v": 0,
+  "protection": [
+    2.12,
+    2.12,
+    1.05
+  ],
+  "equipement": {
+    "accessoire": []
+  }
 },{
-  
+  "_id": {
+    "$oid": "6266f803bc64880023771567"
+  },
   "description": "",
   "lvl": 1,
   "xp": 23,
@@ -1069,11 +1082,6 @@
     1,
     1
   ],
-  "protection": [
-    0,
-    0,
-    0.9
-  ],
   "money": [
     0,
     0,
@@ -1091,9 +1099,17 @@
   "prenom": "Arthuria",
   "nom": "Slyce",
   "classe": "voleur",
-  "race": "démon"
+  "race": "démon",
+  "__v": 0,
+  "protection": [
+    0,
+    0,
+    0.9
+  ]
 },{
-  
+  "_id": {
+    "$oid": "6267c9d0bc64880023771632"
+  },
   "description": "",
   "lvl": 1,
   "xp": 48,
@@ -1117,11 +1133,6 @@
     1,
     1
   ],
-  "protection": [
-    1,
-    1,
-    1
-  ],
   "money": [
     0,
     0,
@@ -1139,9 +1150,17 @@
   "prenom": "Saphir",
   "nom": "???",
   "classe": "voleur",
-  "race": "humain"
+  "race": "humain",
+  "__v": 0,
+  "protection": [
+    1,
+    1,
+    1
+  ]
 },{
-  
+  "_id": {
+    "$oid": "626d1a62ceb2d9002394e3f8"
+  },
   "description": "",
   "lvl": 1,
   "xp": 0,
@@ -1165,11 +1184,6 @@
     1,
     0.95
   ],
-  "protection": [
-    1,
-    1,
-    1
-  ],
   "money": [
     0,
     0,
@@ -1187,93 +1201,122 @@
   "prenom": "Akumo",
   "nom": "Ichiya",
   "classe": "voleur",
-  "race": "vampire"
+  "race": "vampire",
+  "__v": 0,
+  "protection": [
+    1,
+    1,
+    1
+  ]
 },{
-  
+  "_id": {
+    "$oid": "626ff5ba43906a0023774cc1"
+  },
   "description": "",
-  "lvl": 1,
-  "xp": 480,
+  "lvl": 10,
+  "xp": 191,
   "hp": [
-    60,
-    60,
+    165,
+    165,
     1.05
   ],
   "magie": [
-    20,
-    20,
-    0.90
+    29,
+    29,
+    0.9
   ],
   "attaque": [
-    10,
-    10,
+    55.25,
+    55.25,
     0.95
   ],
   "armure": [
-    2,
-    2,
-    1.05
-  ],
-  "protection": [
-    2,
-    2,
+    24.490000000000002,
+    24.490000000000002,
     1.05
   ],
   "money": [
-    112,
+    100,
     0,
     0
   ],
   "attribut": [
     0,
-    0
+    18
   ],
   "attributPalier": 1,
   "image": "https://media.discordapp.net/attachments/939189315563585569/970703787419381800/aa7bda7b797326122f6dade0f6df60c6.jpg?width=477&height=676",
-  "inventaire": [],
+  "inventaire": [
+    {
+      "$oid": "626eaeb0ba7ecf8137c197e2"
+    }
+  ],
   "skill": [],
   "id": "245316512074694657",
   "prenom": "Mila",
   "nom": "AV-4",
   "classe": "combattant",
-  "race": "automate"
+  "race": "automate",
+  "__v": 0,
+  "protection": [
+    4.74,
+    4.74,
+    1.05
+  ],
+  "equipement": {
+    "accessoire": [
+      {
+        "$oid": "626eb61cba7ecf8137c1984e"
+      },
+      {
+        "$oid": "626eb61cba7ecf8137c1984e"
+      }
+    ],
+    "arme": {
+      "$oid": "626e911aba7ecf8137c19722"
+    },
+    "bouclier": {
+      "$oid": "626e913fba7ecf8137c1977c"
+    },
+    "plastron": {
+      "$oid": "626eae97ba7ecf8137c197a6"
+    }
+  }
 },{
-  
+  "_id": {
+    "$oid": "62710835f06c4c0024acba88"
+  },
   "description": "",
-  "lvl": 1,
-  "xp": 350,
+  "lvl": 5,
+  "xp": 9,
   "hp": [
-    50,
-    50,
+    78,
+    78,
     1
   ],
   "magie": [
-    30,
-    30,
+    50,
+    50,
     1
   ],
   "attaque": [
-    14,
-    14,
+    26,
+    26,
     1
   ],
   "armure": [
-    1,
-    1,
-    1
-  ],
-  "protection": [
-    1,
-    1,
+    1.8,
+    1.8,
     1
   ],
   "money": [
-    107,
+    130,
     0,
     0
   ],
   "attribut": [
     0,
-    0
+    8
   ],
   "attributPalier": 1,
   "image": "https://media.discordapp.net/attachments/939189315563585569/970999693859491900/7c6c40aa7d5468be2398017117243b85.jpg?width=529&height=749",
@@ -1283,12 +1326,23 @@
   "prenom": "Min Kang",
   "nom": "Zang",
   "classe": "voleur",
-  "race": "humain"
+  "race": "humain",
+  "__v": 0,
+  "protection": [
+    1,
+    1,
+    1
+  ],
+  "equipement": {
+    "accessoire": []
+  }
 },{
-  
+  "_id": {
+    "$oid": "6272b03ef06c4c0024acbcd6"
+  },
   "description": "",
   "lvl": 1,
-  "xp": 5,
+  "xp": 10,
   "hp": [
     40,
     40,
@@ -1309,11 +1363,6 @@
     0,
     0.9
   ],
-  "protection": [
-    0,
-    0,
-    1.1
-  ],
   "money": [
     0,
     0,
@@ -1331,30 +1380,38 @@
   "prenom": "Luna",
   "nom": "Kyls",
   "classe": "mage",
-  "race": "nymphe"
+  "race": "nymphe",
+  "__v": 0,
+  "protection": [
+    0,
+    0,
+    1.1
+  ]
 },{
-  
+  "_id": {
+    "$oid": "62730ba37b86e1aea70d4c80"
+  },
   "description": "",
-  "lvl": 5,
-  "xp": 0,
+  "lvl": 7,
+  "xp": 366,
   "hp": [
-    80,
-    80,
+    144,
+    130,
     1
   ],
   "magie": [
-    24,
-    24,
+    390,
+    26,
     1
   ],
   "attaque": [
-    13,
-    13,
+    33,
+    33,
     1
   ],
   "armure": [
-    4,
-    4,
+    15,
+    15,
     1
   ],
   "protection": [
@@ -1363,13 +1420,13 @@
     1
   ],
   "money": [
-    83,
+    138,
     0,
     0
   ],
   "attribut": [
-    10,
-    10
+    0,
+    14
   ],
   "attributPalier": 1,
   "image": "https://cdn.discordapp.com/attachments/951928506021998652/971522350086500362/Zelgius_FE10_Artwork.png",
@@ -1379,36 +1436,279 @@
   "prenom": "Zelgius",
   "nom": "Tempest",
   "classe": "combattant",
-  "race": "humain"
+  "race": "humain",
+  "__v": 0,
+  "equipement": {
+    "accessoire": [],
+    "plastron": {
+      "$oid": "626eae97ba7ecf8137c197a6"
+    },
+    "arme": {
+      "$oid": "626e910dba7ecf8137c19704"
+    }
+  }
 },{
-  
+  "_id": {
+    "$oid": "6273eae906466d26586de8da"
+  },
+  "description": "",
+  "lvl": 16,
+  "xp": 8,
+  "hp": [
+    297,
+    540,
+    1
+  ],
+  "magie": [
+    180,
+    180,
+    1
+  ],
+  "attaque": [
+    100,
+    100,
+    1
+  ],
+  "armure": [
+    34,
+    34,
+    1
+  ],
+  "protection": [
+    20,
+    20,
+    0
+  ],
+  "money": [
+    8582,
+    980,
+    0
+  ],
+  "attribut": [
+    0,
+    0
+  ],
+  "attributPalier": 1,
+  "image": "https://media.discordapp.net/attachments/951928506021998652/977594656026140762/c6e6cf64e3a30f090bb255b4cd28a35f.jpg?width=483&height=676",
+  "inventaire": [
+    {
+      "$oid": "626eb8fcba7ecf8137c19866"
+    },
+    {
+      "$oid": "626eb8fbba7ecf8137c19863"
+    },
+    {
+      "$oid": "626eb8fcba7ecf8137c19866"
+    },
+    {
+      "$oid": "626eb900ba7ecf8137c1986f"
+    },
+    {
+      "$oid": "626eb8fcba7ecf8137c19866"
+    }
+  ],
+  "skill": [],
+  "id": "790302610728419338",
+  "prenom": "Chevalier elfe",
+  "nom": "???",
+  "classe": "chevalier",
+  "race": "humain",
+  "__v": 0,
+  "equipement": {
+    "accessoire": [
+      {
+        "$oid": "626eb608ba7ecf8137c1981e"
+      },
+      {
+        "$oid": "626eb612ba7ecf8137c19836"
+      }
+    ],
+    "arme": {
+      "$oid": "626e910fba7ecf8137c19707"
+    },
+    "plastron": {
+      "$oid": "626eae92ba7ecf8137c1979a"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "627590ea4729ba00252cb145"
+  },
+  "description": "",
+  "lvl": 8,
+  "xp": 201,
+  "hp": [
+    122,
+    122,
+    1.05
+  ],
+  "magie": [
+    89,
+    89,
+    0.9
+  ],
+  "attaque": [
+    35,
+    35,
+    0.95
+  ],
+  "armure": [
+    7.970000000000001,
+    7.970000000000001,
+    1.05
+  ],
+  "protection": [
+    1.25,
+    1.25,
+    1.05
+  ],
+  "money": [
+    259,
+    0,
+    0
+  ],
+  "attribut": [
+    0,
+    14
+  ],
+  "attributPalier": 1,
+  "image": "https://media.discordapp.net/attachments/939189315563585569/972246118324928552/ed5faa0f-ade8-4d4d-9139-14894a2d814d.jpeg?width=380&height=676",
+  "inventaire": [
+    {
+      "$oid": "626eb611ba7ecf8137c19833"
+    },
+    {
+      "$oid": "626eb8fbba7ecf8137c19863"
+    },
+    {
+      "$oid": "626eb8fbba7ecf8137c19863"
+    }
+  ],
+  "skill": [],
+  "id": "852167348277739531",
+  "prenom": "Suru",
+  "nom": "?????",
+  "classe": "voleur",
+  "race": "automate",
+  "__v": 0,
+  "equipement": {
+    "accessoire": [
+      {
+        "$oid": "626eb607ba7ecf8137c1981b"
+      },
+      {
+        "$oid": "626eb61bba7ecf8137c1984b"
+      }
+    ],
+    "plastron": {
+      "$oid": "626eaebcba7ecf8137c19800"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62798713e500a0002587fef4"
+  },
+  "description": "",
+  "lvl": 9,
+  "xp": 229,
+  "hp": [
+    92,
+    92,
+    1
+  ],
+  "magie": [
+    100,
+    100,
+    1
+  ],
+  "attaque": [
+    48.5,
+    48.5,
+    1
+  ],
+  "armure": [
+    9.85,
+    9.85,
+    1
+  ],
+  "protection": [
+    4.25,
+    4.25,
+    1
+  ],
+  "money": [
+    591,
+    0,
+    0
+  ],
+  "attribut": [
+    0,
+    16
+  ],
+  "attributPalier": 1,
+  "image": "https://media.discordapp.net/attachments/947526438209347654/973335144339480587/75e24daf8f19905cafd16bcdb11f70b5.jpg?width=380&height=675",
+  "inventaire": [
+    {
+      "$oid": "626eb8faba7ecf8137c19860"
+    }
+  ],
+  "skill": [],
+  "id": "564090566174965768",
+  "prenom": "jigoku",
+  "nom": "shi",
+  "classe": "voleur",
+  "race": "humain",
+  "__v": 0,
+  "equipement": {
+    "accessoire": [
+      {
+        "$oid": "626eb611ba7ecf8137c19833"
+      },
+      {
+        "$oid": "626eb616ba7ecf8137c1983f"
+      }
+    ],
+    "arme": {
+      "$oid": "626e911aba7ecf8137c19722"
+    },
+    "plastron": {
+      "$oid": "626eaebcba7ecf8137c19800"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "628126713570a20025d99c6c"
+  },
+  "equipement": {
+    "accessoire": []
+  },
   "description": "",
   "lvl": 1,
   "xp": 0,
   "hp": [
-    5,
-    5,
-    1
+    40,
+    40,
+    0.9
   ],
   "magie": [
-    1,
-    1,
-    1
+    40,
+    40,
+    1.1
   ],
   "attaque": [
-    1,
-    1,
+    14,
+    14,
     1
   ],
   "armure": [
-    0.5,
-    0.5,
-    1
+    0,
+    0,
+    0.95
   ],
   "protection": [
-    0.2,
-    0.2,
-    0
+    0,
+    0,
+    1.05
   ],
   "money": [
     0,
@@ -1420,12 +1720,589 @@
     0
   ],
   "attributPalier": 1,
-  "image": "ez",
+  "image": "https://media.discordapp.net/attachments/939189315563585570/975386893816582224/unknown.png",
   "inventaire": [],
   "skill": [],
-  "id": "251821125124751371",
-  "prenom": "Noir",
-  "nom": "Chevalier",
+  "id": "385385483460542464",
+  "prenom": "Frieren",
+  "nom": "???",
+  "classe": "mage",
+  "race": "elf",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62812a613570a20025d99c7a"
+  },
+  "equipement": {
+    "accessoire": [
+      {
+        "$oid": "626eb607ba7ecf8137c1981b"
+      },
+      {
+        "$oid": "626eb61bba7ecf8137c1984b"
+      }
+    ],
+    "plastron": {
+      "$oid": "626eae90ba7ecf8137c19797"
+    },
+    "arme": {
+      "$oid": "626e911aba7ecf8137c19722"
+    }
+  },
+  "description": "",
+  "lvl": 8,
+  "xp": 404,
+  "hp": [
+    201,
+    201,
+    1.3
+  ],
+  "magie": [
+    12,
+    37,
+    0.7
+  ],
+  "attaque": [
+    38.5,
+    38.5,
+    1
+  ],
+  "armure": [
+    7.25,
+    7.25,
+    1
+  ],
+  "protection": [
+    1.4,
+    1.4,
+    1
+  ],
+  "money": [
+    808,
+    0,
+    0
+  ],
+  "attribut": [
+    0,
+    14
+  ],
+  "attributPalier": 1,
+  "image": "https://cdn.discordapp.com/attachments/939189315563585571/975404035995729970/Reinhardtfanartcomp_117134_6158517.jpg",
+  "inventaire": [],
+  "skill": [],
+  "id": "517774194025431041",
+  "prenom": "Ragnar",
+  "nom": "Harang",
   "classe": "combattant",
-  "race": "humain"
+  "race": "beastman",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62827ab33570a20025d99f90"
+  },
+  "equipement": {
+    "accessoire": []
+  },
+  "description": "",
+  "lvl": 1,
+  "xp": 12,
+  "hp": [
+    50,
+    50,
+    1.3
+  ],
+  "magie": [
+    30,
+    30,
+    0.7
+  ],
+  "attaque": [
+    14,
+    14,
+    1
+  ],
+  "armure": [
+    1,
+    1,
+    1
+  ],
+  "protection": [
+    1,
+    1,
+    1
+  ],
+  "money": [
+    0,
+    0,
+    0
+  ],
+  "attribut": [
+    0,
+    0
+  ],
+  "attributPalier": 1,
+  "image": "https://images-ext-2.discordapp.net/external/b74N2VbuyomtlUcPXKCTIV0hTtPUoWFO3dKzXwsCsGk/https/media.discordapp.net/attachments/939189315563585569/975782906914037760/29a552836a717be64a19f3456da55088.jpg",
+  "inventaire": [],
+  "skill": [],
+  "id": "524722738300977152",
+  "prenom": "Jésus",
+  "nom": "Silva",
+  "classe": "voleur",
+  "race": "beastman",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6283eba73570a20025d9a8e0"
+  },
+  "equipement": {
+    "accessoire": []
+  },
+  "description": "",
+  "lvl": 4,
+  "xp": 65,
+  "hp": [
+    61,
+    61,
+    1.3
+  ],
+  "magie": [
+    66,
+    66,
+    0.7
+  ],
+  "attaque": [
+    18,
+    18,
+    1
+  ],
+  "armure": [
+    0.25,
+    0.25,
+    1
+  ],
+  "protection": [
+    2,
+    2,
+    1
+  ],
+  "money": [
+    80,
+    0,
+    0
+  ],
+  "attribut": [
+    0,
+    6
+  ],
+  "attributPalier": 1,
+  "image": "https://media.discordapp.net/attachments/939189315563585569/976140086896889866/IMG_20220504_225318_638.jpg",
+  "inventaire": [],
+  "skill": [],
+  "id": "868257732795465789",
+  "prenom": "Tina",
+  "nom": "Jigoku",
+  "classe": "mage",
+  "race": "beastman",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6284050b3570a20025d9a8fb"
+  },
+  "equipement": {
+    "accessoire": []
+  },
+  "description": "",
+  "lvl": 1,
+  "xp": 0,
+  "hp": [
+    40,
+    40,
+    0.95
+  ],
+  "magie": [
+    40,
+    40,
+    1.05
+  ],
+  "attaque": [
+    14,
+    14,
+    1.05
+  ],
+  "armure": [
+    0,
+    0,
+    0.95
+  ],
+  "protection": [
+    0,
+    0,
+    1
+  ],
+  "money": [
+    0,
+    0,
+    0
+  ],
+  "attribut": [
+    0,
+    0
+  ],
+  "attributPalier": 1,
+  "image": "https://media.discordapp.net/attachments/947526438209347654/976214675895246878/1446612_3iGovjX3.png",
+  "inventaire": [],
+  "skill": [],
+  "id": "627879539577585664",
+  "prenom": "ai",
+  "nom": "aoi-hana",
+  "classe": "mage",
+  "race": "vampire",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62852fcbfc88940023cde844"
+  },
+  "equipement": {
+    "accessoire": []
+  },
+  "description": "",
+  "lvl": 1,
+  "xp": 0,
+  "hp": [
+    40,
+    40,
+    1
+  ],
+  "magie": [
+    40,
+    40,
+    1
+  ],
+  "attaque": [
+    14,
+    14,
+    1
+  ],
+  "armure": [
+    0,
+    0,
+    1
+  ],
+  "protection": [
+    0,
+    0,
+    1
+  ],
+  "money": [
+    0,
+    0,
+    0
+  ],
+  "attribut": [
+    0,
+    0
+  ],
+  "attributPalier": 1,
+  "image": "https://cdn.discordapp.com/attachments/939189315563585569/976532833499766884/elden-ring-has-had-a-huge-launch-in-the-us_6gj6.jpg",
+  "inventaire": [],
+  "skill": [],
+  "id": "472736664226234368",
+  "prenom": "Sol",
+  "nom": "Winter",
+  "classe": "mage",
+  "race": "humain",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628613653066ba002550d906"
+  },
+  "equipement": {
+    "accessoire": [],
+    "arme": {
+      "$oid": "626e911aba7ecf8137c19722"
+    },
+    "plastron": {
+      "$oid": "626eaebcba7ecf8137c19800"
+    }
+  },
+  "description": "",
+  "lvl": 8,
+  "xp": 225,
+  "hp": [
+    94,
+    94,
+    1.3
+  ],
+  "magie": [
+    83,
+    83,
+    0.7
+  ],
+  "attaque": [
+    46,
+    46,
+    1
+  ],
+  "armure": [
+    8.4,
+    8.4,
+    1
+  ],
+  "protection": [
+    1.75,
+    1.75,
+    1
+  ],
+  "money": [
+    310,
+    0,
+    0
+  ],
+  "attribut": [
+    0,
+    14
+  ],
+  "attributPalier": 1,
+  "image": "https://media.discordapp.net/attachments/939189315563585571/976725095261274152/7882eff985a32861d406f553c4c859d0.jpg",
+  "inventaire": [
+    {
+      "$oid": "626eaeaeba7ecf8137c197df"
+    },
+    {
+      "$oid": "626eaea2ba7ecf8137c197c1"
+    }
+  ],
+  "skill": [],
+  "id": "579711429230198795",
+  "prenom": "Zhu",
+  "nom": "Olen",
+  "classe": "voleur",
+  "race": "beastman",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62867317b9dbab002585ab35"
+  },
+  "equipement": {
+    "accessoire": []
+  },
+  "description": "",
+  "lvl": 1,
+  "xp": 21,
+  "hp": [
+    4,
+    40,
+    1
+  ],
+  "magie": [
+    40,
+    40,
+    1
+  ],
+  "attaque": [
+    14,
+    14,
+    1
+  ],
+  "armure": [
+    0,
+    0,
+    1
+  ],
+  "protection": [
+    0,
+    0,
+    1
+  ],
+  "money": [
+    0,
+    0,
+    0
+  ],
+  "attribut": [
+    0,
+    0
+  ],
+  "attributPalier": 1,
+  "image": "https://cdn.discordapp.com/attachments/939189315563585570/976871936833515520/6d053f9e593ea0177c6b24bb02cd7d75.jpg",
+  "inventaire": [],
+  "skill": [],
+  "id": "430366572033343519",
+  "prenom": "Klaus",
+  "nom": "Archer",
+  "classe": "ranger",
+  "race": "humain",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628a5f980efc3600250aa82a"
+  },
+  "equipement": {
+    "accessoire": []
+  },
+  "description": "",
+  "lvl": 5,
+  "xp": 20,
+  "hp": [
+    45,
+    62,
+    1.3
+  ],
+  "magie": [
+    46,
+    46,
+    0.7
+  ],
+  "attaque": [
+    26.8,
+    26.8,
+    1.1
+  ],
+  "armure": [
+    1.8,
+    1.8,
+    1
+  ],
+  "protection": [
+    1,
+    1,
+    0.9
+  ],
+  "money": [
+    173,
+    0,
+    0
+  ],
+  "attribut": [
+    0,
+    8
+  ],
+  "attributPalier": 1,
+  "image": "https://media.discordapp.net/attachments/977307209685938247/977873277794017280/19d142c5065d3c9cdcae9b01d46489ca.jpg",
+  "inventaire": [],
+  "skill": [],
+  "id": "923336007280128102",
+  "prenom": "Bill",
+  "nom": "Boquet",
+  "classe": "voleur",
+  "race": "démon",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628bad880efc3600250abbed"
+  },
+  "equipement": {
+    "accessoire": [],
+    "arme": {
+      "$oid": "626e912dba7ecf8137c1974f"
+    },
+    "plastron": {
+      "$oid": "626eae90ba7ecf8137c19797"
+    }
+  },
+  "description": "",
+  "lvl": 6,
+  "xp": 253,
+  "hp": [
+    100,
+    138,
+    1.3
+  ],
+  "magie": [
+    45,
+    70,
+    0.7
+  ],
+  "attaque": [
+    34.5,
+    34.5,
+    1.1
+  ],
+  "armure": [
+    0.5,
+    0.5,
+    1
+  ],
+  "protection": [
+    0.45,
+    0.45,
+    0.9
+  ],
+  "money": [
+    1,
+    0,
+    0
+  ],
+  "attribut": [
+    0,
+    10
+  ],
+  "attributPalier": 1,
+  "image": "https://cdn.discordapp.com/attachments/939189315563585569/978285714640879686/unknown.png",
+  "inventaire": [
+    {
+      "$oid": "626eae8fba7ecf8137c19794"
+    }
+  ],
+  "skill": [],
+  "id": "956195957740044318",
+  "prenom": "Korao",
+  "nom": "Liamo",
+  "classe": "ranger",
+  "race": "démon",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628c0f060efc3600250ac7c4"
+  },
+  "equipement": {
+    "accessoire": []
+  },
+  "description": "",
+  "lvl": 1,
+  "xp": 75,
+  "hp": [
+    40,
+    40,
+    1
+  ],
+  "magie": [
+    40,
+    40,
+    1
+  ],
+  "attaque": [
+    14,
+    14,
+    1
+  ],
+  "armure": [
+    0,
+    0,
+    1
+  ],
+  "protection": [
+    0,
+    0,
+    1
+  ],
+  "money": [
+    0,
+    0,
+    0
+  ],
+  "attribut": [
+    0,
+    0
+  ],
+  "attributPalier": 1,
+  "image": "https://media.discordapp.net/attachments/939189315563585569/978385221651165194/arjuna_fate_and_1_more_drawn_by_pako_pakosun__sample-e49ccf4e8578a3aac0ba078aaefb6888.jpg",
+  "inventaire": [],
+  "skill": [],
+  "id": "941331654323085322",
+  "prenom": "Aash",
+  "nom": "Almaliq",
+  "classe": "ranger",
+  "race": "humain",
+  "__v": 0
 }]

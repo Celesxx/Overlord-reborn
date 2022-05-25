@@ -107,6 +107,7 @@ module.exports =
             let participant = interaction.options.get(`participant-${i}`).value
             participants.push(`<@!${participant}>`)
         }
+        console.log(participants)
         const zone = interaction.options.get("zone").value
 
         let [encounterMob, totalParticipant, fullDescription]= [[], [], [], []]
@@ -125,6 +126,8 @@ module.exports =
         const zoneFunction = new ZoneFunction()
         const playerCreationFunction = new PlayerCreationFunction()
         const logZone = new LogZone()
+
+        await interaction.reply({ ephermal: true, content: 'Chargement de la zone, merci de patienter quelques instants !' })
 
         if(!participants.map(participant => { if(isNaN(participant.replace(/[<@!>]/g, ''))) return false } ).includes(false)) 
         {
@@ -207,7 +210,7 @@ module.exports =
                 }
 
                 embed.addField("Status", "Que le combat commence, merci de respecter l'ordre du combat !")
-                await interaction.reply({ ephermal: true, content: '** **' })
+                
                 interaction.channel.send({embeds: [embed]}).then(async result => 
                 {
                     if(boss)
@@ -217,6 +220,7 @@ module.exports =
                     }
                     await logCombatFunction.logCombatCreation(author, combatId, result.id, totalParticipant, createdAt, interaction.channel.name, zoneData[0].lvl, moyLvlPlayer)
                 })
+                await interaction.deleteReply()
                         
             }else interaction.reply("La zone n'est pas valide !")
         }else interaction.reply(`Le participant ${participants.map(participant => { if(isNaN(participant.replace(/[<@!>]/g, ''))) return participant }).join("").replace(/[,]/gm, "")} n'est pas valide`)
