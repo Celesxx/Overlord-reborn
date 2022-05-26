@@ -38,6 +38,8 @@ class CombatFunction
             let missRoll = Math.floor(Math.random() * 100)
             let missRollPlayer = Math.floor(Math.random() * 100)
             let monstreBlocage = Math.floor(Math.random() * ( (monstreData[0].blocage.degat[1] + blocageLevelDiff) - ( monstreData[0].blocage.degat[0] + blocageLevelDiff) ) ) + ( monstreData[0].blocage.degat[0] + blocageLevelDiff )
+            let penetration = skill[0].attaque.penetration[0]
+            if(penetration == NaN || penetration == undefined || penetration == null) penetration = 0
             let armure = monstreData[0].armure - skill[0].attaque.penetration[0] < 0 ? 0 : monstreData[0].armure - skill[0].attaque.penetration[0]
 
             if(Math.floor(Math.random() * 100) <= monstreData[0].blocage.crit[0] + blocageCritLevelDiff) monstreBlocage += monstreData[0].blocage.crit[1]
@@ -482,6 +484,7 @@ class CombatFunction
             let critique = 0
             let critiqueActivation = Math.floor(Math.random() * 100)
             let defense = Math.floor(Math.random() * ( (skill.defense.blocage[1]) - ( skill.defense.blocage[0]) ) ) + skill.defense.blocage[0] 
+            if(penetration == NaN || penetration == undefined || penetration == null) penetration = 0
             let armure = userData.armure[0] - penetration < 0 ? 0 : userData.armure[0] - penetration
 
             if(Math.floor(Math.random() * 100) <= skill.defense.miss) miss = true
