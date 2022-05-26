@@ -38,6 +38,7 @@ class CombatFunction
             let missRoll = Math.floor(Math.random() * 100)
             let missRollPlayer = Math.floor(Math.random() * 100)
             let monstreBlocage = Math.floor(Math.random() * ( (monstreData[0].blocage.degat[1] + blocageLevelDiff) - ( monstreData[0].blocage.degat[0] + blocageLevelDiff) ) ) + ( monstreData[0].blocage.degat[0] + blocageLevelDiff )
+            let armure = monstreData[0].armure - skill[0].attaque.penetration[0] < 0 ? 0 : monstreData[0].armure - skill[0].attaque.penetration[0]
 
             if(Math.floor(Math.random() * 100) <= monstreData[0].blocage.crit[0] + blocageCritLevelDiff) monstreBlocage += monstreData[0].blocage.crit[1]
             if(monstreData[0].blocage.degat[0] == 9999) esquive = true
@@ -51,7 +52,7 @@ class CombatFunction
             else
             {
                 let degat = ((userData.attaque[0] * skillMultiplier) / 100) + userData.attaque[0]
-                let degatTotal = (( degat - monstreBlocage) * (100 - monstreData[0].armure)) / 100 // attaque actuelle * multiplicateur - blocage - réduction armure
+                let degatTotal = (( degat - monstreBlocage) * (100 - armure)) / 100
                 if(degatTotal < 0) degatTotal = 0
                 return {miss : false, degat: Math.round(degatTotal), isMob: true, esquive: esquive}
             }
@@ -201,108 +202,106 @@ class CombatFunction
 
     async dammageCalculMonstre(monstre, zoneLvl)
     {
-        try
+        
+        let diffLevel = zoneLvl - monstre[0].lvl 
+        if(diffLevel >= -5 && diffLevel <= 5) diffLevel = 0
+        let atkLvlDiff = diffLevel * monstre[0].attaque.level[0]
+        let AtkLvlCritDiff = diffLevel * monstre[0].attaque.level[1]
+        let AtkLvlCritMissDiff = diffLevel * monstre[0].attaque.level[2]
+        let AtkSpe = Math.floor(Math.random() * monstre[0].attaqueSpecial.length)
+        let AtkSpeLvlDiff = diffLevel * monstre[0].attaqueSpecial[AtkSpe].level[0]
+        let AtkSpeCritLvlDiff = diffLevel * monstre[0].attaqueSpecial[AtkSpe].level[1]
+        let AtkSpecialActRandom = Math.floor(Math.random() * 100)
+        let AtkSpecialCritActRandom = Math.floor(Math.random() * 100)
+        let degat = []
+        let missActivation = false
+        let critActivation = false
+        let atkSpeActivation = false
+        let atkSpeCritActivation = false
+        let atk = Math.floor(Math.random() * ( (monstre[0].attaque.degat[1] + atkLvlDiff) - ( monstre[0].attaque.degat[0] + atkLvlDiff) ) ) + ( monstre[0].attaque.degat[0] + atkLvlDiff )
+
+        //---------------------- Calcul dégat attaque spécial ----------------------
+        let attaqueSpecial = function()
         {
-            let diffLevel = zoneLvl - monstre[0].lvl 
-            if(diffLevel >= -5 && diffLevel <= 5) diffLevel = 0
-            let atkLvlDiff = diffLevel * monstre[0].attaque.level[0]
-            let AtkLvlCritDiff = diffLevel * monstre[0].attaque.level[1]
-            let AtkLvlCritMissDiff = diffLevel * monstre[0].attaque.level[2]
-            let AtkSpe = Math.floor(Math.random() * monstre[0].attaqueSpecial.length)
-            let AtkSpeLvlDiff = diffLevel * monstre[0].attaqueSpecial[AtkSpe].level[0]
-            let AtkSpeCritLvlDiff = diffLevel * monstre[0].attaqueSpecial[AtkSpe].level[1]
-            let AtkSpecialActRandom = Math.floor(Math.random() * 100)
-            let AtkSpecialCritActRandom = Math.floor(Math.random() * 100)
-            let degat = []
-            let missActivation = false
-            let critActivation = false
-            let atkSpeActivation = false
-            let atkSpeCritActivation = false
-            let atk = Math.floor(Math.random() * ( (monstre[0].attaque.degat[1] + atkLvlDiff) - ( monstre[0].attaque.degat[0] + atkLvlDiff) ) ) + ( monstre[0].attaque.degat[0] + atkLvlDiff )
+            atkSpeCritActivation = false
+                atk = Math.floor(Math.random() * ( (monstre[0].attaque.degat[1] + atkLvlDiff) - ( monstre[0].attaque.degat[0] + atkLvlDiff) ) ) + ( monstre[0].attaque.degat[0] + atkLvlDiff )
+                let atkSpecialDegat = monstre[0].attaqueSpecial[AtkSpe].degatBonus + AtkSpeLvlDiff
 
-            //---------------------- Calcul dégat attaque spécial ----------------------
-            let attaqueSpecial = function()
-            {
-                atkSpeCritActivation = false
-                    atk = Math.floor(Math.random() * ( (monstre[0].attaque.degat[1] + atkLvlDiff) - ( monstre[0].attaque.degat[0] + atkLvlDiff) ) ) + ( monstre[0].attaque.degat[0] + atkLvlDiff )
-                    let atkSpecialDegat = monstre[0].attaqueSpecial[AtkSpe].degatBonus + AtkSpeLvlDiff
-
-                    if( AtkSpecialCritActRandom < monstre[0].attaqueSpecial[AtkSpe].crit.activation + AtkSpeCritLvlDiff ) 
-                    {
-                        atkSpeCritActivation = true
-                        atkSpecialDegat += monstre[0].attaqueSpecial[AtkSpe].crit.degatBonus + AtkSpeLvlDiff
-                    }
-
-                    return Math.round(atk + ((atk * atkSpecialDegat) / 100))
-                
-            }
-
-
-            //---------------------- attaque miss ----------------------
-            if(Math.floor(Math.random() * 100) <= monstre[0].attaque.miss + AtkLvlCritMissDiff) 
-            {
-                atk = 0
-                missActivation = true
-            }
-
-
-            //---------------------- attaque critique ----------------------
-            if(Math.floor(Math.random() * 100) <= monstre[0].attaque.crit[0] + AtkLvlCritDiff && missActivation != true)
-            {
-                atk += monstre[0].attaque.crit[1] + AtkLvlCritDiff
-                critActivation = true
-                
-            }
-            
-
-            //---------------------- Activation attaque spécial ----------------------
-            if (AtkSpecialActRandom  < monstre[0].attaqueSpecial[AtkSpe].activation + AtkSpeCritLvlDiff && atk != 0) 
-            { 
-                atkSpeActivation = true
-                degat.push(
+                if( AtkSpecialCritActRandom < monstre[0].attaqueSpecial[AtkSpe].crit.activation + AtkSpeCritLvlDiff ) 
                 {
-                    degat: attaqueSpecial(), 
-                    miss: missActivation,
-                    critique: critActivation,
-                    special: atkSpeActivation,
-                    specialCritique: atkSpeCritActivation,
-                    attaqueIndex: AtkSpe,
-                })
-
-                //---------------------- Activation attaque repeat ----------------------
-                for(let i = 0; i <= monstre[0].attaqueSpecial[AtkSpe].repeat[1]; i++)
-                {
-                    let AtkSpecialRepeatRandom = Math.floor(Math.random() * 100)
-                    
-                    if(AtkSpecialRepeatRandom < monstre[0].attaqueSpecial[AtkSpe].repeat[0]) 
-                    {
-                        degat.push(
-                        {
-                            degat: attaqueSpecial(), 
-                            miss: missActivation,
-                            critique: critActivation,
-                            special: atkSpeActivation,
-                            specialCritique: atkSpeCritActivation,
-                            attaqueIndex: AtkSpe,
-                        })
-                    }else break
+                    atkSpeCritActivation = true
+                    atkSpecialDegat += monstre[0].attaqueSpecial[AtkSpe].crit.degatBonus + AtkSpeLvlDiff
                 }
-            }else degat.push(
+
+                return Math.round(atk + ((atk * atkSpecialDegat) / 100))
+            
+        }
+
+
+        //---------------------- attaque miss ----------------------
+        if(Math.floor(Math.random() * 100) <= monstre[0].attaque.miss + AtkLvlCritMissDiff) 
+        {
+            atk = 0
+            missActivation = true
+        }
+
+
+        //---------------------- attaque critique ----------------------
+        if(Math.floor(Math.random() * 100) <= monstre[0].attaque.crit[0] + AtkLvlCritDiff && missActivation != true)
+        {
+            atk += monstre[0].attaque.crit[1] + AtkLvlCritDiff
+            critActivation = true
+            
+        }
+        
+
+        //---------------------- Activation attaque spécial ----------------------
+        if (AtkSpecialActRandom  < monstre[0].attaqueSpecial[AtkSpe].activation + AtkSpeCritLvlDiff && atk != 0) 
+        { 
+            atkSpeActivation = true
+            degat.push(
             {
-                degat: atk, 
+                degat: attaqueSpecial(), 
                 miss: missActivation,
                 critique: critActivation,
                 special: atkSpeActivation,
                 specialCritique: atkSpeCritActivation,
                 attaqueIndex: AtkSpe,
+                attaquePenetration: monstre[0].attaque.penetration[0] != undefined ? monstre[0].attaque.penetration[0] : 0
             })
 
-            return(degat)
-           
-        } catch(error)
+            //---------------------- Activation attaque repeat ----------------------
+            for(let i = 0; i <= monstre[0].attaqueSpecial[AtkSpe].repeat[1]; i++)
+            {
+                let AtkSpecialRepeatRandom = Math.floor(Math.random() * 100)
+                
+                if(AtkSpecialRepeatRandom < monstre[0].attaqueSpecial[AtkSpe].repeat[0]) 
+                {
+                    degat.push(
+                    {
+                        degat: attaqueSpecial(), 
+                        miss: missActivation,
+                        critique: critActivation,
+                        special: atkSpeActivation,
+                        specialCritique: atkSpeCritActivation,
+                        attaqueIndex: AtkSpe,
+                        attaquePenetration: monstre[0].attaque.penetration[0] != undefined ? monstre[0].attaque.penetration[0] : 0
+                    })
+                }else break
+            }
+        }else degat.push(
         {
-            console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
-        }
+            degat: atk, 
+            miss: missActivation,
+            critique: critActivation,
+            special: atkSpeActivation,
+            specialCritique: atkSpeCritActivation,
+            attaqueIndex: AtkSpe,
+            attaquePenetration: monstre[0].attaque.penetration[0] != undefined ? monstre[0].attaque.penetration[0] : 0
+        })
+
+        return(degat)
+
     }
 
 
@@ -472,9 +471,10 @@ class CombatFunction
      * @param {String} userData
      * @param {Number} degat
      * @param {Object} skill
+     * @param {Number} penetration
     */
 
-    async defenseCalculJoueur(userData, degat, skill)
+    async defenseCalculJoueur(userData, degat, skill, penetration)
     {
         try
         {
@@ -482,10 +482,11 @@ class CombatFunction
             let critique = 0
             let critiqueActivation = Math.floor(Math.random() * 100)
             let defense = Math.floor(Math.random() * ( (skill.defense.blocage[1]) - ( skill.defense.blocage[0]) ) ) + skill.defense.blocage[0] 
+            let armure = userData.armure[0] - penetration < 0 ? 0 : userData.armure[0] - penetration
 
             if(Math.floor(Math.random() * 100) <= skill.defense.miss) miss = true
             if(critiqueActivation < skill.defense.crit[0]) critique = skill.defense.crit[1]
-            if(!miss) degat = degat - (degat * userData.armure[0] / 100) - defense - critique
+            if(!miss) degat = degat - (degat * armure / 100) - defense - critique
             else degat = degat - (degat * userData.armure[0] / 100)
             if(degat < 0) degat = 0
             return {miss: miss, degat : parseInt(degat.toFixed(1)) }
@@ -525,7 +526,6 @@ class CombatFunction
             else secondLine.push(playerData[0])
         }
 
-        console.log()
         if(monster.position > 1 && secondLine.length != 0)
         {
             let roll = Math.floor(Math.random() * secondLine.length)

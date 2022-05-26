@@ -85,7 +85,7 @@ module.exports =
                             monstreInCombat.push({nom: target})
                         }
                         else
-                        {
+                        {   
                             const resultMonstre = await bestiaireController.getMonstreByNameId(target.slice(0,-2)) //get les stats du monstre en fonction de son id 
                             monstreInCombat.push(resultMonstre[0])
                             damageResult = await combatFunction.dammageCalcul(skill, data[0], [monstreInCombat[i]], logCombat[0].zoneLvl) //calcule les dommages en fonction du skill, de la défense du monstre et du lv de la zone
@@ -97,7 +97,7 @@ module.exports =
                     i = 0 
                     for(const degatResult of degatForEachMonstre)
                     {
-                        if(degatResult.miss == false && degatResult.esquive == false) combatStatus.push(`\n - ${degatResult.degat} à ${monstreInCombat[i].nom}`)
+                        if(degatResult.miss == false && degatResult.esquive == false) combatStatus.push(`\n - ${degatResult.degat} à ${monstreInCombat[i].nom} ${skill[0].attaque.penetration[0] > 0 ? `en pénétrant l'armure de ${skill[0].attaque.penetration[0]}`: ""}`)
                         else if(degatResult.miss == true) combatStatus.push(`\n - rate son attaque sur ${monstreInCombat[i].nom} `)
                         else if(degatResult.esquive == true) combatStatus.push(`\n - 0 le ${monstreInCombat[i].nom} esquive complétement l'attaque`)
                         i++

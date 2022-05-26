@@ -7,7 +7,7 @@ const SkillController = require('../../controllers/skill.controller.js')
 module.exports = 
 {
     name: 'defense',
-    description: "Permet de terminer un combat",
+    description: "Permet de ce défendre d'une attaque",
     run: (client, message, args) => 
     {
         message.channel.send("merci d'utiliser le préfix /defense")
@@ -25,12 +25,19 @@ module.exports =
             description: "dégat que l'adversaire vous inflige",
             type: "STRING",
             required: true,
+        },
+        {
+            name: "penetration",
+            description: "pénétration que vous inflige l'adversaire",
+            type: "STRING",
+            required: true,
         }
     ],
     runSlash: async (client, interaction) => 
     {   
         const skillName = interaction.options.get("skill").value
         const degat = parseInt(interaction.options.get("degat").value)
+        const penetration = parseInt(interaction.options.get("penetration").value)
 
         const user = interaction.member.user.id
         let embed
@@ -56,7 +63,7 @@ module.exports =
 
             if(skillData.length != 0 && skillData[0].defense.blocage.length != 0 && skillData[0].cost <= data[0].magie[0].value)
             {
-                const result = await combatFunction.defenseCalculJoueur(data[0], degat, skillData[0])
+                const result = await combatFunction.defenseCalculJoueur(data[0], degat, skillData[0], penetration)
                 data[0].hp[0] -= result.degat
                 data[0].magie[0] -= skillData[0].cost
 
@@ -67,9 +74,9 @@ module.exports =
                 if(data[0].hp[0] <= 0) 
                 {
                     interaction.member.setNickname(data[0].prenom + "  [☠️ KO]")
-                    let order = embed.fields.slice(3)[0].value.split("\n").filter(participant => !participant.includes(`<@${user}>`))
+                    let order = embed.fields.slice(3)[0].value.split("\n").filter(participant => !participant.includes(`${user}`))
                     embed.fields.slice(3)[0].value = order.join("\n")
-                    
+                    logCombat[0].participant = order
 
                 }else interaction.member.setNickname(data[0].prenom + " [❤️" + data[0].hp[0] + "] [✨" + data[0].magie[0] + "]")
                 

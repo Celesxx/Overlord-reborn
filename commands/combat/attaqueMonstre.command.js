@@ -1,9 +1,7 @@
 const { MessageEmbed } = require("discord.js")
 
 const BestiaireController = require('../../controllers/bestiaire.controller.js')
-const ZoneController = require('../../controllers/zone.controller.js')
 const CombatFunction = require('../../functions/interface/combat.function.js')
-const ZoneFunction = require('../../functions/interface/zone.function.js')
 const LogCombatFunction = require("../../functions/gestion/logCombat.function.js")
 const MessageFunction = require("../../functions/gestion/message.function.js")
 
@@ -36,6 +34,7 @@ module.exports =
         const combatFunction = new CombatFunction()
         const messageFunction = new MessageFunction()
         const logCombatFunction = new LogCombatFunction()
+
         
         const logCombat = await logCombatFunction.getLogCombatParticipantId(user)
         if(logCombat.length == 0) interaction.channel.send("Vous n'êtes présent dans aucun combat !")
@@ -49,27 +48,27 @@ module.exports =
             if(turnVerification.state)
             {
                 const monstre = await bestiaireController.getMonstreByNameId(monstreName.slice(0,-2))
-                const damageResult = await combatFunction.dammageCalculMonstre(monstre, logCombat[0].zoneLvl)
                 const target = await combatFunction.getMonstreTarget(logCombat[0].participant, monstre[0])
+                const damageResult = await combatFunction.dammageCalculMonstre(monstre, logCombat[0].zoneLvl)
                 
                 let i = 0
                 for(const result of damageResult)
                 {
                     if(result.critique && result.special && result.specialCritique || result.special && result.specialCritique)
                     {
-                        combatStatus.push(`\n - ${monstre[0].attaqueSpecial[result.attaqueIndex].crit.description} ${result.degat} de dégat`)
+                        combatStatus.push(`\n - ${monstre[0].attaqueSpecial[result.attaqueIndex].crit.description} ${result.degat} de dégat${result.attaquePenetration > 0 ? ` en pénétrant votre armure de ${result.attaquePenetration}`: ""}`)
                         if(embed.image != null) embed.image.url = monstre[0].imageSkill
                         else embed.setImage(monstre[0].imageAttaque)
                     }
                     else if(result.critique && result.special || result.special)
                     {
-                        combatStatus.push(`\n - ${monstre[0].attaqueSpecial[result.attaqueIndex].description} ${result.degat} de dégat`)
+                        combatStatus.push(`\n - ${monstre[0].attaqueSpecial[result.attaqueIndex].description} ${result.degat} de dégat${result.attaquePenetration > 0 ? ` en pénétrant votre armure de ${result.attaquePenetration}`: ""}`)
                         if(embed.image != null) embed.image.url = monstre[0].imageSkill
                         else embed.setImage(monstre[0].imageAttaque)
                     }
                     else if(result.critique)
                     {
-                        combatStatus.push(`\n - ${monstre[0].attaque.descriptionCrit} ${result.degat} de dégat`)
+                        combatStatus.push(`\n - ${monstre[0].attaque.descriptionCrit} ${result.degat} de dégat${result.attaquePenetration > 0 ? ` en pénétrant votre armure de ${result.attaquePenetration}`: ""}`)
                         if(embed.image != null) embed.image.url = monstre[0].imageCritique
                         else embed.setImage(monstre[0].imageAttaque)
 
@@ -80,7 +79,7 @@ module.exports =
                         embed.image.url = monstre[0].imageMiss
                     }else 
                     {
-                        combatStatus.push(`\n - ${monstre[0].attaque.description} ${result.degat} de dégat`)
+                        combatStatus.push(`\n - ${monstre[0].attaque.description} ${result.degat} de dégat${result.attaquePenetration > 0 ? ` en pénétrant votre armure de ${result.attaquePenetration}`: ""}`)
                         if(embed.image != null) embed.image.url = monstre[0].imageAttaque
                         else embed.setImage(monstre[0].imageAttaque)
                     }
