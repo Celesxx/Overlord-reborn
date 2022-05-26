@@ -40,7 +40,7 @@ class CombatFunction
             let monstreBlocage = Math.floor(Math.random() * ( (monstreData[0].blocage.degat[1] + blocageLevelDiff) - ( monstreData[0].blocage.degat[0] + blocageLevelDiff) ) ) + ( monstreData[0].blocage.degat[0] + blocageLevelDiff )
             let penetration = skill[0].attaque.penetration[0]
             if(penetration == NaN || penetration == undefined || penetration == null) penetration = 0
-            let armure = monstreData[0].armure - skill[0].attaque.penetration[0] < 0 ? 0 : monstreData[0].armure - skill[0].attaque.penetration[0]
+            let armure = monstreData[0].armure - penetration <= 0 ? 0 : monstreData[0].armure - penetration
 
             if(Math.floor(Math.random() * 100) <= monstreData[0].blocage.crit[0] + blocageCritLevelDiff) monstreBlocage += monstreData[0].blocage.crit[1]
             if(monstreData[0].blocage.degat[0] == 9999) esquive = true
