@@ -76,7 +76,7 @@ module.exports =
                     interaction.member.setNickname(data[0].prenom + "  [☠️ KO]")
                     let order = embed.fields.slice(3)[0].value.split("\n").filter(participant => !participant.includes(`${user}`))
                     embed.fields.slice(3)[0].value = order.join("\n")
-                    logCombat[0].participant = order
+                    logCombat[0].participant = logCombat[0].participant.filter(target => !target.includes(`${user}`))
 
                 }else interaction.member.setNickname(data[0].prenom + " [❤️" + data[0].hp[0] + "] [✨" + data[0].magie[0] + "]")
                 

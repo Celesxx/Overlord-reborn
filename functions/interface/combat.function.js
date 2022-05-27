@@ -483,7 +483,7 @@ class CombatFunction
             let miss = false
             let critique = 0
             let critiqueActivation = Math.floor(Math.random() * 100)
-            let defense = Math.floor(Math.random() * ( (skill.defense.blocage[1]) - ( skill.defense.blocage[0]) ) ) + skill.defense.blocage[0] 
+            let defense = Math.floor(Math.random() * ( skill.defense.blocage[1] - skill.defense.blocage[0] ) ) + skill.defense.blocage[0] 
             if(penetration == NaN || penetration == undefined || penetration == null) penetration = 0
             let armure = userData.armure[0] - penetration < 0 ? 0 : userData.armure[0] - penetration
 
