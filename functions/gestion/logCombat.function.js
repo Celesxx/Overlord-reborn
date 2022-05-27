@@ -140,6 +140,21 @@ class LogCombatFunction
 
 
 
+    /**
+     * @param {String} combatId
+     * @param {Object} logCombat
+    */
+     async editLogCombat(combatId, logCombat)
+     {
+        const logCombatController = new LogCombatController()
+        const result = await logCombatController.editLogCombatByName(combatId, logCombat[0])
+        return result
+     }
+
+
+
+
+
 
 
     /**
