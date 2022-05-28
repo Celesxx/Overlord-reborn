@@ -585,5 +585,218 @@
             },
             "xp": [400,450]
         }
+    },
+
+
+    "démon-cs": {
+        "nom": "petit démon sanguinaire", 
+        "nomId": "démon-cs",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/977590180649259018/73d094d94343fdf4720e0ba6e7aeabea.gif",
+        "imageAttaque": "https://media.discordapp.net/attachments/951928506021998652/977589971793879130/8ed862883a12ecaac7175809022035eefa405e97_hq.gif",
+        "imageCritique": "https://cdn.discordapp.com/attachments/951928506021998652/977589972762755092/giphy.gif",
+        "imageSkill": "https://cdn.discordapp.com/attachments/951928506021998652/977589972183961630/370r.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/977589974465667152/telechargement.gif",
+        "description": "Un guerrier démon prêt à vous découper d'une rare violence",
+        "lvl": 8,
+        "hp": [150, 7],
+        "armure": 20,
+        "spawn": [{"zone":"taverne","drop":60}],
+        "position": 2,
+        "attaque": 
+        {
+            "description": "fonce sur vous et vous assène un violent coup d'épée infligeant",
+            "descriptionCrit": "lève son épée bien haut avant de vous assèner un énorme coup d'épée infligeant de lourd dégat ",
+            "degat": [25, 55],
+            "crit": [15, 15],
+            "miss": 10,
+            "penetration": 20,
+            "poison": 0,
+            "level": [2,1,-1]
+        },
+        "attaqueSpecial": 
+        [{
+            "activation": 30,
+            "description": "hurle de toute ses forces d'un crie démoniaque causant en vous un frisson de terreur, ce qui embrouille votre perception du combat et vous oblige à frapper en priorité le démond pendant ce tour et le prochain",
+            "repeat": [0, 1],
+            "degatBonus": -80,
+            "crit":
+            {
+                "description": "hurle de toute ses forces d'un crie démoniaque d'une grande puissance causant en vous un frisson de terreur, ce qui embrouille votre perception du combat et vous oblige à frapper en priorité le démond pendant ce tour et le prochain",
+                "activation": 15,
+                "degatBonus": 30
+            },
+            "miss": 10,
+            "level": [1,1,-1]
+        }],
+        "blocage": 
+        {
+            "degat": [20,45],
+            "crit": [10, 20],
+            "miss": 10,
+            "level": [5,1,-1]
+        },
+        "loot": 
+        {
+            "gold":
+            {
+                "bronze": [50,60],
+                "argent": [0,0],
+                "or": [0,0]
+            },
+            "item": 
+            { 
+                "chance": [], 
+                "loot": []
+            },
+            "xp": [25,50]
+        }
+    },
+
+
+
+
+    "démon-cm": {
+        "nom": "démon supérieur", 
+        "nomId": "démon-cm",
+        "image": "https://cdn.discordapp.com/attachments/951928506021998652/980103842173714492/3a0c758882075c09c42e29240b35fd9b.jpg",
+        "imageAttaque": "https://media.discordapp.net/attachments/951928506021998652/977589971793879130/8ed862883a12ecaac7175809022035eefa405e97_hq.gif",
+        "imageCritique": "https://cdn.discordapp.com/attachments/951928506021998652/977589972762755092/giphy.gif",
+        "imageSkill": "https://cdn.discordapp.com/attachments/951928506021998652/977589972183961630/370r.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/977589974465667152/telechargement.gif",
+        "description": "Un démon supérieur bien plus puissant qu'un démon mineur",
+        "lvl": 15,
+        "hp": [300, 7],
+        "armure": 30,
+        "spawn": [{"zone":"taverne","drop":10}],
+        "position": 1,
+        "attaque": 
+        {
+            "description": "fonce sur vous et vous assène un puissant coup de hache",
+            "descriptionCrit": "lève son épée bien haut avant de vous assèner un énorme coup de hache infligeant de lourd dégat ",
+            "degat": [35, 65],
+            "crit": [20, 20],
+            "miss": 10,
+            "penetration": 50,
+            "poison": 0,
+            "level": [2,1,-1]
+        },
+        "attaqueSpecial": 
+        [
+        {
+            "activation": 15,
+            "description": "hurle de toute ses forces d'un crie démoniaque causant en vous un frisson de terreur, ce qui embrouille votre perception du combat et vous oblige à frapper en priorité le démond pendant ce tour et le prochain",
+            "repeat": [0, 1],
+            "degatBonus": -80,
+            "crit":
+            {
+                "description": "hurle de toute ses forces d'un crie démoniaque d'une grande puissance causant en vous un frisson de terreur, ce qui embrouille votre perception du combat et vous oblige à frapper en priorité le démond pendant ce tour et le prochain",
+                "activation": 15,
+                "degatBonus": 30
+            },
+            "miss": 10,
+            "level": [1,1,-1]
+        },
+        {
+            "activation": 20,
+            "description": "fonce sur vous avant de vous asséner un puissant coup du plat de sa hache vous sonnant pendant 1 tour, et vous infligeant au passage",
+            "repeat": [0, 1],
+            "degatBonus": -40,
+            "crit":
+            {
+                "description": "fonce sur vous avant de vous asséner un puissant coup du plat de sa hache avant de vous balancer contre un arbre vous sonnant pendant 2 tour, et vous infligeant au passage",
+                "activation": 15,
+                "degatBonus": 30
+            },
+            "miss": 10,
+            "level": [1,1,-1]
+        }
+    
+        ],
+        "blocage": 
+        {
+            "degat": [20,45],
+            "crit": [10, 20],
+            "miss": 10,
+            "level": [5,1,-1]
+        },
+        "loot": 
+        {
+            "gold":
+            {
+                "bronze": [80,110],
+                "argent": [1,2],
+                "or": [0,0]
+            },
+            "item": 
+            { 
+                "chance": [], 
+                "loot": []
+            },
+            "xp": [25,50]
+        }
+    },
+
+    "démon-ms": {
+        "nom": "petit sorcier démon", 
+        "nomId": "démon-ms",
+        "image": "https://cdn.discordapp.com/attachments/951928506021998652/980103842416951377/5f6cd74e75692aa6d59e6888ec9a5077.jpg",
+        "imageAttaque": "https://media.discordapp.net/attachments/951928506021998652/977589973974937610/SomeIllustriousHarpseal-size_restricted.gif",
+        "imageCritique": "https://media.discordapp.net/attachments/951928506021998652/977589970879516682/6A9c.gif",
+        "imageSkill": "https://cdn.discordapp.com/attachments/951928506021998652/980102973793374268/overlord-ainz-ooal-gown.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/977589974465667152/telechargement.gif",
+        "description": "Un petit sorcier démon qui semble prêt à vous faire exploser en morceaux",
+        "lvl": 10,
+        "hp": [120, 7],
+        "armure": 10,
+        "spawn": [{"zone":"taverne","drop":60}],
+        "position": 2,
+        "attaque": 
+        {
+            "description": "incante un sort des ténèbre qui vous inflige de lourd dégats ",
+            "descriptionCrit": "incante une puissante lance de magie qui explose à votre contacte vous projettant contre un arbre et venant vous immobiliser pendant 1 tour tout en vous infligeant de sérieux dégats",
+            "degat": [40, 75],
+            "crit": [15, 20],
+            "miss": 10,
+            "penetration": 25,
+            "poison": 0,
+            "level": [2,1,-1]
+        },
+        "attaqueSpecial": 
+        [{
+            "activation": 20,
+            "description": "Incante une puissante magie de liaison venant faire apparaitre dans la main du démon un coeur qu'il écrasa venant le faire exploser, infligeant à toutes la secondes lignes des dégats",
+            "repeat": [0, 1],
+            "degatBonus": -70,
+            "crit":
+            {
+                "description": "Incante une puissante magie de liaison venant faire apparaitre dans la main du démon un coeur qu'il écrasa venant le faire exploser, infligeant à toutes la secondes lignes de lourds dégats",
+                "activation": 15,
+                "degatBonus": 30
+            },
+            "miss": 10,
+            "level": [1,1,-1]
+        }],
+        "blocage": 
+        {
+            "degat": [20,45],
+            "crit": [10, 20],
+            "miss": 10,
+            "level": [5,1,-1]
+        },
+        "loot": 
+        {
+            "gold":
+            {
+                "bronze": [50,70],
+                "argent": [0,1],
+                "or": [0,0]
+            },
+            "item": 
+            { 
+                "chance": [], 
+                "loot": []
+            },
+            "xp": [30,70]
+        }
     }
 }

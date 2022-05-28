@@ -517,7 +517,7 @@ class CombatFunction
     async getMonstreTarget(participant, monster)
     {
         let [firstLine, secondLine, target] = [[],[], ""]
-        let classeFirstLine = ["combattant", "paladin", "chevalier", "berserker", "gardien", "duelliste"]
+        let classeFirstLine = ["combattant", "paladin", "chevalier", "berserker", "gardien", "duelliste", "voleur", "assassin", "rodeur"]
         let players = participant.filter(participant => participant.includes("<@"))
 
         const playerCreationFunction = new PlayerCreationFunction()
