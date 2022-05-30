@@ -65,6 +65,7 @@ module.exports =
             {
                 const result = await combatFunction.defenseCalculJoueur(data[0], degat, skillData[0], penetration)
                 data[0].hp[0] -= result.degat
+                data[0].hp[0] = parseInt(data[0].hp[0].toFixed(1))
                 data[0].magie[0] -= skillData[0].cost
 
                 await playerCreationFunction.editPlayerById(user, {hp: data[0].hp, magie: data[0].magie})
