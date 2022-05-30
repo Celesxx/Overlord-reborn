@@ -35,7 +35,7 @@ module.exports =
             {
                 if(data.nomId == item)
                 {
-                    if(data.type == "armure" && data.nom.toLowerCase().includes("casque")) type = "casque"
+                    if(data.type == "armure" && data.nom.toLowerCase().includes("casque") || data.type == "armure" && data.nom.toLowerCase().includes("capuche") ) type = "casque"
                     else if(data.type == "armure") type = "plastron"
                     else if(data.type == "arme") type = "arme"
                     else if(data.type == "bouclier") type = "bouclier"
