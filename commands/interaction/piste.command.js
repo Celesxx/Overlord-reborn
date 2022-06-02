@@ -50,8 +50,8 @@ module.exports =
             {
                 let user = await playerCreationFunction.getPlayerById(id.replace(/[<@!>]/gm,""))
                 user = user[0]
-                user.money[0] += 300
-                user.money[1] += 2
+                user.money[0] += 500
+                user.money[1] += 5
                 await playerCreationFunction.editPlayerById(id, user)
 
                 embed.setTitle("Tresor")
