@@ -44,7 +44,7 @@ module.exports =
 
         if(zone == "montagne")
         {
-            let result = Math.floor(Math.random() * 2 ) + 1;
+            let result = Math.floor(Math.random() * 5 ) + 1;
 
             if(result == 1)
             {
