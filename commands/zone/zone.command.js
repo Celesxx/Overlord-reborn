@@ -101,7 +101,6 @@ module.exports =
     runSlash: async (client, interaction) => 
     {   
         let participants = []
-        console.log("length : ", interaction.options._hoistedOptions.length)
         for(let i = 1; i < interaction.options._hoistedOptions.length; i++)
         {
             let participant = interaction.options.get(`participant-${i}`).value
