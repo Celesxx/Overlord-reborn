@@ -112,6 +112,16 @@ class PlayerCreationFunction
 
 
 
+    /**
+    */
+    async getAllPlayers()
+    {
+        const playerController = new PlayerController()
+        return await playerController.getAllPlayers(id)
+    }
+
+
+
     
 
 

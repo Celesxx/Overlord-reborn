@@ -106,6 +106,21 @@ class PlayerController
 
 
 
+
+    // ----------------------------------------------------Get player lvl by id ---------------------------------------------------
+
+    /**
+    */
+     async getAllPlayers() 
+     {
+        const getPlayer = await Player.find({})
+        return getPlayer
+     }
+
+
+
+
+
     
 
     // ----------------------------------------------------Get player lvl by id ---------------------------------------------------

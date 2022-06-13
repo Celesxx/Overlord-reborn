@@ -69,7 +69,7 @@ module.exports =
     ],
     runSlash: async (client, interaction) => 
     {   
-        if(interaction.member.roles.cache.some(role => role.name === 'Fondateur' || role.name === "Super Helper"))
+        if(interaction.member.roles.cache.some(role => role.name === 'Fondateur' || role.name === "Administrateur"))
         {
             let user = interaction.options.get("ping").value.replace(/[<@!>]/gm, "")
             let nom = interaction.options.get("nom").value
