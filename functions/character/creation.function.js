@@ -117,7 +117,7 @@ class PlayerCreationFunction
     async getAllPlayers()
     {
         const playerController = new PlayerController()
-        return await playerController.getAllPlayers(id)
+        return await playerController.getAllPlayers()
     }
 
 

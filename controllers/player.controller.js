@@ -114,6 +114,12 @@ class PlayerController
      async getAllPlayers() 
      {
         const getPlayer = await Player.find({})
+        .populate('inventaire','-__v')
+        .populate('equipement.plastron', '-__v')
+        .populate('equipement.casque', '-__v')
+        .populate('equipement.arme', '-__v')
+        .populate('equipement.bouclier', '-__v')
+        .populate('equipement.accessoire', '-__v')
         return getPlayer
      }
 
