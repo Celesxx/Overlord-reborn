@@ -86,7 +86,7 @@ class PlayerController
 
 
 
-    // ----------------------------------------------------Get player by id ---------------------------------------------------
+    // ----------------------------------------------------Get player lvl by id ---------------------------------------------------
 
     /**
      * @param {String} id
@@ -101,6 +101,49 @@ class PlayerController
                     
         }catch(error) { return errorHelper.contentError(functionName, this.filename, error) }
     }
+
+
+
+
+
+
+    // ----------------------------------------------------Get player lvl by id ---------------------------------------------------
+
+    /**
+    */
+     async getAllPlayers() 
+     {
+        const getPlayer = await Player.find({})
+        .populate('inventaire','-__v')
+        .populate('equipement.plastron', '-__v')
+        .populate('equipement.casque', '-__v')
+        .populate('equipement.arme', '-__v')
+        .populate('equipement.bouclier', '-__v')
+        .populate('equipement.accessoire', '-__v')
+        return getPlayer
+     }
+
+
+
+
+
+    
+
+    // ----------------------------------------------------Get player lvl by id ---------------------------------------------------
+
+    /**
+     * @param {String} id
+    */
+     async getPlayerPositionById(id) 
+     {
+         const functionName = "getPlayerPositionById";
+         try
+         {     
+             const getPlayer = await Player.find({id: id}).select('id classe ')
+             return getPlayer
+                     
+         }catch(error) { return errorHelper.contentError(functionName, this.filename, error) }
+     }
  
 
 

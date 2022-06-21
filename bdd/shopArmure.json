@@ -1,10 +1,10 @@
 {
-    "armure-cuir": 
+    "Armure en cuir": 
     {
         "nom": "Armure en cuir",
-        "nomId": "armure-cuir",
+        "nomId": "",
+        "type": "arme",
         "unique": false,
-        "type": "armure",
         "exclusif":
         {
             "combattant": true,
@@ -12,24 +12,32 @@
             "mage": false,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 30,
-            "mana": 0,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "mana": 5,
+            "defensePhysique": 2.50,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [120,0,0]
+        "price": [630, 30, 6 ]
     },
-
-    "armure-fer": 
+    "Armure en fer": 
     {
         "nom": "Armure en fer",
-        "nomId": "armure-fer",
+        "nomId": "",
+        "type": "arme",
         "unique": false,
-        "type": "armure",
         "exclusif":
         {
             "combattant": true,
@@ -37,988 +45,1121 @@
             "mage": false,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 60,
             "mana": 10,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "defensePhysique": 5.00,
+            "defenseMagique": 2.50,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
-        "description": "",
-        "image": "",
-        "price": [250,0,0]
-    },
-
-    "armure-acier": 
-    {
-        "nom": "Armure en acier",
-        "nomId": "armure-acier",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 150,
-            "mana": 30,
-            "defensePhysique": 5,
-            "defenseMagique": 0
-        },
-        "description": "",
-        "image": "",
-        "price": [400,10,0]
-    },
-
-    "armure-argent": 
-    {
-        "nom": "Armure en argent",
-        "nomId": "armure-argent",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 250,
-            "mana": 50,
-            "defensePhysique": 10,
-            "defenseMagique": 5
-        },
-        "description": "",
-        "image": "",
-        "price": [450,40,1]
-    },
-
-    "armure-héros": 
-    {
-        "nom": "Armure de héros",
-        "nomId": "armure-héros",
-        "unique": true,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 300,
-            "mana": 50,
-            "defensePhysique": 10,
-            "defenseMagique": 10
-        },
-        "description": "",
-        "image": "",
-        "price": [1200,100,10]
-    },
-
-
-
-
-
-
-    "cuirasse-cuir": 
-    {
-        "nom": "Cuirasse en cuir",
-        "nomId": "cuirasse-cuir",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": false
-        },
-        "statistique":
-        {
-            "hp": 20,
-            "mana": 0,
-            "defensePhysique": 5,
-            "defenseMagique": 0
-        },
-        "description": "",
-        "image": "",
-        "price": [150,0,0]
-    },
-
-    "cuirasse-fer": 
-    {
-        "nom": "Cuirasse en fer",
-        "nomId": "cuirasse-fer",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": false
-        },
-        "statistique":
-        {
-            "hp": 40,
-            "mana": 0,
-            "defensePhysique": 10,
-            "defenseMagique": 0
-        },
-        "description": "",
-        "image": "",
-        "price": [300,0,0]
-    },
-
-    "cuirasse-acier": 
-    {
-        "nom": "Cuirasse en acier",
-        "nomId": "cuirasse-acier",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": false
-        },
-        "statistique":
-        {
-            "hp": 100,
-            "mana": 20,
-            "defensePhysique": 15,
-            "defenseMagique": 4
-        },
-        "description": "",
-        "image": "",
-        "price": [500,15,0]
-    },
-
-    "cuirasse-argent": 
-    {
-        "nom": "Cuirasse en argent",
-        "nomId": "cuirasse-argent",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": false
-        },
-        "statistique":
-        {
-            "hp": 150,
-            "mana": 40,
-            "defensePhysique": 20,
-            "defenseMagique": 10
-        },
-        "description": "",
-        "image": "",
-        "price": [600,50,1]
-    },
-
-    "cuirasse-héros": 
-    {
-        "nom": "Cuirasse de héros",
-        "nomId": "cuirasse-héros",
-        "unique": true,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": false
-        },
-        "statistique":
-        {
-            "hp": 300,
-            "mana": 50,
-            "defensePhysique": 20,
-            "defenseMagique": 20
-        },
-        "description": "",
-        "image": "",
-        "price": [1400,150,13]
-    },
-
-
-
-
-
-
-
-    "armure-cuir-magique": 
-    {
-        "nom": "Armure en cuir magique",
-        "nomId": "armure-cuir-magique",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 10,
-            "mana": 0,
-            "defensePhysique": 0,
-            "defenseMagique": 5
-        },
-        "description": "",
-        "image": "",
-        "price": [120,0,0]
-    },
-
-    "armure-fer-magique": 
-    {
-        "nom": "Armure en fer magique",
-        "nomId": "armure-fer-magique",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 50,
-            "mana": 20,
-            "defensePhysique": 0,
-            "defenseMagique": 5
-        },
-        "description": "",
-        "image": "",
-        "price": [250,0,0]
-    },
-
-    "armure-acier-magique": 
-    {
-        "nom": "Armure en acier magique",
-        "nomId": "armure-acier-magique",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 130,
-            "mana": 50,
-            "defensePhysique": 5,
-            "defenseMagique": 10
-        },
-        "description": "",
-        "image": "",
-        "price": [400,10,0]
-    },
-
-    "armure-argent-magique": 
-    {
-        "nom": "Armure en argent magique",
-        "nomId": "armure-argent-magique",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 220,
-            "mana": 80,
-            "defensePhysique": 10,
-            "defenseMagique": 15
-        },
-        "description": "",
-        "image": "",
-        "price": [450,40,1]
-    },
-
-    "armure-héros-magique": 
-    {
-        "nom": "Armure de héros magique",
-        "nomId": "armure-héros-magique",
-        "unique": true,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 280,
-            "mana": 100,
-            "defensePhysique": 10,
-            "defenseMagique": 30
-        },
-        "description": "",
-        "image": "",
-        "price": [1200,100,10]
-    },
-
-
-
-
-
-
-    "tunique-cuir": 
-    {
-        "nom": "Tunique en cuir",
-        "nomId": "tunique-cuir",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
-            "archer": false
-        },
-        "statistique":
-        {
-            "hp": 10,
-            "mana": 20,
-            "defensePhysique": 0,
-            "defenseMagique": 5
-        },
-        "description": "",
-        "image": "",
-        "price": [120,0,0]
-    },
-
-    "tunique-fer": 
-    {
-        "nom": "tunique en maille de fer",
-        "nomId": "tunique-fer",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
-            "archer": false
-        },
-        "statistique":
-        {
-            "hp": 35,
-            "mana": 60,
-            "defensePhysique": 0,
-            "defenseMagique": 0
-        },
-        "description": "",
-        "image": "",
-        "price": [250,0,0]
-    },
-
-    "tunique-acier": 
-    {
-        "nom": "Tunique en maille d'acier",
-        "nomId": "tunique-acier",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
-            "archer": false
-        },
-        "statistique":
-        {
-            "hp": 60,
-            "mana": 150,
-            "defensePhysique": 5,
-            "defenseMagique": 0
-        },
-        "description": "",
-        "image": "",
-        "price": [400,10,0]
-    },
-
-    "tunique-argent": 
-    {
-        "nom": "Tunique en maille d'argent",
-        "nomId": "tunique-argent",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
-            "archer": false
-        },
-        "statistique":
-        {
-            "hp": 70,
-            "mana": 250,
-            "defensePhysique": 5,
-            "defenseMagique": 5
-        },
-        "description": "",
-        "image": "",
-        "price": [450,40,1]
-    },
-
-    "tunique-heros": 
-    {
-        "nom": "Tunique de héros",
-        "nomId": "tunique-heros",
-        "unique": true,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
-            "archer": false
-        },
-        "statistique":
-        {
-            "hp": 100,
-            "mana": 300,
-            "defensePhysique": 10,
-            "defenseMagique": 5
-        },
-        "description": "",
-        "image": "",
-        "price": [1200,100,10]
-    },
-
-
-
-
-
-
-
-
-
-    "tunique-cuir-arcanique": 
-    {
-        "nom": "Tunique en cuir arcanique",
-        "nomId": "tunique-cuir-arcanique",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
-            "archer": false
-        },
-        "statistique":
+        "soins":
         {
             "hp": 0,
-            "mana": 30,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "mana": 0
         },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [120,0,0]
+        "price": [3120, 120, 30 ]
     },
-
-    "tunique-fer-arcanique": 
+    "Armure en acier": 
     {
-        "nom": "tunique en fer arcanique",
-        "nomId": "tunique-fer-arcanique",
+        "nom": "Armure en acier",
+        "nomId": "",
+        "type": "arme",
         "unique": false,
-        "type": "armure",
         "exclusif":
         {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
-            "archer": false
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
         },
-        "statistique":
+        "statistique": 
         {
-            "hp": 15,
-            "mana": 60,
-            "defensePhysique": 0,
-            "defenseMagique": 5
+            "hp": 100,
+            "mana": 20,
+            "defensePhysique": 7.50,
+            "defenseMagique": 5.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [250,0,0]
+        "price": [10480, 80, 4 ]
     },
-
-    "tunique-acier-arcanique": 
+    "Armure en argent": 
     {
-        "nom": "Tunique en maille d'acier",
-        "nomId": "tunique-acier-arcanique",
+        "nom": "Armure en argent",
+        "nomId": "",
+        "type": "arme",
         "unique": false,
-        "type": "armure",
         "exclusif":
         {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
-            "archer": false
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
         },
-        "statistique":
+        "statistique": 
         {
-            "hp": 30,
-            "mana": 120,
-            "defensePhysique": 0,
-            "defenseMagique": 10
+            "hp": 160,
+            "mana": 40,
+            "defensePhysique": 12.50,
+            "defenseMagique": 10.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [400,10,0]
+        "price": [30267, 67, 2 ]
     },
-
-    "tunique-argent-arcanique": 
+    "Armure de héros": 
     {
-        "nom": "Tunique en argent arcanique",
-        "nomId": "tunique-argent-arcanique",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
-            "archer": false
-        },
-        "statistique":
-        {
-            "hp": 40,
-            "mana": 220,
-            "defensePhysique": 5,
-            "defenseMagique": 15
-        },
-        "description": "",
-        "image": "",
-        "price": [450,40,1]
-    },
-
-    "tunique-heros-arcanique": 
-    {
-        "nom": "Tunique de héros arcanique",
-        "nomId": "tunique-heros-arcanique",
+        "nom": "Armure de héros",
+        "nomId": "",
+        "type": "arme",
         "unique": true,
-        "type": "armure",
         "exclusif":
         {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique": 
+        {
+            "hp": 300,
+            "mana": 50,
+            "defensePhysique": 10.00,
+            "defenseMagique": 10.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [0, 1200, 100 ]
+    },
+    "Cuirasse en cuir": 
+    {
+        "nom": "Cuirasse en cuir",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
             "archer": false
         },
-        "statistique":
-        {
-            "hp": 60,
-            "mana": 280,
-            "defensePhysique": 5,
-            "defenseMagique": 20
-        },
-        "description": "",
-        "image": "",
-        "price": [1200,100,10]
-    },
-
-
-
-
-
-
-    "casque-cuir": 
-    {
-        "nom": "Casque en cuir",
-        "nomId": "casque-cuir",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 15,
-            "mana": 0,
-            "defensePhysique": 0,
-            "defenseMagique": 0
-        },
-        "description": "",
-        "image": "",
-        "price": [80,0,0]
-    },
-
-    "casque-fer": 
-    {
-        "nom": "Casque en fer",
-        "nomId": "casque-fer",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 30,
-            "mana": 5,
-            "defensePhysique": 0,
-            "defenseMagique": 0
-        },
-        "description": "",
-        "image": "",
-        "price": [150,0,0]
-    },
-
-    "casque-acier": 
-    {
-        "nom": "Casque en acier",
-        "nomId": "casque-acier",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 75,
-            "mana": 15,
-            "defensePhysique": 5,
-            "defenseMagique": 0
-        },
-        "description": "",
-        "image": "",
-        "price": [300,8,0]
-    },
-
-    "casque-argent": 
-    {
-        "nom": "Casque en argent",
-        "nomId": "casque-argent",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 125,
-            "mana": 25,
-            "defensePhysique": 10,
-            "defenseMagique": 5
-        },
-        "description": "",
-        "image": "",
-        "price": [380,25,1]
-    },
-
-    "casque-heros": 
-    {
-        "nom": "Casque de heros",
-        "nomId": "casque-heros",
-        "unique": true,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 150,
-            "mana": 25,
-            "defensePhysique": 10,
-            "defenseMagique": 10
-        },
-        "description": "",
-        "image": "",
-        "price": [800,80,8]
-    },
-
-
-
-
-
-
-    "casque-cuir-magique": 
-    {
-        "nom": "Casque en cuir magique",
-        "nomId": "casque-cuir-magique",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
+        "statistique": 
         {
             "hp": 10,
-            "mana": 5,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "mana": 0,
+            "defensePhysique": 5.00,
+            "defenseMagique": 2.50,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [80,0,0]
+        "price": [1000, 100, 9 ]
     },
-
-    "casque-fer-magique": 
+    "Cuirasse en fer": 
     {
-        "nom": "Casque en fer magique",
-        "nomId": "casque-fer-magique",
+        "nom": "Cuirasse en fer",
+        "nomId": "",
+        "type": "arme",
         "unique": false,
-        "type": "armure",
         "exclusif":
         {
             "combattant": true,
             "voleur": false,
             "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 20,
-            "mana": 15,
-            "defensePhysique": 0,
-            "defenseMagique": 0
-        },
-        "description": "",
-        "image": "",
-        "price": [150,0,0]
-    },
-
-    "casque-acier-magique": 
-    {
-        "nom": "Casque en acier magique",
-        "nomId": "casque-acier-magique",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 70,
-            "mana": 20,
-            "defensePhysique": 0,
-            "defenseMagique": 10
-        },
-        "description": "",
-        "image": "",
-        "price": [300,8,0]
-    },
-
-    "casque-argent-magique": 
-    {
-        "nom": "Casque en argent magique",
-        "nomId": "casque-argent-magique",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 120,
-            "mana": 30,
-            "defensePhysique": 5,
-            "defenseMagique": 10
-        },
-        "description": "",
-        "image": "",
-        "price": [380,25,1]
-    },
-
-    "casque-heros-magique": 
-    {
-        "nom": "Casque de heros magique",
-        "nomId": "casque-heros-magique",
-        "unique": true,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": true,
-            "voleur": false,
-            "mage": false,
-            "archer": true
-        },
-        "statistique":
-        {
-            "hp": 140,
-            "mana": 35,
-            "defensePhysique": 5,
-            "defenseMagique": 15
-        },
-        "description": "",
-        "image": "",
-        "price": [800,80,8]
-    },
-
-
-
-
-
-
-    "capuche-cuir": 
-    {
-        "nom": "Capuche en maille de cuir",
-        "nomId": "capuche-cuir",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
             "archer": false
         },
-        "statistique":
+        "statistique": 
+        {
+            "hp": 20,
+            "mana": 5,
+            "defensePhysique": 10.00,
+            "defenseMagique": 5.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [4060, 60, 40 ]
+    },
+    "Cuirasse en acier": 
+    {
+        "nom": "Cuirasse en acier",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 40,
+            "mana": 10,
+            "defensePhysique": 15.00,
+            "defenseMagique": 7.50,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [12640, 40, 26 ]
+    },
+    "Cuirasse en argent": 
+    {
+        "nom": "Cuirasse en argent",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 60,
+            "mana": 20,
+            "defensePhysique": 20.00,
+            "defenseMagique": 12.50,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [30800, 200, 6 ]
+    },
+    "Cuirasse de héros": 
+    {
+        "nom": "Cuirasse de héros",
+        "nomId": "",
+        "type": "arme",
+        "unique": true,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 200,
+            "mana": 50,
+            "defensePhysique": 20.00,
+            "defenseMagique": 20.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [0, 1400, 150 ]
+    },
+    "Armure en cuir magique": 
+    {
+        "nom": "Armure en cuir magique",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique": 
         {
             "hp": 5,
             "mana": 10,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "defensePhysique": 0.00,
+            "defenseMagique": 5.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [80,0,0]
+        "price": [710, 10, 7 ]
     },
-
-    "capuche-fer": 
+    "Armure en fer magique": 
     {
-        "nom": "Capuche en maille de fer",
-        "nomId": "capuche-fer",
+        "nom": "Armure en fer magique",
+        "nomId": "",
+        "type": "arme",
         "unique": false,
-        "type": "armure",
         "exclusif":
         {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
-            "archer": false
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
         },
-        "statistique":
+        "statistique": 
+        {
+            "hp": 10,
+            "mana": 20,
+            "defensePhysique": 2.50,
+            "defenseMagique": 7.50,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [2840, 40, 28 ]
+    },
+    "Armure en acier magique": 
+    {
+        "nom": "Armure en acier magique",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique": 
         {
             "hp": 20,
+            "mana": 50,
+            "defensePhysique": 5.00,
+            "defenseMagique": 10.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [9200, 100, 91 ]
+    },
+    "Armure en argent magique": 
+    {
+        "nom": "Armure en argent magique",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique": 
+        {
+            "hp": 40,
+            "mana": 100,
+            "defensePhysique": 10.00,
+            "defenseMagique": 15.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [26667, 67, 66 ]
+    },
+    "Armure de héros magique": 
+    {
+        "nom": "Armure de héros magique",
+        "nomId": "",
+        "type": "arme",
+        "unique": true,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique": 
+        {
+            "hp": 280,
+            "mana": 100,
+            "defensePhysique": 10.00,
+            "defenseMagique": 30.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [0, 1200, 100 ]
+    },
+    "Tunique en cuir": 
+    {
+        "nom": "Tunique en cuir",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 10,
+            "mana": 20,
+            "defensePhysique": 0.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [220, 20, 2 ]
+    },
+    "Tunique en maille de fer": 
+    {
+        "nom": "Tunique en maille de fer",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 20,
+            "mana": 40,
+            "defensePhysique": 2.50,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [1480, 80, 14 ]
+    },
+    "Tunique en maille d'acier": 
+    {
+        "nom": "Tunique en maille d'acier",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 30,
+            "mana": 80,
+            "defensePhysique": 5.00,
+            "defenseMagique": 2.50,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [6720, 20, 67 ]
+    },
+    "Tunique en maille d'argent": 
+    {
+        "nom": "Tunique en maille d'argent",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 40,
+            "mana": 160,
+            "defensePhysique": 7.50,
+            "defenseMagique": 5.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [19067, 67, 90 ]
+    },
+    "Tunique de héros": 
+    {
+        "nom": "Tunique de héros",
+        "nomId": "",
+        "type": "arme",
+        "unique": true,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 100,
+            "mana": 300,
+            "defensePhysique": 10.00,
+            "defenseMagique": 5.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [0, 1200, 100 ]
+    },
+    "Tunique en cuir arcanique": 
+    {
+        "nom": "Tunique en cuir arcanique",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 5,
+            "mana": 30,
+            "defensePhysique": 0.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [230, 30, 2 ]
+    },
+    "Tunique en fer arcanique": 
+    {
+        "nom": "Tunique en fer arcanique",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 10,
+            "mana": 60,
+            "defensePhysique": 0.00,
+            "defenseMagique": 2.50,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [1520, 20, 15 ]
+    },
+    "Tunique en acier arcanique": 
+    {
+        "nom": "Tunique en acier arcanique",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 15,
+            "mana": 120,
+            "defensePhysique": 2.50,
+            "defenseMagique": 5.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [7080, 80, 70 ]
+    },
+    "Tunique en argent arcanique": 
+    {
+        "nom": "Tunique en argent arcanique",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 20,
+            "mana": 220,
+            "defensePhysique": 5.00,
+            "defenseMagique": 7.50,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [20133, 33, 1 ]
+    },
+    "Tunique de héros arcanique": 
+    {
+        "nom": "Tunique de héros arcanique",
+        "nomId": "",
+        "type": "arme",
+        "unique": true,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 60,
+            "mana": 280,
+            "defensePhysique": 5.00,
+            "defenseMagique": 20.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [0, 1200, 100 ]
+    },
+    "Casque en cuir": 
+    {
+        "nom": "Casque en cuir",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique": 
+        {
+            "hp": 15,
+            "mana": 10,
+            "defensePhysique": 2.50,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [510, 10, 5 ]
+    },
+    "Casque en fer": 
+    {
+        "nom": "Casque en fer",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique": 
+        {
+            "hp": 30,
+            "mana": 20,
+            "defensePhysique": 5.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [2040, 40, 20 ]
+    },
+    "Casque en acier": 
+    {
+        "nom": "Casque en acier",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique": 
+        {
+            "hp": 60,
+            "mana": 40,
+            "defensePhysique": 7.50,
+            "defenseMagique": 2.50,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [8160, 160, 80 ]
+    },
+    "Casque en argent": 
+    {
+        "nom": "Casque en argent",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique": 
+        {
+            "hp": 100,
+            "mana": 60,
+            "defensePhysique": 10.00,
+            "defenseMagique": 5.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [21067, 67, 10 ]
+    },
+    "Casque de héros": 
+    {
+        "nom": "Casque de héros",
+        "nomId": "",
+        "type": "arme",
+        "unique": true,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique": 
+        {
+            "hp": 150,
             "mana": 25,
-            "defensePhysique": 5,
-            "defenseMagique": 0
+            "defensePhysique": 10.00,
+            "defenseMagique": 10.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [150,0,0]
+        "price": [0, 800, 80 ]
     },
-
-    "capuche-acier": 
+    "Casque en cuir magique": 
     {
-        "nom": "Capuche en maille acier",
-        "nomId": "capuche-acier",
+        "nom": "Casque en cuir magique",
+        "nomId": "",
+        "type": "arme",
         "unique": false,
-        "type": "armure",
         "exclusif":
         {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
-            "archer": false
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
         },
-        "statistique":
+        "statistique": 
         {
-            "hp": 35,
-            "mana": 65,
-            "defensePhysique": 5,
-            "defenseMagique": 0
+            "hp": 10,
+            "mana": 20,
+            "defensePhysique": 0.00,
+            "defenseMagique": 2.50,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [300,8,0]
+        "price": [520, 20, 5 ]
     },
-
-    "capuche-argent": 
+    "Casque en fer magique": 
     {
-        "nom": "Capuche en maille argent",
-        "nomId": "capuche-argent",
+        "nom": "Casque en fer magique",
+        "nomId": "",
+        "type": "arme",
         "unique": false,
-        "type": "armure",
         "exclusif":
         {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
-            "archer": false
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
         },
-        "statistique":
+        "statistique": 
+        {
+            "hp": 20,
+            "mana": 40,
+            "defensePhysique": 0.00,
+            "defenseMagique": 5.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [2080, 80, 20 ]
+    },
+    "Casqueen acier magique": 
+    {
+        "nom": "Casqueen acier magique",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique": 
+        {
+            "hp": 30,
+            "mana": 80,
+            "defensePhysique": 2.50,
+            "defenseMagique": 7.50,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [7920, 20, 79 ]
+    },
+    "Casque en argent magique": 
+    {
+        "nom": "Casque en argent magique",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique": 
         {
             "hp": 40,
             "mana": 120,
-            "defensePhysique": 5,
-            "defenseMagique": 5
+            "defensePhysique": 5.00,
+            "defenseMagique": 10.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [380,25,1]
+        "price": [19467, 67, 94 ]
     },
-
-    "capuche-heros": 
+    "Casque de héros magique": 
     {
-        "nom": "Capuche de heros",
-        "nomId": "capuche-heros",
+        "nom": "Casque de héros magique",
+        "nomId": "",
+        "type": "arme",
         "unique": true,
-        "type": "armure",
+        "exclusif":
+        {
+            "combattant": true,
+            "voleur": false,
+            "mage": false,
+            "archer": true
+        },
+        "statistique": 
+        {
+            "hp": 140,
+            "mana": 35,
+            "defensePhysique": 5.00,
+            "defenseMagique": 15.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [0, 800, 80 ]
+    },
+    "Capuche en cuir": 
+    {
+        "nom": "Capuche en cuir",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
         "exclusif":
         {
             "combattant": false,
@@ -1026,29 +1167,164 @@
             "mage": true,
             "archer": false
         },
-        "statistique":
+        "statistique": 
+        {
+            "hp": 5,
+            "mana": 10,
+            "defensePhysique": 5.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [710, 10, 7 ]
+    },
+    "Capuche en maille de fer": 
+    {
+        "nom": "Capuche en maille de fer",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 10,
+            "mana": 20,
+            "defensePhysique": 7.50,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [2240, 40, 22 ]
+    },
+    "Capuche en maille d'acier": 
+    {
+        "nom": "Capuche en maille d'acier",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 20,
+            "mana": 40,
+            "defensePhysique": 10.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [6560, 60, 65 ]
+    },
+    "Capuche en maille d'argent": 
+    {
+        "nom": "Capuche en maille d'argent",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
+        {
+            "hp": 40,
+            "mana": 80,
+            "defensePhysique": 15.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [17867, 67, 78 ]
+    },
+    "Capuche de héros": 
+    {
+        "nom": "Capuche de héros",
+        "nomId": "",
+        "type": "arme",
+        "unique": true,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
         {
             "hp": 60,
             "mana": 140,
-            "defensePhysique": 10,
-            "defenseMagique": 5
+            "defensePhysique": 10.00,
+            "defenseMagique": 5.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [800,80,8]
+        "price": [0, 750, 75 ]
     },
-
-
-
-
-
-
-    "capuche-cuir-magique": 
+    "Capuche en cuir arcanique": 
     {
-        "nom": "Capuche en cuir magique",
-        "nomId": "capuche-cuir-magique",
+        "nom": "Capuche en cuir arcanique",
+        "nomId": "",
+        "type": "arme",
         "unique": false,
-        "type": "armure",
         "exclusif":
         {
             "combattant": false,
@@ -1056,24 +1332,32 @@
             "mage": true,
             "archer": false
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 0,
             "mana": 15,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "defensePhysique": 0.00,
+            "defenseMagique": 5.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [80,0,0]
+        "price": [690, 90, 6 ]
     },
-
-    "capuche-fer-magique": 
+    "Capuche en fer arcanique": 
     {
-        "nom": "Capuche en fer magique",
-        "nomId": "capuche-fer-magique",
+        "nom": "Capuche en fer arcanique",
+        "nomId": "",
+        "type": "arme",
         "unique": false,
-        "type": "armure",
         "exclusif":
         {
             "combattant": false,
@@ -1081,24 +1365,65 @@
             "mage": true,
             "archer": false
         },
-        "statistique":
+        "statistique": 
+        {
+            "hp": 5,
+            "mana": 30,
+            "defensePhysique": 0.00,
+            "defenseMagique": 7.50,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
+        },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
+        "description": "",
+        "image": "",
+        "price": [2260, 60, 22 ]
+    },
+    "Capuche en acier arcanique": 
+    {
+        "nom": "Capuche en acier arcanique",
+        "nomId": "",
+        "type": "arme",
+        "unique": false,
+        "exclusif":
+        {
+            "combattant": false,
+            "voleur": true,
+            "mage": true,
+            "archer": false
+        },
+        "statistique": 
         {
             "hp": 10,
-            "mana": 35,
-            "defensePhysique": 0,
-            "defenseMagique": 5
+            "mana": 60,
+            "defensePhysique": 0.00,
+            "defenseMagique": 10.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [150,0,0]
+        "price": [6640, 40, 66 ]
     },
-
-    "capuche-acier-magique": 
+    "Capuche en argent arcanique": 
     {
-        "nom": "Capuche en acier magique",
-        "nomId": "capuche-acier-magique",
+        "nom": "Capuche en argent arcanique",
+        "nomId": "",
+        "type": "arme",
         "unique": false,
-        "type": "armure",
         "exclusif":
         {
             "combattant": false,
@@ -1106,49 +1431,32 @@
             "mage": true,
             "archer": false
         },
-        "statistique":
+        "statistique": 
         {
-            "hp": 10,
-            "mana": 80,
-            "defensePhysique": 0,
-            "defenseMagique": 10
-        },
-        "description": "",
-        "image": "",
-        "price": [300,8,0]
-    },
-
-    "capuche-argent-magique": 
-    {
-        "nom": "Capuche en argent magique",
-        "nomId": "capuche-argent-magique",
-        "unique": false,
-        "type": "armure",
-        "exclusif":
-        {
-            "combattant": false,
-            "voleur": true,
-            "mage": true,
-            "archer": false
-        },
-        "statistique":
-        {
-            "hp": 25,
+            "hp": 20,
             "mana": 120,
-            "defensePhysique": 5,
-            "defenseMagique": 15
+            "defensePhysique": 0.00,
+            "defenseMagique": 15.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [380,25,1]
+        "price": [18133, 33, 81 ]
     },
-
-    "capuche-heros-magique": 
+    "Capuche de héros arcanique": 
     {
-        "nom": "Capuche de heros magique",
-        "nomId": "capuche-heros-magique",
+        "nom": "Capuche de héros arcanique",
+        "nomId": "",
+        "type": "arme",
         "unique": true,
-        "type": "armure",
         "exclusif":
         {
             "combattant": false,
@@ -1156,15 +1464,24 @@
             "mage": true,
             "archer": false
         },
-        "statistique":
+        "statistique": 
         {
-            "hp": 30,
-            "mana": 140,
-            "defensePhysique": 5,
-            "defenseMagique": 20
+            "hp": 40,
+            "mana": 160,
+            "defensePhysique": 5.00,
+            "defenseMagique": 20.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [800,80,8]
+        "price": [0, 800, 80 ]
     }
 }

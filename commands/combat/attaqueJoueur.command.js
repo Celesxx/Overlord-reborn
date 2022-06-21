@@ -41,7 +41,6 @@ module.exports =
 
         // Initialization des classes
         const skillController = new SkillController()
-        const zoneController = new ZoneController()
         const combatFunction = new CombatFunction()
         const bestiaireController = new BestiaireController()
         const messageFunction = new MessageFunction()
@@ -60,12 +59,13 @@ module.exports =
                 let i = 0
                 const data = await playerCreationFunction.getPlayerById(user) // get les données du joueur
                 const skill = await skillController.getSkillByName(skillName) // get le skill en fonction de son nom 
-                if(skill.length != 0)
-                {
-                    const resultZone = await zoneController.getZoneByName(embedData.embeds[0].fields.slice(1)[0].value) // get les stats de la zone en fonction du nom de la zone
-                    const log = await logCombatFunction.getLogCombatById(turnVerification.embed.author.name)
+                if(skill.length != 0 && skill[0].cost == undefined) skill[0].cost = 0
 
-                   for(let monster of embedData.embeds[0].fields[3].value.split("\n"))
+                if(skill.length != 0 && skill[0].cost <= data[0].magie[0].value)
+                {
+                    data[0].magie[0] = data[0].magie[0].value - skill[0].cost
+
+                    for(let monster of embedData.embeds[0].fields[3].value.split("\n"))
                     {
                         if(!monster.includes(`<@`))
                         {
@@ -85,7 +85,7 @@ module.exports =
                             monstreInCombat.push({nom: target})
                         }
                         else
-                        {
+                        {   
                             const resultMonstre = await bestiaireController.getMonstreByNameId(target.slice(0,-2)) //get les stats du monstre en fonction de son id 
                             monstreInCombat.push(resultMonstre[0])
                             damageResult = await combatFunction.dammageCalcul(skill, data[0], [monstreInCombat[i]], logCombat[0].zoneLvl) //calcule les dommages en fonction du skill, de la défense du monstre et du lv de la zone
@@ -97,20 +97,33 @@ module.exports =
                     i = 0 
                     for(const degatResult of degatForEachMonstre)
                     {
-                        if(degatResult.miss == false) combatStatus.push(`\n - ${degatResult.degat} à ${monstreInCombat[i].nom}`)
+                        if(degatResult.miss == false && degatResult.esquive == false) combatStatus.push(`\n - ${degatResult.degat} à ${monstreInCombat[i].nom} ${skill[0].attaque.penetration[0] > 0 ? `en pénétrant l'armure de ${skill[0].attaque.penetration[0]}`: ""}`)
                         else if(degatResult.miss == true) combatStatus.push(`\n - rate son attaque sur ${monstreInCombat[i].nom} `)
+                        else if(degatResult.esquive == true) combatStatus.push(`\n - 0 le ${monstreInCombat[i].nom} esquive complétement l'attaque`)
                         i++
                     }
 
+                    await interaction.member.setNickname(data[0].prenom + " [❤️" + data[0].hp[0].value + "] [✨" + data[0].magie[0] + "]")
                     const multiCibleResult = await combatFunction.multiCibleCalcul(skill, multiCible) // vérifie si le skill peut attaquer un/plusieurs cible(s) 
                     const positionResult = await combatFunction.positionVerification(monstreInCombat, multiCible, skill, allMonster) // vérifie si le skill peut attaquer la position ou ce trouve le(s) monstre(s) 
                     const newCombatEmbed = await combatFunction.editCombatEmbed(user, multiCibleResult, skill, degatForEachMonstre, combatStatus, positionResult, turnVerification.embed, turnVerification.oldOrder) // edit l'embed du combat 
                     await logCombatFunction.addEventTurnLogCombatByName(newCombatEmbed.combatId, logCombat[0], { number: turnVerification.currentTurn, event: newCombatEmbed.embed.fields.slice(-1)[0].value })
                     await messageFunction.editMessageByIdInteraction(logCombat[0].messageId, interaction, newCombatEmbed.embed) 
+                    await playerCreationFunction.editPlayerById(user, {magie: data[0].magie})
                 
-                }else
+                }else if(skill.length != 0 && skill[0].cost > data[0].magie[0].value)
+                {
+                    embedData.embeds[0].fields.slice(-1)[0].value = `<@${user}> vous n'avez pas assez de mana pour faire cette compétence !`
+                    embedData.embeds[0].fields.slice(3)[0].value = turnVerification.oldOrder
+                    await messageFunction.editMessageByIdInteraction(logCombat[0].messageId, interaction, embedData.embeds[0])
+                }else if(skill.length == 0)
                 {
                     embedData.embeds[0].fields.slice(-1)[0].value = `<@${user}> le skill n'existe pas ou n'est pas valide !`
+                    embedData.embeds[0].fields.slice(3)[0].value = turnVerification.oldOrder
+                    await messageFunction.editMessageByIdInteraction(logCombat[0].messageId, interaction, embedData.embeds[0])
+                }else
+                {
+                    embedData.embeds[0].fields.slice(-1)[0].value = `<@${user}> une erreur est survenue merci de réssayer !`
                     embedData.embeds[0].fields.slice(3)[0].value = turnVerification.oldOrder
                     await messageFunction.editMessageByIdInteraction(logCombat[0].messageId, interaction, embedData.embeds[0])
                 }

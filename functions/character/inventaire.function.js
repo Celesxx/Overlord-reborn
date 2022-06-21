@@ -51,7 +51,6 @@ class InventaireFunction
         {
             if(value != undefined && value != null && !Array.isArray(value))
             {
-                console.log("test")
                 for(const [keyStat, valueStat] of Object.entries(value.statistique))
                 {
                     if(keyStat == "hp") stat.hp[1] -= valueStat

@@ -89,12 +89,15 @@ module.exports =
 
                     let rankBefore = await experienceFunction.getRankPlayer(participantAlive)
 
-                    
+                    goldTotal.bronze = goldTotal.bronze - (goldTotal.bronze %  alive.length)
+                    goldTotal.argent = goldTotal.argent - (goldTotal.argent %  alive.length)
+                    goldTotal.or = goldTotal.or - (goldTotal.or %  alive.length)
+                    xpTotal = xpTotal - (xpTotal %  alive.length)
+
                     participantAlive.xp += parseInt(xpTotal / alive.length)
                     participantAlive.money[0] += Math.round(goldTotal.bronze / alive.length)
                     participantAlive.money[1] += Math.round(goldTotal.argent / alive.length)
                     participantAlive.money[2] += Math.round(goldTotal.or / alive.length)
-
                     
                     for(const item of items)
                     {
@@ -114,7 +117,7 @@ module.exports =
                     await playerCreationFunction.editPlayerById(participantAlive.id, participantAlive)
                     await experienceFunction.verifLvlUp(participantAlive.id, client, interaction, rankBefore, participantAlive)
 
-                    status.push(`\n- <@${participantAlive.id}> gagne ${xpTotal} xp, ${goldTotal.bronze} pièces de bronze, ${goldTotal.argent} pièces d'argent, ${goldTotal.or} pièces d'or ${itemGain.length ? `et ${itemGain}` : '' } `)
+                    status.push(`\n- <@${participantAlive.id}> gagne ${xpTotal / alive.length} xp, ${goldTotal.bronze / alive.length } pièces de bronze, ${goldTotal.argent / alive.length} pièces d'argent, ${goldTotal.or / alive.length} pièces d'or ${itemGain.length ? `et ${itemGain}` : '' } `)
             
                 }
 

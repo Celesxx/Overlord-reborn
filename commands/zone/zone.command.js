@@ -38,16 +38,75 @@ module.exports =
             ]
         },
         {
-            name: "participant",
+            name: "participant-1",
             description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
             type: "MENTIONABLE",
             required: true,
+        },
+        {
+            name: "participant-2",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-3",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-4",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-5",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-6",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-7",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-8",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-9",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
+        },
+        {
+            name: "participant-10",
+            description: "ping le ou les joueur(s) présent dans le combat. Si plus d'un joueur séparé les pings par /",
+            type: "MENTIONABLE",
+            required: false,
         }
     ],
     runSlash: async (client, interaction) => 
     {   
-        let participants = interaction.options.get("participant").value.replace(/[\s]/gm, "").split("/")
-        for(const [key, value] of Object.entries(participants)) participants[key] = `<@!${value}>`
+        let participants = []
+        for(let i = 1; i < interaction.options._hoistedOptions.length; i++)
+        {
+            let participant = interaction.options.get(`participant-${i}`).value
+            participants.push(`<@!${participant}>`)
+        }
+        console.log(participants)
         const zone = interaction.options.get("zone").value
 
         let [encounterMob, totalParticipant, fullDescription]= [[], [], [], []]
@@ -66,6 +125,8 @@ module.exports =
         const zoneFunction = new ZoneFunction()
         const playerCreationFunction = new PlayerCreationFunction()
         const logZone = new LogZone()
+
+        await interaction.reply({ ephermal: true, content: 'Chargement de la zone, merci de patienter quelques instants !' })
 
         if(!participants.map(participant => { if(isNaN(participant.replace(/[<@!>]/g, ''))) return false } ).includes(false)) 
         {
@@ -148,7 +209,7 @@ module.exports =
                 }
 
                 embed.addField("Status", "Que le combat commence, merci de respecter l'ordre du combat !")
-                await interaction.reply({ ephermal: true, content: '** **' })
+                
                 interaction.channel.send({embeds: [embed]}).then(async result => 
                 {
                     if(boss)
@@ -158,6 +219,7 @@ module.exports =
                     }
                     await logCombatFunction.logCombatCreation(author, combatId, result.id, totalParticipant, createdAt, interaction.channel.name, zoneData[0].lvl, moyLvlPlayer)
                 })
+                await interaction.deleteReply()
                         
             }else interaction.reply("La zone n'est pas valide !")
         }else interaction.reply(`Le participant ${participants.map(participant => { if(isNaN(participant.replace(/[<@!>]/g, ''))) return participant }).join("").replace(/[,]/gm, "")} n'est pas valide`)

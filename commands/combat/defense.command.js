@@ -7,7 +7,7 @@ const SkillController = require('../../controllers/skill.controller.js')
 module.exports = 
 {
     name: 'defense',
-    description: "Permet de terminer un combat",
+    description: "Permet de ce défendre d'une attaque",
     run: (client, message, args) => 
     {
         message.channel.send("merci d'utiliser le préfix /defense")
@@ -25,12 +25,19 @@ module.exports =
             description: "dégat que l'adversaire vous inflige",
             type: "STRING",
             required: true,
+        },
+        {
+            name: "penetration",
+            description: "pénétration que vous inflige l'adversaire",
+            type: "STRING",
+            required: true,
         }
     ],
     runSlash: async (client, interaction) => 
     {   
         const skillName = interaction.options.get("skill").value
         const degat = parseInt(interaction.options.get("degat").value)
+        const penetration = parseInt(interaction.options.get("penetration").value)
 
         const user = interaction.member.user.id
         let embed
@@ -52,21 +59,25 @@ module.exports =
             const messageResult = await messageFunction.getMessageByIdInteraction(logCombat[0].messageId, interaction)
 
             embed = messageResult.embeds[0]
-            if(skillData.length != 0 && skillData[0].defense.blocage.length != 0)
+            if(skillData.length != 0 && skillData[0].cost == undefined) skillData[0].cost = 0
+
+            if(skillData.length != 0 && skillData[0].defense.blocage.length != 0 && skillData[0].cost <= data[0].magie[0].value)
             {
-    
-                const result = await combatFunction.defenseCalculJoueur(data[0], degat, skillData[0])
+                const result = await combatFunction.defenseCalculJoueur(data[0], degat, skillData[0], penetration)
                 data[0].hp[0] -= result.degat
-                await playerCreationFunction.editPlayerById(user, {hp: data[0].hp})
+                data[0].hp[0] = parseInt(data[0].hp[0].toFixed(1))
+                data[0].magie[0] -= skillData[0].cost
+
+                await playerCreationFunction.editPlayerById(user, {hp: data[0].hp, magie: data[0].magie})
                 if(!result.miss) embed.fields.slice(-1)[0].value = `\n<@!${user}> ${skillData[0].description} \n- ${result.degat} dégat`
                 else embed.fields.slice(-1)[0].value = `\n<@!${user}> vous ratez complétement votre défense et subissez \n- ${result.degat} dégat`
                 
                 if(data[0].hp[0] <= 0) 
                 {
                     interaction.member.setNickname(data[0].prenom + "  [☠️ KO]")
-                    let order = embed.fields.slice(3)[0].value.split("\n").filter(participant => !participant.includes(`<@${user}>`))
+                    let order = embed.fields.slice(3)[0].value.split("\n").filter(participant => !participant.includes(`${user}`))
                     embed.fields.slice(3)[0].value = order.join("\n")
-                    
+                    logCombat[0].participant = logCombat[0].participant.filter(target => !target.includes(`${user}`))
 
                 }else interaction.member.setNickname(data[0].prenom + " [❤️" + data[0].hp[0] + "] [✨" + data[0].magie[0] + "]")
                 
@@ -79,12 +90,9 @@ module.exports =
                     if(result.miss) embed.setImage(skillData[0].imageMiss)
                     else embed.setImage(skillData[0].image)
                 }
-            }else
-            {
-                embed.fields.slice(-1)[0].value = `\n<@!${user}> merci de mettre un skill valide !`
-            }
-
-
+            }else if(skillData.length != 0 && skillData[0].cost > data[0].magie[0].value) embed.fields.slice(-1)[0].value = `\n<@!${user}> vous n'avez pas assez de mana pour faire cette compétence !`
+            else embed.fields.slice(-1)[0].value = `\n<@!${user}> merci de mettre un skill valide !`
+            
             await logCombatFunction.addEventTurnLogCombatByName(embed.author.name, logCombat[0], { number: embed.fields.slice(2)[0].value, event: embed.fields.slice(-1)[0].value })
             await messageFunction.editMessageByIdInteraction(logCombat[0].messageId, interaction, embed) 
         }

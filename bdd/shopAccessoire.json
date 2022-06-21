@@ -1,10 +1,10 @@
 {
-    "anneau-vs": 
+    "Petit anneau de vitalité": 
     {
         "nom": "Petit anneau de vitalité",
         "nomId": "anneau-vs",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -12,24 +12,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
-            "hp": 20,
+            "hp": 10,
             "mana": 0,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "defensePhysique": 0.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [50,0,0]
+        "price": [100, 100, 0 ]
     },
-
-    "anneau-vm": 
+    "Anneau de vitalité": 
     {
         "nom": "Anneau de vitalité",
         "nomId": "anneau-vm",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -37,24 +45,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
-            "hp": 40,
+            "hp": 20,
             "mana": 0,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "defensePhysique": 0.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [100,1,0]
+        "price": [400, 100, 3 ]
     },
-
-    "anneau-vl": 
+    "Grand anneau de vitalité": 
     {
         "nom": "Grand anneau de vitalité",
         "nomId": "anneau-vl",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -62,24 +78,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
-            "hp": 60,
+            "hp": 40,
             "mana": 0,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "defensePhysique": 0.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [200,5,1]
+        "price": [1600, 100, 15 ]
     },
-
-    "anneau-vx": 
+    "Anneau de vitalité suprême": 
     {
         "nom": "Anneau de vitalité suprême",
         "nomId": "anneau-vx",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -87,29 +111,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
-            "hp": 80,
+            "hp": 60,
             "mana": 0,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "defensePhysique": 0.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [400,15,3]
+        "price": [4800, 100, 47 ]
     },
-
-
-
-
-
-
-    "anneau-ms": 
+    "Petit anneau de mana": 
     {
         "nom": "Petit anneau de mana",
         "nomId": "anneau-ms",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -117,24 +144,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 0,
             "mana": 20,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "defensePhysique": 0.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [50,0,0]
+        "price": [120, 20, 1 ]
     },
-
-    "anneau-mm": 
+    "Anneau de mana": 
     {
         "nom": "Anneau de mana",
         "nomId": "anneau-mm",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -142,24 +177,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 0,
             "mana": 40,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "defensePhysique": 0.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [100,1,0]
+        "price": [480, 80, 4 ]
     },
-
-    "anneau-ml": 
+    "Grand anneau de mana": 
     {
         "nom": "Grand anneau de mana",
         "nomId": "anneau-ml",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -167,24 +210,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 0,
             "mana": 60,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "defensePhysique": 0.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [200,5,1]
+        "price": [1440, 40, 14 ]
     },
-
-    "anneau-mx": 
+    "Anneau de mana suprême": 
     {
         "nom": "Anneau de mana suprême",
         "nomId": "anneau-mx",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -192,29 +243,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 0,
             "mana": 80,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "defensePhysique": 0.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [400,15,3]
+        "price": [3840, 40, 38 ]
     },
-
-
-
-
-
-
-    "anneau-rs": 
+    "Petit anneau de resistance": 
     {
         "nom": "Petit anneau de resistance",
         "nomId": "anneau-rs",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -222,24 +276,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 0,
             "mana": 0,
-            "defensePhysique": 2,
-            "defenseMagique": 0
+            "defensePhysique": 2.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [50,0,0]
+        "price": [240, 40, 2 ]
     },
-
-    "anneau-rm": 
+    "Anneau de resitance": 
     {
-        "nom": "Anneau de resistance",
+        "nom": "Anneau de resitance",
         "nomId": "anneau-rm",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -247,24 +309,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 0,
             "mana": 0,
-            "defensePhysique": 4,
-            "defenseMagique": 0
+            "defensePhysique": 4.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [100,1,0]
+        "price": [960, 60, 9 ]
     },
-
-    "anneau-rl": 
+    "Grand anneau de resitance": 
     {
-        "nom": "Grand anneau de resistance",
+        "nom": "Grand anneau de resitance",
         "nomId": "anneau-rl",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -272,24 +342,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 0,
             "mana": 0,
-            "defensePhysique": 6,
-            "defenseMagique": 0
+            "defensePhysique": 6.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [200,5,1]
+        "price": [2880, 80, 28 ]
     },
-
-    "anneau-rx": 
+    "Anneau de mana resitance": 
     {
-        "nom": "Anneau de resitance suprême",
+        "nom": "Anneau de mana resitance",
         "nomId": "anneau-rx",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -297,29 +375,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 0,
             "mana": 0,
-            "defensePhysique": 8,
-            "defenseMagique": 0
+            "defensePhysique": 8.00,
+            "defenseMagique": 0.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [400,15,3]
+        "price": [7680, 80, 76 ]
     },
-
-
-
-
-
-
-    "anneau-ps": 
+    "Petit anneau de protection": 
     {
         "nom": "Petit anneau de protection",
         "nomId": "anneau-ps",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -327,24 +408,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 0,
             "mana": 0,
-            "defensePhysique": 0,
-            "defenseMagique": 2
+            "defensePhysique": 0.00,
+            "defenseMagique": 2.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [50,0,0]
+        "price": [240, 40, 2 ]
     },
-
-    "anneau-pm": 
+    "Anneau de protection": 
     {
-        "nom": "Anneau de mana",
+        "nom": "Anneau de protection",
         "nomId": "anneau-pm",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -352,24 +441,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 0,
             "mana": 0,
-            "defensePhysique": 0,
-            "defenseMagique": 4
+            "defensePhysique": 0.00,
+            "defenseMagique": 4.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [100,1,0]
+        "price": [960, 60, 9 ]
     },
-
-    "anneau-pl": 
+    "Grand anneau de protection": 
     {
         "nom": "Grand anneau de protection",
         "nomId": "anneau-pl",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -377,24 +474,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 0,
             "mana": 0,
-            "defensePhysique": 0,
-            "defenseMagique": 6
+            "defensePhysique": 0.00,
+            "defenseMagique": 6.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [200,5,1]
+        "price": [2880, 80, 28 ]
     },
-
-    "anneau-px": 
+    "Anneau de mana protection": 
     {
-        "nom": "Anneau de protection suprême",
+        "nom": "Anneau de mana protection",
         "nomId": "anneau-px",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -402,29 +507,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
             "hp": 0,
-            "mana": 80,
-            "defensePhysique": 0,
-            "defenseMagique": 0
+            "mana": 0,
+            "defensePhysique": 0.00,
+            "defenseMagique": 8.00,
+            "degat": 0,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [400,15,3]
+        "price": [7680, 80, 76 ]
     },
-
-
-
-
-
-
-    "anneau-fs": 
+    "Petit anneau de force": 
     {
         "nom": "Petit anneau de force",
         "nomId": "anneau-fs",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -432,21 +540,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
-            "degat": 5
+            "hp": 0,
+            "mana": 0,
+            "defensePhysique": 0.00,
+            "defenseMagique": 0.00,
+            "degat": 4,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [50,0,0]
+        "price": [240, 40, 2 ]
     },
-
-    "anneau-fm": 
+    "Anneau de force": 
     {
         "nom": "Anneau de force",
         "nomId": "anneau-fm",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -454,21 +573,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
-            "degat": 10
+            "hp": 0,
+            "mana": 0,
+            "defensePhysique": 0.00,
+            "defenseMagique": 0.00,
+            "degat": 8,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [100,1,0]
+        "price": [960, 60, 9 ]
     },
-
-    "anneau-fl": 
+    "Grand anneau de force": 
     {
         "nom": "Grand anneau de force",
         "nomId": "anneau-fl",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -476,21 +606,32 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
-            "degat": 15
+            "hp": 0,
+            "mana": 0,
+            "defensePhysique": 0.00,
+            "defenseMagique": 0.00,
+            "degat": 16,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [200,5,1]
+        "price": [3840, 40, 38 ]
     },
-
-    "anneau-fx": 
+    "Anneau de force suprême": 
     {
         "nom": "Anneau de force suprême",
         "nomId": "anneau-fx",
+        "type": "",
         "unique": false,
-        "type": "accesoire",
         "exclusif":
         {
             "combattant": true,
@@ -498,12 +639,24 @@
             "mage": true,
             "archer": true
         },
-        "statistique":
+        "statistique": 
         {
-            "degat": 5
+            "hp": 0,
+            "mana": 0,
+            "defensePhysique": 0.00,
+            "defenseMagique": 0.00,
+            "degat": 25,
+            "penetration": 0,
+            "critique": 0
         },
+        "soins":
+        {
+            "hp": 0,
+            "mana": 0
+        },
+        "effet": "",
         "description": "",
         "image": "",
-        "price": [400,15,3]
+        "price": [12000, 100, 19 ]
     }
 }

@@ -1,25 +1,28 @@
 {
-    
-    "petitLoup-s": {
-        "nom": "petit loup sauvage", 
+    "loup-s": {
+        "nom": "loup", 
         "nomId": "loup-s",
         "image": "https://cdn.discordapp.com/attachments/723538729012297834/724774265269911622/fantasyart-1592870026825-1545.jpg",
+        "imageAttaque": "https://cdn.discordapp.com/attachments/723538729012297834/724774265269911622/fantasyart-1592870026825-1545.jpg",
+        "imageCritique": "https://cdn.discordapp.com/attachments/951928506021998652/967135105481080882/wolfattack.gif",
+        "imageSkill": "https://media.discordapp.net/attachments/951928506021998652/967135169603579914/wolfs-rain-wolf.gif",
+        "imageMiss": "https://cdn.discordapp.com/attachments/951928506021998652/967135221973672056/ckc.gif",
         "description": "Un petit loup sauvage assoiffé de sang et de chair fraiche !",
-        "lvl": 3,
-        "hp": [40, 5],
+        "lvl": 4,
+        "hp": [60, 2],
         "armure": 0,
-        "spawn": [{"zone": "plaine", "drop":80}, {"zone": "foret", "drop":40}],
+        "spawn": [{"zone":"plaine","drop":80},{"zone":" forêt","drop": 40}],
         "position": 1,
         "attaque": 
         {
-            "description": "assène un puissant coup de morsure infligeant",
-            "descriptionCrit": "assène un puissant coup de morsure critique infligeant",
-            "degat": [15, 25],
+            "description": "assène un coup de griffe infligeant",
+            "descriptionCrit": "assène un énorme coup de griffe critique infligeant",
+            "degat": [20, 25],
             "crit": [10, 15],
             "miss": 30,
-            "penetration": [],
-            "poison": {},
-            "level": [2,1,-1]
+            "penetration": 0,
+            "poison": 0,
+            "level": [2,1,80, 40]
         },
         "attaqueSpecial": 
         [{
@@ -47,50 +50,52 @@
         {
             "gold":
             {
-                "bronze": [10,30],
+                "bronze": [20,30],
                 "argent": [0,0],
                 "or": [0,0]
             },
             "item": 
             { 
-                "chance": 0, 
+                "chance": [0], 
                 "loot": []
             },
-            "xp": [10,20]
+            "xp": [20,30]
         }
     },
-
-    
     "mercenaire-c": {
         "nom": "mercenaire combattant", 
         "nomId": "mercenaire-c",
-        "image": "https://media.discordapp.net/attachments/951928506021998652/956742243983687760/1051e4c4ef161b2bf06e8d6b2190a4dd.jpg?width=436&height=676",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/956742243983687760/1051e4c4ef161b2bf06e8d6b2190a4dd.jpg?width=433&height=670",
+        "imageAttaque": "https://cdn.discordapp.com/attachments/951928506021998652/967137360196296724/tenor.gif",
+        "imageCritique": "https://cdn.discordapp.com/attachments/951928506021998652/967136897753309294/158902.gif",
+        "imageSkill": "https://cdn.discordapp.com/attachments/951928506021998652/967135497665282098/y5a02e.gif",
+        "imageMiss": "https://cdn.discordapp.com/attachments/951928506021998652/956361545175150662/ac8bc3366058336faf13e2414cbdb579.png",
         "description": "un combattant mercenaire qui n'est pas la pour rigoler, seulement pour votre bourse !",
-        "lvl": 5,
-        "hp": [65, 5],
-        "armure": 5,
-        "spawn": [{"zone": "plaine", "drop":10}, {"zone": "foret", "drop":20}],
+        "lvl": 7,
+        "hp": [95, 5],
+        "armure": 10,
+        "spawn": [{"zone":"plaine","drop":10},{"zone":" forêt","drop": 20}],
         "position": 1,
         "attaque": 
         {
             "description": "fonce sur vous et vous assène un coup d'épée infligeant",
             "descriptionCrit": "vous surprend assènant un coup critique touchant un point vital infligeant",
-            "degat": [20, 30],
+            "degat": [15, 30],
             "crit": [10, 20],
             "miss": 20,
-            "penetration": [],
-            "poison": {},
-            "level": [5,1,-1]
+            "penetration": 0,
+            "poison": 0,
+            "level": [5,1,10, 20]
         },
         "attaqueSpecial": 
         [{
-            "description" : "tente de vous assomer avec un coup au visage mais c'est un échec, cependant il arrive à vous infliger ", 
             "activation": 15,
+            "description": "tente de vous assomer avec un coup au visage mais c'est un échec, cependant il arrive à vous infliger",
             "repeat": [0, 1],
             "degatBonus": 10,
             "crit":
             {
-                "description": "vous assène un violent coup au visage, du pommeau de son arme ce qui vous sonne  (pas d'action lors de votre tour '?passe [idCombat]' ) et vous inflige ",
+                "description": "vous assène un violent coup au visage, du pommeau de son arme ce qui vous sonne (pas d'action lors de votre tour '?passe [idCombat]' ) et vous inflige",
                 "activation": 25,
                 "degatBonus": 0
             },
@@ -99,59 +104,61 @@
         }],
         "blocage": 
         {
-            "degat": [5,15],
+            "degat": [10,20],
             "crit": [10, 10],
-            "miss": 20,
+            "miss": 10,
             "level": [5,1,-1]
         },
         "loot": 
         {
             "gold":
             {
-                "bronze": [15,35],
+                "bronze": [30,70],
                 "argent": [0,0],
                 "or": [0,0]
             },
             "item": 
             { 
-                "chance": 5, 
+                "chance": [5], 
                 "loot": ["potionhp-s"]
             },
-            "xp": [15,35]
+            "xp": [30,40]
         }
     },
-
-
     "mercenaire-a": {
         "nom": "mercenaire archer", 
         "nomId": "mercenaire-a",
         "image": "https://media.discordapp.net/attachments/951928506021998652/956742243983687760/1051e4c4ef161b2bf06e8d6b2190a4dd.jpg?width=436&height=676",
+        "imageAttaque": "https://cdn.discordapp.com/attachments/951928506021998652/967139203148304384/tumblr_nns4kkl31k1rvm3kjo2_540.gif",
+        "imageCritique": "https://cdn.discordapp.com/attachments/951928506021998652/967139247192686622/e94656e72a190d47c4c14d74782f265b.gif",
+        "imageSkill": "https://cdn.discordapp.com/attachments/951928506021998652/967139246257365063/fa557f5fba1748cddf68b38e334c96fb.gif",
+        "imageMiss": "https://cdn.discordapp.com/attachments/951928506021998652/956361545175150662/ac8bc3366058336faf13e2414cbdb579.png",
         "description": "un archer mercenaire qui n'est pas la pour rigoler, seulement pour votre bourse !",
-        "lvl": 5,
-        "hp": [60, 5],
+        "lvl": 7,
+        "hp": [75, 5],
         "armure": 5,
-        "spawn": [{"zone": "plaine", "drop":9}, {"zone": "foret", "drop":10}],
+        "spawn": [{"zone":"plaine","drop":9},{"zone":" forêt","drop": 10}],
         "position": 2,
         "attaque": 
         {
             "description": "vous tire une flèche depuis sa position et vous inflige",
-            "descriptionCrit": "vous tire une flèche causant un critique en touchant un point vital infligeant ",
-            "degat": [20, 35],
+            "descriptionCrit": "vous tire une flèche causant un critique en touchant un point vital infligeant",
+            "degat": [25, 30],
             "crit": [15, 20],
             "miss": 20,
-            "penetration": [],
-            "poison": {},
-            "level": [5,1,-1]
+            "penetration": 0,
+            "poison": 0,
+            "level": [5,1,9, 10]
         },
         "attaqueSpecial": 
         [{
-            "description" : "tire une volée de flèche touchant 1 autre personne supplémentaire au passage (priorité à la 2éme ligne si y'en à pas alors la 1ère ligne) infligeant", 
             "activation": 10,
+            "description": "tire une volée de flèche touchant 1 autre personne au passage (priorité à la 2éme ligne si y'en à pas alors la 1ère) infligeant",
             "repeat": [0, 1],
             "degatBonus": -10,
             "crit":
             {
-                "description": "tire une volée de flèche qui n'épargne personne (tous le monde prend les dégats) infligeant ",
+                "description": "tire une volée de flèche qui n'épargne personne (tous le monde ce prend les dégats) infligeant",
                 "activation": 10,
                 "degatBonus": 10
             },
@@ -160,38 +167,40 @@
         }],
         "blocage": 
         {
-            "degat": [5,15],
+            "degat": [7,14],
             "crit": [10, 10],
-            "miss": 20,
+            "miss": 15,
             "level": [5,1,-1]
         },
         "loot": 
         {
             "gold":
             {
-                "bronze": [15,35],
+                "bronze": [30,80],
                 "argent": [0,0],
                 "or": [0,0]
             },
             "item": 
             { 
-                "chance": 5, 
+                "chance": [5], 
                 "loot": ["potionhp-s"]
             },
-            "xp": [15,35]
+            "xp": [25,40]
         }
-    }, 
-
-
+    },
     "kirishiga": {
-        "nom": "kirishiga la dernière ombre", 
+        "nom": "Kirishiga la dernière ombre", 
         "nomId": "kirishiga",
         "image": "https://media.discordapp.net/attachments/966093187661832282/966151888397565982/caroline-gariba-stormwingentity.jpg?width=960&height=670",
-        "description": "Au bout d'un moment quelques choses vous semble bizarre ... Vous n'entendez plus aucun bruit d'animaux et une tempête qui semble sortir de nulle part viens d'arriver. Quand soudain une immense ombre sors des nuages, vous ressentez un frisson vous parcourir le corps avant de voir ce qui sera probablement la dernière des ombres que vous verrez",
+        "imageAttaque": "",
+        "imageCritique": "",
+        "imageSkill": "",
+        "imageMiss": "",
+        "description": "vous remarqué au bout d'un moment",
         "lvl": 50,
         "hp": [2500, 0],
         "armure": 25,
-        "spawn": [{"zone": "plaine", "drop":1}],
+        "spawn": [{"zone":"plaine","drop":1}],
         "position": 1,
         "attaque": 
         {
@@ -200,42 +209,38 @@
             "degat": [50, 120],
             "crit": [20, 30],
             "miss": 20,
-            "penetration": [],
-            "poison": {},
-            "level": [0,0,0]
+            "penetration": 0,
+            "poison": 0,
+            "level": [0,0,1]
         },
         "attaqueSpecial": 
-        [
+        [{
+            "activation": 20,
+            "description": "invoque un puissant coup d'éclair venant vous paralyser pendant 2 tours (fuite toujours possible cependant) et infligeant",
+            "repeat": [0, 1],
+            "degatBonus": -80,
+            "crit":
             {
-                "description" : "invoque un puissant coup d'éclair venant vous paralyser pendant 2 tours (fuite toujours possible cependant) et infligeant", 
-                "activation": 20,
-                "repeat": [0, 1],
-                "degatBonus": -80,
-                "crit":
-                {
-                    "description": "invoque un puissant coup d'éclair venant du ciel touchant toutes la deuxième ligne ce qui la paralysera pendant 2 tour (fuite toujours possible cependant) et infligeant",
-                    "activation": 10,
-                    "degatBonus": 15
-                },
-                "miss": 20,
-                "level": [0,0,0]
+                "description": "invoque un puissant coup d'éclair venant du ciel touchant toutes la deuxième ligne ce qui la paralysera pendant 2 tour (fuite toujours possible cependant) et infligeant",
+                "activation": 10,
+                "degatBonus": 15
             },
-
+            "miss": 20,
+            "level": [1,2,-1]
+        },{
+            "activation": 35,
+            "description": "vous balance un coup de queue puissant avant de prendre son envole d'une vitesse fulgurante, se cachant dans les nuages avant de foncer en piqué attaquant au hasard une personne de la seconde ligne infligeant",
+            "repeat": [10, 2],
+            "degatBonus": -50,
+            "crit":
             {
-                "description" : "vous balance un coup de queue puissant avant de prendre son envole d'une vitesse fulgurante, se cachant dans les nuages avant de foncer en piqué attaquant au hasard une personne de la seconde ligne infligeant ", 
-                "activation": 35,
-                "repeat": [10, 2],
-                "degatBonus": -50,
-                "crit":
-                {
-                    "description": "vous choppe par ses griffe accérés avant de vous balancer et de prendre son envole d'une vitesse fulgurante, se cachant dans les nuages avant de foncer en piqué attaquant au hasard une personne de la seconde ligne infligeant",
-                    "activation": 15,
-                    "degatBonus": 10
-                },
-                "miss": 20,
-                "level": [0,0,0]
-            }
-        ],
+                "description": "vous choppe par ses griffe accérés avant de vous balancer et de prendre son envole d'une vitesse fulgurante, se cachant dans les nuages avant de foncer en piqué attaquant au hasard une personne de la seconde ligne infligeant",
+                "activation": 15,
+                "degatBonus": 10
+            },
+            "miss": 20,
+            "level": [0,0,0]
+        }],
         "blocage": 
         {
             "degat": [50,70],
@@ -253,17 +258,13 @@
             },
             "item": 
             { 
-                "chance": 0, 
+                "chance": [0], 
                 "loot": []
             },
             "xp": [300,350]
         }
     },
-
-
-
-    "monstre-m": 
-    {
+    "monstre-m": {
         "nom": "monstre des marécages", 
         "nomId": "monstre-m",
         "image": "https://www.journalduparanormal.com/wp-content/uploads/2015/10/la-creature-des-marais.jpg",
@@ -271,22 +272,22 @@
         "imageCritique": "https://www.journalduparanormal.com/wp-content/uploads/2015/10/la-creature-des-marais.jpg",
         "imageSkill": "https://www.journalduparanormal.com/wp-content/uploads/2015/10/la-creature-des-marais.jpg",
         "imageMiss": "https://www.journalduparanormal.com/wp-content/uploads/2015/10/la-creature-des-marais.jpg",
-        "description": "un petit monstre empestant les marécages ",
-        "lvl": 12,
-        "hp": [70, 5],
-        "armure": 0,
+        "description": "un petit monstre empestant les marécages",
+        "lvl": 15,
+        "hp": [115, 5],
+        "armure": 5,
         "spawn": [{"zone":"marécages","drop":60}],
         "position": 2,
         "attaque": 
         {
             "description": "vous crache un jet d'acide.",
-            "descriptionCrit": "grince des dents avant de gonfler sa gorge et vous balance une remontée gastrique du fond de son estomac. ",
-            "degat": [30, 38],
+            "descriptionCrit": "grince des dents avant de gonfler sa gorge et vous balance une remontée gastrique du fond de son estomac.",
+            "degat": [45, 60],
             "crit": [10, 15],
             "miss": 10,
             "penetration": 0,
             "poison": 0,
-            "level": [1,1,-1]
+            "level": [1,1,60]
         },
         "attaqueSpecial": 
         [{
@@ -307,27 +308,25 @@
         {
             "degat": [9999,9999],
             "crit": [0, 0],
-            "miss": 65,
+            "miss": 70,
             "level": [5,1,-1]
         },
         "loot": 
         {
             "gold":
             {
-                "bronze": [20,35],
+                "bronze": [50,100],
                 "argent": [0,0],
                 "or": [0,0]
             },
             "item": 
             { 
-                "chance": [], 
+                "chance": [0], 
                 "loot": []
             },
-            "xp": [20,40]
+            "xp": [30,50]
         }
     },
-
-
     "tigre-m": {
         "nom": "tigre des marécages", 
         "nomId": "tigre-m",
@@ -337,7 +336,7 @@
         "imageSkill": "https://media.discordapp.net/attachments/562281586549194752/971045535559602186/unknown.png?width=520&height=677",
         "imageMiss": "http://st.gde-fon.com/wallpapers_original/437655_art_boloto_monstr_voda_les_chashha_tuman_1680x1050_www.Gde-Fon.com.jpg",
         "description": "Un tigre géant qui semble extrement rapide et agile !",
-        "lvl": 14,
+        "lvl": 18,
         "hp": [120, 5],
         "armure": 5,
         "spawn": [{"zone":"marécages","drop":20}],
@@ -346,22 +345,22 @@
         {
             "description": "sort ses griffes acérées se rue rapidement sur vous.",
             "descriptionCrit": "utilise ses dents acérées pour les planter dans votre chair.",
-            "degat": [35, 40],
+            "degat": [45, 60],
             "crit": [20, 15],
             "miss": 10,
             "penetration": 0,
             "poison": 0,
-            "level": [2,1,-1]
+            "level": [2,1,20]
         },
         "attaqueSpecial": 
         [{
             "activation": 10,
-            "description": "se déchaîne. Il bondit d'arbres en rochers et vous rue de coups de griffes et de crocs. Ses coups sont critique et puissants et ils sont plus nombreux. ",
+            "description": "se déchaîne. Il bondit d'arbres en rochers et vous rue de coups de griffes et de crocs. Ses coups sont critique et puissants et ils sont plus nombreux.",
             "repeat": [50, 1],
             "degatBonus": -25,
             "crit":
             {
-                "description": "se déchaîne. Il bondit d'arbres en rochers et vous rue de coups de griffes et de crocs. Ses coups sont moins puissants dans sa folie mais ils sont plus nombreux. ",
+                "description": "se déchaîne. Il bondit d'arbres en rochers et vous rue de coups de griffes et de crocs. Ses coups sont moins puissants dans sa folie mais ils sont plus nombreux.",
                 "activation": 10,
                 "degatBonus": 15
             },
@@ -372,27 +371,25 @@
         {
             "degat": [9999,9999],
             "crit": [0, 0],
-            "miss": 60,
+            "miss": 70,
             "level": [5,1,-1]
         },
         "loot": 
         {
             "gold":
             {
-                "bronze": [35,50],
-                "argent": [0,0],
+                "bronze": [60,120],
+                "argent": [0,1],
                 "or": [0,0]
             },
             "item": 
             { 
-                "chance": [], 
+                "chance": [0], 
                 "loot": []
             },
-            "xp": [25,45]
+            "xp": [35,60]
         }
     },
-
-
     "arbros": {
         "nom": "petit arbros", 
         "nomId": "arbros",
@@ -402,21 +399,21 @@
         "imageSkill": "https://images-ext-1.discordapp.net/external/GBbI20P6Aj0WEuZgCRJt1R77oEwZ6-DuRufOON35koE/https/besthqwallpapers.com/Uploads/26-9-2017/21718/thumb2-monster-fantasy-art-forest-darkness.jpg",
         "imageMiss": "https://images-ext-1.discordapp.net/external/GBbI20P6Aj0WEuZgCRJt1R77oEwZ6-DuRufOON35koE/https/besthqwallpapers.com/Uploads/26-9-2017/21718/thumb2-monster-fantasy-art-forest-darkness.jpg",
         "description": "Un pas si petit arbre centenaire bien vivant qui est prêt à vous écraser",
-        "lvl": 15,
+        "lvl": 21,
         "hp": [200, 7],
-        "armure": 0,
+        "armure": 20,
         "spawn": [{"zone":"marécages","drop":15}],
         "position": 1,
         "attaque": 
         {
-            "description": "lance son immense bras sur vous, deblayant tout sur son passage. ",
+            "description": "lance son immense bras sur vous, deblayant tout sur son passage.",
             "descriptionCrit": "prend une posture différente. Vous êtes comme hypnotisé par la lueur qui s'intensifie en son coeur, tandis qu'il se laisse tomber de tous son poids sur vous.",
-            "degat": [45, 65],
+            "degat": [35, 55],
             "crit": [10, 12],
             "miss": 35,
             "penetration": 0,
             "poison": 0,
-            "level": [2,1,-1]
+            "level": [2,1,15]
         },
         "attaqueSpecial": 
         [{
@@ -435,7 +432,7 @@
         }],
         "blocage": 
         {
-            "degat": [15,30],
+            "degat": [25,35],
             "crit": [10, 10],
             "miss": 20,
             "level": [5,1,-1]
@@ -444,20 +441,18 @@
         {
             "gold":
             {
-                "bronze": [50,60],
-                "argent": [0,0],
+                "bronze": [100,200],
+                "argent": [1,2],
                 "or": [0,0]
             },
             "item": 
             { 
-                "chance": [], 
+                "chance": [0], 
                 "loot": []
             },
-            "xp": [30,50]
+            "xp": [40,70]
         }
     },
-
-
     "tortue-m": {
         "nom": "tortue colossale des marécages", 
         "nomId": "tortue-m",
@@ -466,22 +461,22 @@
         "imageCritique": "https://cdn.discordapp.com/attachments/562281586549194752/971042654227943444/unknown.png",
         "imageSkill": "https://cdn.discordapp.com/attachments/562281586549194752/971042654227943444/unknown.png",
         "imageMiss": "https://media.discordapp.net/attachments/939189314993139752/939630879498698772/318dfa188093eef801ef750b09885d13.png?width=477&height=675",
-        "description": "Une géante tortue qui semble pour le moins indestructible ",
-        "lvl": 15,
-        "hp": [300, 10],
-        "armure": 15,
+        "description": "Une géante tortue qui semble pour le moins indestructible",
+        "lvl": 24,
+        "hp": [325, 10],
+        "armure": 30,
         "spawn": [{"zone":"marécages","drop":4}],
         "position": 1,
         "attaque": 
         {
             "description": "se retourne et tente de vous désiquillibrer avec sa queue.",
             "descriptionCrit": "se déchaîne et allonge violement son coup jusqu'à vous attraper avec sa solide machoîre.",
-            "degat": [25, 35],
+            "degat": [30, 40],
             "crit": [5, 20],
             "miss": 15,
             "penetration": 0,
             "poison": 0,
-            "level": [2,1,-1]
+            "level": [2,1,4]
         },
         "attaqueSpecial": 
         [{
@@ -500,7 +495,7 @@
         }],
         "blocage": 
         {
-            "degat": [10,20],
+            "degat": [30,40],
             "crit": [5, 9999],
             "miss": 20,
             "level": [5,1,-1]
@@ -509,23 +504,21 @@
         {
             "gold":
             {
-                "bronze": [55,70],
-                "argent": [0,0],
+                "bronze": [150,300],
+                "argent": [0,2],
                 "or": [0,0]
             },
             "item": 
             { 
-                "chance": [], 
+                "chance": [0], 
                 "loot": []
             },
-            "xp": [35,55]
+            "xp": [50,80]
         }
     },
-
-
-    "roi-marecages": {
+    "": {
         "nom": "Le roi des marécages", 
-        "nomId": "roi-marecages",
+        "nomId": "",
         "image": "https://media.discordapp.net/attachments/951928506021998652/971879685116014592/3def3ee019360c77eda5f8c74c3705d6.jpg",
         "imageAttaque": "https://media.discordapp.net/attachments/951928506021998652/971879685434769408/tales-of-legendia-anime.gif",
         "imageCritique": "https://media.discordapp.net/attachments/951928506021998652/971880148234289272/a04ba37064c96262acb6c553d1315c2c.gif",
@@ -546,7 +539,7 @@
             "miss": 30,
             "penetration": 20,
             "poison": 0,
-            "level": [0,0,0]
+            "level": [0,0,1]
         },
         "attaqueSpecial": 
         [{
@@ -575,15 +568,78 @@
             "gold":
             {
                 "bronze": [2000,3000],
-                "argent": [200,300],
-                "or": [25,35]
+                "argent": [1,3],
+                "or": [0,0]
             },
             "item": 
             { 
-                "chance": [], 
+                "chance": [0], 
                 "loot": []
             },
             "xp": [400,450]
+        }
+    },
+    "démon-cs": {
+        "nom": "petit démon sanguinaire", 
+        "nomId": "démon-cs",
+        "image": "https://media.discordapp.net/attachments/951928506021998652/977590180649259018/73d094d94343fdf4720e0ba6e7aeabea.gif",
+        "imageAttaque": "https://media.discordapp.net/attachments/951928506021998652/977589971793879130/8ed862883a12ecaac7175809022035eefa405e97_hq.gif",
+        "imageCritique": "https://cdn.discordapp.com/attachments/951928506021998652/977589972762755092/giphy.gif",
+        "imageSkill": "https://cdn.discordapp.com/attachments/951928506021998652/977589972183961630/370r.gif",
+        "imageMiss": "https://media.discordapp.net/attachments/951928506021998652/977589974465667152/telechargement.gif",
+        "description": "Un guerrier démon prêt à vous découper d'une rare violence",
+        "lvl": 15,
+        "hp": [150, 7],
+        "armure": 20,
+        "spawn": [{"zone":"taverne","drop":60}],
+        "position": 2,
+        "attaque": 
+        {
+            "description": "fonce sur vous et vous assène un violent coup d'épée infligeant",
+            "descriptionCrit": "lève son épée bien haut avant de vous assèner un énorme coup d'épée infligeant de lourd dégat",
+            "degat": [25, 55],
+            "crit": [15, 15],
+            "miss": 10,
+            "penetration": 20,
+            "poison": 0,
+            "level": [2,1,60]
+        },
+        "attaqueSpecial": 
+        [{
+            "activation": 30,
+            "description": "hurle de toute ses forces d'un crie démoniaque causant en vous un frisson de terreur, ce qui embrouille votre perception du combat et vous oblige à frapper en priorité le démond pendant ce tour et le prochain",
+            "repeat": [0, 1],
+            "degatBonus": -80,
+            "crit":
+            {
+                "description": "hurle de toute ses forces d'un crie démoniaque d'une grande puissance causant en vous un frisson de terreur, ce qui embrouille votre perception du combat et vous oblige à frapper en priorité le démond pendant ce tour et le prochain",
+                "activation": 15,
+                "degatBonus": 30
+            },
+            "miss": 10,
+            "level": [1,1,-1]
+        }],
+        "blocage": 
+        {
+            "degat": [20,45],
+            "crit": [10, 20],
+            "miss": 10,
+            "level": [5,1,-1]
+        },
+        "loot": 
+        {
+            "gold":
+            {
+                "bronze": [50,60],
+                "argent": [0,0],
+                "or": [0,0]
+            },
+            "item": 
+            { 
+                "chance": [0], 
+                "loot": []
+            },
+            "xp": [25,50]
         }
     }
 }

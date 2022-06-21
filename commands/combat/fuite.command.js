@@ -64,10 +64,13 @@ module.exports =
             {
                 order[id] = order[id].replace(":white_check_mark:", ":x:")
             })
-            embed.fields.slice(2)[0].value = parseInt(embed.fields.slice(2)[0].value) + 1
+            embed.fields.slice(2)[0].value = `${parseInt(embed.fields.slice(2)[0].value) + 1}`
         }
-        embed.fields.slice(3)[0].value = order.join("\n") // edit le field "Ordre du combat"
 
+        embed.fields.slice(3)[0].value = order.join("\n") // edit le field "Ordre du combat"
+        logCombat[0].participant = order
+
+        await logCombatFunction.endLogCombat(combatId, logCombat)
         await logCombatFunction.FuiteLogCombat(combatId, logCombat, { event : embed.fields.slice(-1)[0].value, number: embed.fields.slice(2)[0].value } )
         await messageFunction.editMessageByIdInteraction(logCombat[0].messageId, interaction, embed) 
 

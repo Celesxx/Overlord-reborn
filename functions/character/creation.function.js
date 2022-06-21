@@ -76,6 +76,22 @@ class PlayerCreationFunction
     }
 
 
+    /**
+     * @param {String} id
+    */
+     async getPlayerPositionById(id)
+     {
+         try
+         {
+             const playerController = new PlayerController()
+             return await playerController.getPlayerPositionById(id)
+         }catch(error)
+         {
+             console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
+         }
+     }
+
+
 
 
 
@@ -92,6 +108,16 @@ class PlayerCreationFunction
         {
             console.log(`An error append to the following path : ${__filename} with the following error : ${error} \nand the stack error is ${error.stack}`)
         }
+    }
+
+
+
+    /**
+    */
+    async getAllPlayers()
+    {
+        const playerController = new PlayerController()
+        return await playerController.getAllPlayers()
     }
 
 
@@ -127,7 +153,7 @@ class PlayerCreationFunction
         {
             const playerCreationFunction = new PlayerCreationFunction()
             let data = await playerCreationFunction.getPlayerById(id)
-            if(data[0].hp[0] <= 0 ) interaction.member.setNickname(bdd[user].prenom + "  [☠️ KO]")
+            if(data[0].hp[0] <= 0 ) interaction.member.setNickname(data[0].prenom + "  [☠️ KO]")
             else interaction.member.setNickname(data[0].prenom + " [❤️" + data[0].hp[0] + "] [✨" + data[0].magie[0] + "]")
         
         }catch(error)
