@@ -16,7 +16,7 @@ module.exports =
     runSlash: async (client, interaction) => 
     {
 
-        if(interaction.member.roles.cache.some(role => role.name === 'Fondateur'))
+        if(interaction.member.roles.cache.some(role => role.name === 'Fondateur' || role.name === 'Administrateur'))
         {
 
             const inventaireFunction = new InventaireFunction()
@@ -61,7 +61,17 @@ module.exports =
                 console.log(`gain armure : ${player.armure[1] - beforeArmure}`)
                 console.log(`gain protection : ${player.protection[1] - beforeProtection}`)
 
+
+
+                player = await inventaireFunction.addEquipmentStat(player)
+
+                console.log(`item hp : ${player.hp[1]}`)
+                console.log(`item mana : ${player.magie[1]}`)
+                console.log(`item attaque : ${player.attaque[1]}`)
+                console.log(`item armure : ${player.armure[1]}`)
+                console.log(`item protection : ${player.protection[1]}`)
                 console.log("------------------------------------------------------------")
+
             }
 
 
